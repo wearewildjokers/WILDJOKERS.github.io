@@ -1,0 +1,2053 @@
+---
+layout: page
+title: Notes
+subtitle: From Paul Jones at Rutgers University
+---
+{% raw %}
+<h1 id="systems-programming-with-professor-brian-russel">Systems Programming <small>with Professor Brian Russel</small></h1>
+<h2 id="description">Description</h2>
+<p>This course teaches students how to think about, build, debug, and test large computer programs. The course stresses learning how to use tools such as debuggers, profilers, source version control systems, and integrated development environments as an essential part of developing large programs. The course also stresses the understanding of how programs execute on today's computers and how to measure and optimize performance. Programming will be in C on Unix systems to introduce students to a new programming eco system, as well as enable the mapping of high-level language constructs to the underlying machine.</p>
+<h3 id="topics">Topics</h3>
+<p>Systems programming in C and Unix: C programming Memory management and the C memory model System calls I/O Caching Multi-threaded programming Shell scripts</p>
+<p>Software development: Performance (space and time) analysis and measurement Debugging Testing Performance optimization</p>
+<p>Tools: IDE (e.g., Eclipse) Source version control (e.g., CVS) Debugger (e.g., gdb) Memory errors (e.g., valgrind) Profiling (e.g., gprof, valgrind)</p>
+<h3 id="expected-work">Expected Work</h3>
+<p>Large programming project spread across several parts</p>
+<h3 id="department-learning-goals">Department Learning Goals:</h3>
+<p>Computer Science majors ...</p>
+<p>will be prepared to contribute to a rapidly changing field by acquiring a thorough grounding in the core principles and foundations of computer science (e.g., techniques of program design, creation, and testing; key aspects of computer hardware; algorithmic principles). will acquire a deeper understanding on (elective) topics of more specialized interest, and be able to critically review, assess, and communicate current developments in the field. will be prepared for the next step in their careers, for example, by having done a research project (for those headed to graduate school), a programming project (for those going into the software industry), or some sort of business plan (for those going into startups).</p>
+<h2 id="syllabus">Syllabus</h2>
+<h3 id="instructor">Instructor</h3>
+<p>Brian Russell <script type="text/javascript">
+<!--
+h='&#x63;&#x73;&#46;&#114;&#x75;&#116;&#x67;&#x65;&#114;&#x73;&#46;&#x65;&#100;&#x75;';a='&#64;';n='&#x6d;&#x6f;&#114;&#98;&#x69;&#x75;&#x73;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#x6d;&#x6f;&#114;&#98;&#x69;&#x75;&#x73;&#32;&#x61;&#116;&#32;&#x63;&#x73;&#32;&#100;&#x6f;&#116;&#32;&#114;&#x75;&#116;&#x67;&#x65;&#114;&#x73;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#100;&#x75;</noscript>    Office Hours: Wednesdays 8:00-9:00 pm, Hill 403.</p>
+<h3 id="tas">TAs</h3>
+<p>Ying Zhan <script type="text/javascript">
+<!--
+h='&#x63;&#x73;&#46;&#114;&#x75;&#116;&#x67;&#x65;&#114;&#x73;&#46;&#x65;&#100;&#x75;';a='&#64;';n='&#x79;&#122;&#50;&#56;&#48;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#x79;&#122;&#50;&#56;&#48;&#32;&#x61;&#116;&#32;&#x63;&#x73;&#32;&#100;&#x6f;&#116;&#32;&#114;&#x75;&#116;&#x67;&#x65;&#114;&#x73;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#100;&#x75;</noscript>    Office Hours: Tuesdays 10:00-11:00 am Hill 418</p>
+<p>Sejong Yoon <script type="text/javascript">
+<!--
+h='&#x63;&#x73;&#46;&#114;&#x75;&#116;&#x67;&#x65;&#114;&#x73;&#46;&#x65;&#100;&#x75;';a='&#64;';n='&#x73;&#106;&#x79;&#x6f;&#x6f;&#110;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#x73;&#106;&#x79;&#x6f;&#x6f;&#110;&#32;&#x61;&#116;&#32;&#x63;&#x73;&#32;&#100;&#x6f;&#116;&#32;&#114;&#x75;&#116;&#x67;&#x65;&#114;&#x73;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#100;&#x75;</noscript>    Office Hours: Wednesdays 2:00-3:00 pm CBIM cubicle 1</p>
+<p>Yuanzhen Gu <script type="text/javascript">
+<!--
+h='&#x63;&#x73;&#46;&#114;&#x75;&#116;&#x67;&#x65;&#114;&#x73;&#46;&#x65;&#100;&#x75;';a='&#64;';n='&#x79;&#x67;&#x31;&#56;&#x35;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#x79;&#x67;&#x31;&#56;&#x35;&#32;&#x61;&#116;&#32;&#x63;&#x73;&#32;&#100;&#x6f;&#116;&#32;&#114;&#x75;&#116;&#x67;&#x65;&#114;&#x73;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#100;&#x75;</noscript>    Office Hours: Mondays 10:00-11:00 am Hill 418</p>
+<p>Zi Yan <script type="text/javascript">
+<!--
+h='&#x63;&#x73;&#46;&#114;&#x75;&#116;&#x67;&#x65;&#114;&#x73;&#46;&#x65;&#100;&#x75;';a='&#64;';n='&#122;&#x79;&#x35;&#54;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#122;&#x79;&#x35;&#54;&#32;&#x61;&#116;&#32;&#x63;&#x73;&#32;&#100;&#x6f;&#116;&#32;&#114;&#x75;&#116;&#x67;&#x65;&#114;&#x73;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#100;&#x75;</noscript>    Office Hours: Thursdays 1:00 pm 2:00 pm Hill 405</p>
+<h3 id="objective">Objective</h3>
+<p>The aim of CS214 is to introduce the student to the process of writing low-level programs that interact directly with a computer's operating system and hardware, as well as to develop the student's ability to build large applications in a team environment. Upon completion of this course, the successful student should be able to design, write, test, and analyze moderately complicated programs using the C programming language and UNIX/Linux operating systems.</p>
+<h3 id="prerequisite-knowledge">Prerequisite Knowledge</h3>
+<p>Structured programming in a high-level language (such as Java). Standard data structures (lists, trees, graphs, hash tables).</p>
+<h3 id="textbook">Textbook</h3>
+<p>The following texts are available online, free of charge.</p>
+<p><em>C Programming</em> <em>The C Book</em> Mike Banahan, Declan Brady and Mark Doran</p>
+<p>The textbooks do not cover all material discussed in class, and are not a substitute for attending lectures.</p>
+<h3 id="topics-covered-in-cs214">Topics Covered in CS214</h3>
+<p>The following list is organized by topic, not by chronological order of coverage in the course.</p>
+<ol style="list-style-type: decimal">
+<li><p>Programming in C</p>
+<p>Basic syntax, standard I/O, data manipulation, flow control Pointer manipulation, dynamic memory management Error handling and debugging</p></li>
+<li><p>Programming under UNIX</p>
+<p>Advanced debugging (gdb) Performance profiling (gprof) File I/O Signal handling Scripting</p></li>
+<li><p>Large-scale development</p>
+<p>Modules, headers, linking, makefiles Version control</p></li>
+<li><p>Concurrent programming</p>
+<p>Process creation and communication Multithreaded programming, synchronization</p></li>
+<li><p>(optional) Embedded systems programming</p>
+<p>Developing an embedded application</p></li>
+</ol>
+<h3 id="lecture-schedule">Lecture Schedule</h3>
+<ol style="list-style-type: decimal">
+<li>Sept 04 Into to C</li>
+<li>Sept 06 C program structure, C functions</li>
+<li>Sept 11 C preprocessor, formatted I/O</li>
+<li>Sept 13 Dynamic memory management</li>
+<li>Sept 18 Data Structure design</li>
+<li>Sept 20 File I/O</li>
+<li>Sept 25 multi-file projects, makefiles, directory I/O</li>
+<li>Sept 27 gdb</li>
+<li>Oct 02 libraries</li>
+<li>Oct 04 signals and event-based programming</li>
+<li>Oct 09 signals and processes</li>
+<li>Oct 11 valgrind and memory-related bugs</li>
+<li>Oct 16 caching</li>
+<li>Oct 18 version control, CVS</li>
+<li>Oct 23 Threads</li>
+<li>Oct 25 Thread synchonization (mutex locks, semaphores)</li>
+<li>Oct 30 Thread synchronization (condition variables), thread patterns</li>
+<li>Nov 01 Thread patterns</li>
+<li>Nov 06 signals and threads</li>
+<li>Nov 08 midterm</li>
+<li>Nov 13 UNIX/Linux commands, BASH shell</li>
+<li>Nov 15 BASH shell scripting</li>
+<li>Nov 20 regular expressions, grep, awk, sed, tr</li>
+<li>Nov 27 more shell scripting</li>
+<li>Nov 29 more shell scripting</li>
+<li>Dec 04 still more shell scripting</li>
+<li>Dec 06 Event-driven architectures</li>
+<li>Dec 12 Review</li>
+</ol>
+<p>This schedule may change as needed.</p>
+<h3 id="expected-work-1">Expected Work</h3>
+<p>Students are expected to attend all lectures and perform all reading assignments prior to lecture. Students are also expected to attend all recitation section meetings. Students will be evaluated according to their performance on a semester long programming project, a mid-term examination, and a final examination.</p>
+<h3 id="project">Project</h3>
+<p>WARNING: This is a project course, which means that this course should give you more than a passing knowledge of what writing working network programs entails. The project will be a major undertaking. If you complete the projects, you will have learned a lot. However, assess your commitment to this course realistically. If you don't have the time or the inclination to work hard on the project, you would be better off not taking the course. You will have to learn how to build and debug reasonably sized C programs and make them robust to outside errors. You will also have to describe how your program work in a written document.</p>
+<p>This one large project will be assigned, as three sub-projects. Up to 2 students can work as a group for each sub-project and you can change group members for each project . Students are required to complete the parts by the scheduled deadlines. Failure to turn in the project by the deadline using the electronic handin website will result in a zero for all team members. No exceptions!</p>
+<p>There are many different operating systems and variants of C out there and we cannot test your program on all of them. So all program assignments must run on the local iLab Linux machines. We will be grading your assignments on those machines as well.</p>
+<h3 id="working-together-and-academic-honesty">Working Together and Academic Honesty</h3>
+<p>Cheating on projects and exams will not be tolerated. We want to protect the fairness and integrity of the class, so we run code similarity detectors on the projects and scrutinize exams for copying. Both parties in the exchange are liable; e.g. if you give away solutions to friends, you're putting yourself at risk too. If you get caught, it's a nasty process--just don't go there! You're better off asking for help, or at worst, dropping the course and trying it again. The department academic integrity policy can be found at http://www.cs.rutgers.edu/policies/academicintegrity/. You now need to click explicitly on a link when first login to our computing facilities, use handin, etc., that says you acknowledge being aware of the policy (which you can read through the login screen). If you fail to do the click-through by the end of September, your access to our facilities will cease October 1.</p>
+<h3 id="grading">Grading</h3>
+<p>Midterm: 20 % Final: 30 % Project: 50%</p>
+<p>The programming part of the projects are typically graded on how close they are to the functional requirements. The written portion is graded on how well the TAs can figure out how your project is constructed only from the written description. Exams are typically graded on a curve. As a rule of thumb, the mean is a &quot;C'&quot; and each standard deviation is one letter grade. This rule can be altered, however, if the class does exceptionally well or poorly.</p>
+<p>I felt we should do our best to clarify up front how we grade your programming assignments. The TAs do the grading, but have all agreed to the same criteria for grading each programming assignment. Each programming assignment is worth 100 points. here are our grading criteria:</p>
+<p>40% Correctness Percent based on number of test cases</p>
+<p>40% Code Quality 20% Algorithmic 10% Reusability/Modularity 10% Decomposition</p>
+<p>20% Documentation 10% Test Cases from Students 5% Comments 5% Documentation (Analysis, readme files, etc...)</p>
+<h3 id="the-gilligans-island-rule">The Gilligan's Island Rule</h3>
+<p>We do encourage you to talk to your classmates, provided you follow the Gilligan's Island Rule. After a joint discussion of an assignment or problem, each student should discard all written material and then go do something mind-numbing for half an hour. For example, go watch an episode of Gilligan's Island (or jersey Shore in modern terms), and then recreate the solutions. The idea of this policy is to ensure that you fully understand the solutions or ideas that the group came up with. If you follow the Gilligan's island rule, often best route to follow to get a question answered is to ask, in order: 1. A classmate smarter than you. 2. Your TA. 3. The professor.</p>
+<h2 id="september-5th-2013-lecture-on-c-program-structure-c-functions">September 5th, 2013 <small>Lecture on C program structure, C functions</small></h2>
+<h3 id="general-syntax">General Syntax</h3>
+<pre><code>struct point {
+    int x,
+    int y,
+} a, b, c; // three variables
+
+a.x = 3;
+b.y = 42; // accesing them
+
+struct rectangle {
+    struct point top_left;
+    struct point top_right;
+} d, *p;
+
+d.top_left.x = 30;
+p = &amp;d;
+p-&gt;top_left.y = 40;
+
+struct rectangle box = {{0, 5}, {5, 6}};
+
+union f {
+    int int_part;
+    char char_part[sizeof(int)];
+}
+
+int array[10];
+
+char string_array[] = &quot;hello&quot;;
+
+int square[10][10] = {{0, 1, 2, 3, 4, 5}, 
+                      {6, 7, 8, 9, 10,11}};
+                      
+switch (expression) {
+    case constant_expression_1:
+        statements;
+    case constant_expression_2:
+        statements;
+    case default: 
+        statements;
+}
+  </code></pre>
+<p>A string is a series of characters, and array, followed by a null byte. Before there were no classes, there were structs. No visibility classes. No message passing, methods.</p>
+<h3 id="pointers">Pointers</h3>
+<pre><code>int x;
+int *px;
+
+int y, *py;
+
+px = &amp;x; 
+
+int *p1, *p2;
+
+p1 = 0;
+p2 = p1;
+
+char * s = &quot;hello&quot;;
+
+struct point * p, point_var;
+
+p = &amp;point;
+p-&gt;x = p-&gt;y = 0;     // these are 
+(*p).x = (*p).y = 0; // equivalent
+
+char array[] = &quot;hi there&quot;;
+char * p_char;
+
+p_char = array; 
+* p_char = &#39;z&#39;; // these are
+p[0] = &#39;z&#39;;     // equivalent
+
+struct point * pp, point[10];
+
+pp = point;
+pp *= 1;</code></pre>
+<p>A pointer variable contains an address. If I say &quot;pointer to&quot; and &quot;address of&quot;, it's equivalent.</p>
+<p>Subscripts can be positive, negative, and zero. When you use arrays in C, there is no array bounds checking. If you have a ten element array, C does not mind if you just meander in either direction.</p>
+<h3 id="pointers-to-functions">Pointers to Functions</h3>
+<pre><code>int f(int);     // defined but not implemented function
+
+int (*pf)(int); // pointer to a function, parentheses necessary
+                // returns an int
+                
+int g(int);
+int f(int);
+int x;
+
+x = f(3);
+pf = f;
+x = (*pf)(3);
+pf = g;</code></pre>
+<h2 id="september-18th-2013-programming-assignment-1-tokenizer">September 18th, 2013 <small>Programming Assignment 1: Tokenizer</small></h2>
+<h3 id="introduction">Introduction</h3>
+<p>In this assignment, you will practice programming with C pointers. Much of the pointer manipulation will come in the form of operating on C strings, although you will be dealing with some pointers to structs as well.</p>
+<p>Your task is to write a type and a set of functions in essence, the equivalent of a Java class that implements a tokenizer. The tokenizer should accept two strings, the first of which will contain a set of <em>separator characters</em> while the second will contain a set of terms separated by one or more separator characters. The tokenizer should return the <em>terms</em> in the second string one at a time, each term is called a token, hence your program is called a tokenizer. For example, when given the following two strings:</p>
+<pre><code>&quot; &quot;, &quot;today is a beautiful day&quot;</code></pre>
+<p>your tokenizer should return:</p>
+<pre><code>&quot;today&quot;, &quot;is&quot;, &quot;a&quot;, &quot;beautiful&quot;, and &quot;day&quot;</code></pre>
+<p>When given the following two strings:</p>
+<pre><code>&quot;/?&quot;, &quot;/usr/local/?/bin/? share&quot;</code></pre>
+<p>your tokenizer should return:</p>
+<pre><code>&quot;usr&quot;, &quot;local&quot;, &quot;bin&quot;, and &quot; share&quot;</code></pre>
+<p>A string is a sequence of characters delimeted by double quotes (&quot;). Strings can contain newline or double-quote characters, but special syntax is required to contain them and certain other characters. These special characters are represented with escape sequences:</p>
+<pre><code>newline \n 
+horizontal tab \t 
+vertical tab \v 
+backspace \b 
+carriage return \r 
+form feed \f 
+audible alert \a 
+backslash \\
+question mark \? 
+single quote \′ 
+double quote \” 
+octal number \000 
+hex number \xhh</code></pre>
+<h3 id="implementation">Implementation</h3>
+<p>Your implementation needs to export the interface given in the attached tokenizer.c file. In particular, you need to define the type needed to represent a tokenizer and three functions for creating and destroying tokenizer objects and getting the next token. Note that we have only defined the minimal interface needed for external code (e.g., our testing code) to use your tokenizer. You will likely need to design and implement additional types and functions.</p>
+<p>A token is a sequence of any ASCII character that does not contain a separator character. Separator characters are provided as a string of one or more ASCII characters. Each pair of tokens are separated by one or more separator characters. Multiple separators may be next to each other (see second example above), and/or at the beginning and/or end of the term string. When this happens, your tokenizer should discard all separators.</p>
+<p>Your implementation must not modify the two original strings in any way. Further, your implementation must return each token as a C string in a character array of the exact right length. For example, the token usr should be returned in a character array with 4 elements (the last holds the character ’’ to signify the end of a C string).</p>
+<p>You may use string functions from the standard C library accessible through string.h (e.g, strlen()). However, you may not use strtok(), strsep() or any similar function that already performs the complete tokenization process.</p>
+<p>You should also implement a main() function that takes 2 string arguments, as defined above. Each character in the first string is a separator. The second string contains zero or more tokens separated by separator characters. Your main() function should print out all the tokens in the second string in left-to-right order. Each token should be printed on a separate line. Here is an example invocation of the tokenizer and its output.</p>
+<pre><code>tokenizer ” ” ”today is sunny” today
+is
+sunny</code></pre>
+<p>Keep in mind that coding style will affect your grade. Your code should be well-organized, well- commented, and designed in a modular fashion. In particular, you should design reusable functions and structures, and minimize code duplication. You should always check for errors. For example, you should always check that your program was invoked with the minimal number of arguments needed.</p>
+<p>Your code should compile correctly (no warnings and errors) with the -Wall and either the -g or -O flags. For example</p>
+<pre><code>                  gcc -Wall -g -o tokenizer tokenizer.c
+                 </code></pre>
+<p>should compile your code to a debug-able executable named tokenizer without producing any warnings or error messages. (Note that -O and -o are different flags.)</p>
+<p>Your code should also be efficient in both space and time. When there are tradeoffs to be made, you need to explain what you chose to do and why.</p>
+<p><strong>IMPORTANT NOTE</strong>: You may write your code on any machine and operating system you desire, but the code you turn in MUST tar (see below), compile and execute on the iLab machines or a zero grade will be given. Be sure to compile and execute your code on an Ilab machine before handing it in.</p>
+<h3 id="what-to-turn-in">What to turn in</h3>
+<p>A tarred gzipped file named pa1.tgz that contains a directory called pa1 with the following files in it: - A tokenizer.c file containing all of your code. - A file called testcases.txt that contains a thorough set of test cases for your code, including inputs and expected outputs. - A readme.pdf file that contains a brief description of the program and any great features you want us to notice. Suppose that you have a directory called pa1 in your account (on the iLab machine(s)), containing the above required files. Here is how you create the required tar file. (The ls commands are just to help show you where you should be in relation to pa1. The only necessary command is the tar command.) ls pa1 ls pa1 Makefile readme.pdf testcases.txt tokenizer.c tar cfz pa1.tgz pa1</p>
+<p>You can check your pa1.tgz by either untarring it or running tar tfz pa1.tgz (see man tar). Your grade will be based on: - Correctness (how well your code works). - Quality of your design (did you use reasonable algorithms). - Quality of your code (how well written your code is, including modularity and comments). - Efficiency (of your implementation). - Testing thoroughness (quality of your test cases).</p>
+<h2 id="september-10th-2013-lecture">September 10th, 2013 <small>Lecture</small></h2>
+<pre><code>int gcd(int a, int b) {
+    if (b == 0) { 
+        return a;
+    } else {
+        return gcd(b, a % b);
+    }
+}</code></pre>
+<ul>
+<li>What you want to take from this is that it's pass by value.
+<ul>
+<li>The function can change the copies.</li>
+<li>Cannot change the original values.</li>
+</ul></li>
+</ul>
+<h2 id="september-30th-2013-programming-assignment-2-sorted-list">September 30th, 2013 <small>Programming Assignment 2: Sorted List</small></h2>
+<h3 id="introduction-1">Introduction</h3>
+<p>In this assignment, you will practice with more complex data structures, as well as practice using function pointers (along with using data pointers as in the last assignment).</p>
+<p>Your task is to write a set of types and functions that implement a sorted list. The sorted list will contain opaque objects. That is, the objects will be given to you as void* objects. When a sorted list is first created, the caller will provide you with a pointer to a comparator function. This comparator function will understand the actual type of the objects to be stored in the sorted list, and, given two objects, will return an ordering of the two objects. Subsequently, when new objects are inserted into the list, you will use the given comparator function to insert the new objects such that the list will remain sorted in descending order; that is, objects are ordered from largest (front of the list) to smallest (end of the list).</p>
+<p>You will also implement an iterator to help users walk through lists. This iterator, together with returning pointers to your sorted list objects as void*, will help you practice implementation hiding. That is, your implementation is similar to a Java class, where the users do not know about the implementation and so cannot access parts of the objects directly. (In C, there are obviously ways to get around your hiding; nevertheless, it is good programming practice because it requires effort to violate the hiding.)</p>
+<h3 id="implementation-1">Implementation</h3>
+<p>Your implementation needs to export the interface given in the attached sorted-list.h file. Specif- ically, you need to implement four functions for creating sorted lists, destroying sorted lists, and inserting and deleting an object into/from a sorted list. Your sorted-list data will be of the type void, so that you can pass any type into data struct. Rather, this is a way in C for you to practice a bit of implementation hiding. When writing your code for the sorted list, you will need to define a type for your sorted list objects. For example:</p>
+<pre><code>struct SortedList {
+        
+};
+typedef struct SortedList* SortedListPtr;</code></pre>
+<p>You should create a pointer to struct <code>SortedList</code> object in <code>SLCreate()</code>.</p>
+<pre><code>SortedListPtr SLCreate(CompareFuncT cf) {
+         SortedListPtr sl;
+         ... /* do what is needed to create the sorted list object. */
+return sl; }</code></pre>
+<p>The comparator function must obey the following semantics: return -1 if the 1st object is smaller, 0 if the two objects are equal, and 1 if the 2nd object is smaller. You will also need to define a helper iterator type together with three functions for creating sorted list iterators, destroying sorted list iterators, and obtaining the objects in a sorted list one at a time. In this assignment, the iterator is just a wrapper around a sorted list that is used to help the caller walk through the list. Again, data is returned as void* to hide your implementation.</p>
+<p>One complication that you must deal with is what happens if the sorted list is modified (e.g., a new object inserted or an existing object is removed) while an iterator is being used. You should explain how your implementation deals with this complication as a comment in your code.</p>
+<p>As always, your code should be well-designed, well-organized, and well-commented. Both your design and implementation should be efficient. However, for this assignment, you may use a linear structure rather than implement a more complex data structure such as a tree, heap, or hash table to make insertion/deletion more efficient. It is sufficient that you implement your linear structure efficiently.</p>
+<h3 id="what-to-turn-in-1">What to turn in</h3>
+<p>A sorted-list.c file containing all of your data structure code. At the top of the file, you should include as a comment a big-O analysis of the runtime of your code. You should also carefully comment all of your code. Your grade will be based on how well your code is working as well as how well written your code is (including analysis of runtime and comments) and how carefully you tested your code. A main.c file should including test cases and code to call the libaray.</p>
+<p>A tarred gzipped file named pa2.tgz that contains a directory called pa2 with the following files in it:</p>
+<ul>
+<li><p>An sorted-list.h file containing the interface we gave you and your structure definition. The function defintions must remain unaltered!</p></li>
+<li><p>A sorted-list.c file containing your implementation of the sorted list.</p></li>
+<li><p>A main.c file containing a main function that exercise your sorted list implementation using the test plan outlined in testplan.txt.</p></li>
+<li><p>A Makefile that is used to compile your sorted list implementation into a library called libsl.a and an executable called sl that runs the code in main.c.</p></li>
+<li><p>A file called testplan.txt that contains a test plan for your code, including input and expected output.</p></li>
+<li><p>A readme.pdf file that contains analyses of the running time and memory usage of each of your sorted-list functions. Use big-O notation to describe the end result of each analysis.</p></li>
+</ul>
+<p>Suppose that you have a directory called pa2 in your account (on iLab), containing the above required files. Here’s how you create the required tar file. (The ls commands are just to help show you where you should be in relation to pa2. The only necessary command is the tar command.)</p>
+<pre><code>$ ls
+pa2
+$ tar cfz pa2.tgz pa2</code></pre>
+<p>You can check your pa2.tgz by either untarring it or running tar tfz pa2.tgz (see man tar). Your grade will be based on:</p>
+<ul>
+<li>Correctness (how well your code is working),</li>
+<li>Quality of your design (did you use reasonable algorithms),</li>
+<li><p>Quality of your code (how well written your code is, including modularity and comments),</p></li>
+<li>Efficiency (of your implementation), and</li>
+<li><p>Testing thoroughness (quality of your test cases).</p></li>
+</ul>
+<h2 id="september-24th-2013-lecture-multi-file-projects-makefiles-and-directory-io">September 24th, 2013 <small>Lecture, Multi-file Projects, Makefiles, and Directory I/O</small></h2>
+<pre><code>ar key libfile obj1.o obj2.o ...
+    r - add
+    t
+    d
+    v - verbose
+    c
+    
+ar rv libsl.a sorted_list.o
+
+basename [directory path]/[basename].[extension]
+[basename].[extension]
+
+drname [directory path]/[basename].[extension]
+[directory path]</code></pre>
+<h2 id="september-26th-2013-gdb">September 26th, 2013 <small>GDB</small></h2>
+<h3 id="reference-counter">Reference Counter</h3>
+<ul>
+<li><p>You increment a reference counter for every time a new pointer points to the node.</p></li>
+<li><p>You decrement a reference counter for every time you remove a pointer from a node.</p></li>
+<li>You free the memory for a node when you decrement it to zero.</li>
+<li><p>An iterator pointing to a node that is printing or up to some operation can make the reference counter not zero or one, leading to some interesting scenarios.</p></li>
+</ul>
+<h2 id="october-2nd-2013-programming-assignment-3-indexer">October 2nd, 2013 <small>Programming Assignment 3: Indexer</small></h2>
+<p><strong>Warning</strong>: As you will see below, the descriptions of the assignments will be increasingly complex because we are asking you to build increasingly bigger programs. *Make sure to read the assignment carefully!* This is critical because this document essentially describes the requirements for your program.</p>
+<h3 id="introduction-2">Introduction</h3>
+<p>In this assignment, you will practice using the file system API (as well as pointers in different data structures). In particular, you will be creating, opening, reading, writing, and deleting files.Your task is to write an indexing program, called an <em>indexer</em>. Given a set of files, an indexer will parse the files and create an <em>inverted index</em>, which maps each term found in the files to the subset of files that contain that term. In your indexer, you will also maintain the frequency with which each term appears in each file.Here is an example of how the indexer should work. If you are given the following set of files:</p>
+<pre><code>+----------+---------------------+
+| Filename | File Content        |
++----------+---------------------+
+| boo      | A dog name name Boo |
++----------+---------------------+
+| baa      | A cat name Baa      |
++--------------------------------+</code></pre>
+<p>The indexer should read the files and produce the following inverted index, in sorted order by word:</p>
+<pre><code>“a” → (“boo”, 1), (“baa”, 1) “baa” → (“baa”, 1) “boo” → (“boo”, 1)  “cat” → (“baa”, 1)  “dog” → (“boo”, 1)  “name” → (“boo”, 2), (“baa”, 1)</code></pre>
+<p>After constructing the entire inverted index in memory, the indexer will save it to a file.Some observations:</p>
+<ul>
+<li><p>An inverted index is just a sequence of mappings, where each mapping maps a term (e.g., “dog”) to a list of records, with each record containing the name of a file whose content contains the term and the frequency with which the term appears in the file.</p></li>
+<li><p>The above depiction just gives a logical view of the inverted index. In your program, you have to define data structures to hold the mappings (term → list), the list of records, and the records (file name, count).</p></li>
+<li><p>The mappings are maintained in sorted order of the terms. You will see later why this is useful. Sorting in ascending or descending order doesn’t matter so much. We will just arbitrarily say for this assignment that the sequence should be maintained in ascending sorted order based on the ASCII coding of characters (i.e., “a” before “b” and “aa” before “ab”).</p></li>
+<li><p>Records in each list are maintained in descending sorted order based on frequency counts of the terms in the files. Again, you will see later why this is useful.</p></li>
+<li><p>Capitalization has been removed. For your indexer, “A” and “a” should be</p></li>
+<li><p>considered the same term. Thus, you will need to normalize all upper case letters to lower case letters in the terms. (The other way around is OK too.)</p></li>
+<li><p>It should be obvious that the tokenizer and sorted-list that you wrote in earlier assignments are useful for this assignment (although you have to modify the tokenizer to work with a file, rather than a string). Use the improved tokenizer.c file attached to this assignment.</p></li>
+</ul>
+<h3 id="implementation-2">Implementation</h3>
+<p>Since you are implementing a program in this assignment, there is no programming interface to follow. Instead, your program must support the following invocation interface:</p>
+<pre><code>index &lt;inverted-index file name&gt; &lt;directory or file name&gt;</code></pre>
+<p>The first argument, <inverted-index file name>, gives the name of a file that you should create to hold your inverted index. The second argument, <directory or file name>, gives the name of the directory or file that your indexer should index. You need to check whether the second name is a directory or a file. If a directory, you need to recursively index all files in the directory (and its sub-directories). If a file, you just need to index that single file.When indexing files in a directory, you may have files that have the same name (but different pathnames). To differentiate between them, for now, you may use the pathname (relative to the input directory name) in each record in the inverted index, rather than just the file name.Tokenization is a little different in this assignment than in the previous assignment. You are not given a set of separators. Instead, we define terms as any sequence of consecutive alphanumeric characters (a-z, A-Z, 0-9). All other characters are separators. Note that you can use the entire ASCII coding minus the alphanumeric characters as your separators to minimize the change to your tokenizer. But, this is not efficient, since the alphanumeric characters is only a small subset of ASCII. This would be even truer if we extend the character set beyond ASCII. So, you should not take this easy way out.</p>
+<p>Examples of tokens according to the above definition include:</p>
+<pre><code>a, aba, c123, 1, 454</code></pre>
+<p>If a file contains This an\\$example12 mail@rutgersit should tokenize to this an example12 mail rutgers</p>
+<p>The inverted index file that your indexer writes must follow the following format, where I’m showing each space as a _ to make it more clear:</p>
+<pre><code>&lt;list&gt;_term 
+name1_count1_name2_count2_name3_count3_name4_count4_name5_count5 
+&lt;/list&gt;</code></pre>
+<p>with the lists arranged in ascending sorted order of the terms. Note you must obey the line breaks as shown. Each line containing the (file name, count) records can contain at most 5 records. So, the example inverted index from Section 1 could look like:</p>
+<pre><code>&lt;list&gt; a    boo 1 baa 1 &lt;/list&gt; &lt;list&gt; baa baa 1 &lt;/list&gt; &lt;list&gt; boo boo 1 &lt;/list&gt; &lt;list&gt; cat baa 1  &lt;/list&gt; &lt;list&gt; dog boo 1    &lt;list&gt; name boo 2 baa 1 &lt;/list&gt;</code></pre>
+<p>This format is quite inefficient in a number of ways. We will optimize later. For now, we want to be able to easily read the inverted index for debugging.</p>
+<p>You should carefully consider all possible exception cases, outline a strategy to deal with them, and implement your strategy. For example, if a file already exists with the same name as the inverted-index file name, you should give the user the option of not overwriting it. If the name of the directory or file you are to index does not exist, your indexer should print an error message and exit gracefully rather than crash. There are many other error cases that you will need to consider.You should use multi-file compilation to carefully organize your code. For example, the tokenizer should be in its own .c file, with a .h file that callers should include. The same applies for the sorted list. You should also write a makefile to efficiently compile and link your indexer.</p>
+<h3 id="hints">Hints</h3>
+<ul>
+<li><p>Data structures that might be useful include the sorted list you just implemented (of course) and a hash table.</p></li>
+<li><p>An object (e.g., a record {“baa”, 3}) can be inserted into multiple containing data structures, such as a sorted list and a hash table).</p></li>
+<li><p>You can use your sorted list to maintain the set of terms in ascending order. But, since we are asking for records for each term sorted in descending order, you have to flip the meaning of &lt; and &gt; in your comparator function.</p></li>
+<li>You should probably approach this in steps.</li>
+<li><p>First, you might get your tokenizer to generate correct tokens from a file. - Next, you might get your program to walk through a directory. - Next, you might implement a data structure that allows you to countthe number of occurrences of each unique term in a file. o Andsoon...</p></li>
+</ul>
+<h3 id="what-to-turn-in-2">What to Turn In</h3>
+<p>A tarred gzipped file name pa3.tgz that contains a directory called pa3 with the following files in it:</p>
+<ul>
+<li><p>All the .h and .c files necessary to produce an executable named index.</p></li>
+<li><p>A makefile used to compile and produce index. It must have a target clean toprepare a fresh compilation of everything.</p></li>
+<li><p>A file called testplan.txt that contains a test plan for your indexer. You should include the example files and/or directories that you test your indexer on but keep these from being too large, please. (We might test your program with a very large data set though so don’t skip testing your program for scalability. In your test plan, you should discuss the larger scale testing and the results, but you can skip including the data set).</p></li>
+<li><p>A readme.pdf file that describes the design of your indexer. This should also include the usual analysis of time and space usage of your program. Starting in this assignment, you do not need analyze every single function. Rather, you need to analyze the overall program. (So, for example, analyzing initialization code is typically not too important unless this initialization depends on the size of the inputs.)</p></li>
+</ul>
+<p>As usual, your grade will be based on:</p>
+<ul>
+<li>Correctness (how well your code is working),</li>
+<li>Quality of your design (did you use reasonable algorithms),</li>
+<li><p>Quality of your code (how well written your code is, including modularity andcomments),</p></li>
+<li>Efficiency (of your implementation), and</li>
+<li><p>Testing thoroughness (quality of your test cases).</p></li>
+</ul>
+<h2 id="october-19th-2013-programming-assignment-4-search">October 19th, 2013 <small>Programming Assignment 4: Search</small></h2>
+<h3 id="introduction-3">Introduction</h3>
+<p>In this assignment, you will put everything that you have done together into a simple search tool. For now, your search tool will look much like the <code>grep</code> utility. Your task is to implement a search tool that will load an inverted index produced by your indexer into memory and use it to answer users’ search queries. Using the same example from the indexer assignment, if you are given the following set of files:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Filename</th>
+<th align="left">File Content</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>boo</code></td>
+<td align="left">A dog name name Boo</td>
+</tr>
+<tr class="even">
+<td align="left"><code>baa</code></td>
+<td align="left">A cat name Baa</td>
+</tr>
+</tbody>
+</table>
+<p>you would use your indexer to generate the following inverted list and save it to an index file:</p>
+<pre><code>“a” → (“boo”, 1), (“baa”, 1) 
+“baa” → (“baa”, 1) 
+“boo” → (“boo”, 1)  
+“cat” → (“baa”, 1)  
+“dog” → (“boo”, 1)  
+“name” → (“boo”, 2), (“baa”, 1)</code></pre>
+<p>When you run your search tool, it should read the content of the index file into memory. Then, it should continuously poll for user queries and output the names of the files with matching content. For example, if the user gives the query dog, your search tool should output boo. If the user gives the query name, your search tool should output boo, baa.</p>
+<h3 id="code-reuse">Code Reuse</h3>
+<p>Your implementation will require the use of inverted-index files produced by the indexer you wrote for Assignment 4. If you could not get the previous assignment fully working, you must do so now. The search tool program must work with the index files produced by both partners’ indexers. This means that, for example, if you did not get your indexer working, but your partner for the search tool project did, you must fix your indexer rather than simply relying on your partner’s. Either indexer’s output files should be able to support your search tool.In order to do this, you should encapsulate the reading and parsing of an index file into a module that is separate from the rest of the search tool. This module should have a fixed interface. You and your partner should each write a version of this module, conforming to the fixed interface, that reads and parses your own indexer output file.You should write a makefile that efficiently compiles and links your search tool. The makefile must allow the search tool to be linked with either of the two index file parsing modules, at the user’s option.</p>
+<h3 id="implementation-3">Implementation</h3>
+<p>Your program must support the following invocation interface:</p>
+<pre><code>search &lt;inverted-index file name&gt;</code></pre>
+<p>The first (and only) argument, <code>&lt;inverted-index file name&gt;</code>, gives the name of an index file that your search tool should read into memory. For now, you may assume that the entire index file will fit into memory (you will relax this assumption next week). You should design an in-memory data structure to make the search efficient.</p>
+<p>Once search has successfully read and process the index file, it should go into a loop asking for queries. It should be able to respond to at least two commands: 1. <code>sa &lt;term&gt; ...</code> : search for files containing the given terms. A query may contain 1 or more terms. If there are more than 1 term, the search tool should return only files that contain all terms in the query. (The query is a “logical and” of all the given terms.)2. <code>so &lt;term&gt; ...</code>: search for files containing the given terms. A query may contain 1 or more terms. If there are more than 1 term, the search tool should return any file that contains any subset of the terms in the query. (The query is a “logical or” of all the given terms.)3. <code>q</code>: the search tool should gracefully shut itself down.The following example shows how a user of your application would search for all files containing ALL of the words ”cat”, ”dog”, and ”bird”:</p>
+<pre><code>sa cat dog bird</code></pre>
+<p>As in the last assignment, you should carefully consider all possible exception cases, outline a strategy to deal with them, and implement your strategy.</p>
+<h3 id="what-to-turn-in-3">What to Turn In</h3>
+<ul>
+<li><p>A writeup documenting your design, including exception handling and paying particular attention to the memory requirements of your application. Your writeup should detail the format with which the inverted index is written into a file.</p></li>
+<li><p>A file called hw5-testcases.txt that contains a thorough set of test cases for your code, includ- ing inputs and expected outputs.</p></li>
+<li><p>All source code (for search tool and both versions of all parts of the indexer) including both implementation (.c) and interface(.h) files.</p></li>
+<li><p>A makefile for producing an executable search tool, with multiple targets allowing selection of a compatible indexer.</p></li>
+</ul>
+<p>Your grade will be based on:</p>
+<ul>
+<li>Correctness (how well your code is working).- Testing thoroughness (quality of your test cases).- Efficiency.- Good design (how well written your design document and code are, including modularity and comments).- Code reuse (that your index works with both indexers).</li>
+</ul>
+<h2 id="november-5th-2013-midterm-study-guide">November 5th, 2013 <small>Midterm Study Guide</small></h2>
+<h3 id="the-c-programming-language-syntax">The C Programming Language <small>Syntax</small></h3>
+<h4 id="pointers-and-const">Pointers and <code>const</code></h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Code</th>
+<th align="left">Can change data?</th>
+<th align="left">Can change pointer?</th>
+<th align="left">Initiliaze data?</th>
+<th align="left">Initialize pointer?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>int * ptr;</code></td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td align="left">Optional</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="even">
+<td align="left"><code>const int * ptr;</code></td>
+<td align="left">No</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>int * const ptr = &amp;x</code></td>
+<td align="left">Yes</td>
+<td align="left">No</td>
+<td align="left">Optional</td>
+<td align="left">Yes</td>
+</tr>
+<tr class="even">
+<td align="left"><code>const int * const ptr = &amp;x</code></td>
+<td align="left">No</td>
+<td align="left">No</td>
+<td align="left">Yes</td>
+<td align="left">Yes</td>
+</tr>
+</tbody>
+</table>
+<h4 id="macros-and-the-preprocessor">Macros and the preprocessor</h4>
+<ul>
+<li>The C preprocessor (cpp)
+<ul>
+<li>Macro processor</li>
+<li>Transform code before compilation</li>
+</ul></li>
+<li>Initial processing
+<ul>
+<li>Read into memory and broken into lines</li>
+<li>Merge continued lines</li>
+<li>Replace comments with single spaces</li>
+</ul></li>
+<li>Tokenization
+<ul>
+<li>Identifiers</li>
+<li>Preprocessing numbers</li>
+<li>String literals</li>
+<li>Punctuators</li>
+</ul></li>
+<li>Preprocessing languages
+<ul>
+<li>Include header files</li>
+<li>Macro expansion</li>
+<li>Conditional compilations</li>
+<li>Line control</li>
+<li>Diagnostics</li>
+</ul></li>
+</ul>
+<h4 id="functions-and-function-pointers">Functions and function pointers</h4>
+<p>Consider this code:</p>
+<pre><code>int compareInts(void * p1, void * p2) {
+    int i1 = *(int*)p1;
+    int i2 = *(int*)p2;
+
+    return i1 - i2;
+}
+
+typedef int (*CompareFuncT)(void *, void *);
+
+CompareFunct cf = &amp;compareInts;
+cf = &amp;compareDoubles;;
+
+SortedListPtr SLCreate(CompareFuncT cf);</code></pre>
+<p>Now, for another example.</p>
+<p>Let's start with a basic function which we will be <em>pointing to</em>:</p>
+<pre><code>int addInt(int n, int m) {
+    return n+m;
+}</code></pre>
+<p>First thing, lets define a pointer to a function which receives 2 <code>int</code>s and returns and <code>int</code>:</p>
+<pre><code>int (*functionPtr)(int,int);</code></pre>
+<p>Now we can safely point to our function:</p>
+<pre><code>functionPtr = &amp;addInt;</code></pre>
+<p>Now that we have a pointer to the function, lets use it:</p>
+<pre><code>int sum = (*functionPtr)(2, 3); // sum == 5</code></pre>
+<p>Passing the pointer to another function is basically the same:</p>
+<pre><code>int add2to3(int (*functionPtr)(int, int)) {
+    return (*functionPtr)(2, 3);
+}</code></pre>
+<p>We can use function pointers in return values as well (try to keep up, it gets messy):</p>
+<pre><code>// this is a function called functionFactory which receives parameter n
+// and returns a pointer to another function which receives two ints
+// and it returns another int
+int (*functionFactory(int n))(int, int) {
+    printf(&quot;Got parameter %d&quot;, n);
+    int (*functionPtr)(int,int) = &amp;addInt;
+    return functionPtr;
+}</code></pre>
+<p>But it's much nicer to use a <code>typedef</code>:</p>
+<pre><code>typedef int (*myFuncDef)(int, int);
+// note that the typedef name is indeed myFuncDef
+    
+myFuncDef functionFactory(int n) {
+    printf(&quot;Got parameter %d&quot;, n);
+    myFuncDef functionPtr = &amp;addInt;
+    return functionPtr;
+}</code></pre>
+<p><a href="http://stackoverflow.com/questions/840501/how-do-function-pointers-in-c-work">Source</a></p>
+<h4 id="header-files">Header Files</h4>
+<ul>
+<li>Include a file</li>
+<li>Why use headers?
+<ul>
+<li><p>Copy and paste the same possible large amount of code many times.</p>
+<pre><code>#include &lt;stdlib.h&gt;
+#include &quot;myheader.h&quot;</code></pre></li>
+</ul></li>
+<li><p>Include headerfile only <strong>once</strong></p>
+<pre><code>#ifndef SORTED_LIST_H
+#define SORTED_LIST_H
+
+/*
+* Your header file content
+ */
+
+#endif</code></pre></li>
+<li><p>Select a header from many</p>
+<pre><code>#if SYSTEM_1
+#include &quot;system_1.h&quot;
+
+#elif   SYSTEM_2
+#include &quot;system_2.h&quot;
+
+#endif</code></pre></li>
+</ul>
+<h4 id="enumeration-types">Enumeration types</h4>
+<pre><code>enum Boolean {true, false};
+Boolean flag = true;
+
+if (flag == true) {
+    printf(&quot;true\n&quot;);
+} else if (flag == false) {
+    printf(&quot;false\n&quot;);
+{ else {
+    printf(&quot;impossibru\n&quot;);
+}</code></pre>
+<h4 id="types-operators-expressions">Types, Operators, Expressions</h4>
+<dl>
+<dt>Variables &amp; Constants</dt>
+<dd><p>Basic objects</p>
+</dd>
+<dd><p>Variables are memory location in computer's memory to store data. To indicate the memory location, each variable should be given a unique name called identifier. Variable names are just the symbolic representation of a memory location.</p>
+</dd>
+<dt>Declarations</dt>
+<dd><p>Name the variables to be used, and additionally their initial values.</p>
+</dd>
+<dt>Operators</dt>
+<dd><p>Specify what to do to varaibles and constants.</p>
+</dd>
+<dt>Expressions</dt>
+<dd><p>Combine variables, constants, and operators to produce new values.</p>
+</dd>
+<dt>Types</dt>
+<dd><p>Object belongs to a specific type, which determines what range of values it can have, which operations canbe performed.</p>
+</dd>
+<dt>Variable names</dt>
+<dd><p>Names are made of letters and digits and underscores.</p>
+</dd>
+<dd><p>Case-sensitive</p>
+</dd>
+<dd><p>C language-specific keyword such as <code>if</code>, <code>else</code>, <code>for</code>, <code>int</code>, are reserved.</p>
+</dd>
+<dd><p>It's advisiable to give variables descriptive names, plus prefix/suffix to indicate type and/or scope.</p>
+<pre><code>strABC; // string
+iXYZ; // integer
+g_iXYZ; // global variable
+a_iXYZ; // a function argument</code></pre>
+</dd>
+<dt>Data types</dt>
+<dd><p>Same as Java</p>
+<p>For integer, there is <code>signed</code> and <code>unsigned</code></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Size</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>char</code></td>
+<td align="left">Capable of hold one character in ASCII table</td>
+<td align="left">1-byte</td>
+</tr>
+<tr class="even">
+<td align="left"><code>short int</code></td>
+<td align="left">16-bit integer</td>
+<td align="left">2-byte</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>int/long/long int</code></td>
+<td align="left">32-bit integer</td>
+<td align="left">4-byte</td>
+</tr>
+<tr class="even">
+<td align="left"><code>long long</code></td>
+<td align="left">64-bit integer</td>
+<td align="left">8-byte</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>float</code></td>
+<td align="left">Single-precision floating point</td>
+<td align="left">4-byte</td>
+</tr>
+<tr class="even">
+<td align="left"><code>double</code></td>
+<td align="left">Double-precision floating point</td>
+<td align="left">8-byte</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Character constants</dt>
+<dd><p>Is an integer written as one character within single quote, such as <code>x</code>, and can be used used like any other intger.</p>
+</dd>
+<dt>Enumeration constant</dt>
+<dd><p>An enumeration is a list of constant integers</p>
+<pre><code>enum Color { BLACK, WHITE, YELLOW };</code></pre>
+<p>You can achieve the same purpose with <code>#define</code>.</p>
+</dd>
+</dl>
+<h4 id="functions-and-program-structure">Functions and Program Structure</h4>
+<dl>
+<dt>Functions</dt>
+<dd><p>Functions break large tasks into smaller ones.</p>
+</dd>
+<dd><p>Functions help hiding parts of code from other parts which do not need to know about them, readibility, source code organizition.</p>
+</dd>
+<dd><p>Functions allow reusability.</p>
+</dd>
+<dd><p>C is essentially a functional language.</p>
+</dd>
+</dl>
+<h4 id="pointers-1">Pointers</h4>
+<dl>
+<dt>Pointer</dt>
+<dd><p>A pointer is a variable that contains the address of a variable.</p>
+</dd>
+<dd><p>Points are used very often in a high-performance program because of direct memory access.</p>
+</dd>
+<dt>Pointers as function arguments</dt>
+<dd><p>The wrong way of doing it:</p>
+<pre><code>void swap(int x, int y) {
+    int temp;
+
+    temp = x;
+    x = y;
+    y = temp;
+}
+
+swap(a, b);</code></pre>
+</dd>
+<dd><p>The right way of doing it:</p>
+<pre><code>void swap(int *px, int *py) {
+    int temp;
+
+    temp = *px;
+    *px = *py;
+    *py = temp;
+}
+
+swap(&amp;a, &amp;b);</code></pre>
+</dd>
+</dl>
+<h3 id="makefiles">Makefiles</h3>
+<dl>
+<dt>Target</dt>
+<dd><p>A file to becreated.</p>
+<p>Target depends on a set of source files or other targets in the dependency list.</p>
+</dd>
+<dt>Rules</dt>
+<dd><p>Commands to create the target.</p>
+<p>Each command occupies 1 line, starting with TAB. Be careful with space.</p>
+</dd>
+</dl>
+<!-- -->
+
+
+
+<pre><code>app: main.o mod_a.o mod_b.o
+    cc -o app main.o mod_a.o mod_b.o
+
+main.o: main.c inc_a.h inc_b.h 
+    cc -c main.c
+
+mod_a.o: mod_a.c inc_a.h 
+    cc -c mod_a.c
+
+mod_b.o: mod_b.c inc_b.h 
+    cc -c mod_b.c
+
+clean:
+    rm -f app
+    rm -f *.o</code></pre>
+<ul>
+<li>Name of your makefile should be <code>Makefile</code> or <code>makefile</code>.</li>
+<li><p>Commands you can use:</p>
+<pre><code>make
+make target_label
+make clean</code></pre></li>
+<li><p>What to write in makefile</p>
+<pre><code>target: dependency1 dependency2
+&lt;tab&gt; system command
+
+# build executable file tokenizer from tokenizer.c
+all: tokenizer.c
+    gcc -g -Wall -o tokenizer tokenizer.c
+
+#remove tokenizer file:
+clean:
+    $(RM) tokenizer</code></pre></li>
+<li><p>General form:</p>
+<pre><code>CC = gcc
+CFLAG = -g -Wall
+EXECUTABLE = tokenizer</code></pre></li>
+</ul>
+<h3 id="io-and-directory">I/O and Directory</h3>
+<dl>
+<dt>Linux file structure</dt>
+<dd><p>In Linux, everything is seen as a file:</p>
+<ul>
+<li>Disk files</li>
+<li>Ports</li>
+<li>Network connections</li>
+<li>Devices</li>
+</ul>
+<p>The difference is in how they are treated, however, but the general principle holds.</p>
+</dd>
+<dt>File I/O</dt>
+<dd><p>File I/O low-level system calls:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Function</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>open()</code></td>
+<td align="left">Open a file or device</td>
+</tr>
+<tr class="even">
+<td align="left"><code>read()</code></td>
+<td align="left">Read from an open file or device</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>write()</code></td>
+<td align="left">Write to an open file or device</td>
+</tr>
+<tr class="even">
+<td align="left"><code>close()</code></td>
+<td align="left">Close the file or device</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>ioctl()</code></td>
+<td align="left">Pass control info to device driver</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dd><p>There's a performance penality in making a system call. It's a good idea to keep the number of system calls to a minimum, and do more work in each call, such as reading or writing in bulk.</p>
+</dd>
+<dd><p>Standard (high-level) I/O library provides buffered I/O, and arranged system calls to reduce overhead. Library functions are provided in <code>&lt;stdio.h&gt;</code>.</p>
+</dd>
+<dt>Standard I/O library</dt>
+<dd><p>It is:</p>
+<ul>
+<li>Part of ANSI C</li>
+<li>Takes care of buffering</li>
+<li>Provides formatted input/output</li>
+<li>Functions:
+<ul>
+<li><code>fopen</code></li>
+<li><code>fclose</code></li>
+<li><code>fread</code></li>
+<li><code>fwrite</code></li>
+<li><code>fseek</code></li>
+<li><code>fflush</code></li>
+<li><code>fprintf</code></li>
+<li><code>fscanf</code></li>
+<li><code>fputc</code></li>
+</ul></li>
+</ul>
+</dd>
+</dl>
+<h3 id="libraries">Libraries</h3>
+<ul>
+<li>Group multiple compiled object files into a single file.</li>
+<li>Used for sharing common pieces of code.</li>
+<li><p>Software developers can package code and release an API without the actual source code.</p></li>
+<li>Libraries (or components) can be created for dynamic use.
+<ul>
+<li>Library is separate from executable, thus reduced its size.</li>
+<li>Libraries can be invoked when needed.</li>
+</ul></li>
+<li><p>There are two types, dynamic and static libraries.</p></li>
+</ul>
+<dl>
+<dt>Static library (<code>.a</code>)</dt>
+<dd><p>Library of object code which is linked with, and becomes part of something.</p>
+</dd>
+<dd><p>In computer science, a static library or statically-linked library is a set of routines, external functions and variables which are resolved in a caller at compile-time and copied into a target application by a compiler, linker, or binder, producing an object file and a stand-alone executable.</p>
+</dd>
+<dt>Dynamic library (<code>.so</code>)</dt>
+<dd><p>There is only one form of this library but it can be used in two ways.</p>
+<ol style="list-style-type: decimal">
+<li><p>Dynamically linked at run time but statically aware. The libraries must be available during compile/link phase. The shared objects are not included into the executable component but are tied to the executable.</p></li>
+<li><p>Dynamically loaded/unloaded and linked during execution (i.e. browser plug-in) using the dynamic linking loaded r system functions.</p></li>
+</ol>
+</dd>
+</dl>
+<ul>
+<li>Naming convention: <code>lib</code> prefix.</li>
+<li><p>Example:</p>
+<pre><code>gcc src-file.c -lm -lpthread</code></pre></li>
+</ul>
+<h4 id="static-library">Static library</h4>
+<ul>
+<li>How to generate a library
+<ol style="list-style-type: decimal">
+<li><p>Compile:</p>
+<pre><code>cc -Wall -c ctest1.c ctest2.c</code></pre></li>
+<li><p>Create <code>.a</code>:</p>
+<pre><code>ar -cvq libctest.a ctest1.o ctest2.o</code></pre></li>
+<li><p>List files in library:</p>
+<pre><code>ar -t libctest.a</code></pre></li>
+<li><p>Linking:</p>
+<pre><code>cc -o prog prog.c libctest.a </code></pre></li>
+</ol></li>
+</ul>
+<h4 id="shared-library">Shared Library</h4>
+<ul>
+<li><p>How to create:</p>
+<pre><code>gcc -Wall -fPIC -c *.c
+gcc -shared -Wl, -shared, libctrst.so.1 -o libctest.so.1.0 *.o</code></pre></li>
+</ul>
+<dl>
+<dt><code>-fPIC</code></dt>
+<dd><p>Compiler directive to output position independent code, a characteristic required by shared libraries, also see <code>-fpic</code></p>
+</dd>
+<dt><code>-shared</code></dt>
+<dd><p>Produce a shared object which can then be linked with other objects to form an executable.</p>
+</dd>
+<dt><code>Wl,options</code></dt>
+<dd><p>Pass options to linker.</p>
+<pre><code>-soname libctest.so.1</code></pre>
+</dd>
+</dl>
+<ul>
+<li><p>Cascade the linkageL</p>
+<pre><code>ln -sf /opt/lib/libctest.so.1.0 /opt/lib/libtest.so.1
+ln -sf /opt/lib/libctest.so.1.0 /opt/lib/libtest.so</code></pre></li>
+<li><p>The link to <code>/opt/lib/libctest.so</code> allows the naming convention for the compile flag <code>-litest</code> to work.</p></li>
+<li><p>The link to <code>/opt/lib/libctest.so.1</code> allows the run time binding to work.</p></li>
+<li><p>Now, for adding the library to a program:</p>
+<pre><code>gcc -Wall -L/opt/lib prog.c -lctest -o prog</code></pre></li>
+<li><p>To list dependancies:</p>
+<pre><code>ldd prog</code></pre></li>
+<li><p>Add library directories to be included during dynamic linking to the file</p>
+<pre><code>/etc/ld.so.conf </code></pre></li>
+<li><p>Add specified directory to library cache:</p>
+<pre><code>ldconfig -n /opt/lib</code></pre></li>
+<li><p>Specify the environment variable <code>LD_LIBRARY_PATH</code> to point to the directory paths containing the shared object library</p></li>
+</ul>
+<h3 id="processes">Processes</h3>
+<dl>
+<dt>Process</dt>
+<dd><p>an address space with one or more threads executing within that address space, and the required system resources for those threads.</p>
+</dd>
+<dd><p>Each instance of a running program constitutes a process.</p>
+</dd>
+<dd><p>a program - or process - that is running consists of program code, data, variables (occupying system memory), open files (file descriptors), and an environment.</p>
+</dd>
+<dd><p>A process has its own stack space, used for local variables in functions and for controlling function calls and returns. It also has its own environment space, containing environment variables that may be established solely for this process to use. A process must also maintain its own program counter, a record of where it has gotten to in its execution, which is the execution thread.</p>
+</dd>
+<dd><p>All proceeses have:</p>
+<ul>
+<li>Process ID (PID)</li>
+<li>Parent process ID (PPID)</li>
+<li>Signal mask</li>
+<li>Signal dispositions</li>
+<li>File descriptors</li>
+</ul>
+</dd>
+<dd><p>Every process belongs to one process group. A <em>child</em> process inherits the process group of it's a parent.</p>
+</dd>
+<dt>Process ID</dt>
+<dd><p>a number used by most operating system kernels to temporarily uniquely identify a process</p>
+</dd>
+<dd><dl>
+<dt><code>PID 0</code></dt>
+<dd><p>Scheduler process</p>
+<ul>
+<li>Kernal level process</li>
+<li><p>Responsible for all the process scheduling that takes place inside the system always running.</p></li>
+<li><p>Always running.</p></li>
+</ul>
+</dd>
+<dt><code>PID 1</code></dt>
+<dd><p>Initilization process</p>
+<ul>
+<li>User level process running with root privileges.</li>
+<li><p>Responsible for bringing up linux system, the first process started once a system boot up.</p></li>
+<li><p>Always running.</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>File descriptors</dt>
+<dd><p>In POSIX, a file descriptor is an integer, specifically of the C type int. There are three standard POSIX file descriptors, corresponding to the three standard streams, which presumably every process (save perhaps a daemon) should expect to have:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Integer value</th>
+<th align="left">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0</td>
+<td align="left">Standard input (<code>stdin</code>)</td>
+</tr>
+<tr class="even">
+<td align="left">1</td>
+<td align="left">Standard output (<code>stdout</code>)</td>
+</tr>
+<tr class="odd">
+<td align="left">2</td>
+<td align="left">Standard error (<code>stderr</code>)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Process Table</dt>
+<dd><p>The Linux process table is like a data structure describing all of the processes that are currently loaded with their PID, status, and command string etc.</p>
+</dd>
+<dt>Parent process</dt>
+<dd><p>A parent process shares the following this it's children:</p>
+<ul>
+<li>Memory</li>
+<li>File descriptors</li>
+<li>File positions</li>
+<li>Signal dispositions</li>
+<li>Signal mask</li>
+</ul>
+</dd>
+<dd><p>A parent process <em>does not</em> share the following with's children:</p>
+<ul>
+<li>A parent must <em>wait</em> on a child</li>
+<li><code>fork != 0</code> for parent (<code>-1</code> for error)</li>
+<li><code>fork == 0</code> for child</li>
+<li>Execute asynchrously</li>
+</ul>
+</dd>
+<dt>Zombie process</dt>
+<dd><p>Using <code>forkto</code> create processes can be very useful, but you must keep track of child processes. When a child process terminates, an association with its parent survives until the parent in turn either terminates normally or calls wait. The child process entry in the process table is therefore not freed up immediately. Although no longer active, the child process is still in the system because its exit code needs to be stored in case the parent subsequently calls wait. It becomes what is known as defunct, or a zombie process.</p>
+</dd>
+<dd><p>A process that has completed execution but still has an entry in the porcess table.</p>
+<ul>
+<li>Refer to child process.</li>
+<li>Child dies before parent.</li>
+<li><p>Parent process does not <code>wait</code> so it is unaware of the termination of the child.</p></li>
+<li><p><code>kill</code> does not work for zombie process</p></li>
+</ul>
+</dd>
+<dt>Orphan process</dt>
+<dd><ul>
+<li>Refer to child process</li>
+<li>Parent dies before child</li>
+<li>Will be immediately adopted by <code>init</code> process</li>
+</ul>
+</dd>
+<dt>Process state</dt>
+<dd><p>In POSIX,</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><code>STAT</code> Code</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>S</code></td>
+<td align="left">Sleeping</td>
+</tr>
+<tr class="even">
+<td align="left"><code>R</code></td>
+<td align="left">Running</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>D</code></td>
+<td align="left">Uninterruptible sleep</td>
+</tr>
+<tr class="even">
+<td align="left"><code>T</code></td>
+<td align="left">Stopped</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>z</code></td>
+<td align="left">Defunct</td>
+</tr>
+<tr class="even">
+<td align="left"><code>N</code></td>
+<td align="left">Low priority</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>W</code></td>
+<td align="left">Paging</td>
+</tr>
+<tr class="even">
+<td align="left"><code>s</code></td>
+<td align="left">Process is session leader</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>+</code></td>
+<td align="left">Process is in the foreground process group</td>
+</tr>
+<tr class="even">
+<td align="left"><code>1</code></td>
+<td align="left">Process is multithreaded</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&lt;</code></td>
+<td align="left">High priority task</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<h3 id="signals">Signals</h3>
+<dl>
+<dt>Signal</dt>
+<dd>A signal is an event generated by the UNIX and Linux systems in response to some condition, upon receipt of which a process may in turn take some action.
+</dd>
+<dd>Software interrupt mechanism. Notifies a process that a particular event has occurred. Events may originate synchronously within the process or asynchronously from outside the process.
+</dd>
+<dd>Signals are <em>raised</em> by some error conditions, such as memory segment violations, floating-point processor errors, or illegal instructions. They are <em>generated</em> by the shell and terminal handlers to cause interrupts and can also be explicitly sent from one process to another as a way of passing information or modifying behavior.
+</dd>
+<dd><p>Here's a table!</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Valye</th>
+<th align="left">Name</th>
+<th align="left">Default Action</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="left">SIGHUP</td>
+<td align="left">terminate process</td>
+<td align="left">terminal line hangup</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="left">SIGINT</td>
+<td align="left">terminate process</td>
+<td align="left">interrupt program</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="left">SIGQUIT</td>
+<td align="left">create core image</td>
+<td align="left">quit program</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="left">SIGILL</td>
+<td align="left">create core image</td>
+<td align="left">illegal instruction</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="left">SIGTRAP</td>
+<td align="left">create core image</td>
+<td align="left">trace trap</td>
+</tr>
+<tr class="even">
+<td align="left">6</td>
+<td align="left">SIGABRT</td>
+<td align="left">create core image</td>
+<td align="left">abort program (formerly SIGIOT)</td>
+</tr>
+<tr class="odd">
+<td align="left">7</td>
+<td align="left">SIGEMT</td>
+<td align="left">create core image</td>
+<td align="left">emulate instruction executed</td>
+</tr>
+<tr class="even">
+<td align="left">8</td>
+<td align="left">SIGFPE</td>
+<td align="left">create core image</td>
+<td align="left">floating-point exception</td>
+</tr>
+<tr class="odd">
+<td align="left">9</td>
+<td align="left">SIGKILL</td>
+<td align="left">terminate process</td>
+<td align="left">kill program</td>
+</tr>
+<tr class="even">
+<td align="left">10</td>
+<td align="left">SIGBUS</td>
+<td align="left">create core image</td>
+<td align="left">bus error</td>
+</tr>
+<tr class="odd">
+<td align="left">11</td>
+<td align="left">SIGSEGV</td>
+<td align="left">create core image</td>
+<td align="left">segmentation violation</td>
+</tr>
+<tr class="even">
+<td align="left">12</td>
+<td align="left">SIGSYS</td>
+<td align="left">create core image</td>
+<td align="left">non-existent system call invoked</td>
+</tr>
+<tr class="odd">
+<td align="left">13</td>
+<td align="left">SIGPIPE</td>
+<td align="left">terminate process</td>
+<td align="left">write on a pipe with no reader</td>
+</tr>
+<tr class="even">
+<td align="left">14</td>
+<td align="left">SIGALRM</td>
+<td align="left">terminate process</td>
+<td align="left">real-time timer expired</td>
+</tr>
+<tr class="odd">
+<td align="left">15</td>
+<td align="left">SIGTERM</td>
+<td align="left">terminate process</td>
+<td align="left">software termination signal</td>
+</tr>
+<tr class="even">
+<td align="left">16</td>
+<td align="left">SIGURG</td>
+<td align="left">discard signal</td>
+<td align="left">urgent condition present onsocket</td>
+</tr>
+<tr class="odd">
+<td align="left">17</td>
+<td align="left">SIGSTOP</td>
+<td align="left">stop process</td>
+<td align="left">stop (cannot be caught orignored)</td>
+</tr>
+<tr class="even">
+<td align="left">18</td>
+<td align="left">SIGTSTP</td>
+<td align="left">stop process</td>
+<td align="left">stop signal generated fromkeyboard</td>
+</tr>
+<tr class="odd">
+<td align="left">19</td>
+<td align="left">SIGCONT</td>
+<td align="left">discard signal</td>
+<td align="left">continue after stop</td>
+</tr>
+<tr class="even">
+<td align="left">20</td>
+<td align="left">SIGCHLD</td>
+<td align="left">discard signal</td>
+<td align="left">child status has changed</td>
+</tr>
+<tr class="odd">
+<td align="left">21</td>
+<td align="left">SIGTTIN</td>
+<td align="left">stop process</td>
+<td align="left">background read attempted fromcontrol terminal</td>
+</tr>
+<tr class="even">
+<td align="left">22</td>
+<td align="left">SIGTTOU</td>
+<td align="left">stop process</td>
+<td align="left">background write attempted tocontrol terminal</td>
+</tr>
+<tr class="odd">
+<td align="left">23</td>
+<td align="left">SIGIO</td>
+<td align="left">discard signal</td>
+<td align="left">I/O is possible on a descriptor(see fcntl(2))</td>
+</tr>
+<tr class="even">
+<td align="left">24</td>
+<td align="left">SIGXCPU</td>
+<td align="left">terminate process</td>
+<td align="left">cpu time limit exceeded (seesetrlimit(2))</td>
+</tr>
+<tr class="odd">
+<td align="left">25</td>
+<td align="left">SIGXFSZ</td>
+<td align="left">terminate process</td>
+<td align="left">file size limit exceeded (seesetrlimit(2))</td>
+</tr>
+<tr class="even">
+<td align="left">26</td>
+<td align="left">SIGVTALRM</td>
+<td align="left">terminate process</td>
+<td align="left">virtual time alarm (seesetitimer(2))</td>
+</tr>
+<tr class="odd">
+<td align="left">27</td>
+<td align="left">SIGPROF</td>
+<td align="left">terminate process</td>
+<td align="left">profiling timer alarm (seesetitimer(2))</td>
+</tr>
+<tr class="even">
+<td align="left">28</td>
+<td align="left">SIGWINCH</td>
+<td align="left">discard signal</td>
+<td align="left">Window size change</td>
+</tr>
+<tr class="odd">
+<td align="left">29</td>
+<td align="left">SIGINFO</td>
+<td align="left">discard signal</td>
+<td align="left">status request from keyboard</td>
+</tr>
+<tr class="even">
+<td align="left">30</td>
+<td align="left">SIGUSR1</td>
+<td align="left">terminate process</td>
+<td align="left">User defined signal 1</td>
+</tr>
+<tr class="odd">
+<td align="left">31</td>
+<td align="left">SIGUSR2</td>
+<td align="left">terminate process</td>
+<td align="left">User defined signal 2</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Raise</dt>
+<dd><p>Used to indicate the generation of a signal.</p>
+</dd>
+<dt>Catch</dt>
+<dd><p>Used to indicate the receipt of a signal.</p>
+</dd>
+</dl>
+<h4 id="signal-handling">Signal handling</h4>
+<pre><code>void (*signal(int sig, void (*func)(int)))(int);</code></pre>
+<ul>
+<li>It takes two parameters, sig and func.
+<ul>
+<li>The signal to be caught or ignored is given as argument sig.</li>
+<li><p>The function to be called when the specified signal is received is given as func.</p></li>
+<li><p>This function must be one that takes a single int argument (the signal received) and is of type void.</p></li>
+</ul></li>
+<li><p>The signal function itself returns a function of the same type, which is the previous value of the function set up to handle this signal, or one of these two special values:</p></li>
+<li>Not large</li>
+<li>Should not use global or static data structures</li>
+<li><p>The signal that cause invocation of the signal handler is <strong>blocked</strong> during the handler execution</p></li>
+<li>Different signals can use the same handler function.</li>
+<li>Allow multiple handlers (in the same functions)</li>
+<li><p>Allow different handlers for the same signal at different points of program execution.</p></li>
+<li><p>Args determined by OS, not out program</p></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Value</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>SIG_IGN</code></td>
+<td align="left">Ignore the signal</td>
+</tr>
+<tr class="even">
+<td align="left"><code>SIG_DFL</code></td>
+<td align="left">Restore default behavior</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>Sending signals (even to self):</p>
+<pre><code>int kill(pid_t pid, int sig);</code></pre></li>
+<li><p>The kill function sends the specified signal, sig, to the process whose identifier is given by pid. It returns 0 on success. To send a signal, the sending process must have permission to do so. Normally, this means that both processes must have the same user ID.</p></li>
+<li><p>Alarm clock (SIGALRM):</p>
+<pre><code>unsigned int alarm(unsigned int seconds);</code></pre></li>
+<li><p>The alarm call schedules the delivery of a SIGALRM signal in seconds seconds. In fact, the alarm will be delivered shortly after that, due to processing delays and scheduling uncertainties. A value of 0 will cancel any outstanding alarm request. Each process can have only one outstanding alarm. Alarm returns the number of seconds left before any outstanding alarm call would be sent, or -1 if the call fails.</p></li>
+<li>Be sure to know:
+<ul>
+<li>Signals and threads</li>
+<li>Signals and event-based programming</li>
+<li>Signals and processes</li>
+</ul></li>
+<li>Disposition
+<ul>
+<li>For a delivered signal, the process can:
+<ul>
+<li>Ignore</li>
+<li>Catch - invoke user-written code in the process</li>
+<li>Default action - kill process w/o core dump</li>
+</ul></li>
+</ul></li>
+<li><code>signal.h</code>
+<ul>
+<li><p>Each process has a <strong>signal mask</strong> - the set of blocked signals for that process.</p></li>
+<li><p>C uses opaque type sigset_t for signal mask implementation</p>
+<p>static void sigint_handler( int signo ); static void timeout_handler( int signo, siginfo_t * info, void * p);</p></li>
+</ul></li>
+</ul>
+<h4 id="signal-info">Signal Info</h4>
+<pre><code>signinfo_t struct {
+    int si_signo;
+    int si_errno;
+    int si_code;
+}</code></pre>
+<ul>
+<li>And a union of structure determined by different signals with detailed information.</li>
+</ul>
+<h4 id="signal-action">Signal Action</h4>
+<pre><code>int sigaction ( int signo, const struct sigaction * action,
+                struct sigaction * oldaction );</code></pre>
+<dl>
+<dt><code>signo</code></dt>
+<dd><p>any valid signal except kill and stop</p>
+</dd>
+<dt><code>action</code></dt>
+<dd><p>pointer to an sigaction struct that specifies new process response to signo. Can be null (default action will be set to oldaction).</p>
+</dd>
+<dt><code>oldaction</code></dt>
+<dd><p>pointer to previous sigaction for signo. Can be null</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Member type</th>
+<th align="left">Name</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>void(*)(int)</code></td>
+<td align="left"><code>sa_handler</code></td>
+<td align="left"><code>SIG_DFL</code>, <code>SIG_IGN</code>, or pointer to function.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>sigset_t</code></td>
+<td align="left"><code>sa_mask</code></td>
+<td align="left">Additional set of signals to be blocked during execution of signal catching function.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>int</code></td>
+<td align="left"><code>sa_flags</code></td>
+<td align="left">Special falgs to affect behavior of signal.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>void(*)(int, siginfo_t *, void *)</code></td>
+<td align="left"><code>sa_sigaction</code></td>
+<td align="left">Signal catching function.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="timer">Timer</h3>
+<pre><code>struct itimerval {
+    struct timeval it_interval;
+    struct timeval it_value;
+}</code></pre>
+<ul>
+<li>Activate: call <code>setitimer</code> with non-zero <code>it_value</code></li>
+<li><p>Deactivate: call <code>setitimer()</code> with zero <code>it_value</code>, or when timer expires with a zero <code>it_interval</code>.</p></li>
+<li><p>No multiple, seperate timers for the same process at the same time.</p></li>
+</ul>
+<h4 id="timer-activation">Timer activation</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><code>it_value</code></th>
+<th align="left"><code>it_interval</code></th>
+<th align="left">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2,0</td>
+<td align="left">5,0</td>
+<td align="left">2 second wait, 5 second interval</td>
+</tr>
+<tr class="even">
+<td align="left">2,0</td>
+<td align="left">0,0</td>
+<td align="left">2 second wait, no repeat</td>
+</tr>
+<tr class="odd">
+<td align="left">0,0</td>
+<td align="left">5,0</td>
+<td align="left">nothing</td>
+</tr>
+<tr class="even">
+<td align="left">0,0</td>
+<td align="left">0,0</td>
+<td align="left">nothing</td>
+</tr>
+</tbody>
+</table>
+<h3 id="threads">Threads</h3>
+<ul>
+<li>Threads are multiple strands of execution in a single program.</li>
+<li>A single is a sequence of control within a process.</li>
+<li>A process runs at least one thread, <code>main</code>.</li>
+<li><p><code>fork()</code>ing a process: A new copy is created with its own everything memory.</p></li>
+<li><p>Starting a new thread: It only has it's own <em>memory stack</em>, everything else is shared with the process which created it.</p></li>
+<li>Advantages
+<ul>
+<li>Make a program do a few things at once</li>
+<li>Logically is not multicore.</li>
+<li>Physically if multicore.</li>
+<li>A program can mix input, calculation, and output efficiently.</li>
+<li>Accelerate processing on proper multi-core processors.</li>
+<li>Switching between threads requires less work than switching between processes.</li>
+</ul></li>
+<li>Disadvantages
+<ul>
+<li>Requires careful design.
+<ul>
+<li>Threads are also know as &quot;how to shoot yourself in both feet at once.&quot;</li>
+</ul></li>
+<li><p>Debugguging hell. By using a good IDE the job is largely mitigated.</p></li>
+<li><p>A program that split a large calculation into two and the the two parts a different threads will not necessarily run more quickly on a single processor machine.</p></li>
+</ul></li>
+</ul>
+<h4 id="posix-specification">POSIX Specification</h4>
+<pre><code>#include &lt;pthread.h&gt;
+int pthread_create(pthread_t *thread, pthread_attr_t *attr,
+                        void *(*start_routine)(void *), void *arg); 
+void pthread_exit(void *retval); 
+int pthread_join(pthread_t th, void **thread_return); /* termination callback */</code></pre>
+<h4 id="thread-synchronization">Thread synchronization</h4>
+<dl>
+<dt>Mutex locks</dt>
+<dd><p>Gatekeepers around a piece of code, mutex &quot;guards an object&quot;.</p>
+</dd>
+<dd><p>In computer science, a lock is a synchronization mechanism for enforcing limits on access to a resource in an environment where there are many threads of execution. A lock is designed to enforce a mutual exclusion concurrency control policy. <a href="http://en.wikipedia.org/wiki/Lock_(computer_science)">↪</a></p>
+</dd>
+<dt>Semaphores</dt>
+<dd><p>Protect sections of code, semaphore &quot;controls a set of objects&quot;</p>
+</dd>
+<dd><p>In computer science, particularly in operating systems, a semaphore is a variable or abstract data type that is used for controlling access, by multiple processes, to a common resource in a parallel programming or a multi user environment. <a href="http://en.wikipedia.org/wiki/Semaphore_(programming)">↪</a></p>
+</dd>
+</dl>
+<h5 id="semaphores">Semaphores</h5>
+<ul>
+<li><p>A semaphore is a special type of variable that can be incremented or decremented, but crucial access to the variable is guaranteed to be atomic, even in a multi-threaded program.</p></li>
+<li><p>If two or more threads in a program attempt to change the value of a semaphore, the system guarantees that all the operations will in fact take place in sequence.</p></li>
+<li><p>Binary semaphore is commonly used. It means only one thread is able to execute the guarded piece of code.</p>
+<ul>
+<li><p>Counting semaphore can allow a number of threads to execute simultaneously.</p>
+<pre><code>#include &lt;semaphore.h&gt;
+int sem_init(sem_t * sem, int pshared, unsigned int value);</code></pre></li>
+</ul></li>
+<li><p>This function intializaes a semaphore object pointed to by <code>sem</code>, sets it sharing option, and gives it an initial integer value.</p></li>
+<li>The <code>pshared</code> parameter controls the type of semaphore.
+<ul>
+<li>If the value is 0, the semaphore is local to the current process.</li>
+</ul></li>
+<li><p>Wait until allowed to execute:</p>
+<pre><code>int sem_wait(sem_t *sem);</code></pre></li>
+<li><p><code>sem_wait()</code> <strong>atomically</strong> decreases the value of the semaphore by one, but always waits until the semaphore has a non-zero count first.</p>
+<ul>
+<li>If sem_wait is called on a semaphore with a value of 0, the function will wait until some other thread has incremented the valuye so that it is no longer 0.</li>
+</ul></li>
+<li><p>Post when enter the guarded execution.</p>
+<pre><code>int sem_post(sem_t * sem);</code></pre></li>
+<li><p><code>sem_post()</code> <strong>atomically</strong> increases the value of the semaphore by one.</p>
+<ul>
+<li>If the both programs try to increase the value by 1, the semaphore will always be correctly increased in value by 2.</li>
+</ul>
+<p>int sem_destroy(sem_t * sem);</p></li>
+</ul>
+<h5 id="mutex">Mutex</h5>
+<ul>
+<li>Mutual exclusion</li>
+<li><p>Allowing programmer to lock an object, only one thread can access it.</p></li>
+<li><p>Must local the mutex before entering and unlock it when you finish.</p>
+<pre><code>#include &lt;pthread.h&gt;
+int pthread_mutex_init(pthread_mutex_t *mutex, const pthread_mutexattr_t *mutexattr); 
+int pthread_mutex_lock(pthread_mutex_t *mutex));
+int pthread_mutex_unlock(pthread_mutex_t *mutex); 
+int pthread_mutex_destroy(pthread_mutex_t *mutex);</code></pre></li>
+</ul>
+<h2 id="november-9th-2013-programming-assignment-5-multithreaded-book-order-system">November 9th, 2013 <small>Programming Assignment 5: Multithreaded Book Order System</small></h2>
+<h3 id="introduction-4">Introduction</h3>
+<p>For this assignment, you will write a multithreaded book order simulation program. This will give you an opportunity to exercise mutexes and thread coordination. You will write a producer- consumer program with a single producer and multiple consumers. Your producer and your con- sumers will run as separate threads, so you will use mutexes to protect and manage shared data structures.</p>
+<h3 id="producer-book-order-input-thread">Producer: Book Order Input Thread</h3>
+<p>Your program will spawn a single order input thread (the producer). The input thread will read in a data file containing multiple book orders, one book order per line. Each book order will consist of:</p>
+<ul>
+<li>Book Title (a string in double quotes)</li>
+<li>Customer ID number (a unique integer)</li>
+<li>Category (a unique alphanumeric string)</li>
+</ul>
+<p>Each book order will be handled by a separate book order processor thread (the consumers). You have (at least) two choices for where the producer thread puts the book orders. First, you may opt to put the book orders into separate queues, one for each category. Each consumer thread will have exclusive access to a specialized queue. Second, you may choose to put all book orders into a single shared buffer that will be used by all the consumer threads. The book order queues (or buffer) are initially empty.Example book categories may include <code>Sports</code>, <code>Housing</code> or <code>Politics</code>.</p>
+<h3 id="consumers-book-order-processor-threads">Consumers: Book Order Processor Threads</h3>
+<p>Your program will also spawn multiple Book Order Processor threads (the consumers), one con- sumer thread for each book category. The Book Order Processor threads will extract all book orders for their category from the data structure shared with the producer and print the individual orders as they are processed. See below for a description of order processing. Remember that individual customers can and will make different book orders for books from different categories.The Book Order Processor thread will also use a customer database that holds:</p>
+<ul>
+<li>Customer name</li>
+<li>Customer ID number (should match order entered into queue)</li>
+<li>Credit Limit (a dollar amount)</li>
+</ul>
+<p>An order is processed by first finding the customer in the database, then deciding if the customer’s credit limit is greater than or equal to the price of the ordered book. If the customer has sufficient funds, the credit limit is debited and the order processor thread prints an order confirmation listing the book name, price and shipping information (customer name, address, state, zip code). If the customer does not have sufficient funds, the order processor thread should print out an order rejection that identifies the customer name, the book order details and the remaining credit limit value for the customer. After all book orders have been processed, the program must print out a final report listing the following for each customer:</p>
+<ul>
+<li>Customer name</li>
+<li>Customer ID number</li>
+<li>Remaining credit balance after all purchases (a dollar amount)</li>
+</ul>
+<p>And for each customer, make two lists. The first list is for successful book orders (the ones they can afford), and the second is for unsuccessful book orders (the ones they could not afford). Each line of the successful book orders should include:</p>
+<ul>
+<li>Book title</li>
+<li>Book price (a dollar amount)</li>
+<li>Remaining credit balance after this purchase (a dollar amount)</li>
+</ul>
+<p>Each line of unsuccessful book orders would include:</p>
+<ul>
+<li>Book title</li>
+<li>Book price (a dollar amount)</li>
+</ul>
+<p>The program should also print the total revenue gained from all successful book orders.You may have to spawn other threads to make this book ordering system work.</p>
+<blockquote>
+<p>Requirement 1: there should be NO BUSYWAITING in any of your code.</p>
+<p>Requirement 2: there should be NO DEADLOCKS and NO RACE CONDITIONS in your code.</p>
+</blockquote>
+<h3 id="program-start-up">Program Start-up</h3>
+<p>The command-line arguments will specify the following:</p>
+<ul>
+<li><code>Arg 1: the name of the database input file</code></li>
+<li><code>Arg 2: the name of the book order input file</code></li>
+<li><code>Arg 3: the list of category names (alphanumeric strings      separated by blanks in a single- or double-quoted string)</code></li>
+</ul>
+<p>Your program starts by reading in the customer database file and setting up the customer data base. It then spawns the producer thread and the consumer threads, one consumer thread for each category.</p>
+<h3 id="program-termination">Program Termination</h3>
+<p>After all in input has been processed, the producer and all the consumer threads shut shut down and the program should print out the final report as described above.</p>
+<h3 id="extra-credit">Extra Credit</h3>
+<p>Normally, the producer and consumer threads run in the same process. For extra credit, you can make the producer and consumer threads run as separate processes that communicate through <code>shared memory</code>. Your producer program would set up the shared memory and then use <code>fork()</code> and <code>exec()</code> to spawn the consumer process(es). You could have a single consumer process that handles all book categories (maybe with separate threads for each category) or you could have separate consumer processes, each of which handles a separate book category. As a responsible parent process, the producer process would use wait() to clean up the child consumer process(es) and clean up the shared memory.If you choose to use separate processes, it would be useful (and look cool) to have the producer process print out messages about the consumer process(es) is creates–something like ”Created child consumer process <code>&lt;PID&gt;</code> to handle category <code>&lt;CATEGORY&gt;</code>”. You can also add similar messages about how the producer parent wait()s for each of its children. You could also add messages about set up and removal of shared memory.</p>
+<h3 id="what-to-turn-in-4">What to turn in</h3>
+<p>A writeup documenting your design paying particular attention to the thread syn- chronization requirements of your application.All source code including both implementation (.c) and interface(.h) files. A makefile for producing an executable program file.Your grade will be based on:</p>
+<ul>
+<li><p>Correctness (how well your code is working, including avoidance of deadlocks.</p></li>
+<li><p>Efficiency (avoidance of recomputation of the same results, avoidance of busy-waits).</p></li>
+<li><p>Good design (how well written your design document and code are, including modularity and comments).</p></li>
+</ul>
+<h2 id="november-8th-2013-shared-memory">November 8th, 2013 <small>Shared Memory</small></h2>
+<ul>
+<li>The lifetime is larger than a process but less than a file.
+<ul>
+<li>If you reboot, it goes away.</li>
+<li>If no process is using them, they still remain, or can.</li>
+</ul></li>
+<li>Shut down the system and the shared memory ceases to exit.
+<ul>
+<li>We have shared memory segments that exist indepedant of procesesses.</li>
+</ul></li>
+<li>Are not tied to the file memory model we're familiar with.
+<ul>
+<li>They do, however, have read/write permissions just like files do.</li>
+</ul></li>
+<li><p>Instead of a directory structure, shared memory exists in a shared, flat list.</p>
+<ul>
+<li>They're identified by a numeric key, a number.</li>
+</ul></li>
+<li>They key is generated from existing files and directories.
+<ul>
+<li>Metadata <em>about</em> the files.</li>
+</ul></li>
+<li>It's like virtual memory.
+<ul>
+<li><p>The shared memory system has a lifetime that's shorter than the directory structure.</p>
+<ul>
+<li>This is how we have <em>persistance</em> of identification.</li>
+</ul></li>
+<li>But if the file goes away, <strong>heaven help you</strong>.
+<ul>
+<li>Something something, that would be bad.</li>
+</ul></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>If you change the file, what happens?</p>
+</blockquote>
+<ul>
+<li><p>If you delete the file, you may no longer be able to find the key.</p>
+<ul>
+<li>I'll talk about this later.</li>
+</ul></li>
+<li>Multiple shared memory segments can exist.
+<ul>
+<li>These things can be of different sizes.</li>
+<li>You can get <em>multiple</em> shared memory segments.</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Is this like caches?</p>
+</blockquote>
+<ul>
+<li>No, because we're not getting efficiency from this.
+<ul>
+<li>It <em>is</em> faster than reads or writes or socket connections.</li>
+</ul></li>
+<li><p>Different processes may attach the same addresses to different segments.</p>
+<ul>
+<li>Any attempt to share pointers will be dangerous.</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Is there any reason that different processes have different pointers?</p>
+</blockquote>
+<ul>
+<li>Probably not.
+<ul>
+<li>He understands <em>part of it</em>.</li>
+</ul></li>
+<li><p>The same program may attach the same memory segment to different addresses at different invocations.</p></li>
+<li><p>The shared memory does not have an address until you &quot;attach&quot; to it.</p>
+<ul>
+<li>Processes <em>attach</em> and <em>detach</em> to and from shared memory segments.</li>
+</ul></li>
+<li><p>Multiple programs running simultaneously may attach different addresses to the same memory segments.</p></li>
+<li><p>Because these things exist indepedantly of any process, not only do we have an API but because we have commands.</p></li>
+</ul>
+<dl>
+<dt><code>ipcs -m</code></dt>
+<dd><p>This is like &quot;list all shared memory segments&quot;</p>
+<pre><code>nbp-168-15:~ pauljones$ ipcs -m
+IPC status from &lt;running system&gt; as of Tue Nov 12 20:31:44 EST 2013
+T     ID     KEY        MODE       OWNER    GROUP
+Shared Memory:
+
+nbp-168-15:~ pauljones$ </code></pre>
+</dd>
+<dt><code>ipcrm -m ID</code></dt>
+<dd><p>Removes shared memory with ID.</p>
+</dd>
+</dl>
+<blockquote>
+<p>Could there be two addresses for the same one?</p>
+</blockquote>
+<ul>
+<li><p>Only within programs, not physically.</p>
+<pre><code>for i in `ipcs -m | grep morbius`; do
+    ipcrm -m $i &gt; /dev/null 2 &gt;&amp; 1
+done</code></pre></li>
+<li><p>The maximum size of shared segments seems to be <code>2147483647</code> and <code>256</code> of them.</p>
+<ul>
+<li>But this is machine dependant.</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>CLEAN UP.</p>
+</blockquote>
+<pre><code>for i in `ipcs -m | grep [your id here] | colrm 1 11 \ colrm 11`; do
+    ipcrm -m $i
+    done
+    ipcs -m</code></pre>
+<!-- -->
+
+
+<pre><code>#include &lt;sys/types.h&gt;
+#include &lt;sys/ipc.h&gt;</code></pre>
+<ul>
+<li><p>The beauty of <code>ftoke</code> is ...</p>
+<pre><code>int shmctl(int shmid, int cmd, struct shmid_ds *);</code></pre></li>
+</ul>
+<h2 id="november-14th-2013">November 14th, 2013 <small></small></h2>
+<ul>
+<li>We have two ways of resolving an interesting problem:
+<ol style="list-style-type: decimal">
+<li>How does a program find out how big a peice of shared memory is?
+<ul>
+<li>These programs have <em>shared knowledge</em>.</li>
+</ul></li>
+</ol></li>
+<li><p>If the same process which creates the linked list also <em>accesses</em> the linked list, that's fine.</p>
+<ul>
+<li>On the other hand, if another process creates and another acceses, big trouble.</li>
+</ul></li>
+<li><p>The idea is to say, &quot;Oh, yeah, the idea is to have not pointers, but offsets by which we access shared memory in multiple programs.&quot;</p></li>
+<li><em>Do not put pointers in shared memory</em>.
+<ul>
+<li><em>Array is a <strong>really good idea</strong></em>.</li>
+</ul></li>
+</ul>
+<h2 id="december-5th-2013-lecture">December 5th, 2013 <small>Lecture</small></h2>
+<h3 id="exam-topics">Exam topics</h3>
+<ol style="list-style-type: decimal">
+<li>mutex locks</li>
+<li>signal locks</li>
+<li>signal handling</li>
+<li>multiprogramming, fork, exec, wait</li>
+<li>shell scripting</li>
+<li>shared memory</li>
+<li>pointers to functions</li>
+<li>deadlock</li>
+<li>semaphores</li>
+</ol>
+<h3 id="shell-programming">Shell Programming</h3>
+<ul>
+<li>All programs return signal numbers back to the shell.</li>
+<li>They use exit, return.</li>
+<li>The if, while, for, until return an exit status.
+<ul>
+<li>The last symbol command</li>
+</ul></li>
+<li>Pipelines and lists
+<ul>
+<li>The exit status is captured in the <code>\$?</code></li>
+</ul></li>
+</ul>
+<h4 id="tests">Tests</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Flag</th>
+<th align="left">Function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>-e</code></td>
+<td align="left">file exists</td>
+</tr>
+<tr class="even">
+<td align="left"><code>-a</code></td>
+<td align="left">file exists<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>-f</code></td>
+<td align="left">file is a <em>regular</em> file (not a directory or device file)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>-s</code></td>
+<td align="left">file is not zero size</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>-d</code></td>
+<td align="left">file is a directory</td>
+</tr>
+<tr class="even">
+<td align="left"><code>-b</code></td>
+<td align="left">file is a block device</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>-c</code></td>
+<td align="left">file is a character device</td>
+</tr>
+<tr class="even">
+<td align="left"><code>-p</code></td>
+<td align="left">file is a pipe</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>-h</code></td>
+<td align="left">file is a <a href="basic.html#SYMLINKREF">symbolic link</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>-L</code></td>
+<td align="left">file is a symbolic link</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>-S</code></td>
+<td align="left">file is a <a href="devref1.html#SOCKETREF">socket</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>-t</code></td>
+<td align="left">file descriptor is associated with a terminal device</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>-r</code></td>
+<td align="left">file has read permission (<em>for the user running the test</em>)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>-w</code></td>
+<td align="left">file has write permission (for the user running the test)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>-x</code></td>
+<td align="left">file has execute permission (for the user running the test)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>-g</code></td>
+<td align="left">set-group-id (sgid) flag set on file or directory</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>-u</code></td>
+<td align="left">set-user-id (suid) flag set on file</td>
+</tr>
+<tr class="even">
+<td align="left"><code>-k</code></td>
+<td align="left"><em>sticky bit</em> set</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>-O</code></td>
+<td align="left">you are owner of file</td>
+</tr>
+<tr class="even">
+<td align="left"><code>-G</code></td>
+<td align="left">group-id of file same as yours</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>-N</code></td>
+<td align="left">file modified since it was last read</td>
+</tr>
+<tr class="even">
+<td align="left"><code>f1 -nt f2</code></td>
+<td align="left">file <code>f1</code> is newer than <code>f2</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>f1 -ot f2</code></td>
+<td align="left">file <code>f1</code> is older than <code>f2</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>f1 -ef f2</code></td>
+<td align="left">files <code>f1</code> and <code>f2</code> are hard links to the same file</td>
+</tr>
+</tbody>
+</table>
+<h4 id="functions-via-tutorials-pointhttpwww.tutorialspoint.comunixunix-shell-functions.htm">Functions via (Tutorials Point)[http://www.tutorialspoint.com/unix/unix-shell-functions.htm]</h4>
+<p>Functions enable you to break down the overall functionality of a script into smaller, logical subsections, which can then be called upon to perform their individual task when it is needed.</p>
+<p>Using functions to perform repetitive tasks is an excellent way to create code reuse. Code reuse is an important part of modern object-oriented programming principles.</p>
+<p>Shell functions are similar to subroutines, procedures, and functions in other programming languages.</p>
+<h5 id="creating-functions">Creating Functions:</h5>
+<p>To declare a function, simply use the following syntax:</p>
+<pre><code>function_name () { 
+   list of commands
+}</code></pre>
+<p>The name of your function is function_name, and that's what you will use to call it from elsewhere in your scripts. The function name must be followed by parentheses, which are followed by a list of commands enclosed within braces.</p>
+<h5 id="example">Example:</h5>
+<p>Following is the simple example of using function:</p>
+<pre><code>#!/bin/sh
+
+# Define your function here
+Hello () {
+   echo &quot;Hello World&quot;
+}
+
+# Invoke your function
+Hello</code></pre>
+<p>When you would execute above script it would produce following result:</p>
+<pre><code>$./test.sh
+Hello World
+$</code></pre>
+<h5 id="pass-parameters-to-a-function">Pass Parameters to a Function:</h5>
+<p>You can define a function which would accept parameters while calling those function. These parameters would be represented by $1, $2 and so on.</p>
+<p>Following is an example where we pass two parameters <em>Zara</em> and <em>Ali</em> and then we capture and print these parameters in the function.</p>
+<pre><code>#!/bin/sh
+
+# Define your function here
+Hello () {
+   echo &quot;Hello World $1 $2&quot;
+}
+
+# Invoke your function
+Hello Zara Ali</code></pre>
+<p>This would produce following result:</p>
+<pre><code>$./test.sh
+Hello World Zara Ali
+$</code></pre>
+<h5 id="returning-values-from-functions">Returning Values from Functions:</h5>
+<p>If you execute an exit command from inside a function, its effect is not only to terminate execution of the function but also of the shell program that called the function.</p>
+<p>If you instead want to just terminate execution of the function, then there is way to come out of a defined function.</p>
+<p>Based on the situation you can return any value from your function using the <strong>return</strong> command whose syntax is as follows:</p>
+<pre><code>return code</code></pre>
+<p>Here <em>code</em> can be anything you choose here, but obviously you should choose something that is meaningful or useful in the context of your script as a whole.</p>
+<h5 id="example-1">Example:</h5>
+<p>Following function returns a value 1:</p>
+<pre><code>#!/bin/sh
+
+# Define your function here
+Hello () {
+   echo &quot;Hello World $1 $2&quot;
+   return 10
+}
+
+# Invoke your function
+Hello Zara Ali
+
+# Capture value returnd by last command
+ret=$?
+
+echo &quot;Return value is $ret&quot;</code></pre>
+<p>This would produce following result:</p>
+<pre><code>$./test.sh
+Hello World Zara Ali
+Return value is 10
+$</code></pre>
+<h5 id="nested-functions">Nested Functions:</h5>
+<p>One of the more interesting features of functions is that they can call themselves as well as call other functions. A function that calls itself is known as a <em>recursive function</em>.</p>
+<p>Following simple example demonstrates a nesting of two functions:</p>
+<pre><code>#!/bin/sh
+
+# Calling one function from another
+number_one () {
+   echo &quot;This is the first function speaking...&quot;
+   number_two
+}
+
+number_two () {
+   echo &quot;This is now the second function speaking...&quot;
+}
+
+# Calling function one.
+number_one</code></pre>
+<p>This would produce following result:</p>
+<pre><code>This is the first function speaking...
+This is now the second function speaking...</code></pre>
+<h5 id="function-call-from-prompt">Function Call from Prompt:</h5>
+<p>You can put definitions for commonly used functions inside your <em>.profile</em> so that they'll be available whenever you log in and you can use them at command prompt.</p>
+<p>Alternatively, you can group the definitions in a file, say <em>test.sh</em>, and then execute the file in the current shell by typing:</p>
+<pre><code>$. test.sh</code></pre>
+<p>This has the effect of causing any functions defined inside test.sh to be read in and defined to the current shell as follows:</p>
+<pre><code>$ number_one
+This is the first function speaking...
+This is now the second function speaking...
+$</code></pre>
+<p>To remove the definition of a function from the shell, you use the unset command with the .f option. This is the same command you use to remove the definition of a variable to the shell.</p>
+<pre><code>$unset .f function_name</code></pre>
+<h2 id="december-8th-2013-error-detecting-malloc-and-free">December 8th, 2013 <small>Error detecting <code>malloc()</code> and <code>free()</code></small></h2>
+<h3 id="introduction-5">Introduction</h3>
+<p>In this assignment, you will implement <code>malloc()</code> and <code>free()</code> library calls for dynamic memory all- cation that detect common dynamic memory errors. You can use the <code>malloc()</code> and <code>free()</code> code from the Kernighan and Ritchie C book or use the algorithms presented in lecture. To keep things simple, you can use a static char array (e.g. static char <code>myblock[5000]</code>) for your <code>malloc()</code> and <code>free()</code> to use to manage dynamic memory. This eliminates worries about where the dynamic memory comes from. The basic functionality of <code>malloc( size t size )</code> is to return a pointer to a block of the requested size. This memory comes from a memory resource managed by the <code>malloc()</code> and <code>free()</code> functions. To keep things simple, you can use a static char array (e.g. <code>static char myblock[5000]</code>) for your <code>malloc()</code> and <code>free()</code> as your memory resource. This eliminates worries about where the dynamic memory comes from. The <code>free( void * )</code> function returns the allocated block to the memory resource, making it available to use in later <code>malloc()</code> calls.The reason we need an error-detecting dynamic memory manager is to detect commonly-made errors made by programmers using dynamic memory. Some of these problems are described in the next section.</p>
+<h3 id="detectable-errors">Detectable Errors</h3>
+<p>Your <code>malloc()</code> and <code>free()</code> implementation should be able to catch at least the following errors:</p>
+<ul>
+<li><p>free()ing pointers that were never allocated. For example</p>
+<pre><code>int x;
+free( x );</code></pre></li>
+<li><p><code>free()</code>ing pointers to dynamic memory that were not returned from <code>malloc()</code>. For example</p>
+<pre><code>p = (char *) malloc( 200 );     
+...     
+free( p + 10 );</code></pre></li>
+<li><p>redundant <code>free()</code>ing of the same pointer. For example</p>
+<pre><code>free( p );      
+free( p );  </code></pre>
+<p>is an error, but</p>
+<pre><code>p = (char *)malloc( 100 ); 
+free( p );
+p = (char *)malloc( 100 ); 
+free( p );</code></pre>
+<p>is perfectly valid, even if <code>malloc()</code> returned the same pointer both times.</p></li>
+<li><p><strong>Saturation</strong>. What happens when you have a test program that allocates all of available dynamic memory? Your implementation should be able to handle this contingency.</p></li>
+<li><p><strong>Fragmentation</strong>. It is possible to allocate and free many small blocks in a way that leaves only small blocks available for allocation. When a request for a large block is made, the request fails even though the total amount of free memory is larger than the requested block size. There are ways to deal with this problem. First, one part of your memory resource can be reserved for small blocks, leaving the rest available for larger blocks. Second, large blocks can be allocated from one end of your memory resource and small blocks can be allocated from the opposite end. You can use these ideas or invent your own.</p></li>
+</ul>
+<h3 id="responding-to-detected-errors">Responding to Detected Errors</h3>
+<p>Your modified <code>malloc()</code> and <code>free()</code> should report the precise calls that caused dynamic memory problems during program execution. Let’s take advantage of a couple of preprocessor features in the following sample macro definitions:</p>
+<pre><code>#define malloc( x ) mymalloc( x, FILE , LINE )
+#define free( x ) myfree( x, FILE , LINE )</code></pre>
+<p>I'll leave it to you to make the best use of what’s in these macros.</p>
+<h3 id="what-to-turn-in-5">What to turn in</h3>
+<ul>
+<li>A writeup documenting your design.</li>
+<li>A file called <code>hwextra-testcases.txt</code> that contains a thorough set of test cases for your code, including inputs and expected outputs.</li>
+<li>All source code including both implementation (<code>.c</code>) and header(<code>.h</code>) files.</li>
+<li>A makefile for producing executable test program, with multiple targets allowing selection of test programs.</li>
+</ul>
+<p>Your grade will be based on:</p>
+<ul>
+<li>Correctness (how well your code is working).</li>
+<li>Testing thorough ness (quality of your test cases).</li>
+<li>Efficiency.</li>
+<li>Good design (how well written your design document and code are, including modularity and comments).</li>
+</ul>
+<!-- Abbreviations -->
+
+<!-- Footnotes -->
+
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>This is identical in effect to -e. It has been &quot;deprecated,&quot; and its use is discouraged.<a href="#fnref1">↩</a></p></li>
+</ol>
+</div> 
+{% endraw %}

@@ -1,0 +1,98 @@
+# Dependencies
+markdown:         redcarpet
+pygments:         true
+
+# Permalinks
+permalink:        pretty
+
+# Social
+
+social: 
+  facebook:          paulmmj
+  twitter:           PLJNS
+  google-plus:       PaulJones93
+  foursquare:        PLJNS
+  github:            PLJNS
+  soundcloud:        PLJNS
+  youtube:           paulmmj
+  instagram:         PLJNS
+  linkedin:          paulmmj
+  email:             paulmmj@gmail.com
+
+# Setup
+title:            PLJNS.com
+tagline:          'British-American Student and Developer'
+description:      "Fekyll combines the simple, static, and blog-aware power of Jekyll with the most advanced responsive front-end framework in the world, Foundation. Packaged with elegant layouts right of the box, Fekyll is perfect for quickly making your GitHub project or personal page."
+url:              http://PLJNS.com
+
+javascript-dir: /public/js
+stylesheet-dir: /public/css
+images-dir:     /public/img
+
+simple-form: febc16137a544346020e4aee668d6bde
+disqus: 
+
+author:
+  name:           'Paul Jones'
+  url:            http://PLJNS.com
+
+paginate:         5
+
+# Custom vars
+version:          1.0.0
+
+# Navigation
+
+navigation:
+- text: Blog
+  url: /blog/
+- text: Notes
+  url: /notes/
+- text: Projects
+  url: /projects/
+- text: About
+  url: /about/
+- text: Contact
+  url: /contact/
+
+cs-notes:
+- text: Computer Architecture
+  url: /notes/Computer%20Science/Computer%20Architecture/
+- text: Data Structures
+  url: /notes/Computer%20Science/Data%20Structures/
+- text: Design and Analysis of Computer Algorithms
+  url: /notes/Computer%20Science/Design%20and%20Analysis%20of%20Computer%20Algorithms/
+- text: Information and Data Management
+  url: /notes/Computer%20Science/Information%20and%20Data%20Management/
+- text: Internet Technology
+  url: /notes/Computer%20Science/Internet%20Technology/
+- text: Programming Languages
+  url: /notes/Computer%20Science/Programming%20Languages/
+- text: Software Methodology
+  url: /notes/Computer%20Science/Software%20Methodology/
+- text: Systems Programming
+  url: /notes/Computer%20Science/Systems%20Programming/
+- text: Introduction to Discrete Structures I
+  url: /notes/Mathematics/Introduction%20to%20Discrete%20Structures%20I/
+- text: Introduction to Discrete Structures II
+  url: /notes/Mathematics/Introduction%20to%20Discrete%20Structures%20II/
+- text: Introduction to Linear Algebra
+  url: /notes/Mathematics/Introduction%20to%20Linear%20Algebra/
+
+philosophy-notes:
+- text: Advanced Topics in Metaphysics
+  url: /notes/Philosophy/Advanced%20Topics%20in%20Metaphysics/
+- text: Aristotle
+  url: /notes/Philosophy/Aristotle/
+- text: Epistemology
+  url: /notes/Philosophy/Epistemology/
+- text: Leibniz
+  url: /notes/Philosophy/Leibniz/
+- text: Philosophy of Psychology
+  url: /notes/Philosophy/Philosophy%20of%20Psychology/
+- text: Social and Political Philosophy
+  url: /notes/Philosophy/Social%20and%20Political%20Philosophy/
+- text: Survey in Epistemology
+  url: /notes/Philosophy/Survey%20in%20Epistemology/
+- text: Theory of Knowledge
+  url: /notes/Philosophy/Theory%20of%20Knowledge/

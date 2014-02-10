@@ -1,0 +1,1411 @@
+---
+layout: page
+title: Notes
+subtitle: From Paul Jones at Rutgers University
+---
+{% raw %}
+<h1 id="data-structures-with-professor-sesh-venugopal">Data Structures <small>with Professor Sesh Venugopal</small></h1>
+<h2 id="chapter-3---efficiency">Chapter 3 - Efficiency</h2>
+<h3 id="section-2---basic-operations">Section 2 - Basic Operations</h3>
+<ul>
+<li>Generally, people talk about programs in terms of clock time.</li>
+<li><p>It is more helpful to talk about running time independent of CPU speed and system load</p></li>
+<li><p>Every program can be reduced into a basic operation, a comparison, a parse, or a function</p></li>
+<li><p>It is also helpful to think of every operation as an algorithm independent of language</p></li>
+</ul>
+<h3 id="section-3---input-size">Section 3 - Input Size</h3>
+<ul>
+<li><p>If a two programs perform the same task basic operation is comparison, and yet for the same input one compares more than the other, one is faster than the other.</p></li>
+<li><p>Speed as a function of input</p></li>
+</ul>
+<h3 id="section-5---order-and-big-oh">Section 5 - Order and Big Oh</h3>
+<p>In order from fastest to slowest:</p>
+<ol style="list-style-type: decimal">
+<li><p>Constant: <em>O</em>(1) As denoted by the lack of <em>n</em>, this is independent of input size. It is always the same.</p></li>
+<li><p>Linear: <em>O</em>(<em>n</em>) The running time exactly as the input size grows. Very common.</p></li>
+<li>Quadratic: <em>O</em>(n\^2) Often sorting is quadratic.</li>
+<li><em>En log en</em>: <em>O</em>(<em>n</em> log <em>n</em>)</li>
+<li>Logarithmic: <em>O</em>(log <em>n</em>)</li>
+<li>Cubic: <em>O</em>(<em>n</em>\^3)</li>
+<li>Exponential: <em>O</em>(<em>k</em>\^<em>n</em>)</li>
+<li><p>Brute force</p></li>
+</ol>
+<h2 id="chapter-4">Chapter 4</h2>
+<h3 id="section-4.5---linked-lists">Section 4.5 - Linked Lists</h3>
+<ul>
+<li><p>A linked list overcomes a limitation of arrays in that additional space can be made on demand.</p></li>
+<li><p>A linked list is a linear structure consisting of nodes. Nodes have data and a pointer, which point to other nodes.</p></li>
+<li><p>The links can be thought of as &quot;together&quot;, but are in actuality disparate.</p></li>
+</ul>
+<h4 id="insertion">Insertion</h4>
+<ul>
+<li>Adding to the beginning:</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Create a new node;</li>
+<li>Make the new node's next link refer to the first entry;</li>
+<li>Make the reference to the node of list refer to the new node.</li>
+</ol>
+<ul>
+<li>Adding in between, at some item <em>P</em></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Create a new node</li>
+<li><p>Make new node's link refer to the node following <em>P</em>, compare through enumeration</p></li>
+<li><p>Update the next link to which <em>P</em> refers to the new node</p></li>
+</ol>
+<h4 id="deletion">Deletion</h4>
+<ul>
+<li>Arbitrary and last node: set current.next to old.next</li>
+<li>First node: front = front.next</li>
+</ul>
+<h4 id="access">Access</h4>
+<ul>
+<li>Also known as traversing</li>
+<li>While next does not equal null, set current to next.</li>
+</ul>
+<h2 id="chapter-7---stack">Chapter 7 - Stack</h2>
+<h3 id="section-1---properties">Section 1 - Properties</h3>
+<ul>
+<li><p>Last in, first out. As in, the latest thing that went in will be the first thing to come off.</p></li>
+<li><p>A stack is a linear collection of entries in which for every entry <em>y</em> that enters the stack after another entry <em>x</em>, <em>y</em> leaves the stack before <em>x</em>.</p></li>
+<li>Operations:</li>
+<li>Push adds an entry to the top.
+<ul>
+<li>Pop deletes the entry from the top.</li>
+<li>Enumerate lists all entries.</li>
+<li>isEmpty returns if it has at least one entry</li>
+<li>Size returns the number of entries</li>
+</ul></li>
+</ul>
+<h3 id="section-2.2---postfix">Section 2.2 - Postfix</h3>
+<ul>
+<li><p><em>a + b * (c - f) / d</em> is an example of infix, where *a b c f - * d/ +* is the corresponding postfix</p></li>
+<li><p>A general postfix expression is best defined by describing how it is evaluated using a stack. (!!!)</p></li>
+<li><p>When an operator is encountered, there must exist a most recent pair of operands or temporary results on the stack for application.</p></li>
+</ul>
+<h2 id="chapter-10---comparison-trees">Chapter 10 - Comparison Trees</h2>
+<ul>
+<li><p>A comparison tree or binary search on an array is a binary tree that depicts all possible search paths. It shows all the different sequences of comparison undertaken by binary search when searching for keys that may or may not be present in the array.</p></li>
+<li><p>Failure nodes are represented underneath the &quot;leaves&quot; of the tree, and represent the comparison that occurs when the program is searching through and discovers the end of the tree.</p></li>
+<li>There are the best case scenarios and worst case scenarios.</li>
+<li>There are the success scenarios and the failure scenarios.</li>
+<li>There are then probabilities and average cases.</li>
+<li>Synthesizing these, there exists a calculation for:
+<ul>
+<li>Best case for success</li>
+<li>Worst case for success (<em>2h - 1</em>)</li>
+<li>Best case for failure</li>
+<li>Worst case for failure (<em>2h</em>)</li>
+</ul></li>
+</ul>
+<h3 id="section-3---binary-search-tree-operations">Section 3 - Binary Search Tree Operations</h3>
+<ul>
+<li>Search
+<ul>
+<li>Searching in a binary search tree is identical to tracing.
+<ul>
+<li><p>Each node has a basic operation of equality test, and each branch has a basic operation of less-than/greater-than performed on it.</p>
+<ul>
+<li>If it is equal, the search terminates successfully.</li>
+<li>If not, the search continues on the left or right branches.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Insert
+<ul>
+<li><p>In order to insert a value, the search process is employed to <em>force a failure</em>, and the new value is inserted at the place where the search failed.</p>
+<ul>
+<li>A newly inserted node always becomes a leaf node in the search tree.</li>
+</ul></li>
+</ul></li>
+<li>Delete
+<ul>
+<li>X is a leaf node
+<ul>
+<li>This is the simplest case.</li>
+<li>Simply delete X, detach this node from its parent.</li>
+</ul></li>
+<li>X has one child
+<ul>
+<li>Make X's parent point to X's child.</li>
+</ul></li>
+<li>X has two children
+<ul>
+<li>Switch X with the right most leaf of X's right child.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="videos---binary-search-tree">Videos - Binary Search Tree</h2>
+<h3 id="video-1">Video 1</h3>
+<ul>
+<li>Description of algorithm for binary search in an array:
+<ul>
+<li><p>Make high variable equal to number of elements minus one or end of relevant search.</p></li>
+<li>Make low variable equal to zero or start of relevant search.</li>
+<li><p>Make mid equal to high plus low divided by two in integer division.</p></li>
+<li>Compare the item at mid to the sought after item.</li>
+<li><p>When high equals low, the loop quits, the final call.</p></li>
+</ul></li>
+</ul>
+<h3 id="video-2">Video 2</h3>
+<ul>
+<li><p>I can use a binary search comparison tree to find the number of comparisons for successful and failure on arrays of specific length.</p></li>
+<li><p>I am going to learn how to find the average for success and failure.</p></li>
+<li><p>The number of comparisons for failure is always one more than the number for success.</p></li>
+</ul>
+<h4 id="average-case-success">Average case success</h4>
+<ul>
+<li><p>For an array of length seven, where k = 7, and it is flat and even, failure is one more than success.</p></li>
+<li><p>For successes, you first locate all places where a match could occur, success nodes.</p></li>
+<li>Get comparisons for the positions, and add them up.</li>
+<li><p>Divide this by the number of success positions. Add up all possible cases</p></li>
+<li><p>(Sum of all possible comparisons divided by the number of elements)</p></li>
+</ul>
+<h4 id="average-case-failure">Average case failure</h4>
+<p>This is tricky because a failure can catch multiple failures, range matters. You need a domain. Without a domain, it is indeterminate, but it will be between a set of values.</p>
+<ol style="list-style-type: decimal">
+<li><p>Multiply the number of failure values for a node with the number of comparisons to get to that node. Add up all these values for all nodes.</p></li>
+<li><p>Divide by the total number of failure values. (Subtract number of elements from extent of array)</p></li>
+</ol>
+<ul>
+<li>Evidently, you never need to compute the average for failure for any tree. All failures are at the last level.</li>
+</ul>
+<h4 id="probabilistic-search">Probabilistic search</h4>
+<ul>
+<li>Rethink the average as a sum of products.</li>
+<li><p>Multiply the number of cases which each node covers by the probability of &quot;landing&quot; on it.</p></li>
+<li><p>This is akin to &quot;distributing&quot; the division at the end of average cases</p></li>
+</ul>
+<h3 id="video-3---worst-case-for-arbitrary-length-n-and-big-o">Video 3 - Worst case for arbitrary length n and big o</h3>
+<ul>
+<li><p>Number of nodes at a level <em>k</em> increases as 2\^<em>k,</em> geometric series, relies on &quot;ideal structure&quot;</p></li>
+<li>A tree of height <em>k</em> has <em>k+1</em> levels and 2\^<em>k</em> nodes.</li>
+<li>Every descent uses 2 more comparisons.</li>
+<li>The formula for an ideal tree is <em>2*log_2(n + 1) - 1</em></li>
+<li>To make it apply generally, apply ceiling to the logarithm.</li>
+<li><p>The worst case for failure is just one more than the one for success.</p></li>
+</ul>
+<h2 id="midterm">Midterm</h2>
+<ol style="list-style-type: decimal">
+<li><p>Sorted Linked Lists Difference (20 pts, 15+5) Suppose you are given two sorted lists of integers. The difference of the first list with respect to the second is the set of all entries that are in the first list but not in the second. For instance, given these two sorted lists:</p>
+<p>L1: 3 --&gt; 5 --&gt; 9 --&gt; 15 --&gt; 19 --&gt; 25</p>
+<p>L2: 5 --&gt; 8 --&gt; 15 --&gt; 18</p>
+<p>The difference (L1 minus L2) is:</p>
+<p>L1: 3 --&gt; 9 --&gt; 19 --&gt; 25</p>
+<p>Complete the following method to implement the difference of two sorted lists. Assume neither list has any duplicate items. You can implement helper methods if needed, and you have the option of using recursion.</p>
+<pre><code>   public LLNode difference(LLNode list1, LLNode list2) {
+        LLNode a = list1;
+        LLNode c = new LLNode(0, null);
+        LLNode d = c;
+                    while (a != null) {
+                         LLNode b = list2;
+                        boolean shouldAdd = true;
+                        while (b != null) {
+                 if (a.info == b.info) {
+                       shouldAdd = false;
+                              } 
+                b = b.next;
+                          }
+           if (shouldAdd) {
+       c.info = a.info;
+       if (a.next != null) {
+            c.next = newLLNode(0, null);
+            c = c.next;
+       }
+  }
+  a = a.next;
+        }
+       return d;
+   }</code></pre>
+<p>​(b) What is the worst case running time of your implementation, if the length of the two lists are m and n. Identify the basic unit time basic operations, count the number of times they are done, total the counts, and convert to big O. You will not get any credit without an adequate derivation, even if your answer is correct.</p>
+<ul>
+<li>The worst case running time of my implementation is o(m*n).</li>
+<li><p>This is because the program loops through every element in list 1 by the number of elements in list 2 times.</p></li>
+<li><p>The basic unit operations are the comparison of the elements in the first list to the elements in the second.</p></li>
+<li><p>There is no information about the number of elements this code is likely to get. The worst case, though, is that m = n, because this would result in the most possible comparisons.</p></li>
+<li><p>This results in a Big-O of O(n\^2)</p></li>
+</ul></li>
+<li>Sorted Array Insertion (20 pts, 15+5)
+<ul>
+<li><p>Implement the fastest possible algorithm to insert a new entry into a sorted (in ascending order) array of items. Duplicates are NOT allowed (throw an exception if a duplicate is attempted to be inserted.) After insertion, the array should still be in sorted order. You will get at most half the credit if your algorithm is not the fastest possible. (Fastest here refers to the real clock time, not big O).</p>
+<pre><code>  public static void sortedInsert(int[] A, int n, int item) {
+           int imax = n - 1;
+           int imin = 0;
+           while (imax \&gt;= imin) {
+           int imid = (imin + imax) / 2;
+          if (A[imid] \&lt;  item) {
+                imin = imid + 1;
+           } elseif (A[imid] \&gt; item) {
+               imax = imid - 1;
+          } if (imax == imin){
+               for (int j = n; j \&gt; imid; j--) {
+                   A[j + 1] = A[j];
+               }
+              A[imid] = item;
+              return;
+            }
+    }
+    return;
+  }\</code></pre></li>
+<li><p>What is the worst case big O running time for your implementation? Identify the basic operations and show how they add up to the running time. (For any of the search algorithms done in class, you may assume its known running time without derivaton.) You will not get any credit without an adequate derivation, even if your answer is correct.</p></li>
+</ul></li>
+<li><p>BST Ranking (17 pts, 10+7) You are given a Binary Search Tree (BST) with nodes defined as follows:</p>
+<pre><code>  public class BSTNode\&lt;T extends Comparable\&lt;T\&gt;\&gt; { T data;
+     BSTNode\&lt;T\&gt; left, right;
+... }</code></pre>
+<ul>
+<li>Describe an algorithm to find the k-th smallest item in the BST. (k=1 means smallest, k=2 means second smallest, etc.) Your description must be precise enough to be able to translate into Java code. You can use additional data structure(s) if you like, but you may NOT change the BSTNode class itself. Credit depends both on correctness (50%) and efficiency (50%).</li>
+</ul></li>
+</ol>
+<h2 id="avl-tree">AVL Tree</h2>
+<h3 id="lecture">Lecture</h3>
+<ul>
+<li><p>An AVL tree is liked a BST but it's &quot;balanced.&quot; Thus, more efficient.</p></li>
+<li><p>AVL tree is a BST I. Which at every node X, the heights of the sub trees of x differ at most by 1.</p></li>
+<li>Height is the number of branches from root to the farthest leaf.</li>
+<li>Height of empty tree is -1, single node is zero.</li>
+<li><p>Balance factor at every node: '-' (equal high), '/' (left high), or '\' (right high)</p></li>
+<li>Adelson-Velski and Landis</li>
+<li><p>Debalance at X</p></li>
+</ul>
+<h3 id="problem-set-6">Problem Set 6</h3>
+<ol style="list-style-type: decimal">
+<li><p>Each node of a BST can be filled with a height value, which is the height of the subtree rooted at that node. The height of a node is the maximum of the height of its children, plus one. The height of an empty tree is -1. Here's an example, with the value in parentheses indicating the height of the corresponding node:</p>
+<pre><code>          P(3)
+        /   \
+       M(1)  V(2)
+      /     /  \
+     A(0)  R(1) X(0)
+           \
+            S(0)</code></pre>
+<p>Complete the following recursive method to fill each node of a BST with its height value.</p>
+<pre><code>   public class BSTNode&lt;T extends Comparable&gt; {
+       T data;
+       BSTNode left, right;
+       int height;
+       ...
+   }  
+
+   // Recursively fills height values at all nodes of a binary tree
+   public static &lt;T extends Comparable&gt; 
+   void fillHeights(BSTNode root) {
+       if (root == null)
+                    return;
+                height = -1;
+                if (root.left != null)
+                    height = root.left.height;
+                if (root.right != null)
+                    height = Math.max(root.height, root.right.height);
+                height++;
+   }</code></pre></li>
+<li><p>In the AVL tree shown below, the leaf &quot;nodes&quot; are actually subtrees whose heights are marked in parentheses:</p>
+<pre><code>               ------ D -------
+              /                 \
+             B                    F
+          /     \             /       \
+        A         C          E         G
+      /   \     /   \      /   \     /   \
+     T1   T2   T3   T4    T5   T6   T7   T8
+   (h-1) (h) (h-1) (h-1) (h+1) (h) (h)   (h)</code></pre>
+Mark the heights of the subtrees at every node in the tree. What is the height of the tree? Mark the balance factor of each node.</li>
+<li><p>Starting with an empty AVL tree, the following sequence of keys are inserted one at a time: 1, 2, 5, 3, 4 Assume that the tree allows the insertion of duplicate keys. What is the total units of work performed to get to the final AVL tree, counting only key-to-key comparisons and pointer assignments? Assume each comparison is a unit of work and each pointer assignment is a unit of work. (Do not count pointer assignments used in traversing the tree. Count only assignments used in changing the tree structure.)</p></li>
+</ol>
+<h2 id="huffman-coding">Huffman Coding</h2>
+<h3 id="lecture-1">Lecture</h3>
+<ul>
+<li><p>Each character is represented in some binary format, they are encoded.</p>
+<ul>
+<li>For every character, there is a character encoding scheme.</li>
+<li>The present standard is UTF-8
+<ul>
+<li>This is part of the Unicode program.</li>
+<li><p>UTF-8 defines defines greater than a million chars in 1 to 4 bytes.</p></li>
+<li><p>It is of variable length, then.</p></li>
+</ul></li>
+<li>The old way is ASCII
+<ul>
+<li>Each character in ASCII has 7 bits</li>
+<li><p>This means that you could have 2\^7 different characters, 128.</p></li>
+<li><p>Being as the smallest unit of memory is the byte, this left an extra bit to play with.</p></li>
+<li><p>If you don't mind your program not being internationalized, you can still use ASCII and keep everything smaller.</p></li>
+</ul></li>
+</ul></li>
+<li>More frequent characters get smaller code.</li>
+<li>Variable length encoding is Huffman coding.</li>
+<li><p>Given a set of characters, Huffman came up with an algorithm to determine the encoding needed.</p></li>
+<li>With ASCII, the average is always 8.</li>
+<li>An attempt at drawing this:
+<ul>
+<li><code>Queue S: a   w   u   e   t   $</code></li>
+<li><code>Queue T:</code>
+<ul>
+<li>Failed.</li>
+</ul></li>
+</ul></li>
+<li><p>After a Huffman tree is built, to create the encoding, for every character you go left for, add a zero. Every time you go right, assign a one.</p></li>
+</ul>
+<h3 id="problem-set-7">Problem Set 7</h3>
+<ol style="list-style-type: decimal">
+<li><p>Answer the following questions in terms of h, the height of a binary tree:</p>
+<ul>
+<li><p>What is the minimum possible number of nodes in a binary tree of height h?</p>
+<ul>
+<li>The case is where it's a stalk, and the height is <code>h + 1</code></li>
+</ul></li>
+<li><p>A strictly binary tree is one in which every node has either no children or two children; in other words, there is no node that has exactly one child. What is the minimum possible number of nodes in a strictly binary tree of height h?</p></li>
+<li><p>A complete binary tree is one in which every level but the last has the maximum number of nodes possible at that level; the last level may have any number of nodes. What is the minimum possible number of nodes in a complete binary tree of height h?</p></li>
+</ul></li>
+<li><p>Two binary trees are <em>isomorphic</em> if they have the same shape (i.e. they have identical structures.) Implement the following recursive method:</p></li>
+<li><p>The <em>radix tree</em> data structure shown below stores the bit strings <code>0,1,01,010,100,</code> and <code>1011</code> in such a way that each left branch represents a 0 and each right branch represents a 1.</p></li>
+<li><p>You are given the following preorder and inorder traversals of a (boolean) expression tree:</p>
+<ul>
+<li><p>Preorder traversal:</p>
+<pre><code>    ||  &amp;&amp;  ||  a  &gt;  b  c  &lt;  d  e  &amp;&amp;  ==  !=  c  a  f  &lt;  p  q</code></pre></li>
+<li><p>Inorder traversal:</p>
+<pre><code>    a  ||  b  &gt;  c  &amp;&amp;  d  &lt;  e  ||  c  !=  a  ==  f  &amp;&amp;  p  &lt;  q</code></pre></li>
+</ul>
+<p>Build the expression tree from these traverals. (The first || symbol in the preorder traversal matches with the later || in the inorder.) Assume the traversals are stored in string arrays. Assume a recursive build tree method that takes five parameters: the two arrays, the preorder index, the inorder low index and the inorder high index (current inorder subarray limits).</p>
+<p>In your tree building process, specify, for every subtree, the index into the preorder traveral array and the index limits of the inorder array.</p>
+<pre><code>        a  ||  b  &gt;  c  &amp;&amp;  d  &lt;  e
+        c  !=  a  ==  f  &amp;&amp;  p  &lt;  q</code></pre></li>
+<li><p>Exercise 9.4, page 295 of the textbook. Build a Huffman tree for the following set of characters, given their frequencies:</p>
+<pre><code>        R   C   L   B   H   A   E
+        6   6   6  10  15  20  37</code></pre>
+<p>Using this Huffman tree, encode the following text:</p>
+<pre><code>        CLEARHEARBARE</code></pre>
+<p>What is the average code length? If it takes 7 bits to represent a character without encoding, then for the above text, what is the ratio of the encoded length to the unencoded? Decode the following (the string has been broken up into 7-bit chunks for readability): 1111011 1010111 1101110 0010011 111000</p></li>
+</ol>
+<h2 id="problem-set-8---hash-table">Problem Set 8 - Hash table</h2>
+<ol style="list-style-type: decimal">
+<li><p>You are given the following keys to be hashed into a hash table of size 11: <code>{96,  43,  72,  68,  63,  28}</code>. Assume the following hash function is used: <code>H(key) = key mod 11</code>, and chaining (array of linked lists) is used to resolve collisions.</p>
+<ol style="list-style-type: decimal">
+<li><p>Show the hash table that results after all the keys are inserted.</p>
+<ul>
+<li><code>96 % 11 = 8</code></li>
+<li><code>43 % 11 = 10</code></li>
+<li><code>72 % 11 = 6</code></li>
+<li><code>68 % 11 = 2</code></li>
+<li><code>63 % 11 = 8</code></li>
+<li><p><code>28 % 11 = 6</code></p>
+<pre><code> 1:
+ 2: 68
+ 3:
+ 4:
+ 5:
+ 6: 28 -&gt; 72
+ 7:
+ 8: 63 -&gt; 96
+ 9:
+10: 43
+11:</code></pre></li>
+</ul></li>
+<li>Compute the average number of comparisons for successful search.
+<ul>
+<li>Access should be <code>O(1)</code>. Two elements require iterating through a linked list, each with two elements. Two elements are found instantly. So, half the time, it will be <code>O(1)</code>, and then the rest of the time, it will take two comparisons, which is still <code>O(1)</code>.</li>
+</ul></li>
+</ol></li>
+<li><p>Using chaining to resolve collisions, give the worst-case running time (big O) for inserting <em>n</em> keys into an initially empty hash table for each of the following kinds of chains:</p>
+<ul>
+<li><p><strong>Chain is an unordered list</strong>: If the list is simply unordered, you should be able to just put it on the front and call it a day. <code>O(1)</code></p>
+<ul>
+<li>The worst case is where all the elements are hashed into the same list. So <code>O(n)</code>.</li>
+</ul></li>
+<li><p><strong>Chain is an ordered list</strong>: Assuming this is a linked list, insertion would be constant time plus whatever it takes to add this element, which would depend on the length of the linked list. <code>O(n)</code></p>
+<ul>
+<li><code>O(n^2)</code>. The worst case is when all the items are in one spot.</li>
+</ul></li>
+<li><p><strong>Chain is an AVL tree</strong>: Insertion into an AVL tree take that amount of time, and that's the logic I've used throughout. <code>O(log(n))</code></p>
+<ul>
+<li><p>The keyword is balanced, the maximum possible difference in subtrees is one.</p></li>
+<li><p>If you have <code>n</code> items, the height is <code>log(n)</code>. If you want to insert an item into the tree, you're going to have to search through the tree. For searching, the worst case is the height, <code>log(n)</code>.</p></li>
+<li><p>If I know how many items there are in the tree, I can get the height of the tree.</p></li>
+</ul></li>
+</ul></li>
+<li><p>Using the following class definitions:</p>
+<pre><code>class Node {
+          int key;
+          String value;
+          Node next;
+      }
+
+ class Hashtable {
+          Node[] entries;
+          int numvalues;
+          float max_load_factor;
+          public Hashtable(float max_load_factor) { ... } 
+      }</code></pre>
+<p>Complete the following methods of the Hashtable class, using the hash function <code>h(key) = key table_size</code>.</p>
+<pre><code>public void insert(int key, String value) {
+        int index = key % entries.length();//can use h(key)
+        Node e = new Node(); 
+        e.key = key;// Add key to node
+        e.value = value; // Add value to node
+        e.next = entries[index]; // Adding to unordered list
+        entries[index] = e; // Flipping the spots
+        numvalues++; // Accomidating for the new value
+        float load_factor = (double)numvalues /entries.length;
+        if (load_factor &gt; max_load_factor) 
+          rehash(); // rehashing if we need
+}
+private void rehash() {
+        Node oldEntries[] = entries;
+ int oldCapacity = oldEntries.length(); 
+ int newCapacity = 2*oldCapacity;
+ entries = new Node[newCapacity];
+ numvalues=0;
+ for (int i = 0 ; i &lt; oldCapacity ; i++) {
+     for (Node e = oldEntries[i] ; e != null ; e = e.next) {
+         insert(e.key, e.value);
+     }
+ }
+}</code></pre>
+<p>Note: When expanding the hash table, double its size.</p></li>
+<li><p>Suppose you are asked to write a program to count the frequency of occurrence of each word in a document. Describe how you would implement your program using:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>A hash table to store words and their frequencies.</strong> This would require that each word have a unique key, there could be no overloading. In which case, I would probably convert Strings<code>to</code>ints.<code>So here you have</code>m` words to and you need to hash the words and store the frequency of the words. I'd resolve collision by chaining with an unordered list or ordered list, depending on the amount of lookup that needed to be done.</p></li>
+<li><p>**An AVL tree to store words and their frequencies. For each of these implementations:** The way I would implement this is by creating a node which has a value called &quot;frequency&quot;. Other than that, this would be typical implementation of an AVL tree. I'd likely decided to use &quot;compareTo&quot; to decide whether to go left or right in the tree. I think the question may indicate that you're supposed to use an AVL tree to resolve collisions. Which is cool too. That would mean that you'd have some hash function instead of a big tree, which would likely be more efficient. So you use your hash function, and then insert into the tree. If there is no node with your current word, create one. If there is a node with your current word, increment its frequency value. This is the best implementation because it would be very fast.</p>
+<ol style="list-style-type: decimal">
+<li><p>**What would be the worst case time to populate the data structure with all the words and their frequencies?**</p>
+<ul>
+<li>Unordered list
+<ul>
+<li><p>The worst case is that they're all the different words that hash to the same location. This would result in one long unordered chain of single frequency words.</p></li>
+<li>So you get a big chain.</li>
+<li><p>The worst case running time would be that simply be <code>O(n)</code>, because insertion is always one unit of work, and your doing insertion <code>n</code> times for <code>n</code> keys.</p></li>
+</ul></li>
+<li>Ordered list
+<ul>
+<li>The worst case is when all words are unique and hash to the same spot, and then you need to go all the way to the end for it to be in order.</li>
+</ul></li>
+<li>AVL tree
+<ul>
+<li><p>Insertion into an AVL tree is <code>O(log(n))</code> for the worst case.</p></li>
+<li><p>Every word needs to be unique and hash to the same location.</p></li>
+<li><p>So, you're doing <code>m</code> insertions of <code>log(n)</code> efficiency where <code>m = n</code>.</p></li>
+<li><p><code>O(n * log(n))</code></p></li>
+</ul></li>
+</ul></li>
+<li><p>**What would be the worst case time to look up the frequency of a word?**</p></li>
+<li><p>**What would be the worst case time to print all words and their frequencies, in alphabetical order of the words? Assume there are <em>n</em> distinct words in the document, and a total of <em>m</em> words.**</p></li>
+</ol></li>
+</ol></li>
+</ol>
+<p><a href="http://www.cs.rutgers.edu/courses/112/classes/fall_2012_venugopal/assignments/prog3/prog3.html" title="Permalink to CS112 Fall 2012 - HTML DOM">Permalink</a></p>
+<h2 id="programming-assignment-3---dom-tree">Programming Assignment 3 - DOM Tree</h2>
+<p>In this assignment you will implement an HTML Document Object Model (DOM) Tree.</p>
+<h3 id="summary">Summary</h3>
+<p>You will write an application to build a Document Object Model (DOM) for a given HTML file, and process it with a set of given input commands that will transform the tree.</p>
+<h3 id="document-object-model">Document Object Model</h3>
+<p>The Document Object Model (DOM) is a *platform- and language-neutral interface that will allow programs and scripts to dynamically access and update the content, structure and style of documents. The document can be further processed and the results of that processing can be incorporated back into the presented page. * (This is quoted from the <a href="http://www.w3.org/DOM">W3C Document Object Model</a> specification web page.)</p>
+<p>When you access a web page, the browser builds a DOM tree structure for the HTML content in the page. Consider the following HTML example:</p>
+<pre><code>The quick brown fox
+
+
+ which is rendered by a browser as: 
+
+The *quick* brown fox
+ The DOM tree for this document would look like this: 
+
+html
+          |
+         body
+          |
+        center
+          |
+    --------------
+    |     |      |     
+  The    em      brown fox
+          |     
+        quick   
+ (Note: there is an invisible space character after &quot;The&quot;, and before &quot;brown&quot;) </code></pre>
+<p>You can see the DOM tree for any HTML document by using the DOM Inspector in Firefox - you can add on <a href="https://addons.mozilla.org/en-US/firefox/addon/6622">DOM</a> to Firefox. Then, you can see the DOM tree for the currently active document via Tools --&gt; Web Developer --&gt; DOM Inspector. You will notice that under the root html node, in addition to the body node, there is also a head node (with nothing under it), which corresponds to the head tag. The head tag is not used in the example above, and is automatically supplied by the browser. For this assignment you can ignore the head tag.</p>
+<p>The DOM tree helps developers build &quot;smart&quot; HTML pages by embedding, say, Javascript code in HTML, and making queries on the tree to extract information about the structure of the document, or transform it by changing its shape. For example, you may have a table in an HTML page, whose individual columns can be shown or hidden upon user request via Javascript code.</p>
+<p>In the example above, you could replace the em tag with the b tag, and remove the center tag, transforming the DOM tree to this:</p>
+<pre><code>html
+          |
+         body
+          |
+    --------------
+    |     |      |     
+  The     b      brown fox
+          |     
+        quick   
+ which would be rendered as: 
+
+The **quick** brown fox</code></pre>
+<p>Bring up this sample <a href="http://www.cs.rutgers.edu/try.html">try.html</a> in your browser. This page has javascript code embedded in HTML, that replaces em with b when you click a button. It does this by changing the DOM tree representation of the page. (Compare the DOM trees using the DOM Inspector before and after the transformation.)</p>
+<h3 id="restricted-html">Restricted HTML</h3>
+<p>For this assignment, you will work with a restricted set of HTML tags. These are:</p>
+<p>html</p>
+<p>top level</p>
+<p>body</p>
+<p>second level</p>
+<p>p</p>
+<p>paragraph</p>
+<p>em</p>
+<p>emphasis (italics)</p>
+<p>b</p>
+<p>boldface</p>
+<p>table</p>
+<p>table</p>
+<p>tr</p>
+<p>row (within table)</p>
+<p>td</p>
+<p>column (within tr)</p>
+<p>ol</p>
+<p>ordered (numbered) list</p>
+<p>ul</p>
+<p>unnumbered list</p>
+<p>li</p>
+<p>list item (within ol or ul)</p>
+<p>Moreover, the format of the HTML file itself will be restricted to the following:</p>
+<h4 id="examples">Examples</h4>
+<p>Following are some sample HTML pages. Click on a link to see the page, and view the page source to see the underlying HTML:</p>
+<h3 id="tree-structure">Tree Structure</h3>
+<p>Since the nodes in the DOM tree have varying numbers of children, the structure is built using linked lists in which each node has three fields: the</p>
+<p><strong>tag</strong> (which can be an HTML tag or plain text), the <strong>first child</strong> (which is null if the tag is plain text), and the <strong>sibling</strong>, which is a pointer to the next sibling. As an example, for the following input HTML:</p>
+<pre><code>The 
+
+quick
+
+ brown fox
+
+
+ the DOM tree would look like this: 
+
+----------
+    |html| ||
+    ------|---
+          |
+          V
+       ----------
+       |body| ||
+       ------|---
+             |
+             V
+          ----------   -------   ----------------
+          |The ||-|-&amp;gt; |b| |-|-&amp;gt; | brown fox|||
+          ----------   ---|---   ----------------
+                          |
+                          V
+                       -----------
+                       |quick|||
+                       -----------</code></pre>
+<p>**Note: Tree nodes containing tags do NOT include angle brackets with the tags.** So, if a node stores em, it stores the string &quot;em&quot;, NOT the string &quot;&quot;. <strong>Also, closing tags (&quot;/em&quot;) are NOT be stored in the tree.</strong></p>
+<h3 id="implementation">Implementation</h3>
+<p>Download the attached domtree_project.zip file to your computer. DO NOT unzip it. Instead, follow the instructions on the Eclipse page under the section &quot;Importing a Zipped Project into Eclipse&quot; to get the entire project into your Eclipse workspace.</p>
+<p>You will see a project called DOM Tree Assignment with the following classes:</p>
+<ul>
+<li>structures.TagNode</li>
+<li>structures.Tree</li>
+<li>structures.Stack</li>
+<li>apps.DOM</li>
+</ul>
+<p>There are also a number of sample test files directly under the project folder (see the <strong>Examples</strong> section that follows.)</p>
+<p><strong>Note</strong>: You are not required to use the included Stack class. But if you do use a stack, you MUST use this class (not your own). When we grade your program, we will keep this Stack class in the project in case you are using it.</p>
+<p>You will implement the following methods in the Tree class:</p>
+<p>(Note: 5 points have been added to every method to count toward 100 points instead of the previous 75 points.)</p>
+<h4 id="examples-of-transformations">Examples of Transformations</h4>
+<p>Here are examples of applying transformations to some HTML pages, and the resulting HTML:</p>
+<p>Observe the following rules while working on Tree.java:</p>
+<ul>
+<li>You may NOT add any import statements to the file.</li>
+<li>You may NOT add any fields to the Tree class.</li>
+<li>You may NOT modify the headers of any of the given methods.</li>
+<li>You may NOT delete any methods.</li>
+<li>You MAY add helper methods if needed, as long as you make them private.</li>
+</ul>
+<h3 id="grading">Grading</h3>
+<p>Since every method you will implement results in building or modifying the DOM tree structure, we will grade by examing the tree structure that results at the end of each of your methods, and comparing it with the expected structure.</p>
+<p><strong>We will NOT be looking at the HTML printout of the tree.</strong> (It is possible to get the same printout with an incorrect tree structure.) The HTML printout is only for your convenience, but you cannot rely on it to make sure the tree has been constructed correctly--for that, you may want to use the Eclipse debugger. There is comprehensive information on how to use the debugger in Eclipse under Help -&gt; Help Contents -&gt; Java development user guide -&gt; Tasks -&gt; Running and Debugging, and Help -&gt; Help Contents -&gt; Java development user guide -&gt; References -&gt; Views -&gt; Variables View. Essentially, you need to know how to set breakpoints and examine variable values when the program stops at a breakpoint.</p>
+<h2 id="midterm-2">Midterm 2</h2>
+<ul>
+<li>array</li>
+<li>linked list</li>
+<li>array list</li>
+<li>stack</li>
+<li>queue</li>
+<li>sequential search</li>
+<li>binary search</li>
+<li>binary search tree
+<ul>
+<li><p>Worst Case number of comparisons for success: <code>2 ∗ log2 (n + 1) − 1</code></p></li>
+<li>Worst Case number of comparisons for failure: <code>2 ∗ log2 (n + 1)</code></li>
+<li><p>Big O: <code>O(log(n))</code></p></li>
+</ul></li>
+<li>AVL tree
+<ul>
+<li><p>An AVL tree is a binary search tree in which the heights of the left and right substrees differ in height by at most 1. It can also be recursively defined as a binary search tree in which the left and right subtrees of the root are AVL subtrees that differ at most by 1.</p></li>
+<li>Worst case Insertion, Delete, Search: <code>O(log(n))</code></li>
+<li>Average number of comparisons for failure: <code>∼ 2 log (n)</code></li>
+<li>AVL tree operations
+<ul>
+<li><p>Rotation - Locally rearranging the structure of an AVL tree, done to rebalance an AVL tree. - Takes O(1) time. - Done once if the off-balance balance factors are pointing in the same direction, done twice if the balance factors are pointing in opposite directions</p></li>
+<li><p>Insertion - Insert the new value in like a normal BST - Backtrack up the tree and change balance factors accordingly</p>
+<ul>
+<li>If one becomes imbalanced in the direction of its balance factor, a rebalance is necessary - check two parent nodes up to see if the balance factors are the same or not - Rotate the first two nodes, then if the balance factors were different, rotate the first node with the top node, placing the first node at the top of observed AVL tree - After one rebalance is done, or one backtracks to the top of the tree, Insertion is complete!</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>binary tree
+<ul>
+<li><p>Inorder Traversal of Tree T: First recursively traverse the Left subtree of T, then Visit the root of T, then recursively traverse the Right subtree of T. (LVR) ̄</p></li>
+<li><p>Preorder Traversal of Tree T: First Visits the root of T, then recursively traverse the Left subtree of T, then recursively traverse the Right subtree of T. (VLR) ̄</p></li>
+<li><p>Postorder Traversal of Tree T: First recursively traverse the Left subtree of T, then recursively traverse the Right subtree of T, then Visit the root of T. (RVL)</p></li>
+</ul></li>
+<li>Huffman coding
+<ol style="list-style-type: decimal">
+<li><p>Construct a single-node binary tree for each symbol, place them all in queue S</p></li>
+<li>Pick the two smallest weight trees from queue S and T</li>
+<li><p>Construct a new tree by creating a root and attaching the two trees as the subtrees of the root</p></li>
+<li>Add the tree to queue T</li>
+<li><p>Repeat until S is empty</p></li>
+</ol></li>
+<li>hash table
+<ul>
+<li>A hash table is a storage array.</li>
+<li><p>Hashing is the process of storing an object in a hash table by deriving a numeric hashcode for it and mapping this hashcode to a location in the table.</p></li>
+<li><p>Collision Resolution is required when a new entry hashes to a place in the table that is already occupied, and it is the process then used to determine where the entry gets inserted.</p></li>
+<li><p>Hashing function: h(k) = (sum of digits of k) mod (length of hash table array)</p></li>
+<li><p>Requirements are <code>O(1)</code> time, and it must distribute keys uniformly over the hash table, ideally every location in the hash table would have the same probably of being filled as any other location.</p></li>
+<li><p>If a collision occurs at location i of the hash table, it simply adds the colliding entry to a linked list that is built at that location.</p></li>
+<li><p>When a new entry is to be inserted at an occupied location, it is inserted in the front of the chain at that location, O(1)</p></li>
+<li><p>The worst case running time of a hash table using Chaining as collision resolution is <code>O(n)</code></p></li>
+<li><p>The load factor of a hash table is the ratio of the number of entries in the table to its size. Let n be the number of entries in the hash table, and N be the size (or capacity) of the table</p></li>
+</ul></li>
+</ul>
+<h2 id="chapter-11---heap">Chapter 11 - Heap</h2>
+<h3 id="heap-as-priority-queue">Heap As Priority Queue</h3>
+<ul>
+<li><p>The role of the heap structure is to have different priorities of removal.</p></li>
+<li>Generalization of the first-in, first-out (FIFO) queue.</li>
+<li><p>The FIFO queue is a special case of a priority queue in which the priory of an entry is the time of its arrival in the queue.</p></li>
+</ul>
+<h3 id="heap-properties">Heap Properties</h3>
+<ul>
+<li><p>A <strong>heap</strong> is a complete binary tree with the property that the key of the item at any node <code>x</code> is greater than or equal to the keys of the item at all the nodes in the subtree rooted at <code>x</code>.</p>
+<ul>
+<li><p>A <strong>max heap</strong> is one which has the greatest element at the top of the tree.</p></li>
+<li><p>A <strong>min heap</strong> is a complete binary tree with the property that the key of the item at any node <code>x</code> is less than or equal to the keys of the items at all the nodes in the subtree rooted at <code>x</code>.</p>
+<ul>
+<li>This implies that minimum key is at the top of the heap.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="heap-operations">Heap Operations</h3>
+<ul>
+<li><strong>create-heap</strong>: create an empty heap</li>
+<li><strong>heapify</strong>: create a heap out of given array of elements</li>
+<li><p><strong>find-max</strong> or <strong>find-min</strong>: find the maximum item of a max-heap or a minimum item of a min-heap, respectively (aka, peek)</p></li>
+<li><p><strong>delete-max</strong> or <strong>delete-min</strong>: removing the root node of a max- or min-heap, respectively</p></li>
+<li><p><strong>increase-key</strong> or <strong>decrease-key</strong>: updating a key within a max- or min-heap, respectively</p></li>
+<li><strong>insert</strong>: adding a new key to the heap</li>
+<li><p><strong>merge</strong>: joining two heaps to form a valid new heap containing all the elements of both.</p></li>
+</ul>
+<h4 id="insert">Insert</h4>
+<ul>
+<li><p>Insert a new key in a heap must ensure that after insertion, both the heap structure and the heap ordering properties are satisfied.</p></li>
+<li><p>First, insert the new key so that the heap structure property is satisfied, meaning that the new tree after insertion is also complete.</p></li>
+<li><p>Second, makes sure that the heap ordering property is satisfied by sifting up the newly inserted key.</p></li>
+<li>Steps
+<ol style="list-style-type: decimal">
+<li>Add the element to the bottom level of the heap.</li>
+<li><p>Compare the added element with its parent; if they are in the correct order, stop.</p></li>
+<li><p>If not, swap the element with its parent and return to the previous step.</p></li>
+</ol></li>
+</ul>
+<h5 id="sifting-up">Sifting Up</h5>
+<ul>
+<li><p>Sifting up consists of comparing the new key with its parent, and exchanging them is the parent is less than the new key.</p></li>
+<li>In the best case, no exchanged are done.</li>
+<li><p>In the worst case, exchangers may have to be done repeatedly until the new key reaches the root.</p></li>
+</ul>
+<h5 id="code">Code</h5>
+<pre><code>public void insert(int value) {
+    heapSize++;
+    data[heapSize - 1] = value;
+    siftUp(heapSize - 1);
+}
+
+private void siftUp(int nodeIndex) {
+    int parentIndex, tmp;
+    if (nodeIndex != 0) {
+        parentIndex = getParentIndex(nodeIndex);
+        if (data[parentIndex] &gt; data[nodeIndex]) {
+            tmp = data[parentIndex];
+            data[parentIndex] = data[nodeIndex];
+            data[nodeIndex] = tmp;
+            siftUp(parentIndex);
+        }
+    }
+}</code></pre>
+<h5 id="runtime-analysis">Runtime analysis</h5>
+<ul>
+<li><p>Sifting up during insertion takes one comparison per level between the new key and its parent.</p></li>
+<li><p>The worst case is that the new key needs to be sifted to the root, resulting in <code>h</code> comparison.</p></li>
+<li><p>This means that the worst case takes the same amount of comparisons as the number of nodes, which results in:</p></li>
+<li><p><strong>Big <em>O</em></strong>: <code>log(n)</code></p></li>
+</ul>
+<h4 id="delete">Delete</h4>
+<ul>
+<li><p>The entry at the top of the heap is the one with the maximum key. Deletion removes this entry from the heap. This leaves a vacant spot at the root, and the has to be restored.</p></li>
+<li><p>Finding an item in a heap is an <code>O(n)</code> operation (it is not a search structure), but if you already know where it is in the heap, removing it is <code>O(log n)</code>.</p></li>
+<li>Steps:
+<ol style="list-style-type: decimal">
+<li><p>Replace the root of the heap with the last element on the last level.</p></li>
+<li><p>Compare the new root with its children; if they are in the correct order, stop.</p></li>
+<li><p>If not, swap the element with one of its children and return to the previous step.</p></li>
+</ol></li>
+</ul>
+<h5 id="sifting-down">Sifting down</h5>
+<ul>
+<li><p>The key <code>k</code> that is extracted from the last node and written into the root is moved as far down as necessary to ensure that placing <code>k</code> in this spot will preserve the heap ordering property.</p></li>
+<li><p>The children of <code>k</code> are first compared with each other to determine the larger key.</p>
+<ul>
+<li>This larger key is then compared with <code>k</code>.</li>
+<li>If <code>k</code> is smaller, it is exchanged with the larger key.</li>
+</ul></li>
+</ul>
+<h5 id="code-1">Code</h5>
+<pre><code>public void removeAt(int i) {
+    data[i] = data[heapSize - 1];
+    heapSize--;
+    if (heapSize &gt; 0)
+        siftDown(i);
+}
+
+private void siftDown(int nodeIndex) {
+    int leftChildIndex, rightChildIndex, minIndex, tmp;
+    leftChildIndex = getLeftChildIndex(nodeIndex);
+    rightChildIndex = getRightChildIndex(nodeIndex);
+    if (rightChildIndex &gt;= heapSize) {
+        if (leftChildIndex &gt;= heapSize)
+            return;
+        else
+            minIndex = leftChildIndex;
+    } else {
+        if (data[leftChildIndex] &lt;= data[rightChildIndex])
+            minIndex = leftChildIndex;
+        else
+            minIndex = rightChildIndex;
+    }
+    if (data[nodeIndex] &gt; data[minIndex]) {
+        tmp = data[minIndex];
+        data[minIndex] = data[nodeIndex];
+        data[nodeIndex] = tmp;
+        siftDown(minIndex);
+    }
+}</code></pre>
+<h5 id="runtime-analysis-1">Runtime analysis</h5>
+<ul>
+<li><p>Sifting down key <code>k</code> during deletion invokes two comparisons per level, one between the children of <code>k</code>, and another between the larger child and <code>k</code>.</p></li>
+<li><p>In the worst case, <code>k</code> may be sifted all the way down to a leaf nodes, or <code>h</code> levels, for a total of <code>2h</code> comparisons.</p></li>
+<li><p>In terms of <code>n</code>, this amounts to <code>2 * log(n + 1) - 2</code>, resulting in a:</p></li>
+<li><p><strong>Big <em>O</em></strong>: <code>log(n)</code></p></li>
+</ul>
+<h4 id="runtime-analysis-2">Runtime analysis</h4>
+<ul>
+<li><p>Let the heigh of the heap be <code>h</code>. The maximum number of nodes <code>N_{max}</code> in a binary tree of height <code>h</code> is <code>2^{h + 1} - 1</code>. In a heap, if we assume that the last level is full, we have number of nodes <code>n = N_{max} = 2^{h + 1}  - 1</code> which implies <code>h  = log(n + 1) - 1</code>.</p>
+<ul>
+<li><strong>Height</strong>: <code>log(n + 1) - 1</code></li>
+<li><strong>Nodes</strong>: <code>2^{h + 1}  - 1</code></li>
+</ul></li>
+</ul>
+<h3 id="summary-1">Summary</h3>
+<ul>
+<li><p>A heap is a complete binary tree with the property that value of the item at any node <code>x</code> is greater than or equal to the values of the items at all the nodes in the subtree rooted at <code>x</code>.</p>
+<ul>
+<li>This defines a max heap, to create a min head, redefine it replacing greater than with less than.</li>
+</ul></li>
+<li>A heap can be used a priority queue. It can also be used to sort.</li>
+<li>Heaps are implemented using arrays for maximum efficiency.</li>
+<li><p>A heap is not a search structure.</p></li>
+</ul>
+<h2 id="problem-set-9---heaps">Problem Set 9 - Heaps</h2>
+<ol style="list-style-type: decimal">
+<li><p>Given the following sequence of integers: 12, 19, 10, 4, 23, 7, 45, 8, 15</p>
+<ol style="list-style-type: decimal">
+<li><p>Build a heap by inserting the above set, one integer at a time, in the given sequence. Show the heap after every insertion. How many comparisons in all did it take to build the heap?</p>
+<ul>
+<li>The way that inserting into a heap works is you place your element at the leftmost bottom open spot, and then sift up (compare) until the tree is structured.</li>
+</ul></li>
+<li><p>Perform successive <em>delete</em> operations on the heap constructed in the previous step, until the heap is empty. Show the heap after every deletion. How many comparisons in all did it take to perform these deletions?</p>
+<ul>
+<li>The way that deleting works in this question is you take away the top not, and compare the two children, sifting down until you have a balanced tree. The worst case is <code>h</code> comparisons each time.</li>
+</ul></li>
+</ol></li>
+<li><p>Suppose we have a (<strong>max</strong>) heap that stores integers. (By contrast, in a &quot;min&quot; heap the key at any node is <em>less than or equal to</em> the key at its children, so the <em>smallest</em> valued key is at the top of the heap.) Then, given an integer <em>k</em>, we would like to print all the values in this heap that are greater than k. Implement the following method to do this. <em>H</em> is the array storage for the max heap, and <em>n</em> is the number of entries in the heap. Note: The challenge is to do this efficiently. Use the heap order to reduce the number of entries of the heap to be examined.</p>
+<pre><code>public void printGreater(int[] H, int n, int k) {
+   this.printGreater(H[], n, k, 0); 
+}
+
+private void printGreater(int[] H, int n, int k, int i) {
+    if (i &gt; n)
+        return;
+    if (H[i] &lt; k)
+        return;
+    System.out.println(H[i]);
+    this.printGreater(H[], n, k, (2*i) + 1);
+    this.printGreater(H[], n, k, (2*i) + 2);
+}</code></pre>
+<ul>
+<li>You're going to need a recursive algorithm that passes in both <code>2k + 1</code> and <code>2k + 2</code> with a base case of either of those values being greater than <code>n</code>, and the program quitting on that. Additionally, if the value at <code>2k + 1</code> or <code>2k + 2</code>.</li>
+</ul></li>
+<li><p>Consider a max heap that only supports the operations <strong>insert</strong>, <strong>deleteMax</strong>, <strong>size</strong>, and <strong>isEmpty</strong>. A client of the heap wants to update the priority of an entry in the heap. Since there is no search operation, the only way to accomplish the update is this:</p>
+<ul>
+<li><p>Perform successive <strong>deleteMax</strong> operations until the entry is extracted</p></li>
+<li>Update the entry's priority</li>
+<li><p><strong>Insert</strong> the entry, as well as all the other deleted entries back into the heap</p></li>
+</ul></li>
+</ol>
+<ul>
+<li>What would be the worst case running time (big <em>O</em>) of this update process on a heap with <em>n</em> entries?</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><p>Suppose you are given two heaps, stored in arrays. Write a method to merge them into a single heap, and return this heap. The original heaps are not modified:</p>
+<pre><code>public static &lt;T extends Comparable&lt;T&gt;&gt; T[] merge(T[] heap1, T[] heap2) {
+  T[] res = new int[heap1.length + heap2.length];
+  for (int i=0; i &lt; heap1.length; i++) {
+      res[i] = heap1[i];
+  }
+  for (int i=0; i &lt; heap2.length; i++) {
+      res[i+heap1.length] = heap2[i];
+  }
+
+  // in res, sift up starting with entries copied from the second heap 
+  for (int s=heap1.length; s &lt; res.length; s++) {
+      int k=s;
+      // sift up res[k]
+      while (k &gt; 0) {
+         int p = (k-1)/2;
+         if (res[k].compareTo(res[p]) &gt; 0) { // switch
+            T temp = res[k]; res[k] = res[p]; res[p] = temp;
+            k = p;
+         } else {
+            break; 
+         }
+      }
+
+  }
+
+  return res;</code></pre>
+<p>}</p></li>
+</ol>
+<h2 id="programming-assignment-4---friendship-graph-algorithms">Programming Assignment 4 - Friendship Graph Algorithms</h2>
+<p>In this assignment, you will implement some useful algorithms that apply to friendship graphs of the Facebook kind.</p>
+<h3 id="background">Background</h3>
+<p>In this program, you will implement some useful algorithms for graphs that represent friendships, such as Facebook. A friendship graph is an undirected graph without any weights on the edges. It is a simple graph because there are no self loops (a self loop is an edge from a vertex to itself), or multiple edges (a multiple edge means more than edge between a pair of vertices).</p>
+<p>The vertices in the graphs for this assignment represent two kinds of people: students and non-students. Each vertex will store the name of the person. If the person is a student, the name of the school will also be stored.</p>
+<p>Here's a sample friendship graph:</p>
+<pre><code>(sam,rutgers)---(jane,rutgers)-----(bob,rutgers)   (sergei,rutgers)
+                          |                 |             |
+                          |                 |             |
+                     (kaitlin,rutgers)   (samir)----(aparna,rutgers)
+                          |                            |
+                          |                            |
+  (ming,penn state)----(nick,penn state)----(ricardo,penn state)
+                          |
+                          |
+                     (heather,penn state)
+
+
+                   (michele,cornell)----(rachel)     
+                          | 
+                          | 
+     (rich,ucla)---(tom,ucla)</code></pre>
+<p>Note that the graph may not be connected, as seen in this example in which there are two &quot;islands&quot; or cliques that are not connected to each other by any edge. Also see that all the vertices represent students with names of schools, except for rachel and samir, who are not students.</p>
+<h3 id="algorithms">Algorithms</h3>
+<ol style="list-style-type: decimal">
+<li><p>Subgraph: Students at a school</p>
+<p>You want to be able to focus exclusively on students in a particular school, and all the friendships between them. To do this, you will have to extract an appropriate subgraph out of the full graph. Here is the subgraph of students at rutgers, extracted from the original sample graph:</p>
+<pre><code>(sam,rutgers)---(jane,rutgers)-----(bob,rutgers)    (sergei,rutgers)
+                          |                                |
+                          |                                |
+                     (kaitlin,rutgers)             (aparna,rutgers)</code></pre></li>
+<li><p>Shortest path: Intro Chain</p>
+<p>sam wants an intro to aparna through friends and friends of friends. There are two possible chains of intros:</p>
+<pre><code>sam--jane--kaitlin--nick--ricardo--aparna
+            or
+  sam--jane-bob--samir--aparna
+ The second chain is preferable since it is shorter. </code></pre>
+<p>If sam wants to be introduced to michele through a chain of friends, he is out of luck since there is no chain that leads from sam to michele in the graph.</p>
+<p>Note that this algorithm does NOT have any restriction on the composition of the vertices: a vertex along the shortest chain need NOT be a student at a particular school, or even a student. So, for instance, you may have to find the shortest intro chain from nick to samir, which has the following solution:</p>
+<pre><code>nick--ricardo--aparana--samir
+ which consists of two penn state students, one rutgers student, and one non-student. </code></pre></li>
+<li><p>Connected Islands: Cliques</p>
+<p>Students tend to form cliques with their friends, which creates islands that do not connect with each other. If these cliques could be identified, particularly in the student population at a particular school, introductions could be made between people in different cliques to build larger networks of friendships at that school.</p>
+<p>In the sample graph, there are two island cliques for students at rutgers:</p>
+<pre><code>(sam,rutgers)---(jane,rutgers)-----(bob,rutgers)    (sergei,rutgers)
+                          |                                |
+                          |                                |
+                     (kaitlin,rutgers)             (aparna,rutgers)</code></pre>
+<p>If we were to look at students at penn state, instead, there is a single clique:</p>
+<pre><code>(ming,penn state)----(nick,penn state)----(ricardo,penn state)
+                          |
+                          |
+                     (heather,penn state)</code></pre>
+<p>And again, a single clique for students at ucla:</p>
+<pre><code>(rich,ucla)---(tom,ucla)</code></pre>
+<p>And one for students at cornell:</p>
+<pre><code>(michele,cornell)</code></pre>
+<p>From these examples, it should be clear that if there is at least one student in the graph that goes to a particular school, then there must be at least one island clique in the graph for students at that school.</p></li>
+<li><p>Connectors: Friends who keep friends together</p>
+<p>If jane were to leave rutgers, sam would no longer be able to connect with anyone else--jane was the &quot;connector&quot; who could pull sam in to hang out with her other friends. Similarly, aparna is a connector, since without her, sergei would not be able to &quot;reach&quot; anyone else. (And there are more connectors in the graph...)</p>
+<p>On the other hand samir is not a connector. Even if he were to leave, everyone else could still &quot;reach&quot; whoever they could when samir was there, even though they may have to go through a longer chain.</p>
+<p>A precise definition of a connector in any undirected graph is a vertex, v, such that there are at least two other vertices x and w for which <em>every</em> path between x and w goes through v. For example, v=jane, x=sam, and w=bob.</p>
+<p>Finding all connectors in an undirected graph can be done using DFS (depth-first search), but keeping track of a couple more numbers for every vertex v. These are:</p>
+<ul>
+<li><p>dfsnum(v): This is the dfs number, assigned when a vertex is visited, dealt out in increasing order.</p></li>
+<li><p>back(v): This is a number that is initially assigned when a vertex is visited, and is equal to dfsnum, but can be changed later based on three conditions:</p>
+<ul>
+<li><p>When the DFS backs up from a neighbor, w, to v, if dfsnum(v) &gt; back(w), then back(v) is set to min(back(v),back(w))</p></li>
+<li><p>If a neighbor, w, is already visited then back(v) is set to min(back(v),dfsnum(w))</p></li>
+</ul></li>
+</ul>
+<p>When the DFS backs up from a neighbor, w, to v, if dfsnum(v) ≤ back(w), then v is identified as a connector, IF v is NOT the starting point for the DFS. (If v is a starting point for DFS, it can be a connector, but another check must be made - see the examples below. The examples don't tell you how to identify such cases, that's up to you.)</p>
+<p>Here are some examples that show how this works.</p>
+<ul>
+<li><p>Example 1: (B is a connector) A--B--C The DFS starts at A. Neighbors for a vertex are stored in REVERSE alphabetical order:</p>
+<pre><code>A: B
+  B: C,A
+  C: B
+
+  dfs @ A  1/1  (dfsnum/back)
+      dfs @ B 2/2
+          dfs @ C 3/3
+              neighbor B is already visited =&amp;gt; C 3/2
+          dfsnum(B)  B 2/1
+      dfsnum(A) </code></pre></li>
+</ul></li>
+</ol>
+<p><a href="http://www.cs.rutgers.edu/courses/112/classes/fall_2012_venugopal/probs/ps10.html" title="Permalink to CS112 Fall 2012: Problem Set 10">Permalink</a></p>
+<h2 id="chapter-14---graph-algorithms">Chapter 14 - Graph Algorithms</h2>
+<h3 id="traversals">Traversals</h3>
+<h4 id="depth-first-search-for-undirected-graphs">Depth-First Search for Undirected Graphs</h4>
+<h5 id="description">Description:</h5>
+<ul>
+<li>Sesh's:
+<ul>
+<li>Suppose that traversal begins at <code>A</code></li>
+<li><p>The algorithms visits <code>A</code> and has to chose a vertex to visit next, and <code>A</code> has neighbors <code>B</code>, <code>D</code>, <code>E</code>, and <code>G</code>. Any of these can be picked next.</p></li>
+<li><p>While visiting <code>B</code>, our algorithm observes that it has neighbor <code>A</code>, which has already been visited, so it skips it. The algorithm keeps track of this by &quot;marking&quot; vertices.</p></li>
+<li><p>Continuing this motion, this particular algorithm reaches the last element (which happens to be <code>G</code>), and finds that both of the neighbors have been visited, so this is a dead end for the algorithm.</p></li>
+<li><p>When at the end, the last element, this algorithm backs out to try and visit unexamined neighbors of previously visited nodes.</p></li>
+</ul></li>
+<li>Wikipedia:
+<ul>
+<li><p>Formally, DFS is an uninformed search that progresses by expanding the first child node of the search tree that appears and thus going deeper and deeper until a goal node is found, or until it hits a node that has no children.</p></li>
+<li><p>Then the search backtracks, returning to the most recent node it hasn't finished exploring.</p></li>
+<li><p>In a non-recursive implementation, all freshly expanded nodes are added to a stack for exploration.</p></li>
+</ul></li>
+</ul>
+<h5 id="algorithm-for-dfsv">Algorithm for <code>DFS(v)</code></h5>
+<ol style="list-style-type: decimal">
+<li>Visit <code>v</code> and mark <code>v</code> as visited</li>
+<li>for each neighbor <code>w</code> of <code>v</code>
+<ol style="list-style-type: decimal">
+<li>if <code>w</code> is not visited, then:
+<ol style="list-style-type: decimal">
+<li><code>DFS(w)</code></li>
+</ol></li>
+</ol></li>
+</ol>
+<h4 id="breadth-first-search-for-undirected-graphs">Breadth-First Search for Undirected Graphs</h4>
+<ul>
+<li>From book:
+<ul>
+<li><p>The primary characteristic of this search is that is visits the vertices following a wave like motion over the graph.</p></li>
+<li><p>The traversal first visits <code>A</code>, then it visits each neighbor of <code>A</code> in turn. These visits mark the first wave.</p></li>
+<li><p>The algorithm then goes to this vertex's first neighbor, and visits all of it's unvisited neighbors.</p></li>
+</ul></li>
+<li><p>From Wikipedia (Note: Using a stack instead of a queue would turn this algorithm into a depth-first search.):</p>
+<ol style="list-style-type: decimal">
+<li>Enqueue the root node</li>
+<li>Dequeue a node and examine it
+<ol style="list-style-type: decimal">
+<li><p>If the element sought is found in this node, quit the search and return a result.</p></li>
+<li><p>Otherwise enqueue any successors (the direct child nodes) that have not yet been discovered.</p></li>
+</ol></li>
+<li><p>If the queue is empty, every node on the graph has been examined – quit the search and return &quot;not found&quot;.</p></li>
+<li><p>If the queue is not empty, repeat from Step 2.</p></li>
+</ol></li>
+</ul>
+<h5 id="algorithm-bfsv">Algorithm <code>BFS(v)</code></h5>
+<ol style="list-style-type: decimal">
+<li>visit <code>v</code> and mark <code>v</code> visited</li>
+<li>add <code>v</code> to queue</li>
+<li>while the queue is not empty do
+<ol style="list-style-type: decimal">
+<li><code>w &lt;-</code> vertex at the from of the queue</li>
+<li>delete <code>w</code> from the queue</li>
+<li>for each neighbor <code>p</code> of <code>w</code> do
+<ol style="list-style-type: decimal">
+<li>if <code>p</code> is not visited then
+<ol style="list-style-type: decimal">
+<li>visit <code>p</code> and mark <code>p</code> as visited</li>
+<li>add <code>p</code> to the queue</li>
+</ol></li>
+</ol></li>
+</ol></li>
+</ol>
+<h3 id="topsort">Topsort</h3>
+<h4 id="wikipedia-standard-algorithm">Wikipedia Standard Algorithm</h4>
+<ol style="list-style-type: decimal">
+<li><code>L</code> ← Empty list that will contain the sorted elements</li>
+<li><code>S</code> ← Set of all nodes with no incoming edges</li>
+<li>while <code>S</code> is non-empty do
+<ol style="list-style-type: decimal">
+<li>remove <code>a</code> node <code>n</code> from <code>S</code></li>
+<li>insert <code>n</code> into <code>L</code></li>
+<li>for each node <code>m</code> with an edge <code>e</code> from <code>n</code> to <code>m</code> do
+<ol style="list-style-type: decimal">
+<li>remove edge <code>e</code> from the graph</li>
+<li>if <code>m</code> has no other incoming edges then 1. insert <code>m</code> into <code>S</code></li>
+</ol></li>
+</ol></li>
+<li>if graph has edges then
+<ol style="list-style-type: decimal">
+<li>return error (graph has at least one cycle)</li>
+</ol></li>
+<li>else
+<ol style="list-style-type: decimal">
+<li>return <code>L</code> (a topologically sorted order)</li>
+</ol></li>
+</ol>
+<h4 id="wikipedia-depth-first-version">Wikipedia Depth-first Version</h4>
+<ol style="list-style-type: decimal">
+<li><code>L</code> ← Empty list that will contain the sorted nodes</li>
+<li><code>S</code> ← Set of all nodes with no incoming edges</li>
+<li>for each node <code>n</code> in <code>S</code> do
+<ol style="list-style-type: decimal">
+<li><code>visit(n)</code></li>
+</ol></li>
+<li>function <code>visit(node n)</code>
+<ol style="list-style-type: decimal">
+<li>if <code>n</code> has not been visited yet then
+<ol style="list-style-type: decimal">
+<li>mark <code>n</code> as visited</li>
+<li>for each node m with an edge from <code>n</code> to <code>m</code> do
+<ol style="list-style-type: decimal">
+<li><code>visit(m)</code></li>
+</ol></li>
+<li>add <code>n</code> to <code>L</code></li>
+</ol></li>
+</ol></li>
+</ol>
+<h4 id="seshs-dfstopsortdriver">Sesh's <code>DFStopsortdriver</code></h4>
+<ol style="list-style-type: decimal">
+<li><code>topnum &lt;- n</code></li>
+<li>for each vertex <code>v</code> in graph do
+<ol style="list-style-type: decimal">
+<li>if <code>v</code> is not visited then
+<ol style="list-style-type: decimal">
+<li><code>DFStopsort(v, topnum)</code></li>
+</ol></li>
+</ol></li>
+</ol>
+<h4 id="seshs-dfstopsortv-topnum">Sesh's <code>DFStopsort(v, topnum)</code></h4>
+<ol style="list-style-type: decimal">
+<li>visit <code>v</code> and mark <code>v</code> as visited</li>
+<li>for each neighbor <code>w</code> of <code>v</code> do
+<ol style="list-style-type: decimal">
+<li>if <code>w</code> is not visited then
+<ol style="list-style-type: decimal">
+<li><code>DFStopsort(w, topnum)</code></li>
+</ol></li>
+</ol></li>
+<li>number <code>v</code> with <code>topnum</code></li>
+<li><code>topnum &lt;- topnum - 1</code></li>
+</ol>
+<h3 id="connected-components">Connected components</h3>
+<h4 id="seshs-dfsconndriver">Sesh's DFSconndriver</h4>
+<ol style="list-style-type: decimal">
+<li><code>compnum &lt;- 0</code></li>
+<li>for each vertex <code>v</code> in the graph do
+<ol style="list-style-type: decimal">
+<li>if <code>v</code> is not visited then
+<ol style="list-style-type: decimal">
+<li><code>compnum &lt;- compnum + 1</code></li>
+<li><code>DFSconn(v, compnum)</code></li>
+</ol></li>
+</ol></li>
+</ol>
+<h4 id="seshs-dfsconnv-compnum">Sesh's DFSconn(v, compnum)</h4>
+<ol style="list-style-type: decimal">
+<li>visit <code>v</code> and mark <code>v</code> as visited</li>
+<li>mark <code>v</code> with <code>compnum</code></li>
+<li>for each neighbor <code>w</code> of <code>v</code> do
+<ol style="list-style-type: decimal">
+<li>if <code>w</code> is not visited then
+<ol style="list-style-type: decimal">
+<li><code>DFS(w, compnum)</code></li>
+</ol></li>
+</ol></li>
+</ol>
+<h4 id="running-times">Running times</h4>
+<ul>
+<li><p>Both of these algorithms scan the vertices and edges of the graph, and the only difference is the order which they are visited.</p></li>
+<li><p>The running time is computer by counting a unit of time for every vertex visit and a unit of time for every vertex inspection to see if it is visited.</p></li>
+<li>We assume that the graph has <code>e</code> edges and <code>v</code> vertices.</li>
+<li><p>Being as each vertex is visited exactly once, the total time for this adds <code>n</code> units of time.</p></li>
+<li>How many times are vertices inspected?
+<ul>
+<li>In general, a vertex is inspected as many times as the degree.</li>
+<li>The total number of vertex inspections is there the sum of the degree of all the graph vertices.</li>
+</ul></li>
+<li><p>The total time for traversal is there for <code>n + 2 * e</code> or <code>O(n + e)</code>. (This only holds when graphs are connected.)</p></li>
+</ul>
+<h3 id="summary-2">Summary</h3>
+<ul>
+<li><p>Directed and undirected graphs can be used to model pair-wise relationships among entities.</p></li>
+<li>Every undirected graph is a special kind of directed graph.</li>
+<li><p>The adjacency matrix representation of a graph is useful when the graph is dense or the application makes very frequent random queries on edges, such as &quot;is edge <code>(x,y)</code> in the graph?&quot;</p></li>
+<li><p>The adjacency linked-lists representations is useful when the graph is relatively sparse, and/or the application needs to access all or most neighbors of vertices.</p></li>
+<li><p>Both depth-first and bread-first traversals are linear-time graph-traversal algorithms, with a running time of <code>O(n + e)</code>.</p></li>
+<li><p>Topological sorting is applicable only to directed or DAGs. It is a linear `((O(n + e)) algorithm that is typically used on precedence graphs.</p></li>
+<li><p>Dikstra's shortest-path algorithm is an instance of a greedy algorithm.</p></li>
+<li><p>The worst-case running time of Dijkstra's algorithm is <code>O(n^2)</code> if the fringe is a simple unordered list. This time can be improved to <code>O(n + e)log(N)</code> if the fringe is implemented using a priority queue.</p></li>
+</ul>
+<h2 id="problem-set-10---graphs">Problem Set 10 - Graphs</h2>
+<ol style="list-style-type: decimal">
+<li><p>Suppose a weighted undirected graph has <em>n</em> vertices and <em>e</em> edges. The weights are all integers. Assume that the space needed to store an integer is the same as the space needed to store an object reference, both equal to one unit. <em>What is the minimum value of e</em> for which the adjacency matrix representation would require less space than the adjacency linked lists representation? Ignore the space needed to store vertex labels.</p>
+<ul>
+<li>So the storage for an adjacency matrix is always <code>n^2</code>, as every edge and vertex is represented in two-dimensional boolean values.</li>
+</ul></li>
+<li><p>Given an <strong>undirected</strong> graph represented as an **adjacency matrix**, implement a method to count the number of edges in the graph. What is the worst case running time (big O) of your implementation for a graph with <em>n</em> vertices and <em>e</em> edges?</p>
+<pre><code>public class Graph {
+int n;  // number of vertices
+boolean[][] adjacencyMatrix;  
+public int numEdges() {
+    int numEdges = 0;
+    for (int i = 0; i &lt; adjacencyMatrix.length; i++) {
+        for (int j = 0; j &lt; adjacencyMatrix[i].length; j++) {
+            if (adjacencyMatrix[i][j]) {
+                numEdges++;
+            {
+        }
+    }
+    return numEdges;
+}</code></pre>
+<p>}</p>
+<ul>
+<li>Let a comparison be a unit of work and <code>n</code> be the number of vertices. Every vertex has the potential of having an edge with every other vertex, so they must all be compared against each other. This result in a big O of <code>O(n^2)</code>.</li>
+</ul></li>
+<li><p>The complement of an <strong>undirected</strong> graph, <strong>G</strong>, is a graph <strong>GC</strong> such that:</p>
+<ul>
+<li><strong>GC</strong> has the same set of vertices as <strong>G</strong></li>
+<li><p>For every edge <em>(i,j)</em> in <strong>G</strong>, there is no edge <em>(i,j)</em> in <strong>GC</strong></p></li>
+<li><p>For every pair of vertices <em>p</em> and <em>q</em> in <strong>G</strong> for which there is no edge <em>(p,q)</em>, there is an edge <em>(p,q)</em> in <strong>GC</strong>.</p></li>
+</ul>
+<p>Implement a method that would return the complement of the <strong>undirected</strong> graph on which this method is applied.</p>
+<pre><code>public class Graph {
+        int n;  // number of vertices
+        boolean[][] aM;  
+
+        public Graph complement() {
+                boolean [][] am = new boolean[n][n];
+                for (int i = 0; i &lt; n; i++) {
+                        for (int j = 0; j &lt; n; j++) {
+                                if (aM[i][j]) {
+                                       am[i][j] = false;
+                                } else {
+                                       am[i][j] = true;
+                                }
+                        }
+                }
+        }
+}</code></pre>
+<p>What is the worst case running time (big O) of your implementation for a graph with <em>n</em> vertices and <em>e</em> edges?</p></li>
+<li><p>Repeat the complement exercise for an <strong>undirected</strong> graph that is stored in the adjacency linked lists format:</p>
+<pre><code>class Edge {
+        int vnum;
+        Edge next;
+}
+
+public class Graph {
+        Edge[] adjlists;  // adjacency linked lists
+
+        public Graph complement() {
+
+        }
+}</code></pre>
+<p>What would be the worst case running time (big O) of an implementation for a graph with <em>n</em> vertices and <em>e</em> edges?</p></li>
+<li><p>Consider this graph: [a forkjoin]</p>
+This graph has <em>n%2B2</em> vertices and 2<em>n</em> edges. For every vertex labeled <em>i</em>, <em>1 , there is an edge from </em>S* to <em>i</em>, and an edge from <em>i</em> to <em>T</em>.
+<ol style="list-style-type: decimal">
+<li><p>How many different depth-first search sequences are possible if the start vertex is <em>S</em>?</p></li>
+<li><p>How many different breadth-first search sequences are possible if the start vertex is <em>S</em>?</p></li>
+</ol>
+<ul>
+<li><ul>
+<li><p>You can use DFS to check if there is a path from one vertex to another in a directed graph. Implement the method <strong>hasPath</strong> in the following. Use additional class fields/helper methods as needed:</p>
+<p>public class Neighbor { public int vertex; public Neighbor next; ... }</p>
+<p>public class Graph { Neighbor[] adjLists; // adjacency linked lists for all vertices</p>
+<pre><code>  // returns true if there is a path from v to w, false otherwise
+  public boolean hasPath(int v, int w) {
+    // FILL IN THIS METHOD
+    ...
+  }</code></pre>
+<p>}</p></li>
+</ul></li>
+</ul></li>
+<li><p>You are given a directed acyclic graph. Complete the following implementation to toplogically sort the vertices using <strong>using BFS (breadth-first search)</strong>. Assume that the graph has already been read in. You may implement helper methods as needed. You may use the following Queue class:</p>
+<pre><code>    public class Queue {
+          ...
+          public Queue() {...}
+          public void enqueue(T item) {...}
+          public T dequeue() throws NoSuchElementException {...}
+          public boolean isEmpty() {...}
+          ...
+       }
+
+
+
+    public class Graph {
+          static class Neighbor {
+             int vertex;
+             Neighbor next;
+             ...
+          }
+
+          static class Vertex {
+             String name;
+             Neighbor[] neighbors; // adjacency linked lists for all vertices
+          }
+
+          Vertex[] vertices;
+
+          // returns an array with the names of vertices in topological sequence
+          public String[] topsort() {
+            // FILL IN THIS METHOD
+            ...
+          }
+          ...
+       }</code></pre></li>
+</ol>
+<h2 id="lecture---november-27th-2012">Lecture - November 27th, 2012</h2>
+<h3 id="dijkstras-shortest-path-algorithm">Dijkstra's Shortest Path Algorithm</h3>
+<ul>
+<li>Question: What is the shortest path from <code>x</code> to <code>y</code>?</li>
+<li>Dijkstra's algorithms is a trial and error approach.</li>
+<li>Steps to Dijkstra's AlgorithL:
+<ol style="list-style-type: decimal">
+<li><p>For each neighbor of the source <code>S</code>, set distance of <code>d(x)</code> to <code>wt(s,x)</code>, which is the wight of edge <code>s-&gt;x</code>. Assign to every node a tentative distance (it is zero for our initial node and to infinity for all other nodes).</p></li>
+<li><p>Mark all nodes unvisited. Set the initial node as current. Create a set of the unvisited nodes called the unvisited set consisting of all the nodes except the initial node.</p></li>
+<li><p>For the current node, consider all of its unvisited neighbors and calculate their tentative distances.</p></li>
+<li><p>When we are done considering all of the neighbors of the current node, mark the current node as visited and remove it from the unvisited set. A visited node will never be checked again; its distance recorded now is final and minimal.</p></li>
+<li><p>If the destination node has been marked visited (when planning a route between two specific nodes) or if the smallest tentative distance among the nodes in the unvisited set is infinity (when planning a complete traversal), then stop. The algorithm has finished.</p></li>
+<li><p>Set the unvisited node marked with the smallest tentative distance as the next &quot;current node&quot; and go back to step 3.</p></li>
+</ol></li>
+</ul>
+<h2 id="final-review">Final Review</h2>
+<ul>
+<li>Graphs
+<ul>
+<li>DFS and BFS
+<ul>
+<li>Space analysis:
+<ol style="list-style-type: decimal">
+<li>The visited array contributed <code>O(n)</code> where <code>n</code> is the number of vertices.</li>
+</ol></li>
+<li><p>Time analysis: The running time is computer by counting a unit of time for every vertex visit and a unit of time for every vertex inspection to see if it has been visited.</p>
+<ol style="list-style-type: decimal">
+<li>We assume that the graph has <code>n</code> vertices and <code>e</code> edges.</li>
+<li>Each vertex is visited exactly once. <code>n</code> vertex visits.</li>
+<li><p>A vertex is visited as many times as the degree of that vertex. The sum of the vertex degrees is related to the number of edges. However, a shared edge is counted twice, resulting in a number of inspections of <code>2e</code>.</p></li>
+<li><p><code>n + 2 * e</code> or <code>O(n + e)</code></p></li>
+</ol></li>
+</ul></li>
+<li>Topological Sort
+<ul>
+<li>DFS
+<ul>
+<li>Space analysis: <code>O(n)</code> because of the visited array.</li>
+<li>Time analysis: <code>O(n + e)</code> because every edge is &quot;walked&quot; and every vertex is &quot;hit.&quot;</li>
+</ul></li>
+</ul></li>
+<li>Dijkstra's algorithm
+<ul>
+<li><p>Space analysis: Depends on implementation, generally, it will be <code>O(n)</code> or <code>O(n^2)</code> where <code>n</code> is the number of vertices.</p></li>
+<li><p>Time analysis: Assuming a graph of <code>n</code> vertices and <code>e</code> edges.</p>
+<ol style="list-style-type: decimal">
+<li><p>Every edge in the graph is used in at most one distance computation. The total number of distance computations is at most <code>e</code>.</p></li>
+<li><p>Starting with at most <code>n - 1</code> vertices in the fringe, the number of vertices is reduced by one after every selection. Thus, the total time for selection never exceeds: (n - 1) + (n - 2) + … 2 + 1 = n(n - 1)/2.</p></li>
+<li><p>Therefore, the total time is <code>n(n - 1)/2 + e</code>, resulting in <code>O(n^2)</code>.</p></li>
+</ol></li>
+</ul></li>
+<li>Adjacency matrix graph time/space analysis:
+<ul>
+<li>The adjacency matrix representation of a graph is useful when the graph is dense or the application makes very frequent random queries on edges, such as “is edge (x,y) in the graph?”</li>
+</ul></li>
+<li>Adjacency linked lists graph time/space analysis:
+<ul>
+<li>The adjacency linked-lists representations is useful when the graph is relatively sparse, and/or the application needs to access all or most neighbors of vertices.</li>
+</ul></li>
+</ul></li>
+<li>Sorting
+<ul>
+<li><p>Best case big O running times of insertion sort, quicksort, and mergesort</p>
+<ul>
+<li>Insertion: <code>O(n)</code> comparisons, <code>O(1)</code> swaps</li>
+<li>Quicksort: <code>O(n log n)</code></li>
+<li>Mergesort: <code>O(n log n)</code></li>
+</ul></li>
+<li><p>Worst case big O running times of insertion sort, quicksort, and mergesort, heapsort</p>
+<ul>
+<li>Insertion: <code>О(n^2)</code></li>
+<li>Quicksort: <code>O(n^2)</code></li>
+<li>Mergesort: <code>O(n log n)</code></li>
+<li>Heapsort: <code>O(n log n)</code></li>
+</ul></li>
+<li><p>Linear worst case running time of the build-heap algorithm with repeated sift downs.</p></li>
+</ul></li>
+<li>Other data structures (worst case big O)
+<ul>
+<li>Heap
+<ul>
+<li><p>Insert: The worst case is when you have to sift back up to the top, and because if the number of nodes is <code>n</code>, the height is going to be <code>log(n)</code>, so the number of sifts is <code>log(n)</code>.</p></li>
+<li><p>Delete: The worst case is when you have to sift down to the bottom, because if the number of nodes is <code>n</code>, the height will be <code>log(n)</code>, so the number of sifts is <code>log(n)</code>.</p></li>
+</ul></li>
+<li>AVL tree (assuming that the height of an is <code>O(log n)</code>)
+<ul>
+<li>Search</li>
+<li>Insert</li>
+</ul></li>
+<li>Hash table
+<ul>
+<li><p>Search: The worst case is that everything is hashed to one location and is unsorted, so you have to linearly search through the linked list, and you get the last element. Resulting in <code>O(n)</code>.</p></li>
+<li><p>Insert: <code>O(n)</code> because you have to rehash in the worst case.</p></li>
+</ul></li>
+</ul></li>
+<li>Sorts
+<ul>
+<li>Insertion sort [Sec 13.1]
+<ul>
+<li>Steps:
+<ol style="list-style-type: decimal">
+<li><p>Search int eh partially sorted list to find the correct position, <code>p</code>, for <code>x</code>.</p></li>
+<li><p>Move all the entries between positions <code>p</code> and <code>i - 1</code> over to the right by one place.</p></li>
+<li><p>Write <code>x</code> into position <code>p</code>. The partially sorted list has now grown to occupy positions <code>0</code> through <code>i</code>.</p></li>
+</ol></li>
+<li>Runtime analysis: The two operations are the comparisons between pair of entries in the list, and shifting the</li>
+</ul></li>
+<li>Quicksort [Sec 13.2.1]
+<ul>
+<li>Steps:</li>
+<li>Runtime analysis:</li>
+</ul></li>
+<li>Mergesort [Sec 13.2.2]
+<ul>
+<li>Steps:</li>
+<li>Runtime analysis:</li>
+</ul></li>
+<li>Heap sort [Sec 13.3]
+<ul>
+<li>Steps:</li>
+<li>Runtime analysis:</li>
+</ul></li>
+</ul></li>
+</ul> 
+{% endraw %}

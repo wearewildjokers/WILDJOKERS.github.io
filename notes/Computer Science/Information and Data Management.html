@@ -1,0 +1,1663 @@
+---
+layout: page
+title: Notes
+subtitle: From Paul Jones at Rutgers University
+---
+{% raw %}
+<h1 id="principles-of-information-and-data-management-with-tomasz-imielinski">Principles of Information and Data Management <small>with Tomasz Imielinski</small></h1>
+<h2 id="description">Description</h2>
+<p>Describing and querying various forms of information such as structured data in relational databases, unstructured text (IR), semi-structured data (XML, web), deductive knowledge. Conceptual modeling and schema design. Basics of database management system services (transactions, reliability, security, optimization). Advanced topics: finding patterns in data, information mapping and integration. The course focuses on a user's perspective, rather than how one implements DBMS.</p>
+<ul>
+<li><p>Credits: 49</p></li>
+<li>Prerequisites:
+<ul>
+<li>01:198:112; 01:198:205 or 14:332:312.</li>
+</ul></li>
+</ul>
+<p>Please note that courses for which a student has received a grade of D cannot be used to satisfy prerequisite requirements.</p>
+<ul>
+<li>Semesters Offered:
+<ul>
+<li>Spring, summer and fall</li>
+</ul></li>
+<li>Expected Work:
+<ul>
+<li>Homework and programming assignments; project</li>
+</ul></li>
+<li>Exams:
+<ul>
+<li>Midterm exam</li>
+<li>Final exam</li>
+</ul></li>
+</ul>
+<h3 id="department-learning-goals">Department Learning Goals:</h3>
+<ul>
+<li>Computer Science majors ...
+<ul>
+<li><p>will be prepared to contribute to a rapidly changing field by acquiring a thorough grounding in the core principles and foundations of computer science (e.g., techniques of program design, creation, and testing; key aspects of computer hardware; algorithmic principles).</p></li>
+<li><p>will acquire a deeper understanding on (elective) topics of more specialized interest, and be able to critically review, assess, and communicate current developments in the field.</p></li>
+<li><p>will be prepared for the next step in their careers, for example, by having done a research project (for those headed to graduate school), a programming project (for those going into the software industry), or some sort of business plan (for those going into startups).</p></li>
+</ul></li>
+</ul>
+<h2 id="september-4th-2013-reading-sql-pages-243-273">September 4th, 2013 <small>Reading, SQL, pages 243-273</small></h2>
+<ul>
+<li>SQL stands for &quot;structured query language.&quot;</li>
+</ul>
+<h3 id="simple-queries-in-sql">Simple Queries in SQL</h3>
+<ul>
+<li><p>The simplest form of query in SQL asks for those tuples of some one relation that satisfy a condition.</p></li>
+<li><code>SELECT</code>,<code>FROM</code>,and <code>WHERE</code> characterize SQL.</li>
+<li><p>Here's an example scheme:</p>
+<pre><code>Movies(title, year, length, genre, studioName, producerC#)
+StarsIn(movieTitle, movieYear, starName) 
+MovieStar(name,address, gender, birthdate) 
+MovieExec(name,address, cert#, netWorth)
+Studio(name, address, presC#)</code></pre></li>
+<li><p>To get all movies by Disney, for instance, you'd query:</p>
+<pre><code>SELECT *    // get all
+FROM Movies // the movies 
+WHERE studioName = ’Disney’ AND year = 1990; // from Disney in 1990 </code></pre></li>
+<li>Here's what each of the clauses do:
+<ol style="list-style-type: decimal">
+<li><p>The <code>SELECT</code> clause tells which attributes of the tuples matching the condition are produced as part of the answer.</p>
+<ul>
+<li>The <code>*</code> in our case gets all the tuples.</li>
+</ul></li>
+<li><p>The <code>FROM</code> clause gives the relation or relations to which the query refers.</p>
+<ul>
+<li>Getting &quot;Movies&quot; means you get all the movies …</li>
+</ul></li>
+<li><p>The <code>WHERE</code> clause is a condition, much like a selection-condition in rela­tional algebra.</p>
+<ul>
+<li>This uses predicate logic.</li>
+</ul></li>
+</ol></li>
+<li><p>A trick for reading and writing queries, read them in the following order:</p>
+<ol style="list-style-type: decimal">
+<li>the <code>FROM</code> clause, to learn which relations are involved;</li>
+<li>the <code>WHERE</code> clause, to learn what about the tuples is important</li>
+<li>the <code>SELECT</code> clause to see what the output is</li>
+</ol></li>
+</ul>
+<h4 id="projection-in-sql">Projection in SQL</h4>
+<ul>
+<li><p>If you only wanted to see qualities about the movie in the example above instead of all of the information, that would be in the <code>SELECT</code> clause, you could change it to just <code>title, length</code>, for instance.</p></li>
+<li><p>If you want to change the title header for a column, you can do so with the <code>AS</code> keyword,</p>
+<pre><code>SELECT title AS name</code></pre></li>
+<li><p>If you want to change the value of all the elements in a column, you can add expressions to <code>SELECT</code>s:</p>
+<pre><code>SELECT length*0.016667 AS lengthlnHours</code></pre></li>
+<li><p>SQL is case-insensitive.</p></li>
+</ul>
+<h4 id="selection-in-sql">Selection in SQL</h4>
+<ul>
+<li><p>Six comparison operators:</p>
+<pre><code>=, &lt;&gt;, &lt;, &gt;, &lt;=, and &gt;=</code></pre>
+<ul>
+<li><code>&lt;&gt;</code> is the SQL symbol for “not equal to”</li>
+</ul></li>
+<li><p>The concatenation operator in SQL is <code>||</code>:</p>
+<pre><code>’foo’ || ’bar’ = ’foobar’</code></pre></li>
+</ul>
+<h4 id="comparison-of-strings">Comparison of Strings</h4>
+<ul>
+<li>When you compare strings with the operators, you are asking about lexicographic values.</li>
+</ul>
+<h4 id="pattern-matching-in-sql">Pattern Matching in SQL</h4>
+<ul>
+<li><p>To use patterns, you can add a <code>LIKE</code> statement to the <code>WHERE</code> clause. Example:</p>
+<pre><code>WHERE title LIKE &#39;Star ____&#39;</code></pre></li>
+<li><p>Returns Star Wars, Star Gate, Star Trek, ...</p></li>
+</ul>
+<h4 id="dates-and-times">Dates and Times</h4>
+<ul>
+<li>SQL implementations are very specific about dates.</li>
+<li>The format described here is the SQL standard.</li>
+<li><code>DATE '1948-05-14'</code> follows the required form.</li>
+<li>There's also time, <code>TIME '15:00:02.5'</code> or <code>TIME '12:00:00-8:00'</code></li>
+<li>You can combine the two with timestamps: <code>TIMESTAMP '1948-05-14 12:00:00'</code></li>
+</ul>
+<h4 id="null-values-and-comparisons-involving-null">Null Values and Comparisons Involving <code>NULL</code></h4>
+<ul>
+<li>There are three reasons that SQL will return a <code>NULL</code>:
+<ol style="list-style-type: decimal">
+<li><p><strong>Value unknown</strong>: that is, “I know there is some value that belongs here but I don’t know what it is.”</p>
+<ul>
+<li>There's an answer <em>in principle</em> but this database doesn't have one <em>in practice</em>.</li>
+</ul></li>
+<li><p><strong>Value inapplicable</strong>: “There is no value that makes sense here.”</p>
+<ul>
+<li>It's possible to have an answer, it just happens that there isn't here.</li>
+</ul></li>
+<li><p><strong>Value withheld</strong>: “We are not entitled to know the value that belongs here.”</p></li>
+</ol></li>
+<li>If you operate on <code>NULL</code>, the return value will always be <code>NULL</code>.</li>
+<li>If you compare on <code>NULL</code>, the return value will always be <code>UNKNOWN</code>.
+<ul>
+<li>This is a SQL truth value.</li>
+</ul></li>
+<li>Interestingly enough, if you place <code>NULL</code> in a variable name, you can get these legal comparisons and operations. However, if you do the operation on <code>NULL</code> directly, it is not valid SQL.</li>
+</ul>
+<h4 id="the-truth-value-unknown">The Truth-Value <code>UNKNOWN</code></h4>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li><p>The <code>AND</code> of two truth-values is the minimum of those values. That is, x <code>AND</code> y is <code>FALSE</code> if either x or y is <code>FALSE</code>; it is <code>UNKNOWN</code> if neither is <code>FALSE</code> but at least one is <code>UNKNOWN</code>, and it is <code>TRUE</code> only when both x and y are <code>TRUE</code>.</p></li>
+<li><p>The <code>OR</code> of two truth-values is the maximum of those values. That is, x <code>OR</code> y is <code>TRUE</code> if either x or y is <code>TRUE</code>; it is <code>UNKNOWN</code> if neither is <code>TRUE</code> but at least one is <code>UNKNOWN</code>, and it is <code>FALSE</code> only when both are <code>FALSE</code>.</p></li>
+<li><p>The negation of truth-value v is 1 —v. That is, <code>NOT</code> x has the value <code>TRUE</code> when x is <code>FALSE</code>, the value <code>FALSE</code> when x is <code>TRUE</code>, and the value <code>UNKNOWN</code> when x has value <code>UNKNOWN</code>.</p></li>
+</ol>
+<h4>Ordering the Output</h4>
+</blockquote>
+<ul>
+<li><p>You can add a fourth clause the the <code>SELECT-FROM-WHERE</code> semantic to order the output.</p>
+<ul>
+<li>Aptly named, <code>ORDER BY</code> and it accepts a list of attributes.</li>
+<li>The default is ascending, and you can make it descending by adding the keyword <code>DESC</code>.</li>
+</ul></li>
+<li><p>To order movies by length and then alphabetically from the running example, you'd use this clause:</p>
+<pre><code>ORDER BY length, title;</code></pre></li>
+</ul>
+<h3 id="queries-involving-more-than-one-relation">Queries Involving More Than One Relation</h3>
+<ul>
+<li><p>The set-theoretic operations — union, intersection, and difference — appear directly in SQL.</p></li>
+<li><p>It seems as though the names of table headers must be unique, as if you wanted any information from multiple columns, you can do this:</p>
+<pre><code>WHERE title = ’Star Wars’ AND producerC# = cert#;</code></pre>
+<ul>
+<li>This returns the producers of Star Wars, whatever you select from it.</li>
+</ul></li>
+</ul>
+<h4 id="disambiguating-attributes">Disambiguating Attributes</h4>
+<ul>
+<li><p>Ah! No, you do not have to have them unique across tables, and the book covers this next.</p></li>
+<li><p>Imagine this:</p>
+<pre><code>MovieStar(name,address, gender, birthdate) 
+MovieExec(name, address, cert#, netWorth)</code></pre>
+<ul>
+<li><p>The way that you disambiguate them is with the following semantic:</p>
+<pre><code>WHERE MovieStar.address = MovieExec.address;</code></pre></li>
+<li><p>The relation name, followed by a dot, is permissible even in situations where there is no ambiguity.</p></li>
+</ul></li>
+</ul>
+<h4 id="tuple-variables">Tuple Variables</h4>
+<ul>
+<li><p>You may want to select from the same table twice, and you can do this with aliases.</p>
+<pre><code>FROM MovieStar Starl, MovieStar Star2</code></pre></li>
+</ul>
+<h3 id="subqueries">Subqueries</h3>
+<h2 id="september-5th-2013-introduction-to-sql">September 5th, 2013 <small>Introduction to SQL</small></h2>
+<h3 id="why-sql">Why SQL?</h3>
+<ul>
+<li>SQL is a very-high-level language.
+<ul>
+<li>Say “what to do” rather than “how to do it.”</li>
+<li><p>Avoid a lot of data-manipulation details needed in procedural languages like C++ or Java.</p>
+<ul>
+<li><p>In systems like MangoDB, you do a lot of data manipulation yourself.</p></li>
+<li><p>The name of the game now is scalabilty and millions and millions of users.</p></li>
+<li><p>SQL scales very well with ad-hoc, indeterminate number of queries.</p></li>
+</ul></li>
+<li><p>Why not? Database management systems figures out best way to executre queiry.</p>
+<ul>
+<li>Called <strong>query manipulation</strong>.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="select-from-where-statements">Select-From-Where Statements</h3>
+<ul>
+<li><code>SELECT</code> desired attributes.</li>
+<li><code>FROM</code> one or more tables.</li>
+<li><code>WHERE</code> condition about tuples of the tables.</li>
+</ul>
+<h3 id="our-running-examples">Our Running Examples</h3>
+<ul>
+<li><p>All our SQL queries will be based on the following database schema.</p>
+<pre><code>Beers(name, manf) 
+Bars(name, addr, license)
+Drinkers(name, addr, phone) 
+Likes(drinker, beer) 
+Sells(bar, beer, price) 
+Frequents(drinker, bar)</code></pre></li>
+<li><p>From this you can find out who sells Heineken, you can find people who only frequent bars that sell beers they like.</p>
+<ul>
+<li>This is the &quot;heart of the matter.&quot;</li>
+</ul></li>
+<li><strong>Ad-hoc queries</strong> are unpredictable, and this is where SQL shines.
+<ul>
+<li>You can find any objects in the database, you don't have to write code. ... Very difficult, you write it, and a week later to think, &quot;What the hell did I do?&quot;</li>
+</ul></li>
+</ul>
+<h4 id="example-what-beers-are-made-by-anheuser-busch">Example <small>What beers are made by Anheuser-Busch</small></h4>
+<ul>
+<li><p>Query:</p>
+<p>SELECT name FROM Beers WHERE manf = ’Anheuser-Busch’;</p></li>
+<li><p>Result:</p>
+<p>Bud Bud Lite Michelob ...</p></li>
+</ul>
+<h3 id="meaning-of-single-relation-query">Meaning of Single-Relation Query</h3>
+<ul>
+<li>Begin with the relation in the <code>FROM</code> clause.</li>
+<li>Apply the selection indicated by the <code>WHERE</code> clause.</li>
+<li>Apply the extended projection indicated by the <code>SELECT</code> clause.</li>
+</ul>
+<h3 id="null-values-in-sql"><code>NULL</code> Values in SQL</h3>
+<ul>
+<li><p>The logic of conditions in SQL is really 3-valued logic: <code>TRUE</code>, <code>FALSE</code>, <code>UNKNOWN</code>.</p></li>
+<li><p>Comparing any value (including <code>NULL</code> itself) with <code>NULL</code> yields <code>UNKNOWN</code>.</p></li>
+<li><p>A tuple is in a query answer if and only if the <code>WHERE</code> clause is <code>TRUE</code> (not <code>FALSE</code> or <code>UNKNOWN</code>).</p></li>
+</ul>
+<h2 id="september-17th-2013-keywords-for-quiz-1">September 17th, 2013 <small>Keywords for Quiz 1</small></h2>
+<ul>
+<li><p><code>JOIN</code>: used to combine rows from two or more tables, based on a common field between them.</p>
+<pre><code>SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate 
+FROM Orders
+INNER JOIN Customers
+ON Orders.CustomerID=Customers.CustomerID;</code></pre></li>
+<li><p><code>UNION</code>: combines the result of two or more SELECT statements.</p>
+<pre><code>SELECT column_name(s) FROM table1
+UNION
+SELECT column_name(s) FROM table2;</code></pre></li>
+<li><p><code>INTERSECT</code>: allows you to return the set theoretic intersection of the results of 2 or more &quot;select&quot; queries</p>
+<pre><code>select field1, field2, . field_n
+from tables
+INTERSECT
+select field1, field2, . field_n
+from tables;</code></pre></li>
+<li><p><code>MINUS</code>: returns all rows in the first SQL SELECT statement that are not returned in the second SQL SELECT statement</p>
+<pre><code>select field1, field2, ... field_n
+from tables
+MINUS
+select field1, field2, ... field_n
+from tables;</code></pre></li>
+<li><p><code>EXISTS</code>: this is a &quot;to be met condition,&quot; where the select statement of the super query operates on the returned table.</p>
+<pre><code>SELECT *
+FROM suppliers
+WHERE EXISTS (  select *
+                from orders
+                where suppliers.supplier_id = orders.supplier_id);</code></pre></li>
+<li><p><code>NOT EXISTS</code>: the <code>NOT</code> operator can be combined with the <code>EXISTS</code> operator to operate on a subquery does not satisfy it's where condition.</p></li>
+<li><p><code>ALL</code>: used as a union that allows duplicates</p>
+<pre><code>SELECT column_name(s) FROM table_name1
+UNION ALL
+SELECT column_name(s) FROM table_name2</code></pre></li>
+<li><p><code>ORDER BY (DESC)</code>: When sorting your result set in descending order, you use the DESC attribute in your ORDER BY claus</p>
+<pre><code>SELECT supplier_city
+FROM suppliers
+WHERE supplier_name = &#39;IBM&#39;
+ORDER BY supplier_city DESC;</code></pre></li>
+<li><p><code>COUNT</code>: returns the number of rows in a query</p>
+<pre><code>SELECT COUNT(expression)
+FROM tables
+WHERE predicates;</code></pre></li>
+</ul>
+<h2 id="september-24th-2013-chapter-2-relational-model">September 24th, 2013 <small>Chapter 2, Relational Model</small></h2>
+<h3 id="an-overview-of-data-models">An Overview of Data Models</h3>
+<ul>
+<li><p>A <strong>data model</strong> is a notation for describing data. It has three parts:</p>
+<ol style="list-style-type: decimal">
+<li><em>Structure of the data</em>.</li>
+<li><em>Operations on the data</em>.</li>
+<li><em>Constraints on the data</em>.</li>
+</ol></li>
+<li>There are two preeminent database systems:
+<ol style="list-style-type: decimal">
+<li><em>The relation model</em>, include object-relational extensions.</li>
+<li><p><em>The semistructured-data model</em>, including XML and related standards.</p>
+<ul>
+<li><p>In brief, this is a way to represent data by hierarchically nested tags.</p></li>
+<li><p>Often talked about as a tree with parents and children nodes.</p></li>
+</ul></li>
+</ol></li>
+</ul>
+<h3 id="basics-of-the-relational-model">Basics of the Relational Model</h3>
+<h4 id="attributes">Attributes</h4>
+<ul>
+<li>The columns of a relation are named <strong>attributes</strong>.
+<ul>
+<li>For example, <code>title</code>, <code>year</code>, <code>length</code>, and <code>genre</code> if the the relation was <code>Movies</code>.</li>
+</ul></li>
+</ul>
+<h4 id="schemas">Schemas</h4>
+<ul>
+<li><p>The name of a relation and the set of attributes for a relation is called the <strong>schema</strong> for that relation.</p>
+<ul>
+<li><p>In the case of movies,</p>
+<pre><code>Movies(title, year, length, genre)</code></pre></li>
+</ul></li>
+<li><p>Attributes are a set, not a list.</p></li>
+</ul>
+<h4 id="tuples">Tuples</h4>
+<ul>
+<li><p>The rows of a relation, other than the header row, are called <strong>tuples</strong>.</p>
+<ul>
+<li>A tuple has one <strong>component</strong> for each attribute of the relation.</li>
+</ul></li>
+</ul>
+<h4 id="domains">Domains</h4>
+<ul>
+<li><p>The relation model requires that each component of each tuple be atomic;</p>
+<ul>
+<li>It must be of some elementary type (integer, string, etc.)</li>
+<li>It is <em>not</em> permitted for it to be a record structure, set, list, array, or anything that can be broken into smaller elements.</li>
+</ul></li>
+<li><p>It is further assumed that associated with each attribute of a relation is a <strong>domain</strong>, a particular elementary type.</p>
+<pre><code>Movies(title:string, year:integer, length:integer, genre:string)</code></pre></li>
+</ul>
+<h4 id="keys-of-relations">Keys of Relations</h4>
+<ul>
+<li>A set of attributes forms a <strong>key</strong> for a relation if we do not allow two tuples in a relation instance to have the same values in all attributes of the key.</li>
+</ul>
+<h3 id="defining-a-relation-schema-in-sql">Defining a Relation Schema in SQL</h3>
+<ul>
+<li><p>SQL is the principal language used to describe and manipulate relational databases. There are two parts:</p>
+<ol style="list-style-type: decimal">
+<li>The <em>Data-Definition</em> sublanguage for declaring schemas;</li>
+<li>The <em>Data-Manipulation</em> sublanguage for <strong>querying</strong> and modifying the database.</li>
+</ol></li>
+</ul>
+<h4 id="relations-in-sql">Relations in SQL</h4>
+<ul>
+<li>SQL makes a distinction between three kinds of relations:
+<ol style="list-style-type: decimal">
+<li>Stored relations, called <strong>tables</strong>.
+<ul>
+<li>These are the kind we deal with typically.</li>
+<li>Can be modified by changing it's tuples and queried.</li>
+</ul></li>
+<li><strong>Views</strong>, which are relations defined by a computation.
+<ul>
+<li>These relations are not stored, but are constructed.</li>
+</ul></li>
+<li><p><strong>Temporary tables</strong>, which are constructed by the SQL language processor when it performs its job of executing queries and data modifications.</p>
+<ul>
+<li>These relations are not stored.</li>
+</ul></li>
+</ol></li>
+</ul>
+<h4 id="data-types">Data Types</h4>
+<ol style="list-style-type: decimal">
+<li>Character string of fixed or varying length.</li>
+<li>Bit string of fixed or varying length.</li>
+<li>The type <code>BOOLEAN</code>, <code>TRUE</code>, <code>FALSE</code>, and <code>UNKNOWN</code>.</li>
+<li>The type <code>INT</code> or <code>INTEGER</code>.</li>
+<li>Floating point numbers, <code>FLOAT</code> or <code>REAL</code>.</li>
+<li>Dates and times can be represented with the types <code>DATE</code> and <code>TIME</code>.</li>
+</ol>
+<h4 id="simple-table-declarations">Simple Table Declarations</h4>
+<pre><code>CREATE TABLE Movies (
+    title       CHAR(IOO), 
+    year        INT, 
+    length      INT,
+    genre       CHAR(10), 
+    studioName      CHAR(30), 
+    producerC#      INT
+);</code></pre>
+<h3 id="an-algebraic-query-language-set-operations-on-relations">An Algebraic Query Language <small>Set Operations on Relations</small></h3>
+<ul>
+<li>There are four broad classes of operations:
+<ol style="list-style-type: decimal">
+<li>The usual set operations;
+<ol style="list-style-type: decimal">
+<li><p>The <strong>union</strong> of R and S, is the set of elements that are in R or S or both. Elements appear only once despite being in multiple times;</p>
+<p><em>R</em> ∪ <em>S</em></p></li>
+<li><p>The <strong>intersection</strong> of R and S, is the set of elements that are in both R and S;</p>
+<p><em>R</em> ∩ <em>S</em></p></li>
+<li><p>The <strong>difference</strong> of R and S, is the set of elements that are in R but not in S.</p>
+<p><em>R</em> − <em>S</em></p></li>
+</ol></li>
+<li>Operations that remove parts of a relations;
+<ol style="list-style-type: decimal">
+<li><p><strong>Selection</strong>, produces a new relation with a subset of R's tuples, filter tuples, where <em>C</em> is a condition:</p>
+<p><em>σ</em><sub><em>C</em></sub><em>R</em></p></li>
+<li><p><strong>Projection</strong> is used to produce from a relation R a new relation that has only some of R's columns, filter attributes:</p>
+<p><em>π</em><sub><em>A</em><sub>1</sub>, <em>A</em><sub>2</sub>, …, <em>A</em><sub><em>n</em></sub></sub><em>R</em></p></li>
+</ol></li>
+<li>Operations that remove parts of the relation;
+<ol style="list-style-type: decimal">
+<li><p><strong>Cartesian product</strong>, combines relations in all possible ways,</p></li>
+<li><p><strong>Joins</strong>, selectively pair tuples from two relations,</p></li>
+</ol></li>
+<li><strong>Renaming</strong>, which changes the attributes and/or name of relation.</li>
+</ol></li>
+<li><p>These are <strong>queries</strong>.</p></li>
+<li><p>We want to use these operations for queries, but there are these constraints:</p>
+<ul>
+<li>R and S must have schemas with identical sets of attributes.</li>
+<li>Before we compute the set-theoretic union, intersection, or difference of sets of tuples, the columns of R and S must be ordered so that the order of attributes is the same for both relations.</li>
+</ul></li>
+</ul>
+<h2 id="september-24th-2013-project-1">September 24th, 2013 <small>Project 1</small></h2>
+<p>Your objective will be to extend significantly the famous db scheme with new attributes and new relations. It has to be realistic and interesting. Add info about facebook friends of drinkers? Offer information about bar’s annual sales? Provide more geo-location data about drinkers and bars? Temporal data? Sky is the limit –). Once you settle of the db scheme, you will have to populate it with realistic tuples. By realistic, I mean names of bars, drinker names, dollar figures etc when appropriate. No a1, b1, c1! No drinker X and drinker Y! Generate and load your db with the large number of synthetic tuples, may be 10,000? May be more. It is your choice. But your instances should not be completely random. On the contrary – you should think of a few patterns which will have business significance. For example, the larger the bar, the less it charges for a beer (most of the time). The older the drinker, the less frequently s/he goes to a bar. Evening beer sales are higher than afternoon beer sales. Embed a number of such patterns in your data and construct SQL queries which would prove that indeed your db satisfies such pattern. Your patterns should be intuitive and have actionable business value either for a bar o for a drinker.</p>
+<p>Thus, there following tasks:</p>
+<ol style="list-style-type: decimal">
+<li>Scheme definition</li>
+<li><p>Realistic db instance generation and db loading + Pattern embedding in the instance as well as validation of the pattern using sql query</p></li>
+<li><p>Simple DB GUI with search boxes which will find something interesting about your data.</p></li>
+</ol>
+<h2 id="october-1st-2013-reading-pg.-125-171">October 1st, 2013 <small>Reading: pg. 125-171</small></h2>
+<h3 id="the-entityrelationship-model">The Entity/Relationship Model</h3>
+<ul>
+<li><p>In the <strong>E/R model</strong>, the structure of data is represented graphically, as an &quot;ER diagram&quot;, using three principal element types:</p>
+<ol style="list-style-type: decimal">
+<li>Entity sets,</li>
+<li>Attributes, and</li>
+<li>Relationships.</li>
+</ol></li>
+</ul>
+<h4 id="entity-sets">Entity Sets</h4>
+<ul>
+<li><p>An <strong>entity</strong> is an abstract object of some sort, a collection of similar entities is an <strong>entity set</strong>.</p>
+<ul>
+<li><p>An entity in some ways represents an &quot;object&quot; in the sense of OO-programming.</p></li>
+<li><p>Likewise, an entity set resembles a class of objects.</p></li>
+</ul></li>
+<li><p>In the movie example, each movie is an entity, and the set of all movies constitute an entity set.</p></li>
+</ul>
+<h4 id="attributes-1">Attributes</h4>
+<ul>
+<li><p>Entity sets have associated <strong>attributes</strong>, which are properties of the entities in that set.</p>
+<ul>
+<li>The entity set <em>Movies</em> might be given attributes such as <em>title</em> and <em>length</em>.</li>
+</ul></li>
+</ul>
+<h4 id="relationships">Relationships</h4>
+<ul>
+<li><strong>Relationships</strong> are connections among two or more entity sets.
+<ul>
+<li>For instance, if <em>Movies</em> and <em>Stars</em> are two entity sets, we could have relationship <em>Stars-in</em> that connects movies and stars.</li>
+</ul></li>
+</ul>
+<h4 id="entity-relationship-diagrams">Entity-Relationship Diagrams</h4>
+<ul>
+<li>Entity sets are represented by rectangles.</li>
+<li>Attributes are represented by ovals.</li>
+<li>Relationships are represented by diamonds.
+<ul>
+<li>&quot;Is-a relationships&quot; are special and represented with triangles.</li>
+</ul></li>
+<li>Edges connect an entity set to its attributes and also connect a relationship to its entity set.</li>
+</ul>
+<h4 id="multiplicity-of-binary-er-relationships">Multiplicity of Binary E/R Relationships</h4>
+<ul>
+<li><p>If each member of <em>E</em> can be connected by <em>R</em> to at most member of <em>F</em>, then we say that <em>R</em> is a <strong>many-one</strong> from <em>E</em> to <em>F</em>.</p>
+<ul>
+<li>Note that in a many-one relationship from <em>E</em> to <em>F</em>, each entity in <em>F</em> can be connected to many members of <em>E</em>.</li>
+</ul></li>
+<li><p>If <em>R</em> is both many-one from <em>E</em> to <em>F</em> and many-one from <em>F</em> to <em>E</em>, then we say that <em>R</em> is <strong>one-one</strong>.</p>
+<ul>
+<li>In a one-one relationship an entity of either entity set can be connected to at most one entity of the other set.</li>
+</ul></li>
+<li><p>If <em>R</em> is neither many-one from <em>E</em> to <em>F</em> or from <em>F</em> to <em>E</em>, then we say <em>R</em> is <strong>many-many</strong>.</p></li>
+</ul>
+<h4 id="multiway-relationships">Multiway Relationships</h4>
+<ul>
+<li><p>The E/R model makes it convenient to define relationships involving more than two entity sets. In practice, ternary or higher degree relationships are rare, but occasionally are necessary to represent the true state of affairs.</p>
+<ul>
+<li>They are represented with lines between all involved entity sets.</li>
+</ul></li>
+<li><p>An arrow pointing to an entity set <em>E</em> means that if we select one entity from each of the other entity sets in the relationships, those entities are related to at most entity in <em>E</em>.</p></li>
+</ul>
+<h4 id="roles-in-relationships">Roles in Relationships</h4>
+<ul>
+<li><p>It is possible that one entity sets appears two or more times in a single relationship.</p>
+<ul>
+<li><p>If so, we draw as many lines from the relationship to the entity sets as the entity set appears in the relationship.</p></li>
+<li><p>Each line to the entity set represents a different role that the entity set plays in that relationship.</p></li>
+</ul></li>
+</ul>
+<h3 id="design-principles">Design Principles</h3>
+<h4 id="faithfulness">Faithfulness</h4>
+<ul>
+<li>First and foremost, the design should be faithful to the specs.
+<ul>
+<li>The entity sets should reflect reality.</li>
+</ul></li>
+</ul>
+<h4 id="avoid-redundancy">Avoid Redundancy</h4>
+<ul>
+<li>We should be careful to say everything once only.</li>
+<li>This is dangerous because:
+<ol style="list-style-type: decimal">
+<li><p>Doing so leads to repetition of fact, with the result that the extra space is required to represent the data.</p></li>
+<li><p>There is an update-anomoly potential, since we might change the relationship but not the attribute.</p></li>
+</ol></li>
+</ul>
+<h4 id="simplicity-counts">Simplicity Counts</h4>
+<ul>
+<li>Avoid introducing more elements into your design than is absolutely necessary.</li>
+</ul>
+<h4 id="choosing-the-right-relationships">Choosing the Right Relationships</h4>
+<ul>
+<li>Entity sets can be connected in various ways by relationships.
+<ul>
+<li>However, adding</li>
+</ul></li>
+</ul>
+<h3 id="constraints-in-the-er-model">Constraints in the E/R model</h3>
+<h4 id="keys-in-the-er-model">Keys in the E/R Model</h4>
+<ul>
+<li><p>A <strong>key</strong> for an entity set <em>E</em> is a set <em>K</em> of one or attributes such that, given any two distinct entities <em>e1</em> and <em>e2</em>, <em>e1</em> and <em>e2</em> cannot have identical values for each of the attributes in the key <em>K</em>.</p>
+<ul>
+<li><p>Every entity set must have a key, although in some cases, isa-hierarchies and &quot;weak&quot; entity sets, the key actually belongs to another entity set.</p></li>
+<li><p>There can be more than one possible key for an entity set. However, it is customary to pick one key as the &quot;primary key,&quot; and to act as if that were the only key.</p></li>
+<li><p>When an entity set is involved in an isa-hierarchy, we require that the root entity set have all the attributes needed for a key, and that the key for each endtity is found from its component in the root entity set, regardless of how many entity sets in the hierarchy have components for the entity.</p></li>
+</ul></li>
+</ul>
+<h4 id="representing-keys-in-the-er-model">Representing Keys in the E/R Model</h4>
+<ul>
+<li>In our E/R-diagram notation, we underline the attributes belonging to a key for an entity set.</li>
+</ul>
+<h4 id="referential-integrity">Referential Integrity</h4>
+<ul>
+<li><p>The arrow notation in E/R diagrams is able to indicate whether a relationship is expected to support referential integrity in one or more directions.</p>
+<ul>
+<li><p>Suppose <em>R</em> is a relationship from entity set <em>E</em> to entity set <em>F</em>. A rounded arrow-head poring to <em>F</em> indicates not only that the relationship is many-one from <em>E</em> to <em>F</em>, but that the entity of set <em>F</em> related to a given entity of set <em>E</em> is required to exist.</p>
+<ul>
+<li>The same idea applies when <em>R</em> is a relationship among more than two entity sets.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h4 id="degree-constraints">Degree Constraints</h4>
+<ul>
+<li>In the E/R-model, we can attach a bounding number to the edges that connect a relationship to en entity set, indicating limits on the number of entities that can be connected to any one entity of the related entity set.</li>
+</ul>
+<h3 id="weak-entity-sets">Weak Entity Sets</h3>
+<ul>
+<li><p>It is possible for an entity set's key to be composed of attributes, some or all of which belong to another entity set.</p>
+<ul>
+<li>Such an entity set is called <strong>weak entity set</strong>.</li>
+</ul></li>
+</ul>
+<h4 id="causes-of-weak-entity-sets">Causes of Weak Entity Sets</h4>
+<ul>
+<li>There are two principle reasons we need weak entity sets.
+<ol style="list-style-type: decimal">
+<li><p>Sometimes entity sets fall into a hierarchy based on classifications unrelated to &quot;is-a hierarchy.&quot;</p></li>
+<li><p>Connecting entity sets that as a way to eliminate a multiway relationship.</p></li>
+</ol></li>
+</ul>
+<h4 id="requirements-for-weak-entity-sets">Requirements for Weak Entity Sets</h4>
+<ul>
+<li>If <em>E</em> is a weak entity set then its key consists of:
+<ol style="list-style-type: decimal">
+<li>Zero or more of its own attributes.</li>
+<li><p>Key attributes from entity sets that are reach by certain many-one relationships from <em>E</em> to other entity sets.</p>
+<ul>
+<li>These many-one relationsips are called **supporting relationships** for <em>E</em>, and the entity sets reach from <em>E</em> are <strong>supporting entity sets</strong>.</li>
+</ul></li>
+</ol></li>
+<li><p>In order for <em>R</em>, a many-one relationship from <em>E</em> to some entity set <em>F</em>, to be a supporting relationship for <em>E</em>, the following conditions must be obeyed:</p>
+<ol style="list-style-type: decimal">
+<li><em>R</em> must be binary, many-one relationship from <em>E</em> to <em>F</em>.</li>
+<li><em>R</em> must have referential integrity from <em>E</em> to <em>F</em>.
+<ul>
+<li><p>For every <em>E</em>-entity, there must be exactly one existing <em>F</em>-entity related to it by <em>R</em>.</p></li>
+<li><p>Put another way, a rounded arrow from <em>R</em> to <em>F</em> must be justified.</p></li>
+</ul></li>
+<li><p>The attributes that <em>F</em> supplies for the key of <em>E</em> must be key attributes of <em>F</em>.</p></li>
+<li><p>However, if <em>F</em> is itself weak, then some or all of the key attributes of one or more entity sets <em>G</em> to which <em>F</em> is connected by a supporting relationship.</p>
+<ul>
+<li>Recursively, if <em>F</em> is weak, some key attributes of <em>F</em> will be supplied from elsewhere, and so on.</li>
+</ul></li>
+</ol></li>
+</ul>
+<h4 id="weak-entity-set-notation">Weak Entity Set Notation</h4>
+<ul>
+<li><p>We shall adopt the following conventions to indicate that an entity set is weak and to declare its key attributes:</p>
+<ol style="list-style-type: decimal">
+<li><p>If an entity set is weak, it will be shown as a rectangle weit a double border.</p></li>
+<li><p>Its supporting many-one relationships will be shown as diamonds with a double border.</p></li>
+<li><p>If an entity set supplies any attributes for its own key, the those attributes will be underlines.</p></li>
+</ol></li>
+</ul>
+<h3 id="from-er-diagrams-to-relational-designs">From E/R Diagrams to Relational Designs</h3>
+<ul>
+<li><p>To a first approximations, converting an E/R design to a relational database schema is straightforward.</p>
+<ul>
+<li><p>Turn each entity set into a relation with the same set of attributes.</p></li>
+<li><p>Replace a relationship by a relation whose attributes are the keys for the connected entity sets.</p></li>
+</ul></li>
+<li><p>While these etwo rules cover much of the ground, there are apse special situations that we need to deal with, including:</p>
+<ol style="list-style-type: decimal">
+<li><p>Weak entity sets cannot be translated straightforwardly to relations.</p></li>
+<li>&quot;Isa&quot; relationship and subclasses require careful treatment.</li>
+<li><p>Sometimes, we do well to combine two relations, especially the relation for an entity set <em>E</em> and the relation that comes from <em>E</em> to some other entity set.</p></li>
+</ol></li>
+</ul>
+<h3 id="summary">Summary</h3>
+<ul>
+<li><p><strong>The Entity-Relationship Model</strong>: In the E/R model we describe entity sets, relationships among entity sets, and attributes of entity sets and relationships. Members of entity sets are called entities.</p></li>
+<li><p><strong>Entity-Relationship Diagrams</strong>: We use rectangles, diamonds, and ovals to draw entity sets, relationships, and attributes, respectively.</p></li>
+<li><p><strong>Multiplicity of Relationships</strong>: Binary relationships can be one- one, many-one, or many-many.</p>
+<ul>
+<li><p>In an one-one relationship, an entity of either set can be associated with at most one entity in the other set.</p></li>
+<li><p>In a many-one relationship, each entity in the &quot;many&quot; side is associated with at most one entity on the other side.</p></li>
+<li><p>In a many-many relationship, there is no restriction.</p></li>
+</ul></li>
+<li><p><strong>Good design</strong>: Designing databased effectively requires that we represent the real world faithfully, that we select appropriate elements, and that we avoid redundancy.</p></li>
+</ul>
+<h2 id="october-1st-2013-6.4-full-relation-operations">October 1st, 2013 <small>6.4 Full-Relation Operations</small></h2>
+<h3 id="eliminating-duplicates">Eliminating Duplicates</h3>
+<ul>
+<li>SQL's notion of relations differs from the abstract notion.
+<ul>
+<li><p>A relation, being a set, cannot have more than one copy of a given tuple.</p></li>
+<li><p>When a SQL query creates a new relation, the SQL system does not ordinarily eliminate duplicates.</p>
+<ul>
+<li>This, the SQL response to a query may list the same tuple several times.</li>
+</ul></li>
+</ul></li>
+<li><p>One of the several equivalent definitions of the meaning of a SQL select-from-where query is that we begin with the Cartesian product of the relations referred to in the <code>FROM</code> clause.</p>
+<ul>
+<li><p>Each tuple of the product is tested by the condition in the <code>WHERE</code> clause.</p></li>
+<li><p>The ones that pass the test are given to the output for projection according to the <code>SELECT</code> clause.</p></li>
+</ul></li>
+<li><p>If we do not wish duplicates in the result, then we may follow the keyword <code>SELECT</code> by the keyword <code>DISTINCT</code>.</p>
+<ul>
+<li>This word tells SQL to produce only one copy of any tuple.</li>
+</ul></li>
+</ul>
+<h3 id="aggregation-operators">Aggregation Operators</h3>
+<ul>
+<li><p>SQL uses five aggregative operators <code>SUM</code>, <code>AVG</code>, <code>MIN</code>, <code>MAX</code>, and <code>COUNT</code>.</p>
+<ul>
+<li><code>SUM</code> adds up up the field it's given.</li>
+<li><code>AVG</code> gets the average of the field given.</li>
+<li><code>MIN</code> finds the smallest</li>
+<li><code>COUNT</code> gets the number of fields</li>
+</ul></li>
+</ul>
+<h3 id="duplicates-in-unions-intersections-and-differences">Duplicates in Unions, Intersections, and Differences</h3>
+<ul>
+<li><p>Unlike the <code>SELECT</code> statement, which preserves duplicates as a default and only eliminates them when instructed to by the <code>DISTINCT</code> keyword, the union, intersection, and difference operations normally eliminate duplicates.</p>
+<ul>
+<li>If you <em>want</em> to include duplicates, you can do so by including the <code>ALL</code> keyword.</li>
+</ul></li>
+</ul>
+<h3 id="grouping">Grouping</h3>
+<ul>
+<li>To group tuples, we use a <code>GROUP BY</code> clause following the <code>WHERE</code> clause.</li>
+</ul>
+<h3 id="grouping-aggregating-and-nulls">Grouping, Aggregating, and Nulls</h3>
+<ul>
+<li>The value NULL is ignored in any aggregation.
+<ul>
+<li><p>It <em>does not</em> contribute to sum, average, or count of an attribute.</p></li>
+<li><p>Nor can it be the minimum or maximum of a column.</p></li>
+</ul></li>
+<li><code>NULL</code> is treated as an ordinary value when forming groups.
+<ul>
+<li>That is, we can have a group in which one or more of the grouping attribute are assigned the value <code>NULL</code>.</li>
+</ul></li>
+<li>When we perform any aggregation exception count over an empty bag, the result is <code>NULL</code>. The count of an empty bag is 0.</li>
+</ul>
+<h2 id="october-8th-2013-study">October 8th, 2013 <small>Study</small></h2>
+<pre><code>bars (name, addr, license, phone)
+likes (drinker, beer)
+frequents (drinker, bar)
+sells (bar, beer, price)
+beer (manf, name)</code></pre>
+<h3 id="questions-1">Questions 1</h3>
+<ul>
+<li><p>From Beers (name, manf), find those beers that are the only beer by their manufacturer.</p>
+<pre><code>SELECT name
+FROM Beers b1
+WHERE _____ _____ ( -- NOT EXISTS
+    SELECT *
+    FROM ______ -- Beers
+    WHERE manf = ______ -- b1.manf 
+    AND ______    ______ b1.name -- name &lt;&gt;
+);</code></pre></li>
+<li><p>Find the drinkers and beers such that: The drinker likes the beer, and the drinker frequents at least one bar that sells the beer.</p>
+<pre><code>(SELECT * FROM Likes)
+________ -- intersect
+(SELECT ______,  _______ -- drinker, beer
+FROM Sells, Frequents
+WHERE _______ = _______); -- Frequents.bar == Sells.bar</code></pre></li>
+<li><p>From Sells (bar, beer, price) and Beers (name,manf), find the average price of those beers that are either served in at least three bars or are manufactured by Pete’s.</p>
+<pre><code>SELECT beer, ______ -- AVG(Sells.price)
+FROM Sells
+GROUP BY beer
+______ COUNT (bar) &gt;= _____  -- WHERE, 3
+    ______ beer _______ (SELECT name -- OR, IN
+                        FROM Beers
+                        WHERE manf = ______); -- &quot;Pete&#39;s&quot;</code></pre></li>
+<li><p>Find the average price for each beer that is sold by more than one bar in New Brunswick:</p>
+<pre><code>SELECT beer, ______ -- AVG(price)
+FROM Sells
+WHERE address = ‘New Brunswick’
+_____   _____ beer -- GROUP BY
+HAVING _____ &gt; 1 -- COUNT(bar)</code></pre></li>
+<li><p>Drinkers who live together frequent same bar(0/1).</p>
+<pre><code>SELECT IF (COUNT (*)&gt;0, 1, 0)
+FROM (SELECT ______, d1.addr 
+        FROM drinkers d1, drinkers d2
+        WHERE d1.name_____     _____ -- &lt;&gt; d2.name
+            AND ____=_____) d, frequents -- d1.addr, d2.addr
+WHERE ______=frequents.drinker</code></pre></li>
+</ul>
+<h3 id="questions-2">Questions 2</h3>
+<ul>
+<li><p>Find bars where either Tim or John drink.</p>
+<pre><code>SELECT bars
+FROM frequents f1
+WHERE f1.drinker = &#39;Tim&#39;
+UNION
+SELECT bars
+FROM frequents f2
+WHERE f2.drinker = &#39;John&#39;</code></pre></li>
+<li><p>Which bar sells cheapest 'Bud' ?</p>
+<pre><code>SELECT bar
+FROM Sells
+WHERE beer = &quot;Bud&quot; AND (
+    SELECT MIN(price)
+    FROM Sells
+    WHERE beer = &quot;Bud&quot;
+)</code></pre></li>
+<li><p>For each bar that serve both 'heineken' and 'bud', count the number of drinkers that frequent that bar.</p>
+<pre><code>SELECT bar, COUNT(DISTINCT f.drinker)
+FROM frequents f
+WHERE EXISTS (SELECT 
+        FROM Sells s1, Sells s2
+        WHERE s1.beer == &quot;Heineken&quot;
+            AND s2.beer == &quot;Bud&quot;
+            AND s1.bar == s2.bar
+)
+GROUP BY bar</code></pre></li>
+<li><p>Find the average price of common beers (where &quot;common&quot; means those that are served in more than two bars).</p>
+<pre><code>SELECT beer, AVG(price)
+FROM Sells
+GROUP BY beer
+HAVING COUNT(Sells.bar) &gt; 2</code></pre></li>
+<li><p>Bars having common drinkers must have common beers (false/true)</p></li>
+<li><p>There is at least one beer which is sold at all bars. (true/false)</p></li>
+</ul>
+<h3 id="questions-3">Questions 3</h3>
+<ul>
+<li><p>Beer that has the maximum average price over the bars.</p>
+<pre><code>SELECT s.beer 
+FROM sells s 
+__________ __________ __________ -- GROUP BY BEER
+HAVING AVG(price) __________  __________ ( -- &gt;= ALL
+    SELECT beer, __________ (price) AS av_p -- AVG
+    FROM sells 
+    __________ __________ __________) -- GROUP BY BEER</code></pre></li>
+</ul>
+<h2 id="october-10th-2013-lecture-design-theory-for-relational-databases">October 10th, 2013 <small>Lecture: Design Theory for Relational Databases</small></h2>
+<h3 id="functional-dependency">Functional Dependency</h3>
+<ul>
+<li><p><code>X -&gt; Y</code> is an assertion about a relation <em>R</em> that whenever two types of <em>R</em> agree on all the attributes of <em>X</em>, then they must also agree on all attributes in set <em>Y</em>.</p>
+<ul>
+<li>Say &quot;<code>X -&gt; Y</code> holds in <em>R</em>.&quot;</li>
+<li>Convention: <em>X</em>, <em>Y</em>, and <em>Z</em> represent sets of attributes.</li>
+</ul></li>
+</ul>
+<h4 id="splitting-right-sides-of-fds">Splitting Right Sides of FDs</h4>
+<ul>
+<li><code>X -&gt; A_1, A)2, ... A_n</code> holds for <em>R</em> exactly when each of the expressions of for <em>R</em>.</li>
+</ul>
+<h4 id="example">Example</h4>
+<pre><code>Drinkers(name, addr, beersLiked, manf, favBeer)</code></pre>
+<ul>
+<li>Reasonable FDs to assert:
+<ol style="list-style-type: decimal">
+<li><code>name -&gt; addr favBeer</code></li>
+<li><code>beersLiked -&gt; manf</code></li>
+</ol></li>
+</ul>
+<h2 id="october-21st-2013-quiz-4-study">October 21st, 2013 <small>Quiz 4 Study</small></h2>
+<h3 id="relational-model">Relational Model</h3>
+<ul>
+<li><p>The <strong>relational model</strong> for database management is a database model based on first-order predicate logic.</p>
+<ul>
+<li>all data is represented in terms of <strong>tuples</strong></li>
+<li>grouped into <strong>relations</strong></li>
+</ul></li>
+<li><p>A <strong>table</strong> in an SQL database schema corresponds to *a predicate variable*;</p>
+<ul>
+<li>the contents of a table to a <strong>relation</strong>;</li>
+<li>key constraints, other constraints, and SQL queries correspond to <strong>predicates</strong></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>What is the core limitation of relational model?</p>
+</blockquote>
+<h4 id="application-to-databases">Application to Databases</h4>
+<ul>
+<li><p>A <strong>data type</strong> as used in a typical relational database might be the set of integers, the set of character strings, the set of dates, or the two boolean values true and false, and so on.</p></li>
+<li><p><strong>Attribute</strong> is the term used in the theory for what is commonly referred to as a <strong>column</strong>.</p>
+<ul>
+<li>Similarly, <strong>table</strong> is commonly used in place of the theoretical term <strong>relation</strong>.</li>
+</ul></li>
+<li><p>A <strong>tuple</strong> is basically the same thing as a row</p></li>
+</ul>
+<h4 id="keys">Keys</h4>
+<ul>
+<li>A <strong>primary key</strong> <em>uniquely specifies a tuple within a table</em>.</li>
+</ul>
+<h5 id="method-for-finding-keys">Method for finding keys</h5>
+<ol style="list-style-type: decimal">
+<li><p>If the letter is in the relation and not in the FDs, it must be a key.</p></li>
+<li><p>If the letter appears on the left but never on the right in the FDs, then it must be in the key.</p></li>
+<li><p>If the letter appears <em>on the right but never on the left</em>, then it <strong>cannot</strong> be in the key.</p></li>
+<li><p>If the letter is <em>on both sides</em>, you <strong>cannot</strong> not use this method.</p></li>
+</ol>
+<h4 id="superkeys">Superkeys</h4>
+<ul>
+<li>A <strong>superkey</strong> is defined in the relational model of database organization <em>as a set of attributes of a relation variable for which it holds that in all relations assigned to that variable, there are no two distinct tuples (rows) that have the same values for the attributes in this set</em>.</li>
+</ul>
+<h4 id="closure-of-a-set-of-attributes">Closure of a set of Attributes</h4>
+<h3 id="normal-forms">Normal Forms</h3>
+<blockquote>
+<p>Why normal forms? Do they always work and when they do not work?</p>
+</blockquote>
+<h4 id="bcnf">BCNF</h4>
+<ul>
+<li><p>A relational schema R is in <strong>Boyce–Codd normal form</strong> if and only if for every one of its dependencies X → Y, <em>at least one</em> of the following conditions hold:</p>
+<ul>
+<li>X → Y is a trivial functional dependency (Y ⊆ X)</li>
+<li>X is a <strong>superkey</strong> for schema R</li>
+</ul></li>
+</ul>
+<h5 id="decomposition-to-bcnf">Decomposition to BCNF</h5>
+<h4 id="third-normal-form">Third Normal Form</h4>
+<blockquote>
+<p>synthesis of 3NF from the minimal base of given family of functional dependencies</p>
+</blockquote>
+<ul>
+<li><p>Codd's definition states that a table is in <strong>3NF</strong> *if and only if both of the following conditions hold*:</p>
+<ul>
+<li>The relation R (table) is in second normal form (2NF)</li>
+<li>Every non-prime attribute of R is non-transitively dependent (i.e. directly dependent) on every superkey of R.</li>
+</ul></li>
+</ul>
+<h4 id="nf">1NF</h4>
+<ul>
+<li>A relation is in <strong>first normal form</strong> if *the domain of each attribute contains only atomic values<em>, and </em>the value of each attribute contains only a single value from that domain*.</li>
+</ul>
+<h3 id="functional-dependencies">Functional Dependencies</h3>
+<ul>
+<li><p>A <strong>functional dependency</strong> is a constraint between two sets of attributes in a relation from a database.</p></li>
+<li><p>Given a relation R, a set of attributes X in R is said to <strong>functionally determine</strong> another set of attributes Y, also in R, (written X → Y) if and only if each X value is associated with precisely one Y value; R is then said to satisfy the functional dependency X → Y.</p></li>
+</ul>
+<h2 id="october-26th-2013-reading-pages-350-359">October 26th, 2013 <small>Reading, pages 350-359</small></h2>
+<h3 id="indexes-in-sql">Indexes in SQL</h3>
+<dl>
+<dt>Index</dt>
+<dd>An index on an attribute <em>A</em> of a relation is a data structure that makes it efficient to find those tuples that have a fixed value for attribute <em>A</em>.
+</dd>
+<dd>We could think of the index as a binary search tree of (key, value) pairs, in which a key a (one of the values that attribute <em>A</em> may have) is associated with a &quot;value&quot; that is the set of locations of the tuples that have a in the component for attribute <em>A</em>.
+</dd>
+<dd><p>A database index is a data structure that improves the speed of data retrieval operations on a database table at the cost of additional writes and the use of more storage space to maintain the extra copy of data. Indexes are used to quickly locate data without having to search every row in a database table every time a database table is accessed.</p>
+</dd>
+<dt>Index key</dt>
+<dd>Note that the key for the index can be <em>any attribute</em> or *set of attributes*, and need not be the key for the relation on which the index is built.
+</dd>
+<dd><p>We shall refer to the attributes of the index as the <em>index key</em> when a distinction needs to be made.</p>
+</dd>
+</dl>
+<h4 id="motivation-for-indexes">Motivation for Indexes</h4>
+<ul>
+<li><p>When relations are very large, it becomes expensive to scan all the tuples of a relation to find those (perhaps very few) tuples</p></li>
+<li><p>Without indexes, we have to look at every tuple of the two relations.</p></li>
+</ul>
+<h4 id="declaring-indexes">Declaring Indexes</h4>
+<ul>
+<li><p>most commercial systems have a way for the database designer to say that the system should create an index on a certain attribute for a certain relation.</p>
+<pre><code>CREATE INDEX YearIndex ON Movies(year);</code></pre></li>
+</ul>
+<h3 id="selection-of-indexes">Selection of Indexes</h3>
+<ul>
+<li>Two important factors to consider are:
+<ul>
+<li><p>The existence of an index on an attribute may speed up greatly the execution of those queries in which a value, or range of values, is specified for that attribute, and may speed up joins involving that attribute as well.</p></li>
+<li><p>On the other hand, every index built for one or more attributes of some relation makes insertions, deletions, and updates to that relation more complex and time-consuming.</p></li>
+</ul></li>
+</ul>
+<h4 id="some-useful-indexes">Some Useful Indexes</h4>
+<ul>
+<li><p>Often, the most useful index we can put on a relation is an index on its key. There are two reasons:</p>
+<ol style="list-style-type: decimal">
+<li><p>Queries in which a value for the key is specified are common. Thus, an index on the key will get used frequently.</p></li>
+<li><p>Since there is at most one typle with a given key value, the index returns either nothing or one location for a typle. Thus, at most one page must be retrieved to get that tuple into main memory.</p></li>
+</ol></li>
+</ul>
+<h4 id="automatic-selection-of-indexes-to-create">Automatic Selection of Indexes to Create</h4>
+<ol style="list-style-type: decimal">
+<li><p>The first step is to establish the query workload. Since a DBMS normally logs all operations anyway, we may be able to examine the log and find a set of representative queries and database modifications for the database at hand. Or it is possible that we know, from the application programs that use the database, what the typical queries will be.</p></li>
+<li><p>The designer may be offered the opportunity to specify some constraints, e.g., indexes that must, or must not, be chosen.</p></li>
+<li><p>The tuning advisor generates a set of possible candidate indexes, and evaluates each one. Typical queries are given to the query optimizer of the DBMS. The query optimizer has the ability to estimate the running times of these queries under the assumption that one particular set of indexes is available.</p></li>
+<li><p>The index set resulting in the lowest cost for the given workload is suggested to the designer, or it is automatically created.</p></li>
+</ol>
+<h2 id="november-9th-2013-study-guide-to-quiz">November 9th, 2013 <small>Study Guide to Quiz</small></h2>
+<h3 id="data-access">Data Access</h3>
+<h4 id="ios">I/Os</h4>
+<blockquote>
+<p>Assume: Tables Sells, Likes and Drinker. Sells has 100,000 records, Likes has 1 million records and Drinker has also 100,000 records. Assume that each block of data (page) holds 100 records.</p>
+</blockquote>
+<ul>
+<li><p>Assume average seek time is 10ms. and average block transfer time is 5ms.</p></li>
+<li>Take the largest table, Likes.</li>
+<li><p>Time to read Likes:</p>
+<blockquote>
+<p>Transfer + Seek time = 10,000 blocks x 5ms = 50 seconds + 10ms</p>
+</blockquote></li>
+<li><p>Time to find a specific record by sequentially scanning the file (does Joe like Sam Adams?) - on average half of all the blocks will have to be transferred and read, thus it is &gt; 5,000 blocks x 5ms = 25 seconds + 10ms (seek time)</p></li>
+<li><p>Now, lets assume that table Drinker has an index on the key attribute which is the Drinker’s name. Lets assume that index is organized as binary search tree and that drinkers table is ordered by drinker’s names. There is 1000 blocks and 1000 index entries. If there was miniscule amount of RAM – technically accessing each level in the binary search tree would generate a disk seek, for 1000 entries, around 12! But realistically, the whole index would easily fit to RAM even 20 years ago. So it would be 1 seek time and probably several blocks of data to transfer the index to RAM. Then perhaps 1 seek time + 1 transfer for the block which may contain the record in drinker’s file. Thus, realistically we would need the total of few transfer times and 2 x seek time = milliseconds!</p></li>
+<li><p>In the class slides – the options A3 and A4 (and A5 and A6) all account for the height of the index (number of index levels, hi). But we need to be realistic. With current large RAM sizes I do not believe one would have to access index one block at a time, that is assuming that only one block of an index fits to the main memory. This time is long gone. I am assuming that there is enough RAM to hold all index there. Thus, to access index only one seek time is needed (assuming index is located contiguously) and several block transfers to move to index from the disk to the main memory.</p></li>
+<li><p>So there are really only two cases worth comparing: the primary and the secondary indexes. If index is primary all records with that index value are consecutive on the disk. If index is secondary they are not. This is particularly important for attributes which are not key attributes. Consider two hypothetical attributes of Drinker table: Zip Code and Gender. Lets assume there is 1000 drinkers per zip code. And lets assume that there is roughly the same number of male and female drinkers.</p></li>
+<li><p>Lets start with index on zip code. Assume that zip code index is primary. In that case data on the disk is arranged by zip codes. There is ten blocks of “drinkers” per zip code. Thus we will need one seek for index to bring it from the disk and transfer several blocks of index (negligible) plus another seek time for the first block of zipcode 08901 and transfer time for ten blocks of data. Total: &gt; 2 x seek time = 20 ms &gt; 20 block transfers = 100 ms &gt; Total of 120 ms</p></li>
+<li><p>Now assume that index on zip code is not primary (clustering). Drinkers in 08901 zip code may now be located on different blocks of the Drinker file. While Index transfer and seek time remains unchanged, we may now have to seek and transfer 1000 blocks from the hard disk since in the worst case each of the drinkers may be on different block. This time will dominate the overall performance since it will be &gt; 1000 x (10ms +5ms) = 15 seconds</p></li>
+<li><p>Now, just imagine what would happen if we repeated the same reasoning for much less selective index on “Gender”! All in all, the overall performance of a simple select from one table query is determined by whether there is an index, how selective is an attribute and if index is primary (clustering) or secondary. Selectivity of an index and proximity of records on the disk are the main factors in determination of overall performance. As I said in class, using an index is not always a great idea. For example, if a query asks for all female drinkers and the index on gender is non-primary, one may need to access 50,000 drinkers and transfer blocks of data 50,000 times (assuming no caching of previously accessed blocks). This would be: &gt; 50,000 x 15ms = 750 seconds!</p></li>
+<li><p>This is as opposed just to reading the file sequentially – roughly 1000 x 10ms = 10 seconds (1000 blocks of data transferred and one additional seek)</p></li>
+</ul>
+<h4 id="joins">Joins</h4>
+<ul>
+<li><p>This is where the real performance bottlenecks begin. One can easily choke the db system on joins. Even joining two tables may prove to be very expensive. But joins of more than two tables (even self joins) will quickly make your system unresponsive. Just to illustrate this points lets use calculations from the slides.</p></li>
+<li><p>Suppose we make natural join of tables “sells” with “likes” on the beer attribute. For outer table always chose a smaller of the two tables – arguments of the natural join. Thus, our outer table will be the Sells table and our inner table will be Likes table.</p></li>
+<li><p>In the worst case, if there is enough memory only to hold one block of each relation (OK, this is really not so realistic in this case!) the estimated cost is</p></li>
+</ul>
+<p><span class="math">\[nr ∗ bs + br\]</span></p>
+<ul>
+<li><p>Which is <span class="math">\(100,000 \times 10,000 + 1000\)</span> block transfers = roughly one billon block transfers! That would be <span class="math">\(5 x 10^6\)</span> seconds! What is it, a few months or something?</p></li>
+<li><p>And <span class="math">\(100,000 + 1000\)</span> seeks = <span class="math">\(101,000\)</span> seeks <span class="math">\(= 1000 seconds\)</span>, very brisk comparing with the data transfer…..</p></li>
+<li><p>Yes, true, very unrealistic, tuple at a time and practically no RAM. Below is a more realistic calculations with block nested loop join</p></li>
+<li><p>Worst case estimate: <span class="math">\(b_r \times b_s + b_r\)</span> block transfers <span class="math">\(+ 2 \times br  \)</span>seeks</p></li>
+<li><p>Each block in the inner relation s is read once for each block in the outer relation (instead of once for each tuple in the outer relation</p></li>
+<li>Best case: <span class="math">\(b_r + b_s\)</span> block transfers <span class="math">\(+ 2\)</span> seeks.</li>
+<li>Now we have <span class="math">\(1000 \times 10,000 + 1000 = 10\)</span> million block transfers this is merely just <span class="math">\(50,000\)</span> seconds.<br /></li>
+<li><p>Finally suppose we have an index on “beer” which is an attribute we join both tables on Now the cost is:</p></li>
+<li>Cost of the join: <span class="math">\(b_r (t_T + t_S) + n_r ∗ c\)</span></li>
+<li><p>Where c is the cost of traversing index and fetching all matching s tuples for one tuple or r</p></li>
+<li><p>c can be estimated as cost of a single selection on s using the join condition</p></li>
+<li><p>Thus, on our case, it is 1000 block transfers and seeks (since now we bring one block at a time) for sells and then for each record in sells we will use index on beer 100,000 times just to retrieve the matching tuples in Likes in order to compute the natural join. Lets first assume there is 1000 beers so each of them is liked by 100 drinkers on average. If the index on beer is a primary one that would be just 1 block of drinkers. Overall that would translate to roughly only 100,000 I/Os (transfer + seek time), 500 seconds overall. But if the index on beer was non-primary, that would be 100 blocks and 10 million I/Os…..not nearly as good.</p></li>
+</ul>
+<h3 id="serial-and-serializable-schedules">Serial and Serializable Schedules</h3>
+<dl>
+<dt>Scheduler</dt>
+<dd><p>The timing of individual steps of different transactions needs to be regulated in some manner. This is the job of a <em>scheduler</em> component of a DBMS.</p>
+<pre><code>+-----------------+
+| Transaction     |
+| Manager         |
++-----------------+
+    | Read/write
+    | requests
+    v
++-----------------+
+| Scheduler       |
+|                 |
++-----------------+
+    | Reads and
+    | writes
+    V
++-----------------+
+|||||||||||||||||||
+|||||||||||||||||||
++-----------------+</code></pre>
+</dd>
+<dt>Concurrency control</dt>
+<dd><p>The general process of assuring that transactions preserve consistency when executing simultaneously.</p>
+</dd>
+<dt>Serializability</dt>
+<dd><p>Assuring that concurrently executing transactions preserve correctness of the database state.</p>
+</dd>
+<dt>Conflict-serializability</dt>
+<dd><p>A stronger conditions that most schedulers actually enforce.</p>
+</dd>
+</dl>
+<blockquote>
+<p><strong>(Correctness Principle)</strong>: Every transaction, if executed in isolation (without any other transactions running concurrently), will transform any consistent state to another consistent state.</p>
+</blockquote>
+<h4 id="schedules">Schedules</h4>
+<dl>
+<dt>Schedule</dt>
+<dd>A sequence of the important actions taken by one or more transactions.
+</dd>
+</dl>
+<h4 id="serial-schedules">Serial Schedules</h4>
+<dl>
+<dt>Serial</dt>
+<dd><p>A <em>schedule</em> is <em>serial</em> if its actions consist of all the actions of one transaction, then all the actions of another transaction, and so on. No mixing of actions is allowed.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><span class="math">\(T_1\)</span></th>
+<th align="left"><span class="math">\(T_2\)</span></th>
+<th align="left"><span class="math">\(A\)</span></th>
+<th align="left"><span class="math">\(B\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>READ(A,t)</code></td>
+<td align="left"></td>
+<td align="left"><span class="math">\(25\)</span></td>
+<td align="left"><span class="math">\(25\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><code>t := t + 100</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>WRITE(A,t)</code></td>
+<td align="left"></td>
+<td align="left"><span class="math">\(125\)</span></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>READ(B,t)</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>t := t + 100</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>WRITE(B, t)</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"><span class="math">\(125\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><code>READ(A, s)</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><code>s := s * 2</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><code>WRITE(A, s)</code></td>
+<td align="left"><span class="math">\(250\)</span></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><code>READ(B, s)</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><code>s := s * 2</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><code>WRITE(B, s)</code></td>
+<td align="left"></td>
+<td align="left"><span class="math">\(250\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>For the transaction here, there are two serial schedules. There in <span class="math">\(T_1\)</span> which precedes <span class="math">\(T_2\)</span>, and the initial state is <span class="math">\(A = B = 25\)</span>. We shall take the convention that when displayed vertically, time process down the page. Also the values of <span class="math">\(A\)</span> and <span class="math">\(B\)</span> shown refer to their valleys in main-memory buffers, not necessarily to their values on disk.</p>
+</dd>
+<dd><p>The transactions are executed non-interleaved (see example above) i.e., a serial schedule is one in which no transaction starts until a running transaction has ended.</p>
+</dd>
+</dl>
+<h4 id="serializable-schedules">Serializable Schedules</h4>
+<dl>
+<dt>The Correctness Principle for Transactions</dt>
+<dd><p>Every serial schedule will preserve consistency of the database state.</p>
+</dd>
+<dt>Serializable</dt>
+<dd><p>In general, we say that a schedule <span class="math">\(S\)</span> is <em>serializable</em> if there is a serial schedule <span class="math">\(S\prime\)</span> such that for every initial database state, the effects of <span class="math">\(S\)</span> and <span class="math">\(S\prime\)</span> are the same.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><span class="math">\(T_1\)</span></th>
+<th align="left"><span class="math">\(T_2\)</span></th>
+<th align="left"><span class="math">\(A\)</span></th>
+<th align="left"><span class="math">\(B\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>READ(A,t)</code></td>
+<td align="left"></td>
+<td align="left"><span class="math">\(25\)</span></td>
+<td align="left"><span class="math">\(25\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><code>t := t + 100</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>WRITE(A,t)</code></td>
+<td align="left"></td>
+<td align="left"><span class="math">\(125\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><code>READ(A,s)</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><code>s := s * 2</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><code>WRITE(A, s)</code></td>
+<td align="left"><span class="math">\(250\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>READ(B, t)</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>t := t + 100</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>WRITE(B, t)</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"><span class="math">\(125\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><code>READ(B, s)</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><code>s := s * 2</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><code>WRITE(B, s)</code></td>
+<td align="left"></td>
+<td align="left"><span class="math">\(250\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>This shows a schedule of the transactions of the first example that is seriablizable but not serial. In this schedule, <span class="math">\(T_2\)</span> acts on <span class="math">\(A\)</span> after <span class="math">\(T_1\)</span> does, but before <span class="math">\(T_1\)</span> acts on <span class="math">\(B\)</span>. However, we see that the effect of the two transactions scheduled in this manner is the same as for the serial schedule.</p>
+<p>To convince ourselves of the truth of this statement, we must consider not only the effect from the database state <span class="math">\(A = B = 25\)</span>, but from any consistent database state.</p>
+</dd>
+<dd><p>A <em>transaction schedule</em> is <em>serializable</em> if its outcome (e.g., the resulting database state) is equal to the outcome of its transactions executed sequentially without overlapping in time.</p>
+</dd>
+<dd><p>A schedule that is equivalent (in its outcome) to a serial schedule has the serializability property.</p>
+</dd>
+</dl>
+<h4 id="the-effect-of-transaction-semantics">The Effect of Transaction Semantics</h4>
+<blockquote>
+<p>Any database element <span class="math">\(A\)</span> that a transaction <span class="math">\(T\)</span> writes is given a value that depends on the database state in such a way that no arithmetic coincidences occur.</p>
+</blockquote>
+<h4 id="a-notation-for-transactions-and-schedules">A Notation for Transactions and Schedules</h4>
+<ul>
+<li><p>If we assume &quot;no conincidences,&quot; the only the reads and writes performed by the transactions matter, not the actual values involved.</p>
+<ul>
+<li><p>Thus, we shall represent transactions and schedules by a shorthand notation, in which the actions are <span class="math">\(r_T (X)\)</span> and <span class="math">\(w_T (X)\)</span>,</p>
+<ul>
+<li>Meaning that transactions <span class="math">\(T\)</span> reads, or respectively writes, database element <span class="math">\(X\)</span>.</li>
+</ul></li>
+</ul></li>
+<li><p>The first table can be written:</p></li>
+</ul>
+<p><span class="math">\[T_1 : r_1(A); w_1(A); r_1(B); w_1(B)\]</span> <span class="math">\[T_2 : r_2(A); w_2(A); r_2(B); w_2(B)\]</span></p>
+<ul>
+<li>To make notation precise:
+<ol style="list-style-type: decimal">
+<li>A <em>action</em> is an expression of the form <span class="math">\(R_i(X)\)</span> or <span class="math">\(w_i(X)\)</span>, meaning that transaction <span class="math">\(T_i\)</span> reads or writes, respectively, the database element <span class="math">\(X\)</span>.</li>
+<li>A <em>transaction</em> <span class="math">\(T_i\)</span> is a sequence of actions with subscript <span class="math">\(i\)</span>.</li>
+<li>A <em>schedule</em> <span class="math">\(S\)</span> is a set of transactions <span class="math">\(T\)</span> is a sequences of actions, in which each transaction <span class="math">\(T_i\)</span> in <span class="math">\(T\)</span>, the actions of <span class="math">\(T_i\)</span> appear in <span class="math">\(S\)</span> in the same order that they appear in the definition of <span class="math">\(T_i\)</span> itself. We say that <span class="math">\(S\)</span> is an <em>interleaving</em> of the actions of the transactions of which it is composed.</li>
+</ol></li>
+</ul>
+<h3 id="conflict-serializability-pg.-800">Conflict-Serializability <small>pg. 800</small></h3>
+<ul>
+<li>Schedulers in commercial systems generally enforce a condition, called &quot;conflict-serializablity&quot;, that is stronger than the general notion of serialiability introduced ealier.</li>
+</ul>
+<h4 id="conflicts">Conflicts</h4>
+<dl>
+<dt>Conflict</dt>
+<dd><p>A pair of consecutive actions in a schedule that, if their order is interchanged, then the behavior of at least one of transactions can change.</p>
+</dd>
+<dd><p>Two actions are said to be in conflict (conflicting pair) if:</p>
+<ol style="list-style-type: decimal">
+<li>The actions belong to different transactions.</li>
+<li>At least one of the actions is a write operation.</li>
+<li>The actions access the same object (read or write).</li>
+</ol>
+</dd>
+<dd><p>Most pairs of actions do <em>not</em> conflict.</p>
+</dd>
+<dd><p>In what follows, we assume that <span class="math">\(T_i\)</span> and <span class="math">\(T_j\)</span> are different transactions:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math">\(r_i(X); r_j(Y)\)</span> is never a conflict, even if <span class="math">\(X = Y\)</span>. The reason is that neither of these steps change the value of any database element.</p></li>
+<li><p><span class="math">\(r_i(X); w_j(Y)\)</span> is not a conflict <em>provided</em> that <span class="math">\(X \neq Y\)</span>. The reason is that should <span class="math">\(T_j\)</span> write <span class="math">\(Y\)</span> before <span class="math">\(T_i\)</span> reads <span class="math">\(X\)</span>, the value of <span class="math">\(X\)</span> is not change.</p></li>
+<li><p><span class="math">\(w_i(X); r_j(Y)\)</span> is not a confict if <span class="math">\(X \neq Y\)</span>.</p></li>
+</ol>
+</dd>
+<dd><p>Three ways that always conflict:</p>
+<ol style="list-style-type: decimal">
+<li>Two actions of the same transactions always conflict.</li>
+<li>Two writes of the same database element by different transactions conflict. That is, <span class="math">\(w_i(X); w_j(X)\)</span> is a conflict.</li>
+<li>A read and a write of the same database element by different transaction also close.</li>
+</ol>
+</dd>
+<dt>Conflict equivalence</dt>
+<dd><p>The schedules S1 and S2 are said to be conflict-equivalent if following two conditions are satisfied:</p>
+<ol style="list-style-type: decimal">
+<li>Both schedules S1 and S2 involve the same set of transactions (including ordering of actions within each transaction).</li>
+<li>The set of conflicting pairs in S1 is the same as in S2.</li>
+</ol>
+</dd>
+<dt>Conflict-serializable</dt>
+<dd><p>A schedule is said to be conflict-serializable when the schedule is conflict-equivalent to one or more serial schedules.</p>
+</dd>
+</dl>
+<h3 id="acid">ACID</h3>
+<dl>
+<dt>ACID</dt>
+<dd><p>Atomicity, Consistency, Isolation, Durability</p>
+</dd>
+<dt>Atomicity</dt>
+<dd><p>In an <em>atomic</em> transaction, a series of database operations either all occur, or nothing occurs.</p>
+</dd>
+<dt>Consistency</dt>
+<dd><p>A <em>consistent</em> transaction is one that <em>does not violate any integrity constraints</em> during its execution. If a transaction leaves the database in an illegal state, it is aborted and an error is reported.</p>
+</dd>
+<dt>Isolation</dt>
+<dd><p><em>Isolation</em> is a property that defines how/when the changes made by one operation become <em>visible to other concurrent operations</em>.</p>
+</dd>
+<dt>Durability</dt>
+<dd><p>The property which guarantees that <em>transactions</em> that have committed <em>will survive permanently</em>. For example, if a flight booking reports that a seat has successfully been booked, then the seat will remain booked even if the system crashes.</p>
+</dd>
+</dl>
+<h3 id="concurrency-control">Concurrency Control</h3>
+<dl>
+<dt>Concurrency control</dt>
+<dd><p>ensures that correct results for concurrent operations are generated, while getting those results as quickly as possible.</p>
+</dd>
+<dt>Transaction</dt>
+<dd><p>A transaction comprises a unit of work performed within a database management system (or similar system) against a database, and treated in a coherent and reliable way independent of other transactions. Transactions in a database environment have two main purposes: To provide reliable units of work that allow correct recovery from failures and keep a database consistent even in cases of system failure, when execution stops (completely or partially) and many operations upon a database remain uncompleted, with unclear status. To provide isolation between programs accessing a database concurrently. If this isolation is not provided, the program's outcome are possibly erroneous.</p>
+</dd>
+</dl>
+<h3 id="indexes">Indexes</h3>
+<dl>
+<dt>Indexes</dt>
+<dd><p>While not part of the SQL standard, commercial SQL systems allow the declaration of indexes on attributes; the indexes speed up certain queries that involve specification of value, or range of values, for the indexed attribute(s).</p>
+</dd>
+<dt>Choosing indexes</dt>
+<dd><p>While indexes speed up queries, they slow down database modifications, since the indexes on the modified relation must also be modified. Thus, the choice of indexes is a complex problem, depending on the actual mix of queries and modifications perfumed on the database.</p>
+</dd>
+<dt>Automatic index selection</dt>
+<dd><p>Some DBMS's offer tools to choose indexes for a database automatically. They examine the typical queries and modifications performed on the database and evaluate the cost trade-off for different indexes that might be created.</p>
+</dd>
+</dl>
+<h2 id="november-5th-transactions-and-concurrency-control">November 5th <small>Transactions and Concurrency Control</small></h2>
+<h2 id="november-7th-transactions-and-concurrency-control">November 7th <small>Transactions and Concurrency Control</small></h2>
+<h2 id="november-12th-quiz-on-concurrency-control-indexing-nosql-intro-lecture">November 12th <small>Quiz on Concurrency Control &amp; Indexing + NoSQL intro lecture</small></h2>
+<h2 id="november-14th-nosql-class">November 14th <small>NoSQL class</small></h2>
+<h2 id="november-19-redemption-quiz">November 19 <small>Redemption Quiz</small></h2>
+<h3 id="study">Study</h3>
+<h4 id="how-to-use-functional-dependancies-to-determine-keys"><a href="http://www.youtube.com/watch?v=s1DNVWKeQ_w">How to use functional dependancies to determine keys</a></h4>
+<ul>
+<li>If an attribute only appears on the left hand side of a set of dependancies, it is part of every key.</li>
+<li>If an attribute only appears on the right hand side of a set of dependancies, it is part of not key.</li>
+<li><p>If it is in middle, it could be but might not be.</p></li>
+<li><p>Consider:</p>
+<pre><code>R(ABCD)
+F { AB -&gt; C, C -&gt; B, C -&gt; D }</code></pre></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Left</th>
+<th align="left">Middle</th>
+<th align="left">Right</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="left">BC</td>
+<td align="left">D</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>A is not the key because it does not determine every attribute.</p>
+</blockquote>
+<ul>
+<li><code>AB</code> is a key, but we also have the try the other attribute.</li>
+<li><p>Let's look at <code>AC+</code> closure</p></li>
+<li><p>Consider:</p>
+<pre><code>R(ABC)
+
+FD = { A -&gt; B, B -&gt; C, C -&gt; A }</code></pre></li>
+<li>Everything is in the middle!
+<ul>
+<li><p>We have to try the attributes one at a time, then two at a time, then three at a time.</p>
+<pre><code>A+ = ABC
+B+ = ABC
+C+ = ABC</code></pre></li>
+</ul></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="left">P</th>
+<th align="left">NP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ABCD</td>
+<td align="left">NA</td>
+</tr>
+</tbody>
+</table>
+<h4 id="first-and-second-normal-forms"><a href="http://www.youtube.com/watch?v=cbJ-xaBfWLM">First and Second Normal Forms</a></h4>
+<ul>
+<li>What is a normal form?
+<ul>
+<li>Informally, it is a way of formatting a database.</li>
+<li>The higher the form, the more constraints there are.</li>
+</ul></li>
+</ul>
+<h5 id="nf-1">1NF</h5>
+<ul>
+<li>All attributes are atomic.</li>
+<li>One value per cell.</li>
+<li><p>Consider:</p>
+<p>Course | Student -------|-------- Database | Bob | Joe | Sue Math | Tim | Mary</p></li>
+<li><p>To make this in <code>INF</code>:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Course</th>
+<th align="left">Student</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Database</td>
+<td align="left">Bob</td>
+</tr>
+<tr class="even">
+<td align="left">Database</td>
+<td align="left">Joe</td>
+</tr>
+<tr class="odd">
+<td align="left">Database</td>
+<td align="left">Sue</td>
+</tr>
+<tr class="even">
+<td align="left">Math</td>
+<td align="left">Tim</td>
+</tr>
+<tr class="odd">
+<td align="left">Math</td>
+<td align="left">Mary</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+<h5 id="nf-2">2NF</h5>
+<blockquote>
+<p>Let <span class="math">\(R\)</span> be a relation schema with FDs <span class="math">\(F\)</span>. Let <strong><span class="math">\(X\)</span> be a set of attributes</strong> of <span class="math">\(R\)</span> and <span class="math">\(A\)</span> is a <strong>non-prime attribute</strong> not in <span class="math">\(X\)</span>. Then <span class="math">\(R\)</span> is in <code>2NF</code> if whenever <span class="math">\(X \to A \in F+\)</span>, then <span class="math">\(X\)</span> is not a proper subset of any key.</p>
+</blockquote>
+<ul>
+<li><p>&quot;How do we know if a relation table is in <code>2NF</code>?&quot; Consider:</p>
+<pre><code>R(ABCDE)
+F = { ABD -&gt; C, BC -&gt; D, CD -&gt; E }</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Left</th>
+<th align="left">Middle</th>
+<th align="left">Right</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">AB</td>
+<td align="left">CD</td>
+<td align="left">E</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>AB+ = { }</code></li>
+<li><code>ABC+ = { ABCDE }</code></li>
+<li><code>ABD+ = { ABCDE }</code></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Prime</th>
+<th align="left">Non-Prime</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>ABCD</code></td>
+<td align="left"><code>E</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>By our definition of <code>2NF</code>, the way you violate <code>2NF</code>, you have a FD where the right-hand side is non-prime and not part of <span class="math">\(X\)</span> and left hand side is a proper subset of a key.
+<ul>
+<li>Our keys our <code>ABC</code> and <code>ABD</code></li>
+</ul></li>
+</ul></li>
+</ul>
+<h4 id="third-normal-form-and-database-design-shortcuts"><a href="http://www.youtube.com/watch?v=nUbp9MRN0To">Third Normal Form and Database Design Shortcuts</a></h4>
+<ul>
+<li>If <span class="math">\(A\)</span> is non-prime, <span class="math">\(X\)</span> has to be a super key.</li>
+</ul>
+<h3 id="quiz-1">Quiz 1</h3>
+<h3 id="quiz-2">Quiz 2</h3>
+<h3 id="quiz-5">Quiz 5</h3>
+<h4 id="question-1">Question 1</h4>
+<blockquote>
+<p>Consider a relation <span class="math">\(R = (ABCD)\)</span>, for each of the following sets of functional dependencies, do the following (4 questions for <strong>each</strong> set of FDs):</p>
+<ol style="list-style-type: decimal">
+<li>Compute.<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup></li>
+<li>Specify all of the candidate keys.</li>
+<li>Identify whether R is in BCNF?</li>
+<li>If R is not in BCNF, decompose it into a collection of BCNF relations.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math">\(FD = \lbrace B \to C, D \to A \rbrace\)</span>
+<ol style="list-style-type: decimal">
+<li>Compute <code>AB+</code>
+<ul>
+<li>This is a closure, which means see what you &quot;can get with&quot; A and B.</li>
+<li>You get AB by <em>reflexivity</em>.</li>
+<li>You get C by the fact you have B.</li>
+<li><code>AB+ = { A, B, C }</code></li>
+</ul></li>
+<li>Specify all of the candidate keys.
+<ul>
+<li><p>Consider:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Left</th>
+<th align="left">Middle</th>
+<th align="left">Right</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">B D</td>
+<td align="left"></td>
+<td align="left">A C</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>The only key is BD.</p></li>
+</ul></li>
+<li>Identify whether R is in BCNF?
+<ul>
+<li>You can check to see if every closure of a left hand side of a FD is equal to all attributes in the relation.</li>
+<li><span class="math">\(B+ = BC\)</span>
+<ul>
+<li>Not a superkey.</li>
+</ul></li>
+<li><span class="math">\(D+ = DA\)</span>
+<ul>
+<li>Not a superkey.</li>
+</ul></li>
+</ul></li>
+<li>If R is not in BCNF, decompose it into a collection of BCNF relations.i
+<ul>
+<li>For B to C, R(BC)
+<ul>
+<li>B+ = BC, {B -&gt; C} (In BCNF)</li>
+<li>-B+ = ABD, {A -&gt; D} (Not in BCNF)</li>
+</ul></li>
+<li>For D to A
+<ul>
+<li>D+ = AD, {D -&gt; A} (In BCNF)</li>
+<li>-D+ = DBC, {B -&gt; C} (Not in BCNF)
+<ul>
+<li>For B to C, (BC) and (BD) {} (In BCNF)</li>
+</ul></li>
+</ul></li>
+<li>{BC, AD, BD}</li>
+</ul></li>
+</ol></li>
+<li><span class="math">\(FD = \lbrace C \to D, C \to A, B \to C \rbrace\)</span>
+<ol style="list-style-type: decimal">
+<li><span class="math">\(AB+ = ABCD\)</span></li>
+<li><p>For keys, consider:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Left</th>
+<th align="left">Middle</th>
+<th align="left">Right</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">B</td>
+<td align="left">C</td>
+<td align="left">AD</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>B is every key.</li>
+<li>C could be in any key.</li>
+<li>AD are in no keys.</li>
+<li>B is the only key.</li>
+</ul></li>
+<li>It is not in BCNF because none of the left hand sides in the FDs are superkeys.</li>
+<li>Lets decompose it to BCNF relations:
+<ul>
+<li><span class="math">\(C \to D\)</span> violates
+<ul>
+<li>LSH+ = ACD {C -&gt; D, C -&gt; A}, in BCNF</li>
+<li>LSH- = BC, {B -&gt; C}, in BCNF</li>
+</ul></li>
+<li>The decompisition is {ACD, BC}</li>
+</ul></li>
+</ol></li>
+<li><span class="math">\(FD = \lbrace ABC \to D, D \to A \rbrace\)</span>
+<ol style="list-style-type: decimal">
+<li><span class="math">\(AB+ = AB\)</span></li>
+<li><p>For keys, consider:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Left</th>
+<th align="left">Middle</th>
+<th align="left">Right</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">BC</td>
+<td align="left">AD</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>It can be BCD or ABC.</li>
+</ul></li>
+</ol></li>
+</ol>
+<h3 id="quiz-6">Quiz 6</h3>
+<h4 id="question-1-1">Question 1</h4>
+<blockquote>
+<p>For each of the following schedules, state whether they are serializable and whether they are conflict-serializable. For each schedule, draw the corresponding precedence graph. If the schedule is conflict-serializable, show all the conflict-equivalent serial schedules. If the schedule is not serializable, provide an example to show that no serial schedule has the same effect as given schedule.</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><p>S = r1 (A); r2 (A); w1 (A); w2 (A)</p>
+<p><span class="math">\(T_1\)</span> | <span class="math">\(T_2\)</span> ------|------ r(A) |<br /> | r(A) w(A) | | w(A)</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>For each transaction <span class="math">\(T_i\)</span> participating in schedule <span class="math">\(S\)</span>, create a node labelled <span class="math">\(T_i\)</span> in the precedence graph.</li>
+<li>For each case in <span class="math">\(S\)</span> where <span class="math">\(T_i\)</span> executes a <code>write_item(X)</code> then <span class="math">\(T_j\)</span> executes a <code>read_item(X)</code>, create an edge (<span class="math">\(T_i \to T_j\)</span>) in the precedence graph.</li>
+<li>For each case in <span class="math">\(S\)</span> where <span class="math">\(T_i\)</span> executes a <code>read_item(X)</code> then <span class="math">\(T_j\)</span> executes a <code>write_item(X)</code>, create an edge (<span class="math">\(Ti \to Tj\)</span>) in the precedence graph. This will bring to front a directed graph from <span class="math">\(T_1\)</span> to <span class="math">\(T_2\)</span>.</li>
+<li>For each case in <span class="math">\(S\)</span> where <span class="math">\(T_i\)</span> executes a <code>write_item(X)</code> then <span class="math">\(T_j\)</span> executes a <code>write_item(X)</code>, create an edge (<span class="math">\(T_i \to T_j\)</span>) in the precedence graph.</li>
+<li>The schedule <span class="math">\(S\)</span> is serializable if the precedence graph has no cycles.</li>
+</ol>
+</blockquote>
+<ul>
+<li>In short, if there is a <strong>write then a read</strong>, a <strong>read then a write</strong>, or a <strong>write then a write</strong>, that is anything to do with a write, for any given two times, add an edge.</li>
+<li>I'm seeing nothing wrong with the first two rows of the table above, but then there is read and then a write, and then a write then a write.
+<ul>
+<li>That makes a cycle. Not conflict serializable.</li>
+</ul></li>
+</ul></li>
+<li><p><span class="math">\(S = r_1 (A), r_2 (B), w_3 (A), r_2 (A), r_1 (B)\)</span></p>
+<p><span class="math">\(T_1\)</span> | <span class="math">\(T_2\)</span> | <span class="math">\(T_3\)</span> ------|-------|------ r(A) | | | r(B) |<br /> | | w(a) | r(A) | r(B) | |</p>
+<p><img src="../img/cs-336-pgraph1.png" alt="Precedence graph for question 2" />{.img-small}</p>
+<ul>
+<li>No cycles, no conflict serializable.i</li>
+<li>I think, to work out equivilient schedules, move around the times and check the conflicts again.</li>
+<li>Conflict-serializability implies serializability.</li>
+</ul></li>
+</ol>
+<h4 id="question-2">Question 2</h4>
+<blockquote>
+<p>Show all the conflict-serializable schedules of the following transactions T1 and T2. Explain why these are all such schedules.</p>
+<p>T1: r1 (A) w1 (A) r1 (B) w1 (B)</p>
+<p>T2: r2 (B) w2 (B) r2 (A) w2 (A).</p>
+</blockquote>
+<div class="figure">
+<img src="../img/cs-336-conflicts.png" alt="What are the conflict equivilent schedules?" /><p class="caption">What are the conflict equivilent schedules?</p>
+</div>
+<ul>
+<li><p>Conflict-equivalent to T1, T2:</p>
+<pre><code>r1 (A) w1 (A) r1(B) w1(B) r2(B) w2(B) r2(A) w2(A) </code></pre>
+<ul>
+<li>Reason: This is the serial schedule T1, T2.</li>
+<li>There are no other conflict-equivalent schedules, since there is no non-conflicting swap of adjacent actions in this schedule: we cannot swap actions within a transaction, and w1 (B) r2 (B) cannot be swapped, because they conflict (both manipulating the same database element and one of them is a write).</li>
+</ul></li>
+<li><p>Conflict-equivalent to T2, T1:</p>
+<pre><code>r2(B) w2(B) r2(A) w2(A) r1(A) w1(A) r1(B) w1(B)</code></pre></li>
+</ul>
+<h2 id="december-5th-class-projects-presentations">December 5th <small>Class Projects Presentations</small></h2>
+<iframe width="560" height="315" src="//www.youtube.com/embed/vrmNO3Ytsm4" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="december-10th-project-finalists-and-crowning-of-the-winner">December 10th <small>Project Finalists and Crowning of the Winner</small></h2>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Compute what? It seems to be <code>AB+</code>.<a href="#fnref1">↩</a></p></li>
+</ol>
+</div> 
+{% endraw %}

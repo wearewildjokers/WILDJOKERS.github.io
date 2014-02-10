@@ -1,0 +1,12 @@
+- name: Philosophy Graduate School
+  tags: [Academic]
+  description: "My time with the magnificent Rutgers University Philosophy Department has lit within me a fire of intellectual curiosity for the topic of philosophy. I hope to devote my life's work to research in philosophy. After this semester, I will be applying to both terminal Master's and PhD programs."
+- name: Wild Jokers Records
+  tags: [Web, Audio production, Promotion, Professional]
+  description: "I work in R+D for an up-and-coming record label coming out of New Brunswick. Firstly, I am developing web tools for use in publishing a record label's media. Secondly, I'm learning the modern audio production workflow and toolkit both for creating music and developing VSTs."
+- name: Design and Analysis of Computer Algorithms
+  tags: [Coursework, Computer Science, Academic]
+  description: "To study a variety of useful algorithms and analyze their complexity, and use that experience to gain insight into principles and data-structures useful in algorithm design."
+- name: Senior Honors Thesis
+  tags: [Coursework, Philosophy, Academic]
+  description: "Working under the extraordinary and insightful Prof. Peter Klein, I am working to complete deparmental honors in the philosophy program with an undergraduate honors thesis."

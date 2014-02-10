@@ -1,0 +1,47 @@
+---
+layout: page
+title: Notes
+subtitle: My digital notebook from Rutgers University
+---
+
+<p></p>
+
+<div class="row">
+	<div class="large-6 columns">
+
+		<div class="panel">
+
+			<h2>Computer Science</h2>
+
+			{% for course in site.cs-notes %}
+
+				<a href="{{ course.url }}" class="button expand">{{ course.text}}</a>
+
+			{% endfor %}
+
+		</div>
+
+	</div>
+
+	<div class="large-6 columns">
+
+		<div class="panel">
+
+			<h2>Philosophy</h2>
+
+			{% for course in site.philosophy-notes %}
+
+				<a href="{{ course.url }}" class="button expand">{{ course.text}}</a>
+
+			{% endfor %}
+
+		</div>
+
+	</div>
+
+</div>
+
+<div data-alert class="alert-box radius">
+  <strong>A word to the wise:</strong> I'm still working out a way to elegantly display this information, this is a stopgap measure.
+</div>
+

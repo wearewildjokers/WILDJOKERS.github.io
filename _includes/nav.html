@@ -1,0 +1,30 @@
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <!-- Title Area -->
+      <li class="name">
+          <a href="/">
+            <h1><a href="/">{{ site.title }}</a></h1>
+          </a>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+    </ul>
+ 
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="left">
+        {% for link in site.navigation %}
+          {% assign current = nil %}
+          {% if page.url == link.url or page.layout == link.layout or link.text == page.title  %}
+            {% assign current = 'active' %}
+          {% endif %}
+          {% if link.text == 'Blog' and page.categories %}
+            {% assign current = 'active' %}
+          {% endif %}
+
+          <li class="{% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
+            <a class="{{ current }}" href="{{ link.url }}">{{ link.text }}</a>
+          </li>
+      {% endfor %}
+      </ul>
+    </section>
+  </nav>

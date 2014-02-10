@@ -1,0 +1,53 @@
+- name: Systems Programming
+  time: Fall 2013
+  languages: [C, UNIX]
+  github: https://github.com/PLJNS/Rutgers-Systems-Programming-Fall-2013
+  notes: /notes/Computer%20Science/Systems%20Programming/
+  description: "This course taught me how to think about, build, debug, and test large computer programs at a low-level. I learned how to use tools like debuggers, profilers, source version control systems, and various UNIX development environments."
+- name: Calculus II
+  time: Summer 2012
+  description: "Calculus II features the study of the integral calculus, with applications, and covers the theory of infinite series and power series, touching on differential equations and a few other topics as well. I used TeX to typeset my workshops."
+  languages: [TeX]
+  github: https://github.com/PLJNS/Rutgers-Calc-II-Summer-2012
+- name: Principles of Programming Languages
+  notes: /notes/Computer%20Science/Programming%20Languages/
+  time: Fall 2013
+  description: "The course is aimed at making the student familiar with the general concepts common to all programming languages so as to facilitate learning new languages. Language paradigms (i.e., logic, functional, procedural, object-oriented) are compared and implementation strategies are discussed."
+  languages: [Prolog, Python, Scheme]
+  github: https://github.com/PLJNS/Rutgers-Prin-Prog-Fall-2013
+- name: Information and Data Management
+  notes: /notes/Computer%20Science/Information%20and%20Data%20Management/
+  time: Fall 2013
+  description: "Describing and querying various forms of information such as structured data in relational databases, unstructured text (IR), semi-structured data (XML, web), deductive knowledge. Conceptual modeling and schema design. Basics of database management system services (transactions, reliability, security, optimization)."
+  languages: [iOS, SQL]
+  github: https://github.com/PLJNS/Rutgers-Info-Data-Mgmt-Fall-2013
+- name: Internet Technology
+  notes: /notes/Computer%20Science/Internet%20Technology/
+  time: Summer 2014
+  description: "To provide a practical understanding of computer networks with respect to system architectures, protocols, and client-server interaction. These objectives are accomplished through extensive laboratory exercises."
+  languages: [Java]
+  github: https://github.com/PLJNS/Rutgers-Internet-Technology-Summer-2014
+- name: Computer Architecture
+  notes: /notes/Computer%20Science/Computer%20Architecture/
+  time: Spring 2013
+  description: "This course covers the fundamental issues in the design of modern computer systems, including the design and implementation of key hardware components such as the processor, memory, and I/O devices, and the software/hardware interface."
+  languages: [C, UNIX]
+  github: https://github.com/PLJNS/Rutgers-Comp-Arch-Spring-2013
+- name: Software Methodology
+  notes: /notes/Computer%20Science/Software%20Methodology/
+  time: Spring 2013
+  description: "This course teaches essential principles, techniques, tools, and methods used to develop large software programs in Java. These include object-oriented programming and design, Unified Modeling Language (UML), testing and debugging, using and documenting APIs, asynchronous (event-driven) programming in a Graphical Use Interface (GUI) framework, code maintenance and version management using CVS, software development using Eclipse, introduction to building software on mobile platforms, introduction to multithreading, network programming, and object persistence."
+  languages: [Java, Android]
+  github: https://github.com/PLJNS/Rutgers-Soft-Meth-Spring-2013
+- name: Discrete Structures II
+  notes: /notes/Computer%20Science/Introduction%20to%20Discrete%20Structures%20II/
+  time: Spring 2013
+  description: "Provides the background in combinatorics and probability theory required in design and analysis of algorithms, in system analysis, and in other areas of computer science."
+  languages: [TeX]
+  github: https://github.com/PLJNS/Rutgers-Discrete-II-Spring-2013
+- name: Data Structures
+  notes: /notes/Computer%20Science/Data%20Structures/
+  description: "To investigate the essential properties of data structures and algorithms for operating on them; to use these structures as tools to assist algorithm design; to extend exposure to searching, sorting and hashing techniques."
+  time: Fall 2012
+  languages: [Java]
+  github: https://github.com/PLJNS/Rutgers-Data-Structures-Fall-2012

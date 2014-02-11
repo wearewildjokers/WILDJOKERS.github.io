@@ -4,44 +4,19 @@ title: Notes
 subtitle: My digital notebook from Rutgers University
 ---
 
-<p></p>
+<h2>You are here for ... </h2>
+
 
 <div class="row">
-	<div class="large-6 columns">
-
-		<div class="panel">
-
-			<h2>Computer Science</h2>
-
-			{% for course in site.cs-notes %}
-
-				<a href="{{ course.url }}" class="button expand">{{ course.text}}</a>
-
-			{% endfor %}
-
-		</div>
-
-	</div>
 
 	<div class="large-6 columns">
 
-		<div class="panel">
+	<a href="/notes/Computer%20Science/" class="button large expand" style="font-family:Consolas, 'Liberation Mono', Courier, monospace;
+font-weight: bold; height:65px;">Computer Science</a>
+	</div>
 
-			<h2>Philosophy</h2>
-
-			{% for course in site.philosophy-notes %}
-
-				<a href="{{ course.url }}" class="button expand">{{ course.text}}</a>
-
-			{% endfor %}
-
-		</div>
-
+	<div class="large-6 columns">
+<a href="/notes/Philosophy/" class="button large expand" style="font-family:'Monotype Corsiva', 'Apple Chancery', 'ITC Zapf Chancery', 'URW Chancery L', cursive;; height:65px;">Philosophy</a>
 	</div>
 
 </div>
-
-<div data-alert class="alert-box radius">
-  <strong>A word to the wise:</strong> I'm still working out a way to elegantly display this information, this is a stopgap measure.
-</div>
-

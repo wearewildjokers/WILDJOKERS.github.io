@@ -1,0 +1,25 @@
+---
+layout: page
+title: Philosophy Notes
+subtitle: My digital notebook from Rutgers University
+---
+
+<div class="row">
+
+	<div class="large-12 columns">
+
+		<div class="panel">
+
+			<h2>Philosophy</h2>
+
+			{% for course in site.philosophy-notes %}
+
+				<a href="{{ course.url }}" class="button expand">{{ course.text}}</a>
+
+			{% endfor %}
+
+		</div>
+
+	</div>
+
+</div>

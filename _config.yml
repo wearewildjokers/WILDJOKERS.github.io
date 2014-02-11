@@ -30,7 +30,7 @@ stylesheet-dir: /public/css
 images-dir:     /public/img
 
 simple-form: febc16137a544346020e4aee668d6bde
-disqus: 
+disqus: pljns
 
 author:
   name:           'Paul Jones'

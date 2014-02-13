@@ -4,126 +4,383 @@ title: Notes
 subtitle: From Paul Jones at Rutgers University
 ---
 {% raw %}
-<h1 id="design-and-analysis-of-computer-algorithms---with-professor-kostas-bekris">Design and Analysis of Computer Algorithms - with Professor Kostas Bekris</h1>
-<h2 id="syllabus">Syllabus</h2>
-<h3 id="topics">Topics</h3>
-<p>We will cover a large subset of the following and possibly some new algorithmic topics and applications, as time permits:</p>
+<h1>
+Design and Analysis of Computer Algorithms <small>with Professor Kostas Bekris</small>
+</h1>
+
+<h2>
+Syllabus
+</h2>
+
+<h3>
+Topics
+</h3>
+
+<p>
+We will cover a large subset of the following and possibly some new algorithmic topics and applications, as time permits:
+</p>
+
 <ul>
-<li><p>Mathematical tools. Review of mathematical background, concepts of algorithm design, complexity, asymptotics, induction, and randomization. Fibonacci numbers. Euclidean gcd algorithms. Universal hashing.</p></li>
-<li><p>Divide and conquer. Fast integer multiplication; recurrences; the master theorem; mergesort; randomized median and selection algorithms; quicksort; fast matrix multiplication.</p></li>
-<li><p>Sorting. Lower bounds for comparison-based sorting; binsort and radix sort.</p></li>
-<li><p>Dynamic programming; Paradigm of SPs in DAGs; longest increasing subsequence; approximate string matching; integer and (0,1) knapsack problems; chain matrix multiplication; single-pair reliable SPs, all-pairs SPs; independent sets.</p></li>
-<li><p>Graph search. Graph classes and representations; depth first search in undirected and directed graphs; topological search; strongly connected components. Breadth first search and layered DAGs.</p></li>
-<li><p>Shortest Paths (SPs) in digraphs. Single-source SPs for nonnegative edge weights; priority queues and Dijkstra; SPs in DAGs; single-source SPs for general edge weights. Maximum adjacency search.</p></li>
-<li><p>Greedy algorithms. Spanning trees and cuts, analysis of union-find and path compression; MST algorithms; randomized algorithm for global minimum cuts; approximate set cover.</p></li>
-<li><p>Network flows. Max flow min cut theorem and integrality; fast algorithms; disjoint (s,t)-dipaths; maximum bipartite matching &amp; minimum vertex cover. Global minimum cuts.</p></li>
-<li>Elements of NP-completeness &amp; problem reductions.</li>
-<li><p>NP-hard problems. Search and selected approximation algorithms.</p></li>
+<li><p>
+Mathematical tools. Review of mathematical background, concepts of algorithm design, complexity, asymptotics, induction, and randomization. Fibonacci numbers. Euclidean gcd algorithms. Universal hashing.
+</p></li>
+<li><p>
+Divide and conquer. Fast integer multiplication; recurrences; the master theorem; mergesort; randomized median and selection algorithms; quicksort; fast matrix multiplication.
+</p></li>
+<li><p>
+Sorting. Lower bounds for comparison-based sorting; binsort and radix sort.
+</p></li>
+<li><p>
+Dynamic programming; Paradigm of SPs in DAGs; longest increasing subsequence; approximate string matching; integer and (0,1) knapsack problems; chain matrix multiplication; single-pair reliable SPs, all-pairs SPs; independent sets.
+</p></li>
+<li><p>
+Graph search. Graph classes and representations; depth first search in undirected and directed graphs; topological search; strongly connected components. Breadth first search and layered DAGs.
+</p></li>
+<li><p>
+Shortest Paths (SPs) in digraphs. Single-source SPs for nonnegative edge weights; priority queues and Dijkstra; SPs in DAGs; single-source SPs for general edge weights. Maximum adjacency search.
+</p></li>
+<li><p>
+Greedy algorithms. Spanning trees and cuts, analysis of union-find and path compression; MST algorithms; randomized algorithm for global minimum cuts; approximate set cover.
+</p></li>
+<li><p>
+Network flows. Max flow min cut theorem and integrality; fast algorithms; disjoint (s,t)-dipaths; maximum bipartite matching &amp; minimum vertex cover. Global minimum cuts.
+</p></li>
+<li><p>
+Elements of NP-completeness &amp; problem reductions.
+</p></li>
+<li>
+NP-hard problems. Search and selected approximation algorithms.
+</li>
 </ul>
-<h3 id="prerequisites">Prerequisites</h3>
-<p>Courses:</p>
+
+<h3>
+Prerequisites
+</h3>
+
+<p>
+Courses:
+</p>
+
 <ul>
-<li>CS 112 Data Structures</li>
-<li>CS 206 Introduction to Discrete Structures II</li>
+<li>
+CS 112 Data Structures
+</li>
+<li>
+CS 206 Introduction to Discrete Structures II
+</li>
 </ul>
-<p>We assume (and briefly review early on in the class) elements of discrete mathematics, such as logarithms, proofs by induction, series and sums, permutations, asymptotics (big-Oh, big-Omega notation), basics of solving recurrences, as well as concepts of programming and data structures, e.g., linked lists, stacks, queues, trees, binary search, recursion, hashing, priority queues, graph algorithms, sorting.</p>
-<h3 id="reading-material">Reading Material</h3>
-<p>The class will primarily draw upon material from the following book:</p>
+
+<p>
+We assume (and briefly review early on in the class) elements of discrete mathematics, such as logarithms, proofs by induction, series and sums, permutations, asymptotics (big-Oh, big-Omega notation), basics of solving recurrences, as well as concepts of programming and data structures, e.g., linked lists, stacks, queues, trees, binary search, recursion, hashing, priority queues, graph algorithms, sorting.
+</p>
+
+<h3>
+Reading Material
+</h3>
+
+<p>
+The class will primarily draw upon material from the following book:
+</p>
+
 <ul>
-<li>&quot;Algorithms&quot; by Dasgupta, Papadimitriou &amp; Vazirani, McGraw Hill, 2008.</li>
+<li>
+&quot;Algorithms&quot; by Dasgupta, Papadimitriou &amp; Vazirani, McGraw Hill, 2008.
+</li>
 </ul>
-<p>The following book may also be used as reference:</p>
+
+<p>
+The following book may also be used as reference:
+</p>
+
 <ul>
-<li>&quot;Introduction to Algorithms&quot; by Cormen, Leiserson, Rivest &amp; Stein, McGraw Hill (The chapters in the calendar below refer to the 2nd edition)</li>
+<li>
+&quot;Introduction to Algorithms&quot; by Cormen, Leiserson, Rivest &amp; Stein, McGraw Hill (The chapters in the calendar below refer to the 2nd edition)
+</li>
 </ul>
-<p>The books are not required for the class. Students are expected to take notes during the presentation of the material in the classroom and the recitations. Homeworks and exams will be based on the presented material.</p>
-<h3 id="exams">Exams</h3>
-<p>There will be three exams: two midterms and one final. The first midterm will cover the material of the first third of the course, and the second midterm will cover the second third of the course. The final exam will cover material from the entire class. Check the tentative schedule for updates. All exams will be in-class on a date arranged and announced ahead of time.</p>
-<p>A missed exam draws zero credit. Emergencies will be considered upon submitting a University-issued written verification to the Instructor; for assistance contact your Dean's Office. Also, check the definition of <a href="http://sasundergrad.rutgers.edu/forms/final-exam-conflict">Final Exam</a> by SAS.</p>
-<h3 id="homework-assignments">Homework Assignments</h3>
-<p>There will be 4 to 5 homeworks. You will be informed in advance when an assignment is due. A tentative scheduled is available on the course's website. The homeworks consist of practice questions which are intended to assist students in mastering the course content. They may also potentially involve limited programming effort.</p>
-<p>Homeworks should be completed by teams of students - three at most. No additional credit will be given for students that complete a homework individually. Please inform Athanasios Krontiris about the members of your team (email: tdk.krontir/AT/gmail.com).</p>
-<p>Students will receive 10% extra credit if they typeset their report using LaTeX or 5\% extra credit if they typewrite their answers (e.g., using Word). Submit only PDF documents. For instance, if a pair was to receive a score of 62/100 and they typeset their report, then their score will be 68/100, i.e,. they receive a bonus of +10\% of 62 points. Resources on how to use LaTeX are available below.</p>
-<h3 id="submission-rules">Submission Rules</h3>
-<p>No late submission is allowed. If you don't submit a homework on time, you get 0 points for that homework. The deadline will typically correspond to the beginning of a lecture. Students can submit their homeworks electronically via Sakai.</p>
-<h3 id="grading-system">Grading System</h3>
-<p>The final grade will be computed according to the following rule **(this is tentative and can change)**:</p>
-<p>final grade = max(Case A: With Homeworks, Case B: Without Homeworks)</p>
-<p>Case A: With Homeworks</p>
+
+<p>
+The books are not required for the class. Students are expected to take notes during the presentation of the material in the classroom and the recitations. Homeworks and exams will be based on the presented material.
+</p>
+
+<h3>
+Exams
+</h3>
+
+<p>
+There will be three exams: two midterms and one final. The first midterm will cover the material of the first third of the course, and the second midterm will cover the second third of the course. The final exam will cover material from the entire class. Check the tentative schedule for updates. All exams will be in-class on a date arranged and announced ahead of time.
+</p>
+
+<p>
+A missed exam draws zero credit. Emergencies will be considered upon submitting a University-issued written verification to the Instructor; for assistance contact your Dean's Office. Also, check the definition of <a href="http://sasundergrad.rutgers.edu/forms/final-exam-conflict">Final Exam</a> by SAS.
+</p>
+
+<h3>
+Homework Assignments
+</h3>
+
+<p>
+There will be 4 to 5 homeworks. You will be informed in advance when an assignment is due. A tentative scheduled is available on the course's website. The homeworks consist of practice questions which are intended to assist students in mastering the course content. They may also potentially involve limited programming effort.
+</p>
+
+<p>
+Homeworks should be completed by teams of students - three at most. No additional credit will be given for students that complete a homework individually. Please inform Athanasios Krontiris about the members of your team (email: tdk.krontir/AT/gmail.com).
+</p>
+
+<p>
+Students will receive 10% extra credit if they typeset their report using LaTeX or 5\% extra credit if they typewrite their answers (e.g., using Word). Submit only PDF documents. For instance, if a pair was to receive a score of 62/100 and they typeset their report, then their score will be 68/100, i.e,. they receive a bonus of +10\% of 62 points. Resources on how to use LaTeX are available below.
+</p>
+
+<h3>
+Submission Rules
+</h3>
+
+<p>
+No late submission is allowed. If you don't submit a homework on time, you get 0 points for that homework. The deadline will typically correspond to the beginning of a lecture. Students can submit their homeworks electronically via Sakai.
+</p>
+
+<h3>
+Grading System
+</h3>
+
+<p>
+The final grade will be computed according to the following rule **(this is tentative and can change)**:
+</p>
+
+<p>
+final grade = max(Case A: With Homeworks, Case B: Without Homeworks)
+</p>
+
+<p>
+Case A: With Homeworks
+</p>
+
 <ul>
-<li>Homeworks: 20 points total</li>
-<li>First midterm: 25 points</li>
-<li>Second midterm: 25 points</li>
-<li>Final exam: 30 points</li>
-<li>Participation: +/- 5 points (this is up to the discretion of the instructor and the TAs)</li>
+<li>
+Homeworks: 20 points total
+</li>
+<li>
+First midterm: 25 points
+</li>
+<li>
+Second midterm: 25 points
+</li>
+<li>
+Final exam: 30 points
+</li>
+<li>
+Participation: +/- 5 points (this is up to the discretion of the instructor and the TAs)
+</li>
 </ul>
-<p>Case B: Without Homeworks</p>
+
+<p>
+Case B: Without Homeworks
+</p>
+
 <ul>
-<li>First midterm: 30 points</li>
-<li>Second midterm: 30 points</li>
-<li>Final exam: 40 points</li>
-<li>Participation: +/- 5 points (this is up to the discretion of the instructor and the TAs)</li>
+<li>
+First midterm: 30 points
+</li>
+<li>
+Second midterm: 30 points
+</li>
+<li>
+Final exam: 40 points
+</li>
+<li>
+Participation: +/- 5 points (this is up to the discretion of the instructor and the TAs)
+</li>
 </ul>
-<p>On any assignment (homework or exam), you can either attempt to answer the question, in which case you will receive between 0 and 100% credit for that question, or you can write &quot;I don't know&quot;, in which case you receive 25% credit for that question. Leaving the question blank is the same as writing &quot;I don't know.&quot; You can and will get less than 25% credit for a question that you answer erroneously.</p>
-<p>Finally, the first exam is a make-or-break situation. If your score on the first exam is 26% or less (which amounts to a blank exam) then you fail the class. The first exam will be early enough for you to drop the class.</p>
-<p>Your participation grade can be positive or negative. By default your participation grade is 0..., e.g., if you typically come to the lectures/recitations but you rarely answer questions during the lectures or the recitations, your participation grade will be 0. Positive participation grades will be given to students that actively participate in lectures and recitations. You can also receive a negative participation grade depending on the level of your involvement in the course lectures and recitations (or lack there of) or because of issues related to collusion or cheating in homeworks and exams.</p>
-<p>The mapping of scores to letter grades will be determined at the end of the semester. As a <strong>rough</strong> guide, the following rule may be used for the final grade **(it will be adapted close to the end of the semester)**:</p>
+
+<p>
+On any assignment (homework or exam), you can either attempt to answer the question, in which case you will receive between 0 and 100% credit for that question, or you can write &quot;I don't know&quot;, in which case you receive 25% credit for that question. Leaving the question blank is the same as writing &quot;I don't know.&quot; You can and will get less than 25% credit for a question that you answer erroneously.
+</p>
+
+<p>
+Finally, the first exam is a make-or-break situation. If your score on the first exam is 26% or less (which amounts to a blank exam) then you fail the class. The first exam will be early enough for you to drop the class.
+</p>
+
+<p>
+Your participation grade can be positive or negative. By default your participation grade is 0..., e.g., if you typically come to the lectures/recitations but you rarely answer questions during the lectures or the recitations, your participation grade will be 0. Positive participation grades will be given to students that actively participate in lectures and recitations. You can also receive a negative participation grade depending on the level of your involvement in the course lectures and recitations (or lack there of) or because of issues related to collusion or cheating in homeworks and exams.
+</p>
+
+<p>
+The mapping of scores to letter grades will be determined at the end of the semester. As a <strong>rough</strong> guide, the following rule may be used for the final grade **(it will be adapted close to the end of the semester)**:
+</p>
+
 <ul>
-<li>A: &gt; 89</li>
-<li>B+: 80-89</li>
-<li>B: 70-79</li>
-<li>C+: 60-69</li>
-<li>C: 50-59</li>
-<li>D: 40-49</li>
-<li>F: less than 40</li>
+<li>
+A: &gt; 89
+</li>
+<li>
+B+: 80-89
+</li>
+<li>
+B: 70-79
+</li>
+<li>
+C+: 60-69
+</li>
+<li>
+C: 50-59
+</li>
+<li>
+D: 40-49
+</li>
+<li>
+F: less than 40
+</li>
 </ul>
-<p>Students interested in a recommendation letter by the instructor will be offered one only if they achieve a score above 95 after the completion of the course.</p>
-<h3 id="questions-about-grading">Questions about Grading</h3>
-<p>If you have a question or complaint regarding the points you received on specific parts of a HW assignment, or an exam, staple a sheet of paper on the graded item, stating specifically but very briefly what parts of that document you wish to have reviewed and forward it to Athanasios Krontiris, who will handle the process of communicating with the instructor and the other TAs. Please refrain from verbal arguments about grades with the instructor or with any of the TAs. We will try to get back to you within two weeks. The deadline for submitting such requests is the last lecture.</p>
-<h3 id="academic-standards">Academic Standards</h3>
-<p>Exams are to be treated as individual efforts. Homeworks are not to be treated as collective efforts beyond the participation of the team members! Discussions are not allowed on how to solve specific questions in homeworks. Do not discuss assignments with students that are not currently taking the class.</p>
-<p>A severe penalty will be given to any assignment which indicates collusion or cheating. The usual penalty for cheating on an assignment or an exam is failure in the course. At a minimum your participation grade will be influenced negatively. Stealing another person's listing or having another person &quot;ghost write&quot; an assignment will be considered cheating.</p>
-<p>Turning in work without properly citing the sources of the content included in your work is plagiarism. All kinds of sources are included in this definition, even those downloaded from the web, in which case an operable link must be cited. Plagiarism from the web or other sources is considered cheating and has the same effects. Even with a reference, submitting an answer to a homework question, verbatim from any source and without any contribution on your part, draws zero credit.</p>
-<p>You should carefully study the website of Rutgers University on <a href="http://academicintegrity.rutgers.edu/">Academic Integrity</a> and the corresponding <a href="http://academicintegrity.rutgers.edu/policy-on-academic-integrity">policy</a>, as well as the corresponding <a href="http://www.cs.rutgers.edu/policies/academicintegrity/">policy</a> from the department of Computer Science. Your continued enrollment in this course implies that you have read these policies, and that you subscribe to the principles stated therein.</p>
-<h3 id="latex-resources">LaTeX Resources</h3>
-<p>General info on what you can do with LaTeX: <a href="http://www.maths.tcd.ie/%7Edwilkins/LaTeXPrimer/">Getting Started with</a> <a href="http://www.cse.unr.edu/robotics/bekris/cs482_f09/sites/cse.unr.edu.robotics.bekris.cs482_f09/files/lshort.pdf">The Not So Short Introduction to</a> <a href="http://www.cse.unr.edu/robotics/bekris/cs482_f09/sites/cse.unr.edu.robotics.bekris.cs482_f09/files/comprehensive.pdf">Comprehensive List of Latex</a> <a href="http://www.logicmatters.net/latex-for-logicians/">Latex for Logicians</a></p>
-<p>Mac <a href="http://ii2.sourceforge.net/tex-index.html">Tex on Mac OS X</a> <a href="http://www.tug.org/mactex/">MacTex</a></p>
-<p>The first link describes many alternatives that are available for installing Tex on a Mac. The second link forwards to the MacTex package, one of the alternatives mentioned in the first website. MaxTex provides everythink that you need to use Latex on Mac except from a text editor. It is, however, compatible with a wide variety of popular editors (e.g., Alpha, BBEdit, Emacs, VIM, iTeXMac, TeXShop). Note that MaxTex is a large package.</p>
-<p>Carbon Emacs has been succesfully tested with MacTex. After installing MacTex, it is possible to directly compile and view *.tex files from Carbon Emacs's UI.</p>
-<p>Note for Mac users: You will probably have problems previewing your PDF output when using the postscript images provided by the instructor for developing the notes. Nevertheless, the PDF file can be printed properly. Prepare your document without the images and then add them. You will probably still be able to preview the intermediate .dvi output file with the &quot;xdvi&quot; program.</p>
-<p>Linux (Ubuntu) <a href="https://help.ubuntu.com/community/LaTeX">Latex on Ubuntu</a> <a href="http://www.tug.org/texlive/">Tex Live</a></p>
-<p>You just have to download and install the proper packages described above (e.g., through apt-get), use your favorite editor (e.g., emacs) to prepare a *.tex file and then you compile (run at least two times: &quot;latex filename.tex&quot;) to get the *.dvi output. You can go from dvi to postscript with the command &quot;dvips&quot; and you can convert postscript to pdf with the command &quot;ps2pdf&quot;.</p>
-<p>Windows <a href="http://faculty.smu.edu/barr/latex/">Latex for Windows help</a> <a href="http://miktex.org/">MikTex (Latex for Windows)</a></p>
-<p>If you follow the instructions on the first link you should be able to get it working on a Windows system.</p>
-<p>Below you can find Windows executables (32 bit) for the following programs (follow the order when installing):</p>
-<p><a href="http://www.cse.unr.edu/robotics/bekris/cs482_f09/sites/cse.unr.edu.robotics.bekris.cs482_f09/files/setup-2.7.3092.exe">MiKTeX</a></p>
-<p><a href="http://www.cse.unr.edu/robotics/bekris/cs482_f09/sites/cse.unr.edu.robotics.bekris.cs482_f09/files/gs863w32.exe">Ghostscript</a></p>
-<p><a href="http://www.cse.unr.edu/robotics/bekris/cs482_f09/sites/cse.unr.edu.robotics.bekris.cs482_f09/files/gsv49w32.exe">Ghostview</a></p>
-<p><a href="http://www.cse.unr.edu/robotics/bekris/cs482_f09/sites/cse.unr.edu.robotics.bekris.cs482_f09/files/winedt55.exe">WinEdt</a></p>
-<h2 id="january-24th-2014---lecture">January 24th, 2014 - Lecture</h2>
-<h3 id="fibonacci">Fibonacci</h3>
+
+<p>
+Students interested in a recommendation letter by the instructor will be offered one only if they achieve a score above 95 after the completion of the course.
+</p>
+
+<h3>
+Questions about Grading
+</h3>
+
+<p>
+If you have a question or complaint regarding the points you received on specific parts of a HW assignment, or an exam, staple a sheet of paper on the graded item, stating specifically but very briefly what parts of that document you wish to have reviewed and forward it to Athanasios Krontiris, who will handle the process of communicating with the instructor and the other TAs. Please refrain from verbal arguments about grades with the instructor or with any of the TAs. We will try to get back to you within two weeks. The deadline for submitting such requests is the last lecture.
+</p>
+
+<h3>
+Academic Standards
+</h3>
+
+<p>
+Exams are to be treated as individual efforts. Homeworks are not to be treated as collective efforts beyond the participation of the team members! Discussions are not allowed on how to solve specific questions in homeworks. Do not discuss assignments with students that are not currently taking the class.
+</p>
+
+<p>
+A severe penalty will be given to any assignment which indicates collusion or cheating. The usual penalty for cheating on an assignment or an exam is failure in the course. At a minimum your participation grade will be influenced negatively. Stealing another person's listing or having another person &quot;ghost write&quot; an assignment will be considered cheating.
+</p>
+
+<p>
+Turning in work without properly citing the sources of the content included in your work is plagiarism. All kinds of sources are included in this definition, even those downloaded from the web, in which case an operable link must be cited. Plagiarism from the web or other sources is considered cheating and has the same effects. Even with a reference, submitting an answer to a homework question, verbatim from any source and without any contribution on your part, draws zero credit.
+</p>
+
+<p>
+You should carefully study the website of Rutgers University on <a href="http://academicintegrity.rutgers.edu/">Academic Integrity</a> and the corresponding <a href="http://academicintegrity.rutgers.edu/policy-on-academic-integrity">policy</a>, as well as the corresponding <a href="http://www.cs.rutgers.edu/policies/academicintegrity/">policy</a> from the department of Computer Science. Your continued enrollment in this course implies that you have read these policies, and that you subscribe to the principles stated therein.
+</p>
+
+<h3>
+LaTeX Resources
+</h3>
+
+<p>
+General info on what you can do with LaTeX: <a href="http://www.maths.tcd.ie/%7Edwilkins/LaTeXPrimer/">Getting Started with</a> <a href="http://www.cse.unr.edu/robotics/bekris/cs482_f09/sites/cse.unr.edu.robotics.bekris.cs482_f09/files/lshort.pdf">The Not So Short Introduction to</a> <a href="http://www.cse.unr.edu/robotics/bekris/cs482_f09/sites/cse.unr.edu.robotics.bekris.cs482_f09/files/comprehensive.pdf">Comprehensive List of Latex</a> <a href="http://www.logicmatters.net/latex-for-logicians/">Latex for Logicians</a>
+</p>
+
+<p>
+Mac <a href="http://ii2.sourceforge.net/tex-index.html">Tex on Mac OS X</a> <a href="http://www.tug.org/mactex/">MacTex</a>
+</p>
+
+<p>
+The first link describes many alternatives that are available for installing Tex on a Mac. The second link forwards to the MacTex package, one of the alternatives mentioned in the first website. MaxTex provides everythink that you need to use Latex on Mac except from a text editor. It is, however, compatible with a wide variety of popular editors (e.g., Alpha, BBEdit, Emacs, VIM, iTeXMac, TeXShop). Note that MaxTex is a large package.
+</p>
+
+<p>
+Carbon Emacs has been succesfully tested with MacTex. After installing MacTex, it is possible to directly compile and view *.tex files from Carbon Emacs's UI.
+</p>
+
+<p>
+Note for Mac users: You will probably have problems previewing your PDF output when using the postscript images provided by the instructor for developing the notes. Nevertheless, the PDF file can be printed properly. Prepare your document without the images and then add them. You will probably still be able to preview the intermediate .dvi output file with the &quot;xdvi&quot; program.
+</p>
+
+<p>
+Linux (Ubuntu) <a href="https://help.ubuntu.com/community/LaTeX">Latex on Ubuntu</a> <a href="http://www.tug.org/texlive/">Tex Live</a>
+</p>
+
+<p>
+You just have to download and install the proper packages described above (e.g., through apt-get), use your favorite editor (e.g., emacs) to prepare a *.tex file and then you compile (run at least two times: &quot;latex filename.tex&quot;) to get the *.dvi output. You can go from dvi to postscript with the command &quot;dvips&quot; and you can convert postscript to pdf with the command &quot;ps2pdf&quot;.
+</p>
+
+<p>
+Windows <a href="http://faculty.smu.edu/barr/latex/">Latex for Windows help</a> <a href="http://miktex.org/">MikTex (Latex for Windows)</a>
+</p>
+
+<p>
+If you follow the instructions on the first link you should be able to get it working on a Windows system.
+</p>
+
+<p>
+Below you can find Windows executables (32 bit) for the following programs (follow the order when installing):
+</p>
+
+<p>
+<a href="http://www.cse.unr.edu/robotics/bekris/cs482_f09/sites/cse.unr.edu.robotics.bekris.cs482_f09/files/setup-2.7.3092.exe">MiKTeX</a>
+</p>
+
+<p>
+<a href="http://www.cse.unr.edu/robotics/bekris/cs482_f09/sites/cse.unr.edu.robotics.bekris.cs482_f09/files/gs863w32.exe">Ghostscript</a>
+</p>
+
+<p>
+<a href="http://www.cse.unr.edu/robotics/bekris/cs482_f09/sites/cse.unr.edu.robotics.bekris.cs482_f09/files/gsv49w32.exe">Ghostview</a>
+</p>
+
+<p>
+<a href="http://www.cse.unr.edu/robotics/bekris/cs482_f09/sites/cse.unr.edu.robotics.bekris.cs482_f09/files/winedt55.exe">WinEdt</a>
+</p>
+
+<h2>
+January 24th, 2014 - Lecture
+</h2>
+
+<h3>
+Fibonacci
+</h3>
+
 <ul>
-<li><p>He was an Italian mathematician in the 13th century who designed a famous sequence of numbers.</p>
-<p><span class="math">\[ 0, 1, 2, 3, 5, 8, 13, ... \]</span></p>
+<li><p>
+He was an Italian mathematician in the 13th century who designed a famous sequence of numbers.
+</p>
+
+<p>
+<span class="math">\[ 0, 1, 2, 3, 5, 8, 13, ... \]</span>
+</p>
+
 <ul>
-<li><p>We can design an algorithm to compute this.</p>
-<p><span class="math">\[F_n = F_{n - 1} + F_{n - 2} \]</span></p></li>
-<li><p>And this can be expressed as a psuedocode function</p>
+<li><p>
+We can design an algorithm to compute this.
+</p>
+
+<p>
+<span class="math">\[F_n = F_{n - 1} + F_{n - 2} \]</span>
+</p></li>
+<li><p>
+And this can be expressed as a psuedocode function
+</p>
+
 <pre><code>fib(n) {
     if (n == 0 | n == 1) {
         return n;
     } else {
         return fib(n - 1) + fib(n - 2)
     }
-}</code></pre></li>
-<li><p><span class="math">\(T(n)\)</span> grows at least as much as the value of <span class="math">\(Fn\)</span>.</p>
-<p><span class="math">\[ F_n \approx 2^{0.694n} \]</span></p>
+}
+</code></pre></li>
+<li><p>
+<span class="math">\(T(n)\)</span> grows at least as much as the value of <span class="math">\(Fn\)</span>.
+</p>
+
+<p>
+<span class="math">\[ F_n \approx 2^{0.694n} \]</span>
+</p>
+
 <ul>
-<li>This grows exponetially as a function of n.</li>
+<li>
+This grows exponetially as a function of n.
+</li>
 </ul></li>
 </ul></li>
-<li><p>If today, you can compute the 100th number, then after a year, hardware will allow you to computer the 101th number in a sequence.</p></li>
-<li><p>A new function for Fibonacci:</p>
+<li><p>
+If today, you can compute the 100th number, then after a year, hardware will allow you to computer the 101th number in a sequence.
+</p></li>
+<li><p>
+A new function for Fibonacci:
+</p>
+
 <pre><code>fib(n) {
     if (n &lt;= 1) {
         return n;
@@ -138,41 +395,94 @@ subtitle: From Paul Jones at Rutgers University
 
         return F[n];
     }
-}</code></pre></li>
-<li><p>Eventually, the cost is not exponetial, as now our function is linear, it's in the order of n.</p></li>
-<li><p>Now, it's quite feasible to get to 200,000th number in the sequence.</p></li>
+}
+</code></pre></li>
+<li><p>
+Eventually, the cost is not exponetial, as now our function is linear, it's in the order of n.
+</p></li>
+<li><p>
+Now, it's quite feasible to get to 200,000th number in the sequence.
+</p></li>
 </ul>
-<h3 id="computations">Computations</h3>
+
+<h3>
+Computations
+</h3>
+
 <ul>
-<li>So far, all computations were treated as equal cost operations.
+<li><p>
+So far, all computations were treated as equal cost operations.
+</p>
+
 <ul>
-<li>This is a convinient simplication, but it is not true.</li>
-<li>For instance, addition.
+<li>
+This is a convinient simplication, but it is not true.
+</li>
+<li><p>
+For instance, addition.
+</p>
+
 <ul>
-<li><p>For numbers that can fit within your computer's register, say, 32-bits or 64-bits, then it takes only steps.</p></li>
-<li><p>But for big numbers like the Fibonacci numbers, like <span class="math">\(0.69 / n\)</span> bits.</p></li>
+<li><p>
+For numbers that can fit within your computer's register, say, 32-bits or 64-bits, then it takes only steps.
+</p></li>
+<li><p>
+But for big numbers like the Fibonacci numbers, like <span class="math">\(0.69 / n\)</span> bits.
+</p></li>
 </ul></li>
 </ul></li>
-<li><p>Arithemetic operations on large numbers cannot be treated as a single step. You need to think about their representation.</p>
+<li><p>
+Arithemetic operations on large numbers cannot be treated as a single step. You need to think about their representation.
+</p>
+
 <ul>
-<li>We need to think in terms of the representation of numbers.
+<li>
+<p>We need to think in terms of the representation of numbers.</p>
 <ul>
-<li>For example, a number <em>N</em> in base <em>b</em>.</li>
-<li>You need <span class="math">\(\left \lceil{log_b (N+1) \right \rceil\)</span> digits.</li>
+<li>
+For example, a number <em>N</em> in base <em>b</em>.
+</li>
+<li>
+You need <span class="math">\(\lceil{log_b (N+1) \rceil\)</span> digits.
+</li>
 </ul></li>
 </ul></li>
-<li><p>If cost of addition is linear to the size of bit representation, what is the cost of <code>fib(n)</code>?</p></li>
+<li><p>
+If cost of addition is linear to the size of bit representation, what is the cost of <code>fib(n)</code>?
+</p></li>
 </ul>
-<h3 id="running-time-simplification">Running Time Simplification</h3>
+
+<h3>
+Running Time Simplification
+</h3>
+
 <ul>
-<li><p>If you have two functions that represent two running times for algorithms,</p>
-<p><span class="math">\[f(n) = O(g(n))\]</span></p>
-<p><span class="math">\[\exists c, n_0, f(n) \le c \times g(n) \forall n \ge n_0\]</span></p></li>
+<li><p>
+If you have two functions that represent two running times for algorithms,
+</p>
+
+<p>
+<span class="math">\[f(n) = O(g(n))\]</span>
+</p>
+
+<p>
+<span class="math">\[\exists c, n_0, f(n) \le c \times g(n) \forall n \ge n_0\]</span>
+</p></li>
 </ul>
-<h2 id="january-29th-2013-lecture">January 29th, 2013 <small>Lecture</small></h2>
-<h3 id="multiplication">Multiplication</h3>
+
+<h2>
+January 29th, 2013 <small>Lecture</small>
+</h2>
+
+<h3>
+Multiplication
+</h3>
+
 <ul>
-<li><p>Example: 13 times 11</p>
+<li><p>
+Example: 13 times 11
+</p>
+
 <pre><code>    1101
     1011
     ----
@@ -180,229 +490,767 @@ subtitle: From Paul Jones at Rutgers University
    1101
   0000
  1101
- 10001111</code></pre></li>
-<li>To compute each row, eitther &quot;X&quot; or &quot;0&quot;, left-shifted.
+ 10001111
+</code></pre></li>
+<li><p>
+To compute each row, eitther &quot;X&quot; or &quot;0&quot;, left-shifted.
+</p>
+
 <ul>
-<li>The rows are in the order of &quot;2N&quot;</li>
-<li>You have to sum them up, and you can do this pairwise.</li>
+<li>
+The rows are in the order of &quot;2N&quot;
+</li>
+<li>
+You have to sum them up, and you can do this pairwise.
+</li>
 </ul></li>
-<li>If you do <em>n</em> times an operation which costs <em>n</em>, your runtime is going to be <span class="math">\(n^2\)</span>.
+<li><p>
+If you do <em>n</em> times an operation which costs <em>n</em>, your runtime is going to be <span class="math">\(n^2\)</span>.
+</p>
+
 <ul>
-<li>Multiplication is more expensive than addition.</li>
-<li>Multiplication is quadratic, where addition is linear (with respect to the size of the input).</li>
+<li>
+Multiplication is more expensive than addition.
+</li>
+<li>
+Multiplication is quadratic, where addition is linear (with respect to the size of the input).
+</li>
 </ul></li>
 </ul>
-<h3 id="alternative-multiplication">Alternative Multiplication</h3>
+
+<h3>
+Alternative Multiplication
+</h3>
+
 <ul>
-<li><p>If you have two decimal numbers, <em>x</em> and <em>y</em>, write them next to each other.</p>
+<li><p>
+If you have two decimal numbers, <em>x</em> and <em>y</em>, write them next to each other.
+</p>
+
 <pre><code>11           13
 5            26
 2   IGNORE   52
 1            104
 ----------------
-            143 (= 13 + 26 + 104)</code></pre></li>
-<li><p>Notice that the third row is ignored in both varieties of multiplication.</p>
-<p><span class="math">\[ x \times y =\begin{cases} 2 (x \times \lfloor \frac{y}{2} \rfloor, &amp; \text{if $y$ is even}.\\ x + 2(x \times \lfloor \frac{y}{2} \rfloor, &amp; \text{if $y$ is odd}. \end{cases} \]</span></p></li>
-<li>The expensive operation is the addition if <span class="math">\(y\)</span> is odd. So O(n) due to addition.
+            143 (= 13 + 26 + 104)
+</code></pre></li>
+<li><p>
+Notice that the third row is ignored in both varieties of multiplication.
+</p>
+
+<p>
+<span class="math">\[ x \times y =\begin{cases} 2 (x \times \lfloor \frac{y}{2} \rfloor, &amp;amp; \text{if $y$ is even}.&amp;#92; x + 2(x \times \lfloor \frac{y}{2} \rfloor, &amp;amp; \text{if $y$ is odd}. \end{cases} \]</span>
+</p></li>
+<li><p>
+The expensive operation is the addition if <span class="math">\(y\)</span> is odd. So O(n) due to addition.
+</p>
+
 <ul>
-<li>Again, big-O is quadratic.</li>
+<li>
+Again, big-O is quadratic.
+</li>
 </ul></li>
 </ul>
-<h3 id="modula-arithmetic">Modula Arithmetic</h3>
-<p><span class="math">\[ O(n) \]</span></p>
-<h3 id="modulo-multiplication">Modulo Multiplication</h3>
+
+<h3>
+Modula Arithmetic
+</h3>
+
+<p>
+<span class="math">\[ O(n) \]</span>
+</p>
+
+<h3>
+Modulo Multiplication
+</h3>
+
 <ul>
-<li>The product can be in the order of <span class="math">\((N - 1)^2\)</span>.
+<li>
+<p>The product can be in the order of <span class="math">\((N - 1)^2\)</span>.</p>
 <ul>
-<li>The product will be at most <em>2N</em> bits long.</li>
+<li>
+The product will be at most <em>2N</em> bits long.
+</li>
 </ul></li>
 </ul>
-<p><span class="math">\[ O(n^2) \]</span></p>
-<h3 id="problems">Problems</h3>
+
+<p>
+<span class="math">\[ O(n^2) \]</span>
+</p>
+
+<h3>
+Problems
+</h3>
+
 <dl>
-<dt>Primality</dt>
-<dd><p>Given a number N, determine whether it is prime.</p>
+<dt>
+Primality
+</dt>
+<dd>
+<p>
+Given a number N, determine whether it is prime.
+</p>
 </dd>
-<dt>Factorning</dt>
-<dd><p>Given a number N, express it as a product of prime numbers.</p>
+
+<dt>
+Factorning
+</dt>
+<dd>
+<p>
+Given a number N, express it as a product of prime numbers.
+</p>
 </dd>
 </dl>
-<h2 id="january-29th-2014-recitation">January 29th, 2014 <small>Recitation</small></h2>
-<h3 id="asymptotic-bounds">Asymptotic Bounds</h3>
+
+<h2>
+January 29th, 2014 <small>Recitation</small>
+</h2>
+
+<h3>
+Asymptotic Bounds
+</h3>
+
 <ul>
-<li>There are three types we'll use
-<ol style="list-style-type: decimal">
-<li>Tight bound</li>
-<li>Lower bound</li>
-<li>Upper bound, &quot;big O&quot;</li>
+<li>
+<p>There are three types we'll use</p>
+<ol>
+<li>
+Tight bound
+</li>
+<li>
+Lower bound
+</li>
+<li>
+Upper bound, &quot;big O&quot;
+</li>
 </ol></li>
 </ul>
-<h4 id="upper-bound-big-o">Upper Bound (Big-O)</h4>
-<p><span class="math">\[f(n) = O(g(n))\]</span></p>
+
+<h4>
+Upper Bound (Big-O)
+</h4>
+
+<p>
+<span class="math">\[f(n) = O(g(n))\]</span>
+</p>
+
 <blockquote>
-<p>G is upper upper bound for F if and only if there exists a constant and <span class="math">\(n_0\)</span> such that:</p>
-<p>$ 0 f(n) c g(n) $</p>
+  <p>
+G is upper upper bound for F if and only if there exists a constant and <span class="math">\(n_0\)</span> such that:
+</p>
+  
+<p>
+$ 0 f(n) c g(n) $
+</p>
 </blockquote>
-<p><strong>O(f) grows no faster than ..</strong></p>
-<h4 id="lower-bound-big-omega">Lower Bound (Big Omega)</h4>
-<p><span class="math">\[f(n) = \Omega(g(n))\]</span> <span class="math">\[\exists c, n_0 (0 \le c g(n) \le f(n) \forall n \ge n_o)\]</span></p>
-<p><strong>O(f) grows faster than ...</strong></p>
-<h4 id="tightly-bound-big-theta">Tightly Bound (Big Theta)</h4>
-<p><strong>O(f) grows equal to</strong></p>
-<h3 id="runtimes">Runtimes</h3>
+
+<p>
+<strong>O(f) grows no faster than ..</strong>
+</p>
+
+<h4>
+Lower Bound (Big Omega)
+</h4>
+
+<p>
+<span class="math">\[f(n) = \Omega(g(n))\]</span> <span class="math">\[\exists c, n_0 (0 \le c g(n) \le f(n) \forall n \ge n_o)\]</span>
+</p>
+
+<p>
+<strong>O(f) grows faster than ...</strong>
+</p>
+
+<h4>
+Tightly Bound (Big Theta)
+</h4>
+
+<p>
+<strong>O(f) grows equal to</strong>
+</p>
+
+<h3>
+Runtimes
+</h3>
+
 <table>
 <thead>
-<tr class="header">
-<th align="left">Name</th>
-<th align="left">Function</th>
+<tr>
+  <th>
+Name
+</th>
+  <th>
+Function
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Logarithmic</td>
-<td align="left"><em>O(log(n))</em></td>
+<tr>
+  <td>
+Logarithmic
+</td>
+  <td>
+<em>O(log(n))</em>
+</td>
 </tr>
-<tr class="even">
-<td align="left">Constant</td>
-<td align="left"><em>O(n)</em></td>
+<tr>
+  <td>
+Constant
+</td>
+  <td>
+<em>O(n)</em>
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Power</td>
-<td align="left"><span class="math">\(O(n^a)\)</span></td>
+<tr>
+  <td>
+Power
+</td>
+  <td>
+<span class="math">\(O(n^a)\)</span>
+</td>
 </tr>
-<tr class="even">
-<td align="left">Exponential</td>
-<td align="left"><span class="math">\(O(a^n)\)</span></td>
+<tr>
+  <td>
+Exponential
+</td>
+  <td>
+<span class="math">\(O(a^n)\)</span>
+</td>
 </tr>
 </tbody>
 </table>
-<h2 id="january-31st-2014-lecture">January 31st, 2014 <small>Lecture</small></h2>
+
+<h2>
+January 31st, 2014 <small>Lecture</small>
+</h2>
+
 <ul>
-<li>All cryptography is based on number theory and number theoretic properties.
+<li>
+<p>All cryptography is based on number theory and number theoretic properties.</p>
 <ul>
-<li>Think of message as modulo <em>N</em>.</li>
-<li>Longer message can be broken into smaller pieces.</li>
-<li>What is a good value for <em>N</em>?</li>
+<li>
+Think of message as modulo <em>N</em>.
+</li>
+<li>
+Longer message can be broken into smaller pieces.
+</li>
+<li>
+What is a good value for <em>N</em>?
+</li>
 </ul></li>
 </ul>
-<h3 id="property">Property</h3>
+
+<h3>
+Property
+</h3>
+
 <ul>
-<li>Pick any two primes, and lets call them <em>p</em> and <em>q</em>.
+<li><p>
+Pick any two primes, and lets call them <em>p</em> and <em>q</em>.
+</p>
+
 <ul>
-<li>Then let <em>N</em> be their product, <em>N</em> = <em>p</em> * <em>q</em>.</li>
-<li>For any <em>e</em> so that gcd(e, (p - 1)(q - 1)) = 1</li>
-<li>Then the following are true:
-<ol style="list-style-type: decimal">
-<li>Take a number x and think of it as your message in your communication, then <span class="math">\(x \to x^e\)</span> is a bijection.
+<li>
+Then let <em>N</em> be their product, <em>N</em> = <em>p</em> * <em>q</em>.
+</li>
+<li>
+For any <em>e</em> so that gcd(e, (p - 1)(q - 1)) = 1
+</li>
+<li><p>
+Then the following are true:
+</p>
+
+<ol>
+<li><p>
+Take a number x and think of it as your message in your communication, then <span class="math">\(x \to x^e\)</span> is a bijection.
+</p>
+
 <ul>
-<li>An a bijection is a one-to-one mapping.</li>
+<li>
+An a bijection is a one-to-one mapping.
+</li>
 </ul></li>
-<li><p>Let <span class="math">\(d = e^{-1} mod (p - 1)(q - 1)\)</span>, then,</p>
-<p><span class="math">\[\forall x \in [0, N - 1] (x^e)^d \equiv x mod N\]</span></p></li>
+<li><p>
+Let <span class="math">\(d = e^{-1} mod (p - 1)(q - 1)\)</span>, then,
+</p>
+
+<p>
+<span class="math">\[\forall x \in [0, N - 1] (x^e)^d \equiv x mod N\]</span>
+</p></li>
 </ol></li>
 </ul></li>
 </ul>
-<h4 id="example">Example</h4>
+
+<h4>
+Example
+</h4>
+
 <ul>
-<li>Lets say our two prime numbers are p = 5, q = 11.
+<li><p>
+Lets say our two prime numbers are p = 5, q = 11.
+</p>
+
 <ul>
-<li>Our N = pq = 55.</li>
-<li>Now we need to find e such that gcd(e, (5 - 1)(11 - 1)).
+<li>
+Our N = pq = 55.
+</li>
+<li><p>
+Now we need to find e such that gcd(e, (5 - 1)(11 - 1)).
+</p>
+
 <ul>
-<li>So the GCD is 1.</li>
+<li>
+So the GCD is 1.
+</li>
 </ul></li>
-<li>So lets pick e = 3 is sufficient??
+<li><p>
+So lets pick e = 3 is sufficient??
+</p>
+
 <ul>
-<li><p>So what is the valye of d?</p>
-<p><span class="math">\[d \equive e^{-1} \bmod (p - 1)(q - 1) \equiv 3^{-1} \bmod 40 \]</span></p></li>
+<li><p>
+So what is the valye of d?
+</p>
+
+<p>
+<span class="math">\[d \equiv e^{-1} \bmod (p - 1)(q - 1) \equiv 3^{-1} \bmod 40 \]</span>
+</p></li>
 </ul></li>
-<li>This means that 3 times d is equal to modulo 40, which is the modular inverse.
+<li><p>
+This means that 3 times d is equal to modulo 40, which is the modular inverse.
+</p>
+
 <ul>
-<li>For d = 27, we have 3 times 27 which equals 81 or modulo 40.</li>
+<li>
+For d = 27, we have 3 times 27 which equals 81 or modulo 40.
+</li>
 </ul></li>
-<li><p>For any message, x modula 55, ecryption is</p>
-<p><span class="math">\[ y = x^3 \bmod 55 \]</span></p></li>
-<li><p>For any message, decryption is</p>
-<p><span class="math">\[ x = y^{27} \bmod 55 \]</span></p></li>
+<li><p>
+For any message, x modula 55, ecryption is
+</p>
+
+<p>
+<span class="math">\[ y = x^3 \bmod 55 \]</span>
+</p></li>
+<li><p>
+For any message, decryption is
+</p>
+
+<p>
+<span class="math">\[ x = y^{27} \bmod 55 \]</span>
+</p></li>
 </ul></li>
 </ul>
-<h3 id="proof-of-property">Proof of property</h3>
+
+<h3>
+Proof of property
+</h3>
+
 <ul>
-<li><p>We have to show that</p>
-<p><span class="math">\[(x^e)^d \bmod N \equiv x \bmod N \]</span></p>
+<li><p>
+We have to show that
+</p>
+
+<p>
+<span class="math">\[(x^e)^d \bmod N \equiv x \bmod N \]</span>
+</p>
+
 <ul>
-<li><p>The following are true if e and d have been selected as specific</p>
-<p><span class="math">\[ e \times d \equiv 1 \bmod (p - 1)(q - 1) \equiv e \times d = k (p - 1)(q - 1) + 1 \]</span></p></li>
+<li><p>
+The following are true if e and d have been selected as specific
+</p>
+
+<p>
+<span class="math">\[ e \times d \equiv 1 \bmod (p - 1)(q - 1) \equiv e \times d = k (p - 1)(q - 1) + 1 \]</span>
+</p></li>
 </ul></li>
 </ul>
+
 <blockquote>
-<p><strong>Fermat's Little Theorem</strong>: If <em>p</em> is prime, then <span class="math">\(\forall 1 \le a \le p\)</span>:</p>
-<p><span class="math">\(a^p \equiv a \bmod p\)</span> <span class="math">\(a^{p -1} \equiv 1 \bmod p\)</span></p>
+  <p>
+<strong>Fermat's Little Theorem</strong>: If <em>p</em> is prime, then <span class="math">\(\forall 1 \le a \le p\)</span>:
+</p>
+  
+<p>
+<span class="math">\(a^p \equiv a \bmod p\)</span> <span class="math">\(a^{p -1} \equiv 1 \bmod p\)</span>
+</p>
 </blockquote>
-<h3 id="summary-of-rsa">Summary of RSA</h3>
-<h4 id="bob">Bob</h4>
-<ol style="list-style-type: decimal">
-<li>Pick two prime numbers, this is the <em>p</em> and <em>q</em>
+
+<h3>
+Summary of RSA
+</h3>
+
+<h4>
+Bob
+</h4>
+
+<ol>
+<li><p>
+Pick two prime numbers, this is the <em>p</em> and <em>q</em>
+</p>
+
 <ul>
-<li>And for the security of the system, pick two <em>large</em> primes.</li>
+<li>
+And for the security of the system, pick two <em>large</em> primes.
+</li>
 </ul></li>
-<li>You announce to the world that everyone should be sending your message, that is, publish (N, e) where N equals p times q and e relative prime to (p - 1)(q - 1).</li>
-<li>Internally compute the private key, which is d equal the inverse of e module (p - 1)(q - 1).
+<li><p>
+You announce to the world that everyone should be sending your message, that is, publish (N, e) where N equals p times q and e relative prime to (p - 1)(q - 1).
+</p></li>
+<li>
+<p>Internally compute the private key, which is d equal the inverse of e module (p - 1)(q - 1).</p>
 <ul>
-<li>If you mulitply the two and modulo product, the value should be one.</li>
+<li>
+If you mulitply the two and modulo product, the value should be one.
+</li>
 </ul></li>
 </ol>
-<h4 id="alice">Alice</h4>
-<ol style="list-style-type: decimal">
-<li>Generate encrypted message <span class="math">\(x^e \bmod N\)</span> where e and N come from Bob public key.</li>
-<li>When Bob receives this message <span class="math">\(x = y^d \bmod N\)</span>.</li>
+
+<h4>
+Alice
+</h4>
+
+<ol>
+<li>
+Generate encrypted message <span class="math">\(x^e \bmod N\)</span> where e and N come from Bob public key.
+</li>
+<li>
+When Bob receives this message <span class="math">\(x = y^d \bmod N\)</span>.
+</li>
 </ol>
-<h3 id="why-is-this-secure">Why is this secure?</h3>
+
+<h3>
+Why is this secure?
+</h3>
+
 <ul>
-<li>To break the system, Eve must be able to compute x that has never left Alice given the publically available information, and the public key (N, e).
+<li><p>
+To break the system, Eve must be able to compute x that has never left Alice given the publically available information, and the public key (N, e).
+</p>
+
 <ul>
-<li>How do you do this?
+<li>
+<p>How do you do this?</p>
 <ul>
-<li>Try to guess x so that <span class="math">\(y = x^e\)</span></li>
+<li>
+Try to guess x so that <span class="math">\(y = x^e\)</span>
+</li>
 </ul></li>
 </ul></li>
-<li>Alternatively, she can try to factor out p and q from N, hence, the intractable factoring problem.</li>
+<li><p>
+Alternatively, she can try to factor out p and q from N, hence, the intractable factoring problem.
+</p></li>
 </ul>
-<h3 id="analysis">Analysis</h3>
+
+<h3>
+Analysis
+</h3>
+
 <blockquote>
-<p>What are the operations of RSA and what is the running time?</p>
+  <p>
+What are the operations of RSA and what is the running time?
+</p>
 </blockquote>
+
 <ul>
-<li>Modular exponentiation, plus the decoding.</li>
-<li>We have to select e, a small integer, but it has to be a relative prime</li>
-<li>Compute <span class="math">\(d = e^{-1} \bmod (p - 1)(q - 1)\)</span> which always exists when <span class="math">\(e\)</span> is a relative prime.</li>
-<li>Pick 2 large prime numbers.</li>
+<li>
+Modular exponentiation, plus the decoding.
+</li>
+<li>
+We have to select e, a small integer, but it has to be a relative prime
+</li>
+<li>
+Compute <span class="math">\(d = e^{-1} \bmod (p - 1)(q - 1)\)</span> which always exists when <span class="math">\(e\)</span> is a relative prime.
+</li>
+<li>
+Pick 2 large prime numbers.
+</li>
 </ul>
-<h2 id="february-7th-2013-lecture">February 7th, 2013 <small>Lecture</small></h2>
-<h3 id="rsa">RSA</h3>
+
+<h2>
+February 7th, 2013 <small>Lecture</small>
+</h2>
+
+<h3>
+RSA
+</h3>
+
 <ul>
-<li><p>Pick 2 large <em>n</em>-bit primes.</p>
-<p><span class="math">\[ N = pq \]</span></p>
-<p><span class="math">\[ e : \gcd(e, (p - 1), (q - 1)) = 1 \]</span></p>
-<p><span class="math">\[ d : d = e^{-1} \bmod (p - 1) (q - 1) \]</span></p></li>
+<li><p>
+Pick 2 large <em>n</em>-bit primes.
+</p>
+
+<p>
+<span class="math">\[ N = pq \]</span>
+</p>
+
+<p>
+<span class="math">\[ e : \gcd(e, (p - 1), (q - 1)) = 1 \]</span>
+</p>
+
+<p>
+<span class="math">\[ d : d = e^{-1} \bmod (p - 1) (q - 1) \]</span>
+</p></li>
 </ul>
-<h3 id="greatest-common-divisor">Greatest Common Divisor</h3>
+
+<h3>
+Greatest Common Divisor
+</h3>
+
 <ul>
-<li>If you could perform factoring efficiently, the you could solve the problem.
+<li>
+<p>If you could perform factoring efficiently, the you could solve the problem.</p>
 <ul>
-<li>But we do not have one. So RSA is safe.</li>
+<li>
+But we do not have one. So RSA is safe.
+</li>
 </ul></li>
 </ul>
+
 <dl>
-<dt>Euclid's observation</dt>
-<dd><p><span class="math">\(\gcd(x, y) = \gcd(x \bmod  y, y)\)</span></p>
+<dt>
+Euclid's observation
+</dt>
+<dd>
+<p>
+<span class="math">\(\gcd(x, y) = \gcd(x \bmod  y, y)\)</span>
+</p>
+
 <pre><code>function euclid(a, b) {
     if (b == 0) {
         return a;
     } else {
         return euclid(b, a \bmod b);
     }
-}</code></pre>
+}
+</code></pre>
 </dd>
-</dl> 
+</dl>
+
+<h2>
+February 12th, 2014 <small>Lecture</small>
+</h2>
+
+<h3>
+Review of RSA
+</h3>
+
+<ul>
+<li>
+<p>Sender</p>
+<ul>
+<li>
+Picks two random primes <em>p</em> and <em>q</em>.
+</li>
+<li>
+Sets <em>N</em> equal to <em>pq</em>.
+</li>
+<li>
+<code>gcd(e, (p - 1)(q - 1))</code>
+</li>
+</ul></li>
+</ul>
+
+<blockquote>
+  <p>
+<strong>Fermat</strong>: If a number <em>p</em> is prime, then for all smaller numbers, it is the case that <span class="math">\(a^{p - 1} \equiv 1 \mod p\)</span>
+</p>
+</blockquote>
+
+<ul>
+<li><p>
+How probable is it that this test succeeds? Less than half.
+</p></li>
+<li><p>
+A way of generating random primes
+</p>
+
+<ul>
+<li>
+Pick a random number.
+</li>
+<li>
+Apply the primality test accounrd to Fermat.
+</li>
+<li>
+If it succeeds, then return it.
+</li>
+</ul></li>
+<li><p>
+Good news:
+</p>
+
+<ul>
+<li>
+Prime numbers are abundant, frequently arising.
+</li>
+<li>
+A random <em>n</em>-bit number has roughly <span class="math">\(\frac{1}{n}\)</span> chance of being prime.
+</li>
+</ul></li>
+</ul>
+
+<blockquote>
+  <p>
+<strong>Lagrange's Prime Number Theorem</strong>: Let <span class="math">\(\pi(x)\)</span> be the number of primes <span class="math">\(\le x\)</span>.
+</p>
+  
+<p>
+<span class="math">\[ \pi(x) \approx \frac{x}{\ln(x)} \]</span>
+</p>
+  
+<p>
+Or more precisely,
+</p>
+  
+<p>
+<span class="math">\[ \lim_{x \to \infty} \frac{\pi(x)}{\frac{x}{\ln(x)}} = 1 \]</span>
+</p>
+</blockquote>
+
+<h3>
+Hashing <small>Another Application of Number-Theoretic Algorithms</small>
+</h3>
+
+<ul>
+<li><p>
+<strong>Objective</strong>: Store and efficiently retrieve IP addresses of the form <code>128.32.168.80</code>.
+</p>
+
+<ul>
+<li>
+There are <span class="math">\(2^{32}\)</span> possibilities.
+</li>
+</ul></li>
+<li><p>
+Let's say you have <em>n</em> of them (<span class="math">\(n &amp;lt;&amp;lt; 2^{32}\)</span>).
+</p></li>
+<li><p>
+One possible way of storing them is an <em>array</em> of 2 to the 32 size that indicates whether an IP address is in the set <em>n</em> IP addresses.
+</p></li>
+<li><p>
+Another possibility is a <em>linked list</em>, where you only store the <em>n</em> IP addresses.
+</p>
+
+<ul>
+<li>
+But <em>O(n)</em> time to access them.
+</li>
+</ul></li>
+<li><p>
+Hash tables try to provide a trade-off.
+</p>
+
+<ul>
+<li>
+Create an array in the order of <em>n</em>.
+</li>
+</ul></li>
+<li><p>
+We need hash function that can return an index to the array and have the following properties:
+</p>
+
+<ul>
+<li>
+<p>The function will scatter the elements in the array, it will be &quot;random&quot; where they're going to be placed.</p>
+<ul>
+<li>
+If your given the same placement, you should get the same value.
+</li>
+<li>
+Consistency for the same input, it should always return the same index in the array.
+</li>
+</ul></li>
+</ul></li>
+<li><p>
+Picking one of the four numbers can work as a hash function under the assumption that that input is uniformly distributed.
+</p></li>
+<li>
+<strong>Objective</strong>: Regardless of the input, we need the &quot;random&quot; property.
+</li>
+<li>
+<strong>Realization</strong>: There is no single hash function that behaves well on all input data.
+</li>
+<li><p>
+<strong>Idea</strong>: Pick from a family of hash functions randomly so that the probability of 2 elements to be mapped to the same index is $  $ size of the array.
+</p></li>
+<li><p>
+Every IP address is a tuple : $ x_1, x_2, x_3, x_4 $ where $ x_1 $.
+</p>
+
+<ul>
+<li><p>
+Consider the has function
+</p>
+
+<p>
+<span class="math">\[ h_\alpha (x_1, x_2, x_3, x_4) = \sum_{i = 1}^{4} \alpha_1 \times x_i \mod N \]</span>
+</p>
+
+<p>
+If you pick the numbers alpha-1 at random, then <span class="math">\(h_\alpha\)</span> is likely to be good.
+</p></li>
+</ul></li>
+<li><p>
+<strong>Property</strong>: Consider any 2 elements <em>x</em>-1 through <em>x</em>-4 and corresponding <em>y</em>s. If the coefficients are chosen and uniformly at random mod <em>N</em>, then
+</p></li>
+</ul>
+
+<h2>
+February 12th, 2014 <small>Recitation</small>
+</h2>
+
+<h3>
+Probability Theorem
+</h3>
+
+<ul>
+<li>
+<p>If you have event <em>A</em>, and you want to measure how <em>probable</em> this event is.</p>
+<ul>
+<li>
+We have some axioms. The axioms of probability.
+</li>
+</ul></li>
+</ul>
+
+<blockquote>
+  <ol>
+  <li>
+$ 1 P(A) 0 <span class="math">\(&lt;/li&gt;   &lt;li&gt;\)</span> P(S) = 1 <span class="math">\(&lt;/li&gt;   &lt;li&gt;\)</span> P(A B) = P(A) + P(B)$ if <em>A</em> and <em>B</em> are mutually exclusive.
+</li>
+  </ol>
+</blockquote>
+
+<h4>
+Event of throwing a dice
+</h4>
+
+<ul>
+<li>
+<strong>Output</strong>: {1, 2, 3, 4, 5, 6}
+</li>
+<li>
+The probability of any individual role is one in six.
+</li>
+<li>
+The events are independant.
+</li>
+<li>
+The event can be mutually exclusive (with themselves).
+</li>
+</ul>
+
+<h4>
+Bayes Theorem
+</h4>
+
+<blockquote>
+  <p>
+<strong>Bayes' Theorem</strong>:
+</p>
+  
+<p>
+<span class="math">\[ P(A | B) = \frac{P(B | A) \times P(A)}{P(B)} \]</span>
+</p>
+</blockquote> 
 {% endraw %}

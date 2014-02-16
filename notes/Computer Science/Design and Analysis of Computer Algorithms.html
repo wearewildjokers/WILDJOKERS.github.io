@@ -1252,5 +1252,226 @@ Bayes Theorem
 <p>
 <span class="math">\[ P(A | B) = \frac{P(B | A) \times P(A)}{P(B)} \]</span>
 </p>
-</blockquote> 
+</blockquote>
+
+<h2>
+February 14th, 2014 <small>Lecture</small>
+</h2>
+
+<h3>
+Divide and Conquer Algorithms
+</h3>
+
+<ul>
+<li><p>
+What is the characteristic here?
+</p>
+
+<ul>
+<li>
+Break your problem into smaller instances.
+</li>
+<li>
+In the case of the number-theoretic algorithms, the way we were evaluating the run-time was with bits.
+</li>
+<li>
+Then, recursively solve smaller sub-problems and then combine these answers.
+</li>
+</ul></li>
+<li><p>
+What was the recursively algorithm for multiplication? It was already an instance of <em>divide and conquer</em>.
+</p>
+
+<ul>
+<li>
+Before for multiplcation, the running time had a big-O of &quot;n-squared&quot;
+</li>
+</ul></li>
+</ul>
+
+<h4>
+New Multiplication
+</h4>
+
+<ul>
+<li><p>
+Now we'll get a better running time for multiplication, with <em>another idea for multiplcation.</em>
+</p>
+
+<ul>
+<li><p>
+Cnosider the following way of writing numbers:
+</p>
+
+<ul>
+<li><p>
+<em>x</em> is written as two numbers, with <em>x</em> &quot;sub left&quot; and <em>x</em> &quot;sub right&quot;, where if it's 10 bits, you have two five bit numbers.
+</p>
+
+<p>
+<span class="math">\[ x = 2^{\frac{n}{2}} \times x_L + x_R \]</span> <span class="math">\[ y = 2^{\frac{n}{2}} \times y_L + y_R \]</span> <span class="math">\[ x \times y = (2^{\frac{n}{2}} \times x_L + x_R)(2^{\frac{n}{2}} \times y_L + y_R) \]</span>
+</p></li>
+</ul></li>
+</ul></li>
+<li><p>
+Lets think about the new operations and how much they cost.
+</p>
+
+<ul>
+<li><p>
+In the above representation, we have:
+</p>
+
+<ul>
+<li>
+Additions (linear)
+</li>
+<li>
+Multiplecation with powers of 2 (linear)
+</li>
+<li>
+Four multiplications between &quot;n over two&quot; bit numbers where we call recursively the same operation.
+</li>
+</ul></li>
+<li><p>
+We can define a recursive relation:
+</p>
+
+<p>
+<span class="math">\[ T(n) = 4 \times T(\frac{n}{2}) + O(n) \]</span>
+</p></li>
+</ul></li>
+<li><p>
+Gauss observation reowkred the above expression so as to make use of only 3 of the &quot;n over two&quot; multiplications.
+</p></li>
+<li><p>
+At the <span class="math">\((log_2 n\)</span>)^{2n}$ level, we get down to size-1.
+</p>
+
+<ul>
+<li>
+At each level we have <span class="math">\(3^k\)</span> subproblems, each of them of size <span class="math">\(\frac{n}{2^k}\)</span>
+</li>
+<li>
+At each level you have a linear cost for combining the subproblems.
+</li>
+<li><p>
+At depth <em>k</em>,
+</p>
+
+<p>
+<span class="math">\[ 3^k \times O(\frac{n}{2^k}) = (\frac{3}{2})^k \times O(n)\]</span>
+</p></li>
+<li><p>
+Now, we've managed to decrease the run-time to something like <em>n</em> to-the 1.59 as opposed to <em>n</em>-squared.
+</p></li>
+</ul></li>
+<li><p>
+We are solving multiplication with a divide-and-conquer approach.
+</p>
+
+<ul>
+<li>
+By decreasing the number of recursive calls, we managed to get a running time that is <em>better</em>, i.e. the branching factor in terms of recursive calls matters.
+</li>
+<li><p>
+As a matter of fact, when you have something like ...
+</p>
+
+<p>
+<span class="math">\[ T(n) = \alpha \times T(\frac{n}{b}) + O(n^d) \]</span>
+</p></li>
+</ul></li>
+</ul>
+
+<h3>
+Sorting Problems
+</h3>
+
+<blockquote>
+  <p>
+<strong>Master theorem</strong>: If you have a recurisve cost-function of the form <span class="math">\(T(n) = a \times T(\frac{n}{b}) + O(n^2)\)</span> then:
+</p>
+  
+<p>
+<span class="math">\[ T(n) =   \begin{cases} O(n^d) &amp;amp; \text{if } d \lt log_b a &amp;#92; O(n^d \log(n)) &amp;amp; \text{if } d = \log_b a &amp;#92; O(n^{log_b a} &amp;amp; \text{if } d \lt log_b a \end{cases} \]</span>
+</p>
+</blockquote>
+
+<ul>
+<li><p>
+Assume that <em>n</em> is a power of <em>b</em> for convinience.
+</p>
+
+<ul>
+<li>
+The size of the problem decreases by <em>b</em> at every level.
+</li>
+</ul></li>
+<li><p>
+We need <span class="math">\(log_b n\)</span> level to stop the recursion.
+</p>
+
+<ul>
+<li><p>
+At level <em>k</em> we have <span class="math">\(a^k\)</span> subproblems of size <span class="math">\(\frac{n}{b^k}\)</span>
+</p>
+
+<ul>
+<li><p>
+Work at level <em>k</em>:
+</p>
+
+<p>
+<span class="math">\[ a^k \times O((\frac{n}{b^k})^d) = O(n^d) \times (\frac{a}{b^d})^k \]</span>
+</p></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h4>
+Three cases
+</h4>
+
+<ol>
+<li><p>
+If <span class="math">\(\frac{a}{b^d} \lt 1\)</span>, series is decreasing.
+</p>
+
+<ul>
+<li>
+The &quot;first term&quot; dominates.
+</li>
+<li><p>
+Running time:
+</p>
+
+<p>
+<span class="math">\[ O(n^d) \]</span>
+</p></li>
+</ul></li>
+<li><p>
+If <span class="math">\(\frac{a}{b^d} \gt 1\)</span>, series is increasing
+</p>
+
+<ul>
+<li>
+The &quot;last term dominates&quot;
+</li>
+<li><p>
+Running time:
+</p>
+
+<p>
+<span class="math">\[ O(n^{\log_b a}) \]</span>
+</p></li>
+</ul></li>
+<li><p>
+If <span class="math">\(\frac{a}{b^d} = 1\)</span>, all terms are equivilent.
+</p>
+
+<p>
+<span class="math">\[ O(n^d) = O(n^{\log_b a}) \]</span>
+</p></li>
+</ol> 
 {% endraw %}

@@ -8114,3 +8114,12 @@ pre {
 li p {
   margin-bottom: 0px;
 }
+
+/* line 211, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+.col {
+  background: #f0f0f0;
+  width: 230px;
+  padding: 10px;
+  font-size: 1.5em;
+  word-wrap: break-word;
+}

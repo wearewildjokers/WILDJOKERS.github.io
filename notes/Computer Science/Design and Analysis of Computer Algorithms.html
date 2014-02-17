@@ -876,7 +876,7 @@ The following are true if e and d have been selected as specific
 </blockquote>
 
 <h3>
-Summary of RSA
+Summary of <abbr title="Rivest-Shamir-Adelman">RSA</abbr>
 </h3>
 
 <h4>
@@ -947,7 +947,7 @@ Analysis
 
 <blockquote>
   <p>
-What are the operations of RSA and what is the running time?
+What are the operations of <abbr title="Rivest-Shamir-Adelman">RSA</abbr> and what is the running time?
 </p>
 </blockquote>
 
@@ -971,7 +971,7 @@ February 7th, 2013 <small>Lecture</small>
 </h2>
 
 <h3>
-RSA
+<abbr title="Rivest-Shamir-Adelman">RSA</abbr>
 </h3>
 
 <ul>
@@ -1001,7 +1001,7 @@ Greatest Common Divisor
 <p>If you could perform factoring efficiently, the you could solve the problem.</p>
 <ul>
 <li>
-But we do not have one. So RSA is safe.
+But we do not have one. So <abbr title="Rivest-Shamir-Adelman">RSA</abbr> is safe.
 </li>
 </ul></li>
 </ul>
@@ -1031,7 +1031,7 @@ February 12th, 2014 <small>Lecture</small>
 </h2>
 
 <h3>
-Review of RSA
+Review of <abbr title="Rivest-Shamir-Adelman">RSA</abbr>
 </h3>
 
 <ul>
@@ -2214,15 +2214,659 @@ What is even better is that those <em>x</em> and <em>y</em>s can be found by a s
 </blockquote></li>
 </ul>
 
+<h5>
+Modular division
+</h5>
+
+<ul>
+<li>
+<p>In real arithmetic, every number that doesn't equal zero has an inverse, that is, one over itself.</p>
+<ul>
+<li>
+<p>Dividing by a number is the same as multiplying by its inverse.</p>
+<ul>
+<li>
+In <em>modular</em> arithmeric, we can make a similar definition.
+</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<dl>
+<dt>
+Multiplicative inverse
+</dt>
+<dd>
+<p>
+We say <em>x</em> is the <em>multiplicative inverse</em> of <em>a</em> modulo <em>N</em> if <span class="math">\(ax \equiv 1 (mod N)\)</span>.
+</p>
+</dd>
+</dl>
+
+<ul>
+<li><p>
+There can only be one, and we denote it with <span class="math">\(a^{-1}\)</span>.
+</p>
+
+<ul>
+<li>
+However, it doesn't <em>always</em> exist.
+</li>
+<li>
+<p>For instance, 2 is not invertible modulo 6.</p>
+<ul>
+<li>
+2 multiplied by <em>x</em> is not equivilient to 1 modulo 6 for any and every number.
+</li>
+<li>
+In this case, <em>a</em> and <em>N</em> are both even and thus <em>a mod N</em> is alwaus even, since <em>a mod N = a - kN</em> for some <em>k</em>.
+</li>
+</ul></li>
+</ul></li>
+<li><p>
+In fact, this is the only circumstance in which <em>a</em> is not invertible.
+</p>
+
+<ul>
+<li>
+<p>The <em>gcd(a, N) = 1</em> (this is called <em>relatively prime</em>), the extended Euclid algorithm gives us integers <em>a</em> and <em>y</em> such that <em>ax + Ny = 1</em>, which means that <span class="math">\(ax \equiv 1 (mod N)\)</span>.</p>
+<ul>
+<li>
+This, <em>x</em> is <em>a</em>'s sought inverse.
+</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<dl>
+<dt>
+Example
+</dt>
+<dd>
+<ul>
+<li><p>
+Continuing with our previous example, supose we computer <span class="math">\(1^{-1} \bmod 25\)</span>.
+</p>
+
+<ul>
+<li><p>
+Using the extended Euclid algorithm we find that
+</p>
+
+<p>
+<span class="math">\[ 15 \cdot 25 - 34 \cdot 11 = 1 \]</span>
+</p></li>
+<li><p>
+Reducing both sides modulo 25, wh have
+</p>
+
+<p>
+<span class="math">\[ -34 \cdot 11 \equiv 1 \bmod 25 \]</span>
+</p></li>
+<li><p>
+Therefore, <span class="math">\(-34 \equiv 16 \bmod 25\)</span> is the inverse of $ 11 25$.
+</p></li>
+</ul></li>
+</ul>
+</dd>
+
+<dt>
+Modular division theorem
+</dt>
+<dd>
+<p>
+For any <span class="math">\(a \bmod N\)</span>, <em>a</em> has the a multiplicative inverse modulo <em>N</em> <abbr title="if and only if">iff</abbr> it is relatively prime to <em>N</em>. When this inverse exists, it can be found in time <span class="math">\(O(n^3)\)</span> by running the extended Euclid algorith,
+</p>
+</dd>
+</dl>
+
+<ul>
+<li><p>
+This resolve the issue of modular division.
+</p>
+
+<ul>
+<li><p>
+When working with modulo <em>N</em>, we can divide by numbers realtively prime to <em>N</em>.
+</p>
+
+<ul>
+<li>
+And <em>only by</em> these.
+</li>
+</ul></li>
+<li><p>
+To carry out the division, we multiply the inverse.
+</p></li>
+</ul></li>
+</ul>
+
 <h4>
 Primality testing
 </h4>
+
+<dl>
+<dt>
+Fermat's little theorem
+</dt>
+<dd>
+<p>
+If $ p $ is prime, then for every $ 1 a p $
+</p>
+
+<p>
+<span class="math">\[ a^{p - 1} \equiv 1 (\bmod p) \]</span>
+</p>
+</dd>
+
+<dd>
+<pre><code>function primality(N) {
+    a = random(less than N); 
+
+    if ((a ** (N - 1)) == (1 % N)) {
+        return YES;
+    }
+
+    else {
+        return NO;
+    }
+}
+</code></pre>
+</dd>
+</dl>
+
+<ul>
+<li><p>
+The problem is that Fermat's theorem is not an <abbr title="if and only if">iff</abbr> condition.
+</p>
+
+<ul>
+<li>
+It doesn't say what happens when <em>N</em> is <em>not</em> prime.
+</li>
+<li>
+In fact, it <em>is</em> possible for a composite number <em>N</em> to pass Fermat's test.
+</li>
+</ul></li>
+<li><p>
+In analyzing the bahvior of this algorithm, we first need to get a minor bad case out the way.
+</p>
+
+<ul>
+<li>
+<p>There are extremely rare composite numbers called <em>Carmichael numbers</em>, and they pass Fermat's test for all <em>a</em> relatively prime to <em>N</em>.</p>
+<ul>
+<li>
+On such numbers our algorithm will fail.
+</li>
+</ul></li>
+</ul></li>
+<li><p>
+In a Carmichael-free universe, our algirothms work well.
+</p></li>
+</ul>
+
+<dl>
+<dt>
+Lemma
+</dt>
+<dd>
+<p>
+If <span class="math">\(a^{N - 1} \not\equiv 1 \bmod N\)</span> for some <em>a</em> relatively prime to <em>N</em>, then it must hold for at least half the choices of <span class="math">\(a \lt N\)</span>.
+</p>
+</dd>
+</dl>
+
+<ul>
+<li><p>
+We are ignoring Charmichael numbers, so we now assert,
+</p>
+
+<ul>
+<li>
+If <em>N</em> is prime, then <span class="math">\(a^{N - 1} \equiv 1 \bmod N \)</span> for all <em>a</em> less than <em>N</em>.
+</li>
+<li>
+If <em>N</em> is not prime, then $ a^{N - 1} 1 N $ for at most half of the values of <span class="math">\(a \lt N\)</span>.
+</li>
+</ul></li>
+<li><p>
+The probability of our primality algorithm returning yes when a number is prime is 1, that is it happens 100% percent of the time.
+</p>
+
+<ul>
+<li>
+On the other hand, the probability of reutrning yes with a number is <em>not prime</em> is one half, that is, false positives happen half of the time.
+</li>
+<li>
+If you run the test <em>k</em> times, the probability of <em>N</em> not being prime is <span class="math">\(\le \frac{1}{2^k}\)</span>.
+</li>
+</ul></li>
+</ul>
+
+<pre><code>function primarilty2(N) {
+    pick positive integers a1, a2, ..., ak &lt; N at random;
+
+    if ((a[i] ** N - 1) == 1 (mod N)) for all i ... k {
+        return yes;
+    else
+        return no;
+    }
+</code></pre>
+
+<ul>
+<li>
+<p>This probability of error drops exponentially fast, and can be driven <em>arbitrarily low</em> by choosing a large enough <em>k</em>.</p>
+<ul>
+<li>
+If you do it a 100 times, the probability of a cosmic ray ruining your computation is higher than the probability of error.
+</li>
+</ul></li>
+</ul>
+
+<h5>
+Generating random primes
+</h5>
+
+<ul>
+<li><p>
+We are now close to having everything we need for cryptography.
+</p>
+
+<ul>
+<li><p>
+We need a fast algorithm for choosing random primes.
+</p>
+
+<ul>
+<li>
+Hundred bits long.
+</li>
+</ul></li>
+<li><p>
+What makes this aks quite easy is that prime are abundant
+</p>
+
+<ul>
+<li>
+A random, <em>n</em>-bit number has a roughly one-on-<em>n</em> chance of being prime.
+</li>
+<li>
+For instance, about 1 in 20 social security numbers are prime!
+</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<dl>
+<dt>
+Lagrange's prime number theorem
+</dt>
+<dd>
+<p>
+Let <span class="math">\(\pi(x)\)</span> be the number of primes <span class="math">\(\le x\)</span>. Then, <span class="math">\(\pi(x) \approx \frac{x}{\ln n}\)</span>, or more precisely,
+</p>
+
+<p>
+<span class="math">\[ \lim_{x \to \infty} \frac{\pi(x)}{(x / \ln x)} = 1 \]</span>
+</p>
+
+<p>
+Such abundance makes it simple to generate a random <em>n</em>-bit prime:
+</p>
+
+<ul>
+<li>
+Pick a random <em>n</em>-bit number <em>N</em>.
+</li>
+<li>
+Run a primality test on <em>N</em>.
+</li>
+<li>
+If it passes the test, output <em>N</em>, else repeat the test.
+</li>
+</ul>
+</dd>
+</dl>
+
+<ul>
+<li><p>
+<em>How fast is this algoritm?</em>
+</p>
+
+<ul>
+<li>
+If the randomly chosen <em>N</em> is truly prime, which happen with probability at least <span class="math">\(\frac{1}{n}\)</span>, then it will certainly pass the test.
+</li>
+<li>
+So on each iteration, this procedure has at least a <span class="math">\(\frac{1}{n}\)</span> chance of halting.
+</li>
+<li>
+Therefore, on average it will halt within $ O(n) $ rounds.
+</li>
+</ul></li>
+<li><p>
+Next, exactly which primality test should be used?
+</p>
+
+<ul>
+<li>
+<p>In this application, since the number we are testing for primality are chosen at random rather than by adversary, it is sufficient to perform the Fermat test with <em>a</em> as 2.</p>
+<ul>
+<li>
+For random numbers the Fermat test has a mihc samller failur probability than the worst-case one-half bound proven earlier.
+</li>
+<li>
+The resulting algorithm is quite fast, generating primes that are hundreds of bits long in a fraction of a second on a PC.
+</li>
+</ul></li>
+</ul></li>
+<li><p>
+The important question: <em>What is the probability that the output of the algorithm is really prime?</em>
+</p>
+
+<ul>
+<li>
+To answer, we must first understnad how discerning the Fermat test is.
+</li>
+<li>
+As a concrete example, perform the operation on base <em>a</em> equal to 2 for all numbers less than or equal to 25 times 10 to the 9th power.
+</li>
+<li><p>
+In this range, there are about <span class="math">\(10^9\)</span> primes, and about 20,000 composites that pass the test.
+</p>
+
+<ul>
+<li><p>
+Thus, the chance of erronesouly outputting a composite numbers is
+</p>
+
+<p>
+<span class="math">\[ 20,000 / 10^9 = 2 \times 10^{-5} \]</span>
+</p></li>
+</ul></li>
+</ul></li>
+</ul>
 
 <h4>
 Cryptography
 </h4>
 
-<h4>
-Universal hashing
-</h4> 
+<ul>
+<li><p>
+The next topic is the <abbr title="Rivest-Shamir-Adelman">RSA</abbr> cryptosystem.
+</p>
+
+<ul>
+<li>
+It derives very strong guarantees of security by ingeniously exploiting the wide gulf between the polynomial-time computability of certain number-theoretic tasks and the intractability of others.
+</li>
+</ul></li>
+<li><p>
+The typical setting for cryptography is described with a cast of three characters: Alice and Bob, who want to communicate in private, and Eve, the eavesdropper who will go to great length to find out what they're saying.
+</p>
+
+<ul>
+<li>
+<p>Imagine Alice sends her message &quot;<em>x</em>&quot; which is written in binary.</p>
+<ul>
+<li>
+She encodes it as <em>e(x)</em>, sends it over, and then Bob applies his decryption function <em>d()</em> to decode it: <em>d(e(x)) = x</em>.
+</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<pre><code>Alice                                                Bob
+            +----------+  e(x)   +----------+
+  x  ----&gt;  | Encoder  |  ----&gt;  | Decoder  |  ----&gt; x = d(e(x))  
+            +----------+    |    +----------+
+                            |
+                            +---&gt;  Eve
+</code></pre>
+
+<ul>
+<li><p>
+Alice and Bob are worried that the eavesdropper, Eve, will intercept <em>e(x)</em>.
+</p>
+
+<ul>
+<li>
+She might be a sniffer on the network.
+</li>
+<li>
+<p>The function <em>e()</em> is chosen so that without knowing <em>d()</em>, Even cannot do anything with the information she has picked up.</p>
+<ul>
+<li>
+<em>e(x)</em> tells you little or nothing about <em>x</em>.
+</li>
+</ul></li>
+</ul></li>
+<li><p>
+For centuries, cryptography was based on <em>private-key protocols</em>.
+</p>
+
+<ul>
+<li>
+<p>In such a scheme, Alice and Bob would have to actually meet before hand and agree on the scheme.</p>
+<ul>
+<li>
+Eve's only hope is to get the codebook and a message.
+</li>
+</ul></li>
+</ul></li>
+<li><p>
+<em>Public-key protocols</em> such as <abbr title="Rivest-Shamir-Adelman">RSA</abbr> are significantly more subtle and tricky.
+</p>
+
+<ul>
+<li>
+They allow Alice to send a message to Bob without ever having to meet him.
+</li>
+<li><p>
+The central idea behind <abbr title="Rivest-Shamir-Adelman">RSA</abbr> is the dramatic constrast between facting and primality.
+</p>
+
+<ul>
+<li>
+Bob is able to implement a <em>digital lock</em>, to which only he has the key.
+</li>
+</ul></li>
+<li><p>
+By making his digital lock public, he gives Alice a way to send him a secure message that only he can decrypt.
+</p>
+
+<ul>
+<li>
+This is how the Internet sends private and sensitive information.
+</li>
+</ul></li>
+</ul></li>
+<li><p>
+In the <abbr title="Rivest-Shamir-Adelman">RSA</abbr> protocol, Bob need only perform the simplest of calculations, such as multiplcation, for a digital log.
+</p>
+
+<ul>
+<li>
+By contrast, Eve must perform operations like factoring large numbers that would require more than the world's most powerful computers combined.
+</li>
+</ul></li>
+</ul>
+
+<h5>
+<abbr title="Rivest-Shamir-Adelman">RSA</abbr>
+</h5>
+
+<ul>
+<li><p>
+<abbr title="Rivest-Shamir-Adelman">RSA</abbr> is <em>public-key cryptography</em>.
+</p>
+
+<ul>
+<li>
+Anybody can send a message to anybody else using publically available information.
+</li>
+<li>
+Each person has a public key known to the whole world and a secret key known only to themselves.
+</li>
+<li>
+<p>When Alice wants to send a message to Bob, this happens:</p>
+<ol>
+<li>
+She encodes it using his public key.
+</li>
+<li>
+He decrypts it with his secret key.
+</li>
+</ol></li>
+</ul></li>
+<li><p>
+The <abbr title="Rivest-Shamir-Adelman">RSA</abbr> scheme is based heavily on number theory
+</p>
+
+<ul>
+<li><p>
+Think of messages from Alice to Bob as numbers modulo <em>N</em>.
+</p>
+
+<ul>
+<li>
+Messages larger than <em>N</em> are broken into smaller peices.
+</li>
+</ul></li>
+<li><p>
+The encryption function will the be a bijection on $ 0, 1, N - 1$
+</p>
+
+<ul>
+<li>
+The decryption function will be its inverse.
+</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<dl>
+<dt>
+Property
+</dt>
+<dd>
+<p>
+Pick any two primes <em>p</em> and <em>q</em> and let <em>N = pq</em>. For any <em>e</em> relatively prime to <em>(p - 1)(q - 1)</em>:
+</p>
+
+<ol>
+<li><p>
+The mapping <span class="math">\(x \mapsto x^e \bmod N\)</span> is a bijection on
+</p>
+
+<p>
+<span class="math">\[ \lbrace 0, 1, \cdots , N - 1 \rbrace \]</span>
+</p></li>
+<li><p>
+Moreover, the inverse mapping is easily realized: led <em>d</em> be the inverse of <em>e</em> modulo <em>(p - 1)(q - 1)</em>. Then for <span class="math">\(x \in \lbrace 0, 1, \cdots N - 1 \rbrace\)</span>,
+</p>
+
+<p>
+<span class="math">\[ (x^e)^d \equiv x \bmod N \]</span>
+</p></li>
+</ol>
+</dd>
+</dl>
+
+<blockquote>
+  <p>
+<strong>Example</strong>
+</p>
+  
+<ul>
+  <li><p>
+<strong>Bob chooses his public and secret keys</strong>
+</p>
+  
+<ul>
+  <li>
+He starts by picking two large (<em>n</em>-bit) random primes <em>p</em> and <em>q</em>.
+</li>
+  <li><p>
+His public key is <span class="math">\((N, e)\)</span> where <span class="math">\(N = pq\)</span> and <span class="math">\(e\)</span> is a <span class="math">\(2n\)</span>-bit number relatively prime to <span class="math">\((p - 1)(q - 1)\)</span>.
+</p>
+  
+<ul>
+  <li>
+A common choise is $ e = 3 $ because it permits fast encoding.
+</li>
+  </ul></li>
+  <li><p>
+His secret key is <span class="math">\(d\)</span>, the inverse of <span class="math">\(e\)</span> modulo <span class="math">\((p - 1)(q - 1)\)</span>, computed using the extended Euclid algorithm.
+</p></li>
+  </ul></li>
+  <li><p>
+<strong>Alice wishes to send message <span class="math">\(x\)</span> to Bob</strong>.
+</p>
+  
+<ul>
+  <li>
+She looks up his public key <span class="math">\((N, e)\)</span> and sends him <span class="math">\(y = (x^e \bmod N)\)</span>, computed using an efficient modular exponentiation algorith,
+</li>
+  <li>
+He decodes the message by computing <span class="math">\(y^d \bmod N\)</span>.
+</li>
+  </ul></li>
+  </ul>
+</blockquote>
+
+<ul>
+<li><p>
+This <abbr title="Rivest-Shamir-Adelman">RSA</abbr> protocol is convinient.
+</p>
+
+<ul>
+<li>
+The computations for Alice and Bob are easy.
+</li>
+<li><p>
+But what about Eve?
+</p>
+
+<ul>
+<li><p>
+The security of <abbr title="Rivest-Shamir-Adelman">RSA</abbr> hinges upon a simple assumption:
+</p>
+
+<blockquote>
+  <p>
+Given <span class="math">\(N\)</span>, <span class="math">\(e\)</span>, and <span class="math">\(y = x^e \bmod N\)</span>, it is computationally intractable to determine <span class="math">\(x\)</span>.
+</p>
+</blockquote></li>
+</ul></li>
+</ul></li>
+<li><p>
+This assumption is quite plausible
+</p>
+
+<ul>
+<li><p>
+She coould try all possible values of <span class="math">\(x\)</span>, each time checking <span class="math">\(x^e \equiv y \bmod N\)</span>
+</p>
+
+<ul>
+<li>
+This would take exponetial time.
+</li>
+</ul></li>
+<li><p>
+She could try to factor <span class="math">\(N\)</span> to retrieve <span class="math">\(p\)</span> and <span class="math">\(q\)</span>, and then figure our <span class="math">\(d\)</span> by inverting <span class="math">\(e\)</span> modulo <span class="math">\((p - 1)(q - 1)\)</span>.
+</p>
+
+<ul>
+<li>
+This factoring would be hard.
+</li>
+</ul></li>
+<li><p>
+Intractibility is normally a source of dismay, <abbr title="Rivest-Shamir-Adelman">RSA</abbr> uses it as an advantage.
+</p></li>
+</ul></li>
+</ul> 
 {% endraw %}

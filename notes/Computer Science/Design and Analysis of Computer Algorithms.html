@@ -2868,5 +2868,300 @@ This factoring would be hard.
 Intractibility is normally a source of dismay, <abbr title="Rivest-Shamir-Adelman">RSA</abbr> uses it as an advantage.
 </p></li>
 </ul></li>
-</ul> 
+</ul>
+
+<h2>
+February 19th, 2014 <small>Recitation</small>
+</h2>
+
+<h3>
+Classification
+</h3>
+
+<ul>
+<li><p>
+Sorting algorithms are often classified by:
+</p>
+
+<ul>
+<li><dl>
+<dt>
+Computational complexity
+</dt>
+<dd>
+<p>
+Worst, average, and best best-behavior of element comparisions in terms of the size of the list.
+</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>
+Memory usage
+</dt>
+<dd>
+<p>
+Some sorting algorithms are &quot;in place&quot; and they do not need any memory input beyond the input array, which stores the elemts to be sorted.
+</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>
+Stability
+</dt>
+<dd>
+<p>
+Stable sorting algorithms maintain the same order of records with equal keys in the input array (values)
+</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>
+Whether or not they are a comparisons sort
+</dt>
+<dd>
+<p>
+A comparision sort examines the data only by comparing two elements with a comparision operator.
+</p>
+</dd>
+</dl></li>
+</ul></li>
+</ul>
+
+<h4>
+Stability
+</h4>
+
+<ul>
+<li><p>
+If all keys are different than the stability distinction is not necessary.
+</p>
+
+<ul>
+<li>
+But if there are equal keys, the a sorting algorithm is stable if whenever there are two records.
+</li>
+</ul></li>
+<li><p>
+Unstable sorting algorithms may change the relative order of records with equal keys, but stable sorting algorithms never do so.
+</p>
+
+<ul>
+<li>
+<p>Unstable sorting algorithms can be specially implemented to be stable.</p>
+<ul>
+<li>
+Additional computational cost.
+</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+  <th>
+Algorithm
+</th>
+  <th>
+Best time
+</th>
+  <th>
+Average time
+</th>
+  <th>
+Worst time
+</th>
+  <th>
+Memory
+</th>
+  <th>
+Stable
+</th>
+  <th>
+Method
+</th>
+  <th>
+Notes
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>
+Bubble sort
+</td>
+  <td>
+<span class="math">\(n\)</span>
+</td>
+  <td>
+<span class="math">\(n^2\)</span>
+</td>
+  <td>
+<span class="math">\(n^2\)</span>
+</td>
+  <td>
+<span class="math">\(1\)</span>
+</td>
+  <td>
+Yes
+</td>
+  <td>
+Swapping elements
+</td>
+  <td>
+Simple implementation
+</td>
+</tr>
+<tr>
+  <td>
+Selection sort
+</td>
+  <td>
+<span class="math">\(n^2\)</span>
+</td>
+  <td>
+<span class="math">\(n^2\)</span>
+</td>
+  <td>
+<span class="math">\(n^2\)</span>
+</td>
+  <td>
+<span class="math">\(1\)</span>
+</td>
+  <td>
+No
+</td>
+  <td>
+Selection
+</td>
+  <td>
+Stable with <span class="math">\(O(n)\)</span>
+</td>
+</tr>
+<tr>
+  <td>
+Insertion sort
+</td>
+  <td>
+<span class="math">\(n\)</span>
+</td>
+  <td>
+<span class="math">\(n^2\)</span>
+</td>
+  <td>
+<span class="math">\(n^2\)</span>
+</td>
+  <td>
+<span class="math">\(1\)</span>
+</td>
+  <td>
+Yes
+</td>
+  <td>
+Insertion
+</td>
+  <td>
+<span class="math">\(O(n + d)\)</span> where <span class="math">\(d\)</span> inversions
+</td>
+</tr>
+<tr>
+  <td>
+Heapsort
+</td>
+  <td>
+<span class="math">\(n \log n\)</span>
+</td>
+  <td>
+<span class="math">\(n \log n\)</span>
+</td>
+  <td>
+<span class="math">\(n \log n \)</span>
+</td>
+  <td>
+<span class="math">\(1\)</span>
+</td>
+  <td>
+No
+</td>
+  <td>
+Selection
+</td>
+  <td></td>
+</tr>
+<tr>
+  <td>
+Merge sort
+</td>
+  <td>
+<span class="math">\(n \log n\)</span>
+</td>
+  <td>
+<span class="math">\(n \log n\)</span>
+</td>
+  <td>
+<span class="math">\(n \log n\)</span>
+</td>
+  <td>
+Worst is <span class="math">\(n\)</span>
+</td>
+  <td>
+Yes
+</td>
+  <td>
+Merging
+</td>
+  <td>
+Highly parralelizable
+</td>
+</tr>
+<tr>
+  <td>
+In-place Merge sort
+</td>
+  <td></td>
+  <td></td>
+  <td>
+<span class="math">\(n (\log n)^2 \)</span>
+</td>
+  <td>
+<span class="math">\(1\)</span>
+</td>
+  <td>
+Yes
+</td>
+  <td>
+Merging
+</td>
+  <td>
+Implemented in STL
+</td>
+</tr>
+<tr>
+  <td>
+Quicksort
+</td>
+  <td>
+<span class="math">\(n \log n \)</span>
+</td>
+  <td>
+<span class="math">\(n \log n\)</span>
+</td>
+  <td>
+<span class="math">\(\log n\)</span>
+</td>
+  <td>
+<span class="math">\(\log n\)</span>
+</td>
+  <td>
+Depends
+</td>
+  <td>
+Partitioning
+</td>
+  <td>
+Usually done in place
+</td>
+</tr>
+</tbody>
+</table> 
 {% endraw %}

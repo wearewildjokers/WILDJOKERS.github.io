@@ -3163,5 +3163,154 @@ Usually done in place
 </td>
 </tr>
 </tbody>
-</table> 
+</table>
+
+<h2>
+February 21st, 2014 <small>Lecture</small>
+</h2>
+
+<h3>
+Linear Time Sorting Algorithms
+</h3>
+
+<ul>
+<li><p>
+Counting sort
+</p>
+
+<ul>
+<li><p>
+N input elements that are integers in a range from 0 to <em>k</em>.
+</p>
+
+<pre><code>     1   2   3   4   5   6   7   8
+   +---+---+---+---+---+---+---+---+
+A  | 2 | 5 | 3 | 0 | 2 | 3 | 0 | 3 |
+   +---+---+---+---+---+---+---+---+
+
+     0   1   2   3   4   5
+   +---+---+---+---+---+---+
+C  | 2 | 0 | 2 | 3 | 0 | 1 |
+   +---+---+---+---+---+---+
+// C[1] says how many elements in array 
+// A have value i
+
+
+C` +---+---+---+---+---+---+
+   | 1 | 2 | 2 | 4 | 7 | 7 |
+   +---+---+---+---+---+---+
+// C`[1] specifies # of elements less than or
+// greater to i in array A
+
+   +---+---+---+---+---+---+---+---+
+O  | 0 | 0 | 2 | 2 | 3 | 3 | 3 | 5 |
+   +---+---+---+---+---+---+---+---+
+</code></pre></li>
+</ul></li>
+</ul>
+
+<h4>
+Running time
+</h4>
+
+<ul>
+<li>
+Initialize empty array <span class="math">\(G \Omega(k)\)</span>
+</li>
+<li>
+Count the occurences of elements in array <span class="math">\(A : \Omega(n)\)</span>
+</li>
+<li>
+Identify the sport of each mumber in the output array.
+</li>
+</ul>
+
+<h3>
+Radix Sort
+</h3>
+
+<ul>
+<li><p>
+What is the idea?
+</p>
+
+<ul>
+<li>
+We'll assume a fixed number of bits.
+</li>
+<li>
+<p>Let's say we have <span class="math">\(d\)</span>-bit numbers.</p>
+<ul>
+<li>
+The idea is check one bit at a time and sort them from the right-most bit to the left-most bit.
+</li>
+</ul></li>
+</ul></li>
+<li><p>
+<strong>Lemma</strong>: For <em>n</em> <em>d</em>-digit numbers where each digit can take up to <em>k</em> values, radix sort correctly sorts these numbers in <span class="math">\(O(d(n + k))\)</span> time assuming you use a stable sort for sorting per digit.
+</p></li>
+<li><p>
+<strong>Base case</strong>: Sort accorind to the least significant digit.
+</p></li>
+<li>
+<strong>Assumption</strong>: Sorted up to (i - 1)th digit.
+</li>
+<li><p>
+<strong>Step</strong>: Every number that has a lower (1 + i)th digit than any other number will appear earlier.
+</p></li>
+<li><p>
+If they have the same ith giti, these numbers already appear in the correct order in the array.
+</p>
+
+<ul>
+<li>
+If I use a stable sort, the correct order is retained.
+</li>
+<li>
+Cost of sorting per digit up to range k: <span class="math">\(\Theta(n + k)\)</span>
+</li>
+<li>
+How many sorts? <em>d</em> as number of digits.
+</li>
+</ul></li>
+</ul>
+
+<h3>
+Bucket Sort
+</h3>
+
+<ul>
+<li>
+Asumme that the input is drawn from a uniform distribution.
+</li>
+<li><p>
+wlog assume input is in a range.
+</p></li>
+<li><p>
+<strong>Idea</strong>: Divide (0, 1) into n buckets and distribute the numbers into these buckets.
+</p>
+
+<ul>
+<li>
+Sort the number in each bucket and combine the results.
+</li>
+<li>
+How to sort each bucket?
+</li>
+</ul></li>
+</ul>
+
+<h4>
+Running time
+</h4>
+
+<p>
+<span class="math">\[T(n) = \Theta(n) + \sum_{i = 0}^{n  - 1} O(O_i^2)\]</span>
+</p>
+
+<ul>
+<li>
+The theta is the cost of generating the bueckets and assigning elements to buckets.
+</li>
+</ul> 
 {% endraw %}

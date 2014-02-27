@@ -21,33 +21,33 @@ We will cover a large subset of the following and possibly some new algorithmic 
 </p>
 
 <ul>
-<li><p>
+<li>
 Mathematical tools. Review of mathematical background, concepts of algorithm design, complexity, asymptotics, induction, and randomization. Fibonacci numbers. Euclidean gcd algorithms. Universal hashing.
-</p></li>
-<li><p>
+</li>
+<li>
 Divide and conquer. Fast integer multiplication; recurrences; the master theorem; mergesort; randomized median and selection algorithms; quicksort; fast matrix multiplication.
-</p></li>
-<li><p>
+</li>
+<li>
 Sorting. Lower bounds for comparison-based sorting; binsort and radix sort.
-</p></li>
-<li><p>
+</li>
+<li>
 Dynamic programming; Paradigm of SPs in DAGs; longest increasing subsequence; approximate string matching; integer and (0,1) knapsack problems; chain matrix multiplication; single-pair reliable SPs, all-pairs SPs; independent sets.
-</p></li>
-<li><p>
+</li>
+<li>
 Graph search. Graph classes and representations; depth first search in undirected and directed graphs; topological search; strongly connected components. Breadth first search and layered DAGs.
-</p></li>
-<li><p>
+</li>
+<li>
 Shortest Paths (SPs) in digraphs. Single-source SPs for nonnegative edge weights; priority queues and Dijkstra; SPs in DAGs; single-source SPs for general edge weights. Maximum adjacency search.
-</p></li>
-<li><p>
+</li>
+<li>
 Greedy algorithms. Spanning trees and cuts, analysis of union-find and path compression; MST algorithms; randomized algorithm for global minimum cuts; approximate set cover.
-</p></li>
-<li><p>
+</li>
+<li>
 Network flows. Max flow min cut theorem and integrality; fast algorithms; disjoint (s,t)-dipaths; maximum bipartite matching &amp; minimum vertex cover. Global minimum cuts.
-</p></li>
-<li><p>
+</li>
+<li>
 Elements of NP-completeness &amp; problem reductions.
-</p></li>
+</li>
 <li>
 NP-hard problems. Search and selected approximation algorithms.
 </li>
@@ -3312,5 +3312,556 @@ Running time
 <li>
 The theta is the cost of generating the bueckets and assigning elements to buckets.
 </li>
-</ul> 
+</ul>
+
+<h2>
+February 25th, 2014 <small>Practice Questions and Reading Material</small>
+</h2>
+
+<h3>
+Introduction to Concepts of Algorithmic Design, Computing Running Times
+</h3>
+
+<h4>
+Reading material
+</h4>
+
+<ul>
+<li>
+Chapters 0.1, 0.2, 0.3 from <abbr title="S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani">DPV</abbr>
+</li>
+<li>
+Chapters 1.2, 3.1, 3.2 from <abbr title="T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein (Second Edition)">CLRS2</abbr>
+</li>
+</ul>
+
+<h4>
+Practice questions
+</h4>
+
+<ul>
+<li><p>
+You may be provided with an algorithm for computing the <span class="math">\(n\)</span>th Fibonacci number and then be asked to compute its running time (think in terms of it complexity). Alternatively, you may be asked to provide an efficient algorithm for computing Fibonacci numbers.
+</p>
+
+<pre><code>function fib1(n) 
+if n = 0: return 0
+if n = 1: return 1
+return fib1(n - 1) + fib1(n - 2)
+</code></pre>
+
+<pre><code>(n) function fib2
+if n=0 return 0
+create an array f[0 . . . n] f[0] =0,f[1] =1
+for i = 2 . . . n:
+    f[i] = f[i − 1] + f[i − 2] 
+return f[n]
+</code></pre></li>
+<li><p>
+Give a justification why imporovement in hardware are typically not sufficient to make an algorithm with exponential running time reasonably tractable.
+</p>
+
+<blockquote>
+  <p>
+But technology is rapidly improving—computer speeds have been doubling roughly every 18 months, a phenomenon sometimes called Moore’s law. With this extraordinary growth, perhaps fib1 will run a lot faster on next year’s machines. Let’s see—the running time of fib1(n) is proportional to <span class="math">\(2^{0.694n} \approx (1.6)^n\)</span>, so it takes 1.6 times longer to compute <span class="math">\(F_{n+1} than F_n\)</span>. And under Moore’s law, computers get roughly 1.6 times faster each year. So if we can reasonably compute <span class="math">\(F_{100}\)</span> with this year’s technology, then next year we will manage <span class="math">\(F_{101}\)</span>. And the year after, <span class="math">\(F_{102}\)</span>. And so on: just one more Fibonacci number every year! Such is the curse of exponential time.
+</p>
+</blockquote></li>
+<li><p>
+We have 3 algorithms for the same problem where the first runs in exponential time, the second in logarithmic, and the thir in linear time as a function of the same input. Which algorith do you prefer to use?
+</p>
+
+<table>
+<thead>
+<tr>
+  <th>
+Name
+</th>
+  <th>
+Running time
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>
+Exponential
+</td>
+  <td>
+<span class="math">\(O(a^n)\)</span>
+</td>
+</tr>
+<tr>
+  <td>
+Logarithmic
+</td>
+  <td>
+<span class="math">\((\log(n))\)</span>
+</td>
+</tr>
+<tr>
+  <td>
+<strong>Linear</strong>
+</td>
+  <td>
+<span class="math">\(O(n)\)</span>
+</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>
+You may be provided running times of different algorithms and asked to show which running time dominates asymptotically.
+</p></li>
+<li>
+Provide the definitino of <em>O</em>-notation (or Theta or Omega).
+</li>
+<li>
+You may be provided certain statements about asymptotic analysis of running times and asked to show if they are correct or not. For instance, &quot;n to the a dominates n to the b if a is greater than b.
+</li>
+</ul>
+
+<h4>
+Related exercises
+</h4>
+
+<ul>
+<li>
+<abbr title="S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani">DPV</abbr>: 0.1, 0.2, 0.3
+</li>
+<li>
+<abbr title="T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein (Second Edition)">CLRS2</abbr>: 3.1-1, 3.1-2, 3.1-3, 3.1-4, 3.2-4
+</li>
+<li>
+<abbr title="T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein (Second Edition)">CLRS2</abbr>: 1.1, 3-2, 3-3, 3-6
+</li>
+</ul>
+
+<h3>
+Number Theoretic Algorithms <small>Complexity of adding and multiplying 2 n-bit numbers, modulo arithmetic</small>
+</h3>
+
+<h4>
+Reading material
+</h4>
+
+<ul>
+<li>
+Chapters 1.1,1.2 from <abbr title="S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani">DPV</abbr>
+</li>
+<li>
+Chapter 31.1 from <abbr title="T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein (Second Edition)">CLRS2</abbr>
+</li>
+</ul>
+
+<h4>
+Practice questions
+</h4>
+
+<ul>
+<li>
+What is the &quot;primality&quot; problem and what is the &quot;factoring&quot; problem? Which one of the two is tractable? What are the advantages of the intractability of the other problem?
+</li>
+<li>
+How many digits do you need to represent a number <em>N</em> in base <em>b</em>?
+</li>
+<li>
+How much does the size of the representation of a number changes when we change bases?
+</li>
+<li>
+What is the running time of the addition operation of a number for two <em>n</em>-bit numbers (think in terms of bit complexity)?
+</li>
+<li>
+What is the running time of the tradition multiplication operation taught in grade school for two <em>n</em>-bit numbers (think in terms of <em>n</em>-bit complexit)?
+</li>
+<li>
+Provide a recursive formula for the multiplication of two numbers.
+</li>
+<li>
+What is the complexity of modular addition and modular multiplication for two <em>n</em> bit numbers?
+</li>
+</ul>
+
+<h4>
+Related exercises
+</h4>
+
+<ul>
+<li>
+<abbr title="S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani">DPV</abbr>: 1.1, 1.2, 1.3, 1.4, 1.6, 1.7, 1.8, 1.9, 1.10, 1.31
+</li>
+</ul>
+
+<h3>
+<abbr title="Rivest-Shamir-Adelman">RSA</abbr> Cryptosystem, Fermat’s Little Theorem and Modular Exponentiation
+</h3>
+
+<h4>
+Reading material
+</h4>
+
+<ul>
+<li>
+Chapters 1.2,1.4 from <abbr title="S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani">DPV</abbr>
+</li>
+<li>
+Chapter 31.3, 31.6, 31.7 from <abbr title="T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein (Second Edition)">CLRS2</abbr>
+</li>
+</ul>
+
+<h4>
+Practice questions
+</h4>
+
+<ul>
+<li>
+Give a private key protocol for a cryptography application. Given an example it can be compromised.
+</li>
+<li>
+<abbr title="Rivest-Shamir-Adelman">RSA</abbr> is based on which basic property of modulo arithmetic?
+</li>
+<li>
+Describe the steps of the <abbr title="Rivest-Shamir-Adelman">RSA</abbr> protocol. The security of the protocol is based on which assumption?
+</li>
+<li>
+What are the basic operations that need to be performed accords to the <abbr title="Rivest-Shamir-Adelman">RSA</abbr> protocol and what is their running time?
+</li>
+<li>
+You may be provided an example message and asked to described the operations of the <abbr title="Rivest-Shamir-Adelman">RSA</abbr> protocol on it.
+</li>
+<li>
+What does Fermat's Little Theorem specify? Prove it.
+</li>
+<li>
+What is the importance of Fermat's little theorem in the <abbr title="Rivest-Shamir-Adelman">RSA</abbr> protocol?
+</li>
+<li>
+How can we efficiently perform modular exponentiantion? What is the running time of the approach?
+</li>
+</ul>
+
+<h4>
+Related exercises
+</h4>
+
+<ul>
+<li>
+<abbr title="S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani">DPV</abbr>: 1.17, 1.27, 1.28, 1.35, 1.39, 1.42, 1.43, 1.44
+</li>
+</ul>
+
+<h3>
+Greatest Common Divisor algorithms: Euclid’s test, Modulo Multiplicative Inverse
+</h3>
+
+<h4>
+Reading material
+</h4>
+
+<ul>
+<li>
+Chapters 1.2 from <abbr title="S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani">DPV</abbr>
+</li>
+<li>
+Chapter 31.2 from <abbr title="T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein (Second Edition)">CLRS2</abbr>
+</li>
+</ul>
+
+<h4>
+Practice questions
+</h4>
+
+<ul>
+<li>
+What does Euclid’s rule specify? Prove it.
+</li>
+<li>
+What is Euclid’s algorithm for finding the greatest common divisor? What is its running time and why?
+</li>
+<li>
+Show that if <span class="math">\(d\)</span> divides both <span class="math">\(a\)</span> and <span class="math">\(b\)</span>, and <span class="math">\(d = a\times x+b \times y\)</span> for some integers <span class="math">\(x\)</span> and <span class="math">\(y\)</span>, then <span class="math">\(d = \gcd(a, b)\)</span>.
+</li>
+<li>
+What is the extended Euclid’s algorithm for finding the greatest common divisor d of two numbers a and b, as well as numbers <span class="math">\(x\)</span> and <span class="math">\(y\)</span>, so that <span class="math">\(d = a\times x+b \times y\)</span>? Prove its correctness (you will need to prove Euclid’s algorithm first and then the extension).
+</li>
+<li>
+When does the multiplicative inverse of a number <span class="math">\(x\)</span> exists modulo <span class="math">\(N\)</span> and why?
+</li>
+<li>
+How can you compute the multiplicative inverse modulo <span class="math">\(N\)</span> for two relative prime numbers? What is the running time of the corresponding algorithm?
+</li>
+</ul>
+
+<h4>
+Related exercises
+</h4>
+
+<ul>
+<li>
+<abbr title="S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani">DPV</abbr>: 1.18, 1.19, 1.20, 1.21, 1.22, 1.23, 1.24, 1.33, 1.37
+</li>
+</ul>
+
+<h3>
+Primality Testing and Universal Hashing
+</h3>
+
+<h4>
+Reading material
+</h4>
+
+<ul>
+<li>
+Chapters 1.3,1.5 from <abbr title="S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani">DPV</abbr>
+</li>
+<li>
+Chapters 31.8, 11.2, 11.3 from <abbr title="T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein (Second Edition)">CLRS2</abbr>
+</li>
+</ul>
+
+<h4>
+Practice questions
+</h4>
+
+<ul>
+<li>
+Describe a test for evaluating whether a number is prime. What is the probability of this test returning the correct answer and why? Can you increase the probability of success for this test?
+</li>
+<li>
+What does Lagrange’s Prime Number Theorem specify and why is it helpful for primality testing?
+</li>
+<li>
+What properties should a good hash function provide?
+</li>
+<li>
+What is the property of universal hashing families of functions? Provide a universal hashing family of functions for an example problem and prove the corresponding property.
+</li>
+</ul>
+
+<h4>
+Related exercises
+</h4>
+
+<ul>
+<li>
+<abbr title="S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani">DPV</abbr>: 1.29, 1.34, 1.35
+</li>
+</ul>
+
+<h3>
+Divide and Conquer Algorithms and Recurrence Functions, Mergesort
+</h3>
+
+<h4>
+Reading material
+</h4>
+
+<ul>
+<li>
+Chapter 2.1-2.2-2.3 from <abbr title="S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani">DPV</abbr>
+</li>
+<li>
+Chapters 2.3,4.1,4.2,4.3 from <abbr title="T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein (Second Edition)">CLRS2</abbr>
+</li>
+</ul>
+
+<h4>
+Practice questions
+</h4>
+
+<ul>
+<li>
+What are the basic principles of divide-and-conquer algorithms?
+</li>
+<li>
+Describe an approach for multiplication of two n-bit numbers that has a better running time than <span class="math">\(O(n^2)\)</span>. Prove its running time.
+</li>
+<li>
+What does the Master theorem specify? Prove it.
+</li>
+<li>
+You may be provided a divide-and-conquer algorithm and asked to argue about its running time by using the Master theorem.
+</li>
+<li>
+How does mergesort work, what is its running time and why? How does the iterative version of mergesort work?
+</li>
+</ul>
+
+<h4>
+Related exercises
+</h4>
+
+<ul>
+<li>
+<abbr title="S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani">DPV</abbr>: 2.3, 2.4, 2.5, 2.12, 2.13, 2.14, 2.19, 2.25, 2.26, 2.31
+</li>
+<li>
+<abbr title="T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein (Second Edition)">CLRS2</abbr>: 2.3-1, 2.3-3, 4.3-1, 4.3-2, 4.3-3, 4.3-4
+</li>
+<li>
+<abbr title="T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein (Second Edition)">CLRS2</abbr>: 4-1, 4-2, 4-3, 4-4
+</li>
+</ul>
+
+<h3>
+Quicksort, Lower bounds for comparison-based sorting
+</h3>
+
+<h4>
+Reading material
+</h4>
+
+<ul>
+<li>
+Chapter 7.1, 7.2, 7.3, 7.4, 8.1 from <abbr title="T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein (Second Edition)">CLRS2</abbr>
+</li>
+<li>
+Chapter 2.3 from <abbr title="S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani">DPV</abbr>
+</li>
+</ul>
+
+<h4>
+Practice questions
+</h4>
+
+<ul>
+<li>
+What are comparison sorting algorithms? What is the lower limit for the running time of comparison sorting algorithms?
+</li>
+<li>
+How does quick-sort work? When does the worst-case running time arise? When does the best-case running time arise?
+</li>
+<li>
+Provide a rigorous proof for the worst-case performance of quick-sort.
+</li>
+<li>
+Provide a rigorous proof for the expected running time of quick-sort.
+</li>
+</ul>
+
+<h4>
+Related exercises
+</h4>
+
+<ul>
+<li>
+<abbr title="T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein (Second Edition)">CLRS2</abbr>: 7.1-4, 7.2-2, 7.2-3, 7.2-4, 7.2-5, 7.3-1, 7.3-2, 7.4-1, 7.4-2, 7.4-3, 7.4-4, 7.4-5, 8.1-1, 8.1-3
+</li>
+<li>
+<abbr title="T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein (Second Edition)">CLRS2</abbr>: 7-3, 7-4, 7-5
+</li>
+<li>
+<abbr title="S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani">DPV</abbr>: 2.17, 2.18, 2.24
+</li>
+</ul>
+
+<h3>
+Computing Medians and Other Order Statistics, Linear-time Sorting Solutions
+</h3>
+
+<h4>
+Reading material
+</h4>
+
+<ul>
+<li>
+Chapters 2.4 from <abbr title="S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani">DPV</abbr>
+</li>
+<li>
+Chapters 8.2, 8.3, 8.4, 9.1, 9.2, 9.3 from <abbr title="T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein (Second Edition)">CLRS2</abbr>
+</li>
+</ul>
+
+<h4>
+Practice questions
+</h4>
+
+<ul>
+<li>
+How can we efficiently compute the median of a set of numbers? What is the running time of this solution?
+</li>
+<li>
+What is the main idea behind counting sort? Provide a description of the algorithm and argue about its running time.
+</li>
+<li>
+What is the main idea behind radix sort? Provide a description of the algorithm and argue about its running time.
+</li>
+<li>
+Prove the correctness of radix sort.
+</li>
+<li>
+What is the main idea behind bucket sort? Provide a description of the algorithm. Prove its running time.
+</li>
+</ul>
+
+<h4>
+Related exercises
+</h4>
+
+<ul>
+<li>
+<abbr title="S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani">DPV</abbr>: 2.15, 2.16, 2.17, 2.20, 2.21, 2.22, 2.23
+</li>
+<li>
+<abbr title="T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein (Second Edition)">CLRS2</abbr>: 8.2-2, 8.2-4, 8.3-2, 8.3-3, 8.3-4, 8.4-2, 8.4-3, 9.1-1, 9.3-5, 9-3.7, 9.3-8, 9.3-9
+</li>
+<li>
+<abbr title="T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein (Second Edition)">CLRS2</abbr>: 8-2, 8-3, 8-6, 9-1, 9-2, 9-3
+</li>
+</ul>
+
+<h3>
+Greedy Algorithms: Huffman encoding
+</h3>
+
+<h4>
+Reading material
+</h4>
+
+<ul>
+<li>
+Chapters 5.2 from <abbr title="S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani">DPV</abbr>
+</li>
+<li>
+Chapter 16.2, 16.3 from <abbr title="T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein (Second Edition)">CLRS2</abbr>
+</li>
+</ul>
+
+<h4>
+Practice questions
+</h4>
+
+<ul>
+<li>
+What is the main principle behind greedy algorithms?
+</li>
+<li>
+Why does the greedy algorithm work for the coin changing problem given the US coin system?
+</li>
+<li>
+What is the idea in Huffman encoding in order to achieve data compression? What is the prefix-free property?
+</li>
+<li>
+Provide the Huffman encoding algorithm and argue its running time.
+</li>
+<li>
+Prove the greedy choice property for the Huffman encoding algorithm (first lemma).
+</li>
+<li>
+Prove the optimal substructure property for the Huffman encoding algorithm (second lemma).
+</li>
+</ul>
+
+<h4>
+Related exercises
+</h4>
+
+<ul>
+<li>
+<abbr title="S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani">DPV</abbr>: 5.13, 5.14, 5.15, 5.16, 5.17, 5.18, 5.19, 5.29, 5.30, 5.31
+</li>
+<li>
+<abbr title="T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein (Second Edition)">CLRS2</abbr>: 16.1, 16.2-4, 16.2-5, 16.2-7, 16.3-1, 16-3.2, 16.3-3, 16.3-4, 16.3-5, 16.3-6
+</li>
+</ul>
+
+<!-- Abbreviations --> 
 {% endraw %}

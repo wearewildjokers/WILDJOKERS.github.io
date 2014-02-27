@@ -337,7 +337,7 @@ He was an Italian mathematician in the 13th century who designed a famous sequen
 </p>
 
 <p>
-<span class="math">\[ 0, 1, 2, 3, 5, 8, 13, ... \]</span>
+<span class="math">\[0, 1, 2, 3, 5, 8, 13, ...\]</span>
 </p>
 
 <ul>
@@ -346,7 +346,7 @@ We can design an algorithm to compute this.
 </p>
 
 <p>
-<span class="math">\[F_n = F_{n - 1} + F_{n - 2} \]</span>
+<span class="math">\[F_n = F_{n - 1} + F_{n - 2}\]</span>
 </p></li>
 <li><p>
 And this can be expressed as a psuedocode function
@@ -365,7 +365,7 @@ And this can be expressed as a psuedocode function
 </p>
 
 <p>
-<span class="math">\[ F_n \approx 2^{0.694n} \]</span>
+<span class="math">\[F_n \approx 2^{0.694n}\]</span>
 </p>
 
 <ul>
@@ -443,7 +443,7 @@ Arithemetic operations on large numbers cannot be treated as a single step. You 
 For example, a number <em>N</em> in base <em>b</em>.
 </li>
 <li>
-You need <span class="math">\(\lceil{log_b (N+1) \rceil\)</span> digits.
+You need <span class="math">\(\lceil log_b (N+1) \rceil\)</span> digits.
 </li>
 </ul></li>
 </ul></li>
@@ -539,8 +539,7 @@ Notice that the third row is ignored in both varieties of multiplication.
 </p></li>
 </ul>
 
-<!--    $$ x \times y =\begin{cases} 2 (x \times \lfloor \frac{y}{2} \rfloor, & \text{if $y$ is even}.\\ x + 2(x \times \lfloor \frac{y}{2} \rfloor, & \text{if $y$ is odd}. \end{cases} $$
--->
+<!--    $$x \times y =\begin{cases} 2 (x \times \lfloor \frac{y}{2} \rfloor, & \text{if $y$ is even}.\\ x + 2(x \times \lfloor \frac{y}{2} \rfloor, & \text{if $y$ is odd}. \end{cases}$$-->
 
 <ul>
 <li>
@@ -557,7 +556,7 @@ Modula Arithmetic
 </h3>
 
 <p>
-<span class="math">\[ O(n) \]</span>
+<span class="math">\[O(n)\]</span>
 </p>
 
 <h3>
@@ -575,7 +574,7 @@ The product will be at most <em>2N</em> bits long.
 </ul>
 
 <p>
-<span class="math">\[ O(n^2) \]</span>
+<span class="math">\[O(n^2)\]</span>
 </p>
 
 <h3>
@@ -640,7 +639,7 @@ G is upper upper bound for F if and only if there exists a constant and <span cl
 </p>
   
 <p>
-$ 0 f(n) c g(n) $
+<span class="math">\(0 \le f(n) \le c g(n)\)</span>
 </p>
 </blockquote>
 
@@ -812,7 +811,7 @@ So what is the valye of d?
 </p>
 
 <p>
-<span class="math">\[d \equiv e^{-1} \bmod (p - 1)(q - 1) \equiv 3^{-1} \bmod 40 \]</span>
+<span class="math">\[d \equiv e^{-1} \bmod (p - 1)(q - 1) \equiv 3^{-1} \bmod 40\]</span>
 </p></li>
 </ul></li>
 <li><p>
@@ -829,14 +828,14 @@ For any message, x modula 55, ecryption is
 </p>
 
 <p>
-<span class="math">\[ y = x^3 \bmod 55 \]</span>
+<span class="math">\[y = x^3 \bmod 55\]</span>
 </p></li>
 <li><p>
 For any message, decryption is
 </p>
 
 <p>
-<span class="math">\[ x = y^{27} \bmod 55 \]</span>
+<span class="math">\[x = y^{27} \bmod 55\]</span>
 </p></li>
 </ul></li>
 </ul>
@@ -851,7 +850,7 @@ We have to show that
 </p>
 
 <p>
-<span class="math">\[(x^e)^d \bmod N \equiv x \bmod N \]</span>
+<span class="math">\[(x^e)^d \bmod N \equiv x \bmod N\]</span>
 </p>
 
 <ul>
@@ -860,10 +859,8 @@ The following are true if e and d have been selected as specific
 </p>
 
 <p>
-<span class="math">\[ e \times d \equiv 1 \bmod (p - 1)(q - 1) \equiv e \times d = k (p - 1)(q - 1) + 1 \]</span>
-</p></li>
-</ul></li>
-</ul>
+<span class="math">\[e \times d \equiv 1 \bmod (p - 1)(q - 1) \equiv e \times d = k (p - 1)(q - 1) + 1\]</span>
+</p>
 
 <blockquote>
   <p>
@@ -873,7 +870,9 @@ The following are true if e and d have been selected as specific
 <p>
 <span class="math">\(a^p \equiv a \bmod p\)</span> <span class="math">\(a^{p -1} \equiv 1 \bmod p\)</span>
 </p>
-</blockquote>
+</blockquote></li>
+</ul></li>
+</ul>
 
 <h3>
 Summary of <abbr title="Rivest-Shamir-Adelman">RSA</abbr>
@@ -980,15 +979,7 @@ Pick 2 large <em>n</em>-bit primes.
 </p>
 
 <p>
-<span class="math">\[ N = pq \]</span>
-</p>
-
-<p>
-<span class="math">\[ e : \gcd(e, (p - 1), (q - 1)) = 1 \]</span>
-</p>
-
-<p>
-<span class="math">\[ d : d = e^{-1} \bmod (p - 1) (q - 1) \]</span>
+<span class="math">\[N = pq\]</span> <span class="math">\[e : \gcd(e, (p - 1), (q - 1)) = 1\]</span> <span class="math">\[d : d = e^{-1} \bmod (p - 1) (q - 1)\]</span>
 </p></li>
 </ul>
 
@@ -1095,15 +1086,11 @@ A random <em>n</em>-bit number has roughly <span class="math">\(\frac{1}{n}\)</s
 </p>
   
 <p>
-<span class="math">\[ \pi(x) \approx \frac{x}{\ln(x)} \]</span>
+<span class="math">\[\pi(x) \approx \frac{x}{\ln(x)}\]</span>&gt; Or more precisely,
 </p>
   
 <p>
-Or more precisely,
-</p>
-  
-<p>
-<span class="math">\[ \lim_{x \to \infty} \frac{\pi(x)}{\frac{x}{\ln(x)}} = 1 \]</span>
+<span class="math">\[\lim_{x \to \infty} \frac{\pi(x)}{\frac{x}{\ln(x)}} = 1\]</span>
 </p>
 </blockquote>
 
@@ -1171,10 +1158,10 @@ Picking one of the four numbers can work as a hash function under the assumption
 <strong>Realization</strong>: There is no single hash function that behaves well on all input data.
 </li>
 <li><p>
-<strong>Idea</strong>: Pick from a family of hash functions randomly so that the probability of 2 elements to be mapped to the same index is $  $ size of the array.
+<strong>Idea</strong>: Pick from a family of hash functions randomly so that the probability of 2 elements to be mapped to the same index is <span class="math">\(\frac{1}{257}\)</span> size of the array.
 </p></li>
 <li><p>
-Every IP address is a tuple : $ x_1, x_2, x_3, x_4 $ where $ x_1 $.
+Every IP address is a tuple : <span class="math">\(\lbrace x_1, x_2, x_3, x_4 \rbrace\)</span> where <span class="math">\(x_1 \in [1, 256]\)</span>.
 </p>
 
 <ul>
@@ -1183,11 +1170,7 @@ Consider the has function
 </p>
 
 <p>
-<span class="math">\[ h_\alpha (x_1, x_2, x_3, x_4) = \sum_{i = 1}^{4} \alpha_1 \times x_i \mod N \]</span>
-</p>
-
-<p>
-If you pick the numbers alpha-1 at random, then <span class="math">\(h_\alpha\)</span> is likely to be good.
+<span class="math">\[h_\alpha (x_1, x_2, x_3, x_4) = \sum_{i = 1}^{4} \alpha_1 \times x_i \mod N\]</span> If you pick the numbers alpha-1 at random, then <span class="math">\(h_\alpha\)</span> is likely to be good.
 </p></li>
 </ul></li>
 <li><p>
@@ -1216,7 +1199,13 @@ We have some axioms. The axioms of probability.
 <blockquote>
   <ol>
   <li>
-$ 1 P(A) 0 <span class="math">\(&lt;/li&gt;   &lt;li&gt;\)</span> P(S) = 1 <span class="math">\(&lt;/li&gt;   &lt;li&gt;\)</span> P(A B) = P(A) + P(B)$ if <em>A</em> and <em>B</em> are mutually exclusive.
+<span class="math">\(1 \ge P(A) \ge 0\)</span>
+</li>
+  <li>
+<span class="math">\(P(S) = 1\)</span>
+</li>
+  <li>
+<span class="math">\(P(A \bigcup B) = P(A) + P(B)\)</span> if <em>A</em> and <em>B</em> are mutually exclusive.
 </li>
   </ol>
 </blockquote>
@@ -1250,7 +1239,7 @@ Bayes Theorem
 </p>
   
 <p>
-<span class="math">\[ P(A | B) = \frac{P(B | A) \times P(A)}{P(B)} \]</span>
+<span class="math">\[P(A | B) = \frac{P(B | A) \times P(A)}{P(B)}\]</span>
 </p>
 </blockquote>
 
@@ -1309,7 +1298,7 @@ Cnosider the following way of writing numbers:
 </p>
 
 <p>
-<span class="math">\[ x = 2^{\frac{n}{2}} \times x_L + x_R \]</span> <span class="math">\[ y = 2^{\frac{n}{2}} \times y_L + y_R \]</span> <span class="math">\[ x \times y = (2^{\frac{n}{2}} \times x_L + x_R)(2^{\frac{n}{2}} \times y_L + y_R) \]</span>
+<span class="math">\[x = 2^{\frac{n}{2}} \times x_L + x_R\]</span> <span class="math">\[y = 2^{\frac{n}{2}} \times y_L + y_R\]</span> <span class="math">\[x \times y = (2^{\frac{n}{2}} \times x_L + x_R)(2^{\frac{n}{2}} \times y_L + y_R)\]</span>
 </p></li>
 </ul></li>
 </ul></li>
@@ -1338,12 +1327,12 @@ We can define a recursive relation:
 </p>
 
 <p>
-<span class="math">\[ T(n) = 4 \times T(\frac{n}{2}) + O(n) \]</span>
+<span class="math">\[T(n) = 4 \times T(\frac{n}{2}) + O(n)\]</span>
 </p></li>
 </ul></li>
-<li><p>
+<li>
 Gauss observation reowkred the above expression so as to make use of only 3 of the &quot;n over two&quot; multiplications.
-</p></li>
+</li>
 <li><p>
 At the <span class="math">\((log_2 n\)</span>)^{2n}$ level, we get down to size-1.
 </p>
@@ -1360,7 +1349,7 @@ At depth <em>k</em>,
 </p>
 
 <p>
-<span class="math">\[ 3^k \times O(\frac{n}{2^k}) = (\frac{3}{2})^k \times O(n)\]</span>
+<span class="math">\[3^k \times O(\frac{n}{2^k}) = (\frac{3}{2})^k \times O(n)\]</span>
 </p></li>
 <li><p>
 Now, we've managed to decrease the run-time to something like <em>n</em> to-the 1.59 as opposed to <em>n</em>-squared.
@@ -1379,7 +1368,7 @@ As a matter of fact, when you have something like ...
 </p>
 
 <p>
-<span class="math">\[ T(n) = \alpha \times T(\frac{n}{b}) + O(n^d) \]</span>
+<span class="math">\[T(n) = \alpha \times T(\frac{n}{b}) + O(n^d)\]</span>
 </p></li>
 </ul></li>
 </ul>
@@ -1394,8 +1383,7 @@ Sorting Problems
 </p>
 </blockquote>
 
-<!-- $$ T(n) =   \begin{cases} O(n^d) & \text{if } d \lt log_b a \\ O(n^d \log(n)) & \text{if } d = \log_b a \\ O(n^{log_b a} & \text{if } d \lt log_b a \end{cases} $$
--->
+<!-- $$T(n) =   \begin{cases} O(n^d) & \text{if } d < log_b a \\ O(n^d \log(n)) & \text{if } d = \log_b a \\ O(n^{log_b a} & \text{if } d < log_b a \end{cases}$$-->
 
 <ul>
 <li><p>
@@ -1422,7 +1410,7 @@ Work at level <em>k</em>:
 </p>
 
 <p>
-<span class="math">\[ a^k \times O((\frac{n}{b^k})^d) = O(n^d) \times (\frac{a}{b^d})^k \]</span>
+<span class="math">\[a^k \times O((\frac{n}{b^k})^d) = O(n^d) \times (\frac{a}{b^d})^k\]</span>
 </p></li>
 </ul></li>
 </ul></li>
@@ -1434,7 +1422,7 @@ Three cases
 
 <ol>
 <li><p>
-If <span class="math">\(\frac{a}{b^d} \lt 1\)</span>, series is decreasing.
+If <span class="math">\(\frac{a}{b^d} &amp;lt; 1\)</span>, series is decreasing.
 </p>
 
 <ul>
@@ -1446,11 +1434,11 @@ Running time:
 </p>
 
 <p>
-<span class="math">\[ O(n^d) \]</span>
+<span class="math">\[O(n^d)\]</span>
 </p></li>
 </ul></li>
 <li><p>
-If <span class="math">\(\frac{a}{b^d} \gt 1\)</span>, series is increasing
+If <span class="math">\(\frac{a}{b^d} &gt; 1\)</span>, series is increasing
 </p>
 
 <ul>
@@ -1462,7 +1450,7 @@ Running time:
 </p>
 
 <p>
-<span class="math">\[ O(n^{\log_b a}) \]</span>
+<span class="math">\[O(n^{\log_b a})\]</span>
 </p></li>
 </ul></li>
 <li><p>
@@ -1470,7 +1458,7 @@ If <span class="math">\(\frac{a}{b^d} = 1\)</span>, all terms are equivilent.
 </p>
 
 <p>
-<span class="math">\[ O(n^d) = O(n^{\log_b a}) \]</span>
+<span class="math">\[O(n^d) = O(n^{\log_b a})\]</span>
 </p></li>
 </ol>
 
@@ -1694,11 +1682,7 @@ The total time to add up these rows, doing two numbers at a time:
 </p>
 
 <p>
-<span class="math">\[ O(n) + O(n) + ... + O(n) \]</span>
-</p>
-
-<p>
-<em>(n - 1)</em> times.
+<span class="math">\[O(n) + O(n) + ... + O(n)\]</span> <em>(n - 1)</em> times.
 </p>
 
 <ul>
@@ -1865,7 +1849,7 @@ If <em>x = qN + r</em> with <em>0 &lt;= r &lt; N</em>, then <em>x</em> modulo <e
 
 <ul>
 <li><p>
-One way to think of modular arithmetic deals with all the integers, but divides them in <em>N</em> <em>equivilence classes</em>, each of the form $ i + kN : k  $ for some <em>i</em> between ) and <em>N - 1</em>.
+One way to think of modular arithmetic deals with all the integers, but divides them in <em>N</em> <em>equivilence classes</em>, each of the form <span class="math">\(\lbrace i + kN : k \in \mathbb{Z} \rbrace\)</span> for some <em>i</em> between ) and <em>N - 1</em>.
 </p>
 
 <ul>
@@ -1886,48 +1870,18 @@ Any member of the class is substituable for any other.
 
 <blockquote>
   <p>
-<strong>Substitution rule</strong>: If $ x x' ( N)$ and <span class="math">\(y \equiv y&#39; (\bmod N)\)</span>, then:
+<strong>Substitution rule</strong>: If <span class="math">\(x \equiv x&#39; ( \bmod N)\)</span> and <span class="math">\(y \equiv y&#39; (\bmod N)\)</span>, then:
 </p>
   
 <p>
-<span class="math">\[ x + y \equiv x&#39; + y&#39; (\bmod N) \]</span>
-</p>
-  
-<p>
-<span class="math">\[ xy \equiv x&#39; y&#39; (\bmod N) \]</span>
+<span class="math">\[x + y \equiv x&#39; + y&#39; (\bmod N)\]</span>&gt; <span class="math">\[xy \equiv x&#39; y&#39; (\bmod N)\]</span> - It is not hard to check that in modular arithmetic, the usual associate, commutative, and distributive properties of addition and multiplication continue to apply. - For instance: - Associativity - Commutativity - Distributivity
 </p>
 </blockquote>
 
-<ul>
-<li><p>
-It is not hard to check that in modular arithmetic, the usual associate, commutative, and distributive properties of addition and multiplication continue to apply.
-</p>
+<pre><code>-   You can simplify big numbers with this. Witness:
 
-<ul>
-<li><p>
-For instance:
-</p>
-
-<ul>
-<li>
-Associativity
-</li>
-<li>
-Commutativity
-</li>
-<li>
-Distributivity
-</li>
-</ul></li>
-<li><p>
-You can simplify big numbers with this. Witness:
-</p>
-
-<p>
-<span class="math">\[ 2^{345} \equiv (2^5)^{69} \equiv 32^{69} \equiv 1^69 \equiv 1 (\bmod 31) \]</span>
-</p></li>
-</ul></li>
-</ul>
+    $$2^{345} \equiv (2^5)^{69} \equiv 32^{69} \equiv 1^69 \equiv 1 (\bmod 31)$$
+</code></pre>
 
 <h5>
 Modular addition and multiplication
@@ -2047,11 +2001,7 @@ Calculate <span class="math">\(x^y \bmod N\)</span> by repeatedly multiplying by
 </p>
 
 <p>
-<span class="math">\[ x \bmod N \to x^2 \bmod N \to x^3 \bmod N \to ... \to x^y \bmod N \]</span>
-</p>
-
-<p>
-consists of number that are smaller than <em>N</em>, and so the individual multiplications do not take too long.
+<span class="math">\[x \bmod N \to x^2 \bmod N \to x^3 \bmod N \to ... \to x^y \bmod N\]</span> consists of number that are smaller than <em>N</em>, and so the individual multiplications do not take too long.
 </p></li>
 <li>
 But there's a problem! If <em>y</em> is 500 bits long, we need to perform &quot;2 to the 500&quot; multiplication! The algorithm is clearly exponetial in the size of <em>y</em>.
@@ -2068,7 +2018,7 @@ Starting with <em>x</em> and <em>squaring repeatedly</em> modulo <em>N</em>, we 
 </p>
 
 <p>
-<span class="math">\[ x \bmod N \to x^2 \bmod N \to \cdots \to x^{2^{\log y}} \bmod N \]</span>
+<span class="math">\[x \bmod N \to x^2 \bmod N \to \cdots \to x^{2^{\log y}} \bmod N\]</span>
 </p></li>
 <li><p>
 Each takes <span class="math">\(O(log^2 N)\)</span> to compute, with only <em>log y</em> multiplications.
@@ -2080,11 +2030,11 @@ To determine this, multupli together these powers.
 </p>
 
 <p>
-<span class="math">\[ x^{25} = x^{11001_2} = x^{10000_2} \times x^{1000_2} \times x^{1_2} = x^{16} \times x^8 \times x^1 \]</span>
+<span class="math">\[x^{25} = x^{11001_2} = x^{10000_2} \times x^{1000_2} \times x^{1_2} = x^{16} \times x^8 \times x^1\]</span>
 </p></li>
-<li><p>
+<li>
 A polynomial time algorithm
-</p></li>
+</li>
 </ul></li>
 </ul></li>
 <li><p>
@@ -2127,7 +2077,7 @@ The most obvious approach is to first factor <em>a</em> and <em>b</em>, and the 
 
 <ul>
 <li>
-For instance, <span class="math">\(1035 = 3^2 \cdot 5 \cdot 23\)</span> and <span class="math">\(759 = 3 \cdot 11 \cdot 23\)</span>, so their <abbr title="Greatest common divisor">GCD</abbr> is $ 3 23 = 69 $.
+For instance, <span class="math">\(1035 = 3^2 \cdot 5 \cdot 23\)</span> and <span class="math">\(759 = 3 \cdot 11 \cdot 23\)</span>, so their <abbr title="Greatest common divisor">GCD</abbr> is <span class="math">\(3 \cdot 23 = 69\)</span>.
 </li>
 <li>
 <p>However, we have no efficient algorithm for factoring.</p>
@@ -2294,18 +2244,18 @@ Using the extended Euclid algorithm we find that
 </p>
 
 <p>
-<span class="math">\[ 15 \cdot 25 - 34 \cdot 11 = 1 \]</span>
+<span class="math">\[15 \cdot 25 - 34 \cdot 11 = 1\]</span>
 </p></li>
 <li><p>
 Reducing both sides modulo 25, wh have
 </p>
 
 <p>
-<span class="math">\[ -34 \cdot 11 \equiv 1 \bmod 25 \]</span>
+<span class="math">\[-34 \cdot 11 \equiv 1 \bmod 25\]</span>
 </p></li>
-<li><p>
-Therefore, <span class="math">\(-34 \equiv 16 \bmod 25\)</span> is the inverse of $ 11 25$.
-</p></li>
+<li>
+Therefore, <span class="math">\(-34 \equiv 16 \bmod 25\)</span> is the inverse of <span class="math">\(11 \bmod 25\)</span>.
+</li>
 </ul></li>
 </ul>
 </dd>
@@ -2351,11 +2301,11 @@ Fermat's little theorem
 </dt>
 <dd>
 <p>
-If $ p $ is prime, then for every $ 1 a p $
+If <span class="math">\(p\)</span> is prime, then for every <span class="math">\(1 \le a &amp;lt; p\)</span>
 </p>
 
 <p>
-<span class="math">\[ a^{p - 1} \equiv 1 (\bmod p) \]</span>
+<span class="math">\[a^{p - 1} \equiv 1 (\bmod p)\]</span>
 </p>
 </dd>
 
@@ -2412,7 +2362,7 @@ Lemma
 </dt>
 <dd>
 <p>
-If <span class="math">\(a^{N - 1} \not\equiv 1 \bmod N\)</span> for some <em>a</em> relatively prime to <em>N</em>, then it must hold for at least half the choices of <span class="math">\(a \lt N\)</span>.
+If <span class="math">\(a^{N - 1} \not\equiv 1 \bmod N\)</span> for some <em>a</em> relatively prime to <em>N</em>, then it must hold for at least half the choices of <span class="math">\(a &amp;lt; N\)</span>.
 </p>
 </dd>
 </dl>
@@ -2424,10 +2374,10 @@ We are ignoring Charmichael numbers, so we now assert,
 
 <ul>
 <li>
-If <em>N</em> is prime, then <span class="math">\(a^{N - 1} \equiv 1 \bmod N \)</span> for all <em>a</em> less than <em>N</em>.
+If <em>N</em> is prime, then <span class="math">\(a^{N - 1} \equiv 1 \bmod N\)</span> for all <em>a</em> less than <em>N</em>.
 </li>
 <li>
-If <em>N</em> is not prime, then $ a^{N - 1} 1 N $ for at most half of the values of <span class="math">\(a \lt N\)</span>.
+If <em>N</em> is not prime, then <span class="math">\(a^{N - 1} \equiv 1 \bmod N\)</span> for at most half of the values of <span class="math">\(a &amp;lt; N\)</span>.
 </li>
 </ul></li>
 <li><p>
@@ -2508,11 +2458,7 @@ Let <span class="math">\(\pi(x)\)</span> be the number of primes <span class="ma
 </p>
 
 <p>
-<span class="math">\[ \lim_{x \to \infty} \frac{\pi(x)}{(x / \ln x)} = 1 \]</span>
-</p>
-
-<p>
-Such abundance makes it simple to generate a random <em>n</em>-bit prime:
+<span class="math">\[\lim_{x \to \infty} \frac{\pi(x)}{(x / \ln x)} = 1\]</span> Such abundance makes it simple to generate a random <em>n</em>-bit prime:
 </p>
 
 <ul>
@@ -2542,7 +2488,7 @@ If the randomly chosen <em>N</em> is truly prime, which happen with probability 
 So on each iteration, this procedure has at least a <span class="math">\(\frac{1}{n}\)</span> chance of halting.
 </li>
 <li>
-Therefore, on average it will halt within $ O(n) $ rounds.
+Therefore, on average it will halt within <span class="math">\(O(n)\)</span> rounds.
 </li>
 </ul></li>
 <li><p>
@@ -2582,7 +2528,7 @@ Thus, the chance of erronesouly outputting a composite numbers is
 </p>
 
 <p>
-<span class="math">\[ 20,000 / 10^9 = 2 \times 10^{-5} \]</span>
+<span class="math">\[20,000 / 10^9 = 2 \times 10^{-5}\]</span>
 </p></li>
 </ul></li>
 </ul></li>
@@ -2735,7 +2681,7 @@ Messages larger than <em>N</em> are broken into smaller peices.
 </li>
 </ul></li>
 <li><p>
-The encryption function will the be a bijection on $ 0, 1, N - 1$
+The encryption function will the be a bijection on <span class="math">\(\lbrace 0, 1, \cdots N - 1\rbrace\)</span>
 </p>
 
 <ul>
@@ -2761,18 +2707,15 @@ The mapping <span class="math">\(x \mapsto x^e \bmod N\)</span> is a bijection o
 </p>
 
 <p>
-<span class="math">\[ \lbrace 0, 1, \cdots , N - 1 \rbrace \]</span>
+<span class="math">\[\lbrace 0, 1, \cdots , N - 1 \rbrace\]</span>
 </p></li>
 <li><p>
 Moreover, the inverse mapping is easily realized: led <em>d</em> be the inverse of <em>e</em> modulo <em>(p - 1)(q - 1)</em>. Then for <span class="math">\(x \in \lbrace 0, 1, \cdots N - 1 \rbrace\)</span>,
 </p>
 
 <p>
-<span class="math">\[ (x^e)^d \equiv x \bmod N \]</span>
-</p></li>
-</ol>
-</dd>
-</dl>
+<span class="math">\[(x^e)^d \equiv x \bmod N\]</span>
+</p>
 
 <blockquote>
   <p>
@@ -2794,7 +2737,7 @@ His public key is <span class="math">\((N, e)\)</span> where <span class="math">
   
 <ul>
   <li>
-A common choise is $ e = 3 $ because it permits fast encoding.
+A common choise is <span class="math">\(e = 3\)</span> because it permits fast encoding.
 </li>
   </ul></li>
   <li><p>
@@ -2814,7 +2757,10 @@ He decodes the message by computing <span class="math">\(y^d \bmod N\)</span>.
 </li>
   </ul></li>
   </ul>
-</blockquote>
+</blockquote></li>
+</ol>
+</dd>
+</dl>
 
 <ul>
 <li><p>
@@ -3075,7 +3021,7 @@ Heapsort
 <span class="math">\(n \log n\)</span>
 </td>
   <td>
-<span class="math">\(n \log n \)</span>
+<span class="math">\(n \log n\)</span>
 </td>
   <td>
 <span class="math">\(1\)</span>
@@ -3121,7 +3067,7 @@ In-place Merge sort
   <td></td>
   <td></td>
   <td>
-<span class="math">\(n (\log n)^2 \)</span>
+<span class="math">\(n (\log n)^2\)</span>
 </td>
   <td>
 <span class="math">\(1\)</span>
@@ -3141,7 +3087,7 @@ Implemented in STL
 Quicksort
 </td>
   <td>
-<span class="math">\(n \log n \)</span>
+<span class="math">\(n \log n\)</span>
 </td>
   <td>
 <span class="math">\(n \log n\)</span>
@@ -3341,7 +3287,7 @@ Practice questions
 
 <ul>
 <li><p>
-You may be provided with an algorithm for computing the <span class="math">\(n\)</span>th Fibonacci number and then be asked to compute its running time (think in terms of it complexity). Alternatively, you may be asked to provide an efficient algorithm for computing Fibonacci numbers.
+<strong>You may be provided with an algorithm for computing the <span class="math">\(n\)</span>th Fibonacci number and then be asked to compute its running time (think in terms of it complexity). Alternatively, you may be asked to provide an efficient algorithm for computing Fibonacci numbers.</strong>
 </p>
 
 <pre><code>function fib1(n) 
@@ -3358,7 +3304,7 @@ for i = 2 . . . n:
 return f[n]
 </code></pre></li>
 <li><p>
-Give a justification why imporovement in hardware are typically not sufficient to make an algorithm with exponential running time reasonably tractable.
+<strong>Give a justification why imporovement in hardware are typically not sufficient to make an algorithm with exponential running time reasonably tractable.</strong>
 </p>
 
 <blockquote>
@@ -3409,14 +3355,33 @@ Logarithmic
 </tbody>
 </table></li>
 <li><p>
-You may be provided running times of different algorithms and asked to show which running time dominates asymptotically.
+<strong>You may be provided running times of different algorithms and asked to show which running time dominates asymptotically.</strong>
 </p></li>
+<li><p>
+<strong>Provide the definition of <em>O</em>-notation (or Theta or Omega).</strong>
+</p>
+
+<blockquote>
+  <p>
+Let <span class="math">\(f(n)\)</span> and <span class="math">\(g(n)\)</span> be functions from positive integers to positive reals. We say f = O(g) (which means that “<span class="math">\(f\)</span> grows no faster than <span class="math">\(g\)</span>”) if there is a constant <span class="math">\(c &gt; 0\)</span> such that <span class="math">\(f(n) \le c \times g(n)\)</span>.
+</p>
+</blockquote>
+
+<ul>
 <li>
-Provide the definitino of <em>O</em>-notation (or Theta or Omega).
+<p>Just as <span class="math">\(O(\cdot)\)</span> is an analog of <span class="math">\(\le\)</span>, you can define the other analyses as such:</p>
+<ul>
+<li>
+<span class="math">\(f = \Omega(g)\)</span> means <span class="math">\(g = O(f)\)</span>.
 </li>
 <li>
-You may be provided certain statements about asymptotic analysis of running times and asked to show if they are correct or not. For instance, &quot;n to the a dominates n to the b if a is greater than b.
+<span class="math">\(f = \Theta(g)\)</span> means <span class="math">\(f = O(g)\)</span> and <span class="math">\(f = \Omega(g)\)</span>.
 </li>
+</ul></li>
+</ul></li>
+<li><p>
+<strong>You may be provided certain statements about asymptotic analysis of running times and asked to show if they are correct or not. For instance, &quot;n to the a dominates n to the b if a is greater than b.</strong>
+</p></li>
 </ul>
 
 <h4>
@@ -3457,27 +3422,159 @@ Practice questions
 </h4>
 
 <ul>
+<li><p>
+<strong>What is the &quot;primality&quot; problem and what is the &quot;factoring&quot; problem? Which one of the two is tractable? What are the advantages of the intractability of the other problem?</strong>
+</p>
+
+<dl>
+<dt>
+Factoring problem
+</dt>
+<dd>
+<p>
+Given a number <span class="math">\(N\)</span>, express it as a product of prime factors.
+</p>
+</dd>
+
+<dd>
+<p>
+Computationally intractable, fastest is exponential. This makes <abbr title="Rivest-Shamir-Adelman">RSA</abbr> work because keys and factoring large multiples.
+</p>
+</dd>
+
+<dt>
+Primality problem
+</dt>
+<dd>
+<p>
+Given a number <span class="math">\(N\)</span>, determine whether it is a prime.
+</p>
+</dd>
+
+<dd>
+<p>
+Computationally tractable.
+</p>
+</dd>
+</dl></li>
+<li><p>
+<strong>How many digits do you need to represent a number <em>N</em> in base <em>b</em>?</strong>
+</p>
+
+<ul>
+<li><p>
+With <span class="math">\(k\)</span> digits in base <span class="math">\(b\)</span> we can express numbers up to <span class="math">\(b^k - 1\)</span>.
+</p>
+
+<ul>
 <li>
-What is the &quot;primality&quot; problem and what is the &quot;factoring&quot; problem? Which one of the two is tractable? What are the advantages of the intractability of the other problem?
+For instance, in decimal, three digits get us all the way up to <span class="math">\(999 = 10^3 - 1\)</span>.
+</li>
+</ul></li>
+<li><p>
+By solving for <span class="math">\(k\)</span>, we find that <span class="math">\(\lceil \log_b(N + 1) \rceil\)</span> are need to write <span class="math">\(N\)</span> in base <span class="math">\(b\)</span>.
+</p></li>
+</ul></li>
+<li><p>
+<strong>How much does the size of the representation of a number changes when we change bases?</strong>
+</p>
+
+<ul>
+<li><p>
+Recall the rule for converting logarithms from base <span class="math">\(a\)</span> to base <span class="math">\(b\)</span>:
+</p>
+
+<p>
+<span class="math">\[\log_b N = (log_a N) / (log_a b)\]</span>
+</p>
+
+<ul>
+<li>
+So the size of integer <span class="math">\(N\)</span> in base <span class="math">\(a\)</span> is the same as its size in base <span class="math">\(b\)</span>, times a constant factor <span class="math">\(log_a b\)</span>.
+</li>
+<li><p>
+In big-O, the base is irrelevant, and we write the size simply as
+</p>
+
+<p>
+<span class="math">\[O(\log N)\]</span>
+</p></li>
+</ul></li>
+</ul></li>
+<li><p>
+<strong>What is the running time of the addition operation of a number for two <em>n</em>-bit numbers (think in terms of bit complexity)?</strong>
+</p>
+
+<ul>
+<li>
+Suppose <span class="math">\(x\)</span> and <span class="math">\(y\)</span> are <span class="math">\(n\)</span> bits long.
 </li>
 <li>
-How many digits do you need to represent a number <em>N</em> in base <em>b</em>?
+The sume of <span class="math">\(x\)</span> and <span class="math">\(y\)</span> is <em>at most</em> <span class="math">\(n + 1\)</span> bits long.
 </li>
 <li>
-How much does the size of the representation of a number changes when we change bases?
+Each bit of the sume is computed in a fixed amount of time.
+</li>
+<li><p>
+The total running time for addition will be
+</p>
+
+<p>
+<span class="math">\[c_0 + c_1 n\]</span>
+</p>
+
+<p>
+In other words, <em>linear</em>.
+</p>
+
+<p>
+<span class="math">\[O(n)\]</span>
+</p></li>
+</ul></li>
+<li><p>
+<strong>What is the running time of the tradition multiplication operation taught in grade school for two <em>n</em>-bit numbers (think in terms of <em>n</em>-bit complexit)?</strong>
+</p>
+
+<ul>
+<li>
+To compute each row, either &quot;X&quot; or &quot;0&quot;, left-shifted
 </li>
 <li>
-What is the running time of the addition operation of a number for two <em>n</em>-bit numbers (think in terms of bit complexity)?
+The rows are in the order of <span class="math">\(2n\)</span>.
 </li>
 <li>
-What is the running time of the tradition multiplication operation taught in grade school for two <em>n</em>-bit numbers (think in terms of <em>n</em>-bit complexit)?
+You have to sum them up, and you do this pairwise.
 </li>
 <li>
-Provide a recursive formula for the multiplication of two numbers.
+If you do <span class="math">\(n\)</span> times an operation which costs <span class="math">\(n\)</span>, your running time is going to be <span class="math">\(n^2\)</span>.
+</li>
+</ul></li>
+<li><p>
+<strong>Provide a recursive formula for the multiplication of two numbers.</strong>
+</p>
+
+<pre><code>function multiplication(x, y) {
+    if (y == 1) {
+        return x;
+    }
+
+    else {
+        return x + multiplication(x, y - 1);
+    }
+}
+</code></pre></li>
+<li><p>
+<strong>What is the complexity of modular addition and modular multiplication for two <em>n</em> bit numbers?</strong>
+</p>
+
+<ul>
+<li>
+<strong>Addition</strong>: <span class="math">\(O(n)\)</span>
 </li>
 <li>
-What is the complexity of modular addition and modular multiplication for two <em>n</em> bit numbers?
+<strong>Multiplication</strong>: <span class="math">\(O(n^2)\)</span>
 </li>
+</ul></li>
 </ul>
 
 <h4>
@@ -3512,30 +3609,242 @@ Practice questions
 </h4>
 
 <ul>
+<li><p>
+<strong>Give a private key protocol for a cryptography application. Given an example it can be compromised.</strong>
+</p>
+
+<ul>
 <li>
-Give a private key protocol for a cryptography application. Given an example it can be compromised.
+There is the classic &quot;codebook&quot; private-key scheme, where Alice and Bob meet before hand and agree on a secret code.
+</li>
+<li><p>
+The way that this is compromised is if Eve gets the codebook or knows a given message and backtraces the code from it.
+</p></li>
+<li><p>
+Alternatively, the answer you're looking for might be that you can encode and decode with public keys like:
+</p>
+
+<p>
+<span class="math">\[x = d(e(x))\]</span>
+</p>
+
+<p>
+Where <span class="math">\(x\)</span> is a message, <span class="math">\(d(\cdot)\)</span> is a decoder, and <span class="math">\(e(\cdot)\)</span> is an encoder. Bob can
+</p></li>
+<li>
+&quot;Network sniffer&quot;
+</li>
+</ul></li>
+<li><p>
+<strong><abbr title="Rivest-Shamir-Adelman">RSA</abbr> is based on which basic property of modulo arithmetic?</strong>
+</p>
+
+<ul>
+<li><p>
+The basic feature of modulo arithmetic that <abbr title="Rivest-Shamir-Adelman">RSA</abbr> exploits is the dramatic contrast in the tractibility of factoring and primality testing.
+</p>
+
+<ul>
+<li>
+Bob and Alice only need to make simple calculations.
 </li>
 <li>
-<abbr title="Rivest-Shamir-Adelman">RSA</abbr> is based on which basic property of modulo arithmetic?
+Eve needs to make computations that would be struggle for the world's largest computers.
+</li>
+</ul></li>
+<li><p>
+Pick any two prime <span class="math">\(p\)</span> and <span class="math">\(q\)</span> and let <span class="math">\(N = pq\)</span>. For any <span class="math">\(e\)</span> relatively prime to <span class="math">\((p - 1)(q - 1)\)</span>:
+</p>
+
+<p>
+<span class="math">\[(x^e)^d \equiv x \mod N\]</span>
+</p></li>
+</ul></li>
+<li><p>
+<strong>Describe the steps of the <abbr title="Rivest-Shamir-Adelman">RSA</abbr> protocol. The security of the protocol is based</strong> on which assumption?
+</p>
+
+<blockquote>
+  <p>
+Given <span class="math">\(N\)</span>, <span class="math">\(e\)</span>, and <span class="math">\(y = x^e \mod N\)</span>, it is computationally intractable to determine <span class="math">\(x\)</span>.
+</p>
+</blockquote></li>
+<li><p>
+<strong>What are the basic operations that need to be performed accords to the <abbr title="Rivest-Shamir-Adelman">RSA</abbr> protocol and what is their running time?</strong>
+</p>
+
+<ul>
+<li>
+Pick two large primes
 </li>
 <li>
-Describe the steps of the <abbr title="Rivest-Shamir-Adelman">RSA</abbr> protocol. The security of the protocol is based on which assumption?
+Multiply two large primes
 </li>
 <li>
-What are the basic operations that need to be performed accords to the <abbr title="Rivest-Shamir-Adelman">RSA</abbr> protocol and what is their running time?
+Extended Euclid algorithm
 </li>
 <li>
-You may be provided an example message and asked to described the operations of the <abbr title="Rivest-Shamir-Adelman">RSA</abbr> protocol on it.
+Efficient modular exponentian algorithm
 </li>
 <li>
-What does Fermat's Little Theorem specify? Prove it.
+<span class="math">\(y^d \mod N\)</span>
+</li>
+</ul></li>
+<li><p>
+<strong>You may be provided an example message and asked to described the operations of the <abbr title="Rivest-Shamir-Adelman">RSA</abbr> protocol on it.</strong>
+</p></li>
+<li><p>
+<strong>What does Fermat's Little Theorem specify? Prove it.</strong>
+</p>
+
+<ul>
+<li>
+<strong>Fermat's Little Theorem</strong>: If <span class="math">\(p\)</span> is a prime number, then for any integer <span class="math">\(a\)</span>, the number <span class="math">\(a^p - a\)</span> is an integer multiple of <span class="math">\(p\)</span>.
+</li>
+<li><p>
+<strong>Proof</strong>
+</p>
+
+<ul>
+<li><p>
+Let us assume that <span class="math">\(a\)</span> is positive and not divisible by <span class="math">\(p\)</span>. The idea is that if we write down the sequence of numbers
+</p>
+
+<p>
+<span class="math">\[a 2a, 3a, \cdots, (p - 1)a\]</span>
+</p>
+
+<p>
+and reduce each one modulo <span class="math">\(p\)</span>, the result sequences turns out to be an arrangment of
+</p>
+
+<p>
+<span class="math">\[1, 2, 3, \cdots, p - 1\]</span>
+</p>
+
+<p>
+Therefore, if we multiple together the numbers in each sequences, the results must be indetifical modulo <span class="math">\(p\)</span>:
+</p>
+
+<p>
+<span class="math">\[a \times 2a \times 3a \times \cdots \times (p - 1)\]</span>
+</p>
+
+<p>
+Which is equivilent to
+</p>
+
+<p>
+<span class="math">\[1 \times 2 \times 3 \times \cdots \times (p - 1)\]</span>
+</p>
+
+<p>
+Collecting the <span class="math">\(a\)</span> terms yields
+</p>
+
+<p>
+<span class="math">\[a^{p - 1} (p - 1)! \equiv (p - 1)! (\mod p)\]</span>
+</p>
+
+<p>
+Finally, we may &quot;cancel out&quot; the numbers <span class="math">\(1, 2, \cdots, p - 1\)</span> from both sides, obtains,
+</p>
+
+<p>
+<span class="math">\[a^{p -1} \equiv 1 (\mod p)\]</span>
+</p></li>
+</ul></li>
+</ul></li>
+<li><p>
+<strong>What is the importance of Fermat's little theorem in the <abbr title="Rivest-Shamir-Adelman">RSA</abbr> protocol?</strong>
+</p>
+
+<ul>
+<li>
+It's used to prove it.
+</li>
+</ul></li>
+</ul>
+
+<p>
+The proof of the correctness of <abbr title="Rivest-Shamir-Adelman">RSA</abbr> is based on Fermat's little theorem. This theorem states that if <span class="math">\(p\)</span> is prime and <span class="math">\(p\)</span> does not divide an integer <span class="math">\(a\)</span> then
+</p>
+
+<p>
+<span class="math">\[a^{p - 1} \equiv 1 \pmod{p}\]</span>
+</p>
+
+<p>
+We want to show that <span class="math">\((m^e)^d \equiv m (\mod pq)\)</span> for every integer <em>m</em> when <em>p</em> and <em>q</em> are distinct prime numbers and <em>e</em> and <em>d</em> are positive integers satisfying
+</p>
+
+<p>
+<span class="math">\[e d \equiv 1 \pmod{(p - 1)(q - 1)}\]</span>
+</p>
+
+<p>
+We can write
+</p>
+
+<p>
+<span class="math">\[ed - 1 = h(p - 1)(q - 1)\]</span>
+</p>
+
+<p>
+for some nonnegative integer <em>h</em>.
+</p>
+
+<p>
+To check two numbers, like <span class="math">\(m^{ed}\)</span> and <em>m</em>, are congruent mod <em>pq</em> it suffices (and in fact is equivalent) to check they are congruent mod <em>p</em> and mod <em>q</em> separately. (This is part of the <a href="/wiki/Chinese_remainder_theorem" title="Chinese remainder theorem">Chinese remainder theorem</a>, although it is not the significant part of that theorem.) To show <span class="math">\(m^{ed} \equiv m (\bmod p)\)</span>, we consider two cases: <span class="math">\(m ≡ 0 (mod p)\)</span>
+</p>
+
+<p>
+In the first case <em>m<sup>ed</sup></em> is a multiple of <em>p</em>, so <em>m<sup>ed</sup></em> ≡ 0 ≡ <em>m</em> (mod <em>p</em>). In the second case
+</p>
+
+<p>
+<span class="math">\[m^{e d} = m^{(ed - 1)}m = m^{h(p - 1)(q - 1)}m = \left(m^{p - 1}\right)^{h(q - 1)}m \equiv 1^{h(q - 1)}m \equiv m\pmod{p}\]</span>
+</p>
+
+<p>
+where we used <a href="/wiki/Fermat%27s_little_theorem" title="Fermat's little theorem">Fermat's little theorem</a> to replace <em>m</em><sup><em>p</em>−1</sup> mod <em>p</em> with 1.
+</p>
+
+<p>
+The verification that <em>m<sup>ed</sup></em> ≡ <em>m</em> (mod <em>q</em>) proceeds in a similar way, treating separately the cases <em>m</em> ≡ 0 (mod <em>q</em>) and <em>m</em> 0 (mod <em>q</em>), using Fermat's little theorem for modulus <em>q</em> in the second case.
+</p>
+
+<p>
+This completes the proof that, for any integer <em>m</em>,
+</p>
+
+<p>
+<span class="math">\[\left(m^e\right)^d \equiv m \pmod{pq}\]</span>
+</p>
+
+<ul>
+<li>
+<p><strong>How can we efficiently perform modular exponentiantion? What is the running time of the approach?</strong></p>
+<ul>
+<li>
+Recursion, repeated squaring.
 </li>
 <li>
-What is the importance of Fermat's little theorem in the <abbr title="Rivest-Shamir-Adelman">RSA</abbr> protocol?
+Let <span class="math">\(n\)</span> be the size of bits <span class="math">\(x\)</span>, <span class="math">\(y\)</span>, and <span class="math">\(N\)</span> (whichever is largest).
 </li>
 <li>
-How can we efficiently perform modular exponentiantion? What is the running time of the approach?
+Like multiplication, there are <em>at most</em> <span class="math">\(n\)</span> recurisve calls.
 </li>
+<li>
+During each call, it multiples <span class="math">\(n\)</span>-bit numbers.
+</li>
+<li>
+Doing computation modulo <span class="math">\(N\)</span> saves us here.
+</li>
+<li>
+Running time of <span class="math">\(O(n^3)\)</span>
+</li>
+</ul></li>
 </ul>
 
 <h4>

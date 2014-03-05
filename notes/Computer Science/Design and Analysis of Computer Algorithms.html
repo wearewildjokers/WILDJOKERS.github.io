@@ -4430,19 +4430,41 @@ The branching factor is 4, each problem recursive produces three smaller ones - 
 
 <blockquote>
   <p>
-<strong>Master theorem</strong>: If <span class="math">\(T(n) = aT(\lceil n / b \rceil) + O(n^d)\)</span> for some constants <span class="math">\(a &gt; 0, b &gt; 1, d \ge 0\)</span>, then:
+<strong>Master theorem</strong>: If <span class="math">\(T(n) = aT(\lceil n / b \rceil) + O(n^d)\)</span> for some constants <span class="math">\(a &gt; 0, b &gt; 1, d \ge 0\)</span>, then: <span class="math">\[\begin{cases} O(n^d) &amp;amp;\mbox{if } d &gt; \log_b a &amp;#92; O(n^d \log n) &amp;amp;\mbox{if } d = \log_b a &amp;#92; O(n^{\log_b a}) &amp;amp;\mbox{if } d &amp;lt; lob_b a &amp;#92; \end{cases}\]</span>
 </p>
-</blockquote></li>
-</ul>
-
-<p>
-&lt;! --<span class="math">\[\begin{cases} O(n^d) &amp;amp;\mbox{if } d &gt; \log_b a &amp;#92; O(n^d \log n) &amp;amp;\mbox{if } d = \log_b a &amp;#92; O(n^{\log_b a}) &amp;amp;\mbox{if } d &amp;lt; lob_b a &amp;#92; \end{cases}\]</span> --&gt; - Proof 1. Assume that <span class="math">\(n\)</span> is a power of <span class="math">\(b\)</span>, for convinience rounding. 2. Notice that the size of the subproblems decreases by a factor of <span class="math">\(b\)</span> with each level of recursion, and therefore reaches the base case after <span class="math">\(log_b n\)</span> levels. This is the hight of the tree. 3. Its branching factor is <span class="math">\(a\)</span>, so the <span class="math">\(k\)</span>th level of the tree is made up of <span class="math">\(a^k\)</span> subproblems, each of size <span class="math">\(n / b^k\)</span>. The total work is done: <span class="math">\[a^k \times O(\frac{n}{b^k})^d = O(n^d) \times (\frac{a}{b^d})^k\]</span> 4. As <span class="math">\(k\)</span> goes from 0 (the root) to <span class="math">\(\log_b n\)</span> (the leaves), these numbers form a geometric series with the ration <span class="math">\(a / b^d\)</span>. Finding the sum of such a series in big-O notation is easy and comes down to three cases: 1. The ratio is less than 1. 2. The ratio is greater than 1. 3. The ratio is exactly 1.
-</p>
+</blockquote>
 
 <ul>
 <li>
-<strong>You may be provided a divide-and-conquer algorithm and asked to argue about its running time by using the Master theorem.</strong>
+<p>Proof</p>
+<ol>
+<li>
+Assume that <span class="math">\(n\)</span> is a power of <span class="math">\(b\)</span>, for convinience rounding.
 </li>
+<li>
+Notice that the size of the subproblems decreases by a factor of <span class="math">\(b\)</span> with each level of recursion, and therefore reaches the base case after <span class="math">\(log_b n\)</span> levels. This is the hight of the tree.
+</li>
+<li>
+Its branching factor is <span class="math">\(a\)</span>, so the <span class="math">\(k\)</span>th level of the tree is made up of <span class="math">\(a^k\)</span> subproblems, each of size <span class="math">\(n / b^k\)</span>. The total work is done: <span class="math">\[a^k \times O(\frac{n}{b^k})^d = O(n^d) \times (\frac{a}{b^d})^k\]</span>
+</li>
+<li>
+<p>As <span class="math">\(k\)</span> goes from 0 (the root) to <span class="math">\(\log_b n\)</span> (the leaves), these numbers form a geometric series with the ration <span class="math">\(a / b^d\)</span>. Finding the sum of such a series in big-O notation is easy and comes down to three cases:</p>
+<ol>
+<li>
+The ratio is less than 1.
+</li>
+<li>
+The ratio is greater than 1.
+</li>
+<li>
+The ratio is exactly 1.
+</li>
+</ol></li>
+</ol></li>
+</ul></li>
+<li><p>
+<strong>You may be provided a divide-and-conquer algorithm and asked to argue about its running time by using the Master theorem.</strong>
+</p></li>
 <li><p>
 <strong>How does mergesort work, what is its running time and why? How does the iterative version of mergesort work?</strong>
 </p>
@@ -4917,6 +4939,292 @@ Related exercises
 <li>
 <abbr title="T. H. Cormen, C. E. Leiserson, R. L. Rivest, C. Stein (Second Edition)">CLRS2</abbr>: 16.1, 16.2-4, 16.2-5, 16.2-7, 16.3-1, 16-3.2, 16.3-3, 16.3-4, 16.3-5, 16.3-6
 </li>
+</ul>
+
+<h2>
+March 5th, 2014 <small>Homework 2</small>
+</h2>
+
+<h3>
+Topics
+</h3>
+
+<ul>
+<li>
+Master theorem
+</li>
+<li>
+Approximation algorithm
+</li>
+</ul>
+
+<h2>
+March 5th, 2014 <small>Lecture</small>
+</h2>
+
+<h3>
+High-level steps in greedy algorithm
+</h3>
+
+<ul>
+<li>
+This idea of defining smaller problems, it's part of greedy and recursive algorithms.
+</li>
+<li><p>
+Steps
+</p>
+
+<ol>
+<li><p>
+Cast the problemas one where we make a choice, and then we're left with a subproblem to solve.
+</p>
+
+<blockquote>
+  <p>
+Which characters should I place at the bottom of my tree? <em>Huffman coding</em>
+</p>
+</blockquote></li>
+<li><p>
+Show there is always an optimal solution that makes the greedy choice.
+</p></li>
+<li>
+Show that the subproblems optimal solution can be combined with the greedy choice to provide an optimal solution to the original problem.
+</li>
+</ol></li>
+</ul>
+
+<blockquote>
+  <p>
+Can all optimization problems be solved with greedy algorithms?
+</p>
+</blockquote>
+
+<ul>
+<li>
+For instance, in the coin problem, it depends on the coin denominations you have.
+</li>
+<li>
+In Huffman coding, it works nicely.
+</li>
+</ul>
+
+<h3>
+Set cover example and a greedy approach
+</h3>
+
+<ul>
+<li><p>
+<strong>Example</strong>: Consider a collectino of cities. We need to place a school to the minimum number of cities so that each one has a direction connection with a school.
+</p>
+
+<table>
+<thead>
+<tr>
+  <th>
+<span class="math">\(x\)</span>
+</th>
+  <th>
+<span class="math">\(S_x\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>
+<span class="math">\(a\)</span>
+</td>
+  <td>
+<span class="math">\(a, b, c\)</span>
+</td>
+</tr>
+<tr>
+  <td>
+<span class="math">\(b\)</span>
+</td>
+  <td>
+<span class="math">\(a, b, c, d, e\)</span>
+</td>
+</tr>
+<tr>
+  <td>
+<span class="math">\(c\)</span>
+</td>
+  <td>
+<span class="math">\(a, b, c, g\)</span>
+</td>
+</tr>
+<tr>
+  <td>
+<span class="math">\(d\)</span>
+</td>
+  <td>
+<span class="math">\(b, d, e, f\)</span>
+</td>
+</tr>
+<tr>
+  <td>
+<span class="math">\(e\)</span>
+</td>
+  <td>
+<span class="math">\(b, d, e, f\)</span>
+</td>
+</tr>
+<tr>
+  <td>
+<span class="math">\(f\)</span>
+</td>
+  <td>
+<span class="math">\(e, d, f\)</span>
+</td>
+</tr>
+<tr>
+  <td>
+<span class="math">\(g\)</span>
+</td>
+  <td>
+<span class="math">\(e, g\)</span>
+</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>
+The greedy solution: <span class="math">\(b, c, d\)</span> (3 schools).
+</li>
+<li>
+But there are optimal solutions with 2 schools, which in this case would be something like <span class="math">\(c\)</span> and <span class="math">\(f\)</span>.
+</li>
+</ul></li>
+</ul>
+
+<blockquote>
+  <p>
+<strong>Lemma</strong>: Given <span class="math">\(n\)</span> elemnts and <span class="math">\(k\)</span> sets in the optimal solution, the greedy algorithm will use at most <span class="math">\(k \times \ln n\)</span>.
+</p>
+</blockquote>
+
+<ul>
+<li><p>
+This is a little reassuring
+</p>
+
+<ul>
+<li>
+Not the optimum solution, but we know it'll be <em>pretty good</em> relative to the optimum.
+</li>
+</ul></li>
+<li><p>
+<strong>Proof</strong>
+</p>
+
+<ul>
+<li>
+<span class="math">\(n_t\)</span>: number of elements after <span class="math">\(t\)</span> iterations
+</li>
+<li>
+<span class="math">\(n_0\)</span> will be <span class="math">\(n\)</span> and after all elements are solution <span class="math">\(\to 0\)</span>.
+</li>
+<li><p>
+Given that we're going to be using <span class="math">\(k\)</span> sets in the optimum solution, can we say anything about the number of elements in sets in the optimum solution?
+</p>
+
+<ul>
+<li>
+All the elements in the optimum solution are going to have less than ... something something.
+</li>
+</ul></li>
+<li><p>
+<em>Optimum solution</em> has <span class="math">\(k\)</span> sets covering <span class="math">\(n\)</span> elements.
+</p></li>
+<li>
+There is at least one set that has at least <span class="math">\(\frac{n}{k}\)</span> elements.
+</li>
+<li>
+Now lets think how the greedy choice will be making the somehting selection.
+</li>
+<li><p>
+Then, <span class="math">\[n_{t + 1} \le n_t - \frac{n_t}{k} = n_t(1 - \frac{1}{k})\]</span>
+</p></li>
+<li><p>
+Repeated applications of this rule imply <span class="math">\(n_t \le n_0 (1 - \frac{1}{k}^t)\)</span>.
+</p>
+
+<ul>
+<li>
+Note that <span class="math">\(1 - x \le e^{-x} \forall x\)</span>.
+</li>
+</ul></li>
+<li><p>
+Thus, <span class="math">\[n_t \le n_0 (e^{- \frac{1}{k}})^t = n \cdot e^{\frac{-t}{k}}\]</span>
+</p></li>
+<li><p>
+When will I cover all elemnts with the greedy approach?
+</p>
+
+<ul>
+<li>
+It has to be that <span class="math">\(n_t = 0\)</span>, i.e., for <span class="math">\(t = k \cdot \ln n : n e^{\frac{-t}{k}} = n \cdot e \cdot \frac{k \ln n}{k} = 1\)</span><span class="math">\(&lt;/li&gt; &lt;/ul&gt;&lt;/li&gt; &lt;li&gt;&lt;p&gt;At that point \)</span>(t = k n)$, the greedy choice has covered every element.
+</p></li>
+</ul></li>
+</ul>
+
+<h3>
+Alternative for optimization problems: Dynamic Programming
+</h3>
+
+<ul>
+<li><p>
+Think of this as a more general approach than the greedy algorithm approach.
+</p>
+
+<ul>
+<li>
+Any problem that can be solved by a greedy algorithm can be soloved by a dynamic programming apporach.
+</li>
+<li>
+Now you have to work out what is the subproblem.
+</li>
+<li>
+This is more powerful than greedy apporached.
+</li>
+</ul></li>
+<li><p>
+<strong>Example</strong>
+</p>
+
+<ul>
+<li>
+Lets say you have matrices and you want to multiply big matrics and supposed you have to do it in such a way that is computationally effieicne.t
+</li>
+<li>
+Say it's four matrices.
+</li>
+<li>
+There are many different ays to compute this product depending where we place the parentheses.
+</li>
+<li>
+You should come up with an algorithm that tells you the optimum order.
+</li>
+<li>
+Greedy choice corresponds to not necessarily the optimum solution.
+</li>
+<li><p>
+So how do we determine the optimum case?
+</p>
+
+<ul>
+<li>
+Again we can think of a graphical way of representing the cases.
+</li>
+</ul></li>
+<li><p>
+<strong>Clue</strong>: If a tree corresponds to the minumum number of multiplications, then each subtree of it has to be optimum.
+</p></li>
+<li>
+Define the cost of multiplying: <span class="math">\(A_i \times A_{i + 1} \times \cdots \times A_j\)</span>.
+</li>
+</ul></li>
 </ul>
 
 <!-- Abbreviations --> 

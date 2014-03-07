@@ -18,7 +18,15 @@ MathJax.Hub.Config( {
         processEscapes: true
     },
     TeX: {
-        multiLine: true
+        multiLine: true,
+        Macros: {
+          NN: '{\\bf N}',
+          abs: ['\\left|{#1}\\right|',1],
+          bra: ['\\langle{#1}|',1],
+          ket: ['{|{#1}\\rangle}',1],
+          vev: ['{\\langle{#1}\\rangle}',1],
+          braket: ['\\langle{#1}|{#2}\\rangle',2]
+        }
     }
 });
 </script>

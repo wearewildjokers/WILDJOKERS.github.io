@@ -1109,7 +1109,7 @@ There are <span class="math">\(2^{32}\)</span> possibilities.
 </li>
 </ul></li>
 <li><p>
-Let's say you have <em>n</em> of them (<span class="math">\(n &amp;lt;&amp;lt; 2^{32}\)</span>).
+Let's say you have <em>n</em> of them (<span class="math">\(n &lt;&lt; 2^{32}\)</span>).
 </p></li>
 <li><p>
 One possible way of storing them is an <em>array</em> of 2 to the 32 size that indicates whether an IP address is in the set <em>n</em> IP addresses.
@@ -1422,7 +1422,7 @@ Three cases
 
 <ol>
 <li><p>
-If <span class="math">\(\frac{a}{b^d} &amp;lt; 1\)</span>, series is decreasing.
+If <span class="math">\(\frac{a}{b^d} &lt; 1\)</span>, series is decreasing.
 </p>
 
 <ul>
@@ -2301,7 +2301,7 @@ Fermat's little theorem
 </dt>
 <dd>
 <p>
-If <span class="math">\(p\)</span> is prime, then for every <span class="math">\(1 \le a &amp;lt; p\)</span>
+If <span class="math">\(p\)</span> is prime, then for every <span class="math">\(1 \le a &lt; p\)</span>
 </p>
 
 <p>
@@ -2362,7 +2362,7 @@ Lemma
 </dt>
 <dd>
 <p>
-If <span class="math">\(a^{N - 1} \not\equiv 1 \bmod N\)</span> for some <em>a</em> relatively prime to <em>N</em>, then it must hold for at least half the choices of <span class="math">\(a &amp;lt; N\)</span>.
+If <span class="math">\(a^{N - 1} \not\equiv 1 \bmod N\)</span> for some <em>a</em> relatively prime to <em>N</em>, then it must hold for at least half the choices of <span class="math">\(a &lt; N\)</span>.
 </p>
 </dd>
 </dl>
@@ -2377,7 +2377,7 @@ We are ignoring Charmichael numbers, so we now assert,
 If <em>N</em> is prime, then <span class="math">\(a^{N - 1} \equiv 1 \bmod N\)</span> for all <em>a</em> less than <em>N</em>.
 </li>
 <li>
-If <em>N</em> is not prime, then <span class="math">\(a^{N - 1} \equiv 1 \bmod N\)</span> for at most half of the values of <span class="math">\(a &amp;lt; N\)</span>.
+If <em>N</em> is not prime, then <span class="math">\(a^{N - 1} \equiv 1 \bmod N\)</span> for at most half of the values of <span class="math">\(a &lt; N\)</span>.
 </li>
 </ul></li>
 <li><p>
@@ -3953,7 +3953,7 @@ Practice questions
 Suppose <span class="math">\(a, b \in \mathbb{Z}\)</span> and <span class="math">\(a \lor B \neq 0\)</span>
 </li>
 <li>
-From the *Division Theorem<span class="math">\(, \)</span>a = qb + r$ where <span class="math">\(0 \le r &amp;lt; |b|\)</span>.
+From the *Division Theorem<span class="math">\(, \)</span>a = qb + r$ where <span class="math">\(0 \le r &lt; |b|\)</span>.
 </li>
 <li>
 From <em><abbr title="Greatest common divisor">GCD</abbr> with Remainder</em>, the <abbr title="Greatest common divisor">GCD</abbr> of <span class="math">\(a\)</span> and <span class="math">\(b\)</span> is also the <abbr title="Greatest common divisor">GCD</abbr> of <span class="math">\(b\)</span> and <span class="math">\(r\)</span>.
@@ -3962,7 +3962,7 @@ From <em><abbr title="Greatest common divisor">GCD</abbr> with Remainder</em>, t
 Therefore, we may search instead for <span class="math">\(\gcd(b, r)\)</span>.
 </li>
 <li>
-Since <span class="math">\(|r| &amp;lt; |b|\)</span> and <span class="math">\(b \in \mathbb{Z}\)</span>, we will reach <span class="math">\(r = 0\)</span> after finitely many steps.
+Since <span class="math">\(|r| &lt; |b|\)</span> and <span class="math">\(b \in \mathbb{Z}\)</span>, we will reach <span class="math">\(r = 0\)</span> after finitely many steps.
 </li>
 <li>
 At this point, <span class="math">\(\gcd(r, 0) = r\)</span> from <em><abbr title="Greatest common divisor">GCD</abbr> with Zero</em>.
@@ -4156,7 +4156,7 @@ Fermat's Little Theorem
 </dt>
 <dd>
 <p>
-If <span class="math">\(p\)</span> is prime, then <span class="math">\(\forall 1 \le a &amp;lt; p\)</span>, <span class="math">\[a^{p - 1} \equiv 1 (\bmod p)\]</span>
+If <span class="math">\(p\)</span> is prime, then <span class="math">\(\forall 1 \le a &lt; p\)</span>, <span class="math">\[a^{p - 1} \equiv 1 (\bmod p)\]</span>
 </p>
 </dd>
 </dl>
@@ -4182,7 +4182,7 @@ Practice questions
 
 <ul>
 <li><p>
-Fermat's little theorem states that if <span class="math">\(p\)</span> is prime and <span class="math">\(1 \le a &amp;lt; p\)</span>, then, <span class="math">\[a^{p - 1} \equiv 1 (\bmod p)\]</span>
+Fermat's little theorem states that if <span class="math">\(p\)</span> is prime and <span class="math">\(1 \le a &lt; p\)</span>, then, <span class="math">\[a^{p - 1} \equiv 1 (\bmod p)\]</span>
 </p></li>
 <li><p>
 If we want to test if <span class="math">\(p\)</span> is prime, then we can pick random <span class="math">\(a\)</span>'s in the interval and see if the equality holds.
@@ -4430,7 +4430,7 @@ The branching factor is 4, each problem recursive produces three smaller ones - 
 
 <blockquote>
   <p>
-<strong>Master theorem</strong>: If <span class="math">\(T(n) = aT(\lceil n / b \rceil) + O(n^d)\)</span> for some constants <span class="math">\(a &gt; 0, b &gt; 1, d \ge 0\)</span>, then: <span class="math">\[\begin{cases} O(n^d) &amp;amp;\mbox{if } d &gt; \log_b a &amp;#92; O(n^d \log n) &amp;amp;\mbox{if } d = \log_b a &amp;#92; O(n^{\log_b a}) &amp;amp;\mbox{if } d &amp;lt; lob_b a &amp;#92; \end{cases}\]</span>
+<strong>Master theorem</strong>: If <span class="math">\(T(n) = aT(\lceil n / b \rceil) + O(n^d)\)</span> for some constants <span class="math">\(a &gt; 0, b &gt; 1, d \ge 0\)</span>, then: <span class="math">\[\begin{cases} O(n^d) &amp;\mbox{if } d &gt; \log_b a &amp;#92; O(n^d \log n) &amp;\mbox{if } d = \log_b a &amp;#92; O(n^{\log_b a}) &amp;\mbox{if } d &lt; lob_b a &amp;#92; \end{cases}\]</span>
 </p>
 </blockquote>
 
@@ -5297,8 +5297,99 @@ and
 <p>
 <span class="math">\[\mathcal{A}&lt;em&gt;{k} \cdots \mathcal{A}&lt;/em&gt;{j}\]</span>
 </p></li>
+<li><p>
+How many rows will the product of the first matrix in the first matrix set have? *The number of rows in that matrix.
+</p></li>
+<li>
+How many columns will the prouct of the last matrix in the first set have? *The number of columns in the <span class="math">\(j\)</span>th column.
+</li>
+<li>
+What's the cost of computing the product <span class="math">\(i\)</span> and <span class="math">\(j\)</span>? <span class="math">\[C[i, j] = min_{k \in [i, j]} \left\lbrace C[i, k - 1] + C[k, j] + m_i \times m_k \times m_{j + 1}\]</span>
+</li>
 </ul></li>
 </ul>
+
+<h3>
+When does dynamic programming apply?
+</h3>
+
+<ul>
+<li>
+<p>Properties for your problems:</p>
+<ul>
+<li>
+Optimal substructure
+</li>
+<li>
+Optimal solutions to a problem contain optimal solutions to subproblems.
+</li>
+</ul></li>
+</ul>
+
+<dl>
+<dt>
+Overlapping subproblems
+</dt>
+<dd>
+It should be that the same subproblems appear again and again by storing solution to them, we achieve speed ups.
+</dd>
+</dl>
+
+<ul>
+<li>
+<p>The top-down approach will pick the greedy choice and only go &quot;one way.&quot;</p>
+<ul>
+<li>
+The bottom-up approach will take advantage of the fact that subproblems appear again and again and exploit this to achieve speed-ups.
+</li>
+</ul></li>
+</ul>
+
+<h3>
+Longest Increasing Subsequence
+</h3>
+
+<ul>
+<li><p>
+Given a sequence of numbers
+</p>
+
+<p>
+<span class="math">\[a_1, ..., a_n\]</span>
+</p>
+
+<ul>
+<li>
+Subsequence subset of number taken in order
+</li>
+<li><p>
+Increasing subsequence
+</p>
+
+<p>
+<span class="math">\[m &lt; n \to a_{i_m} &lt; a_{i_n}\]</span>
+</p></li>
+</ul></li>
+<li><p>
+What are the subproblems?
+</p>
+
+<ul>
+<li>
+Consider that oou konw the longest increasing subsequence for all subsequences.
+</li>
+<li>
+Denote as <span class="math">\(L(j)\)</span> the length of the longest incrasing subsequence that uses that considers the first <span class="math">\(j\)</span> digits.
+</li>
+<li>
+Then, <span class="math">\(L(n) = 1 + max_{j \in [1, n - 1]} \left\lbrace L(j), \forall j : a(n) &gt; a(j)\right\rbrace\)</span>.
+</li>
+</ul></li>
+</ul>
+
+<h3>
+Match Strings
+</h3>
 
 <!-- Abbreviations --> 
 {% endraw %}

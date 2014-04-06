@@ -1,3 +1,7 @@
+- name: <a href="http://pljns.com/papers/What%20are%20the%20Problems%20for%20Infinitism/">Senior Honors Thesis</a>
+  tags: [Coursework, Philosophy, Academic]
+  description: "I worked with the extraordinary and insightful Prof. Peter Klein to complete deparmental honors in the philosophy program with an undergraduate honors thesis."
+  github: https://github.com/PLJNS/Rutgers-SHS-Spring-2014
 - name: Fekyll
   github: https://github.com/WildJokers/Fekyll
   description: "Managing content with Jekyll is powerful and easy. Manipulating style with Foundation 5 allows for massive change quickly. Fekyll allows you to run <code>compass watch</code> on the <code>foundation</code> directory while running <code>jekyll serve -w</code> on the <code>jekyll</code> directory in order to rapidly prototype content and style."

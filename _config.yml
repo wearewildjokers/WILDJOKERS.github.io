@@ -36,7 +36,7 @@ author:
   name:           'Paul Jones'
   url:            http://PLJNS.com
 
-paginate:         5
+paginate:         3
 paginate_path: blog/page:num
 
 # Custom vars

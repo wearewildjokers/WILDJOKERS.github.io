@@ -112,10 +112,13 @@ navigation:
        subnavigation:
        - text: Introduction to Discrete Structures I
          url: /notes/Mathematics/Introduction%20to%20Discrete%20Structures%20I/
+         section: For Computer Science
        - text: Introduction to Discrete Structures II
          url: /notes/Mathematics/Introduction%20to%20Discrete%20Structures%20II/
+         section: For Computer Science
        - text: Introduction to Linear Algebra
          url: /notes/Mathematics/Introduction%20to%20Linear%20Algebra/
+         section: Pure
 - text: Projects
   url: /projects/
 - text: About

@@ -50,6 +50,54 @@ navigation:
   url: /blog/
 - text: Notes
   url: /notes/
+  subnavigation:
+    -  text: Computer Science
+       url: /notes/Computer%20Science/
+       subnavigation:
+       - text: Computer Architecture
+         url: /notes/Computer%20Science/Computer%20Architecture/
+       - text: Data Structures
+         url: /notes/Computer%20Science/Data%20Structures/
+       - text: Design and Analysis of Computer Algorithms
+         url: /notes/Computer%20Science/Design%20and%20Analysis%20of%20Computer%20Algorithms/
+       - text: Information and Data Management
+         url: /notes/Computer%20Science/Information%20and%20Data%20Management/
+       - text: Internet Technology
+         url: /notes/Computer%20Science/Internet%20Technology/
+       - text: Programming Languages
+         url: /notes/Computer%20Science/Programming%20Languages/
+       - text: Software Methodology
+         url: /notes/Computer%20Science/Software%20Methodology/
+       - text: Systems Programming
+         url: /notes/Computer%20Science/Systems%20Programming/
+    -  text: Philosophy
+       url: /notes/Philosophy/
+       subnavigation:
+       - text: Advanced Topics in Metaphysics
+         url: /notes/Philosophy/Advanced%20Topics%20in%20Metaphysics/
+       - text: Aristotle
+         url: /notes/Philosophy/Aristotle/
+       - text: Epistemology
+         url: /notes/Philosophy/Epistemology/
+       - text: Leibniz
+         url: /notes/Philosophy/Leibniz/
+       - text: Philosophy of Psychology
+         url: /notes/Philosophy/Philosophy%20of%20Psychology/
+       - text: Social and Political Philosophy
+         url: /notes/Philosophy/Social%20and%20Political%20Philosophy/
+       - text: Survey in Epistemology
+         url: /notes/Philosophy/Survey%20in%20Epistemology/
+       - text: Theory of Knowledge
+         url: /notes/Philosophy/Theory%20of%20Knowledge/
+    -  text: Mathematics
+       url: /notes/Philosophy/
+       subnavigation:
+       - text: Introduction to Discrete Structures I
+         url: /notes/Mathematics/Introduction%20to%20Discrete%20Structures%20I/
+       - text: Introduction to Discrete Structures II
+         url: /notes/Mathematics/Introduction%20to%20Discrete%20Structures%20II/
+       - text: Introduction to Linear Algebra
+         url: /notes/Mathematics/Introduction%20to%20Linear%20Algebra/
 - text: Projects
   url: /projects/
 - text: About
@@ -64,44 +112,3 @@ navigation:
 - text: Contact
   url: /contact/
 
-cs-notes:
-- text: Computer Architecture
-  url: /notes/Computer%20Science/Computer%20Architecture/
-- text: Data Structures
-  url: /notes/Computer%20Science/Data%20Structures/
-- text: Design and Analysis of Computer Algorithms
-  url: /notes/Computer%20Science/Design%20and%20Analysis%20of%20Computer%20Algorithms/
-- text: Information and Data Management
-  url: /notes/Computer%20Science/Information%20and%20Data%20Management/
-- text: Internet Technology
-  url: /notes/Computer%20Science/Internet%20Technology/
-- text: Programming Languages
-  url: /notes/Computer%20Science/Programming%20Languages/
-- text: Software Methodology
-  url: /notes/Computer%20Science/Software%20Methodology/
-- text: Systems Programming
-  url: /notes/Computer%20Science/Systems%20Programming/
-- text: Introduction to Discrete Structures I
-  url: /notes/Mathematics/Introduction%20to%20Discrete%20Structures%20I/
-- text: Introduction to Discrete Structures II
-  url: /notes/Mathematics/Introduction%20to%20Discrete%20Structures%20II/
-- text: Introduction to Linear Algebra
-  url: /notes/Mathematics/Introduction%20to%20Linear%20Algebra/
-
-philosophy-notes:
-- text: Advanced Topics in Metaphysics
-  url: /notes/Philosophy/Advanced%20Topics%20in%20Metaphysics/
-- text: Aristotle
-  url: /notes/Philosophy/Aristotle/
-- text: Epistemology
-  url: /notes/Philosophy/Epistemology/
-- text: Leibniz
-  url: /notes/Philosophy/Leibniz/
-- text: Philosophy of Psychology
-  url: /notes/Philosophy/Philosophy%20of%20Psychology/
-- text: Social and Political Philosophy
-  url: /notes/Philosophy/Social%20and%20Political%20Philosophy/
-- text: Survey in Epistemology
-  url: /notes/Philosophy/Survey%20in%20Epistemology/
-- text: Theory of Knowledge
-  url: /notes/Philosophy/Theory%20of%20Knowledge/

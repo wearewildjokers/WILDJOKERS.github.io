@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+<header style="background-image:url({{site.images-dir}}/moher.jpg); background-size:cover;">
+	<div class="row">
+		<div class="large-10 large-offset-1 columns">
+			<h1>{{ page.title }}</h1>
+			<h4>{{ page.subtitle }}</h4>
+		</div>
+	</div>
+</header>
+
+<div class="row">
+	<div class="large-10 large-offset-1 columns">
+
+		{% include breadcrumbs.html %}
+
+		<div id="toc"></div>
+
+		<article>
+			<div class="row">
+				<div class="large-12 columns">
+
+					<h2>{{ page.title }}</h2>
+
+					{% for link in site.navigation %}
+						{% if link.text == 'Notes' %}
+							{% for sublink in link.subnavigation %}
+								{% if sublink.text == page.title %}
+									{% for subsublink in sublink.subnavigation %}
+
+									<a href="{{ subsublink.url }}" class="button expand">{{ subsublink.text }}</a>
+
+									{% endfor %}
+								{% endif %}
+							{% endfor %}
+						{% endif %}
+					{% endfor %}
+
+				</div>
+			</div>
+
+			{{ content }}
+			
+		</article>
+	</div>
+</div>

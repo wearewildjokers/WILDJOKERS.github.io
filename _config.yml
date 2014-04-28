@@ -90,7 +90,7 @@ navigation:
        - text: Theory of Knowledge
          url: /notes/Philosophy/Theory%20of%20Knowledge/
     -  text: Mathematics
-       url: /notes/Philosophy/
+       url: /notes/Mathematics/
        subnavigation:
        - text: Introduction to Discrete Structures I
          url: /notes/Mathematics/Introduction%20to%20Discrete%20Structures%20I/

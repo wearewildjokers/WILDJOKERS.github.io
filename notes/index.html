@@ -4,19 +4,21 @@ title: Notes
 subtitle: My digital notebook from Rutgers University
 ---
 
-<h2>You are here for ... </h2>
-
-
 <div class="row">
+	<div class="large-12 columns">
 
-	<div class="large-6 columns">
+		<h2>{{ page.title }}</h2>
 
-	<a href="/notes/Computer%20Science/" class="button large expand" style="font-family:Consolas, 'Liberation Mono', Courier, monospace;
-font-weight: bold; height:65px;">Computer Science</a>
+		{% for link in site.navigation %}
+			{% if link.text == page.title %}
+				{% for sublink in link.subnavigation %}
+
+
+					<a href="{{ sublink.url }}" class="button expand">{{ sublink.text }}</a>
+
+				{% endfor %}
+			{% endif %}
+		{% endfor %}
+
 	</div>
-
-	<div class="large-6 columns">
-<a href="/notes/Philosophy/" class="button large expand" style="font-family:'Monotype Corsiva', 'Apple Chancery', 'ITC Zapf Chancery', 'URW Chancery L', cursive;; height:65px;">Philosophy</a>
-	</div>
-
 </div>

@@ -23,7 +23,7 @@
           {% if link.text == 'About' and page.title == 'Personal' or page.title == 'Professional' or page.title == 'Academic' or page.title == 'Résumé' or page.title == 'Curriculum Vitae' %}
             {% assign current = 'active' %}
           {% endif %}
-          {% if link.text == 'Notes' and page.title == 'Computer Science' or page.title == 'Philosophy' %}
+          {% if link.text == 'Notes' and page.title == 'Computer Science' or page.title == 'Philosophy' or page.title == 'Mathematics' %}
             {% assign current = 'active' %}
           {% endif %}
           {% if link.subnavigation.size > 1  %}

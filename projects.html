@@ -4,32 +4,6 @@ title: Projects
 subtitle: I'm always up to something
 ---
 
-
-
-<h2>Ongoing</h2>
-
-{% for project in site.data.ongoing-projects %}
-<div class="panel project-panel">
-	<div class="row">
-		<div class="large-12 medium-12 small-12 columns">
-				<div class="row">
-					<div class="large-6 medium-6 small-6 columns">
-						<h3>{{project.name}}</h3> 
-					</div>
-
-					<div class="large-6 medium-6 small-6 columns text-right">
-						{% for tag in project.tags %}
-							<span class="label radius">{{ tag }}</span>
-						{% endfor %}
-					</div>
-
-				</div>
-			<p>{{ project.description }}</p>
-		</div>
-	</div>
-</div>
-{% endfor %}
-
 <h2>Completed</h2>
 
 {% for project in site.data.completed-projects %}

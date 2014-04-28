@@ -1,71 +1,86 @@
 <nav class="top-bar" data-topbar>
-    <ul class="title-area">
-      <!-- Title Area -->
-      <li class="name">
-          <a href="/">
-            <h1><a href="/">{{ site.title }}</a></h1>
-          </a>
-      </li>
-      <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
-    </ul>
+		<ul class="title-area">
+			<!-- Title Area -->
+			<li class="name">
+					<a href="/">
+						<h1><a href="/">{{ site.title }}</a></h1>
+					</a>
+			</li>
+			<li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+		</ul>
  
-    <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="left">
-        {% for link in site.navigation %}
-          {% assign current = nil %}
-          {% if page.url == link.url or page.layout == link.layout or link.text == page.title  %}
-            {% assign current = 'active' %}
-          {% endif %}
-          {% if link.text == 'Blog' and page.categories %}
-            {% assign current = 'active' %}
-          {% endif %}
-          {% if link.text == 'About' and page.title == 'Personal' or page.title == 'Professional' or page.title == 'Academic' or page.title == 'Résumé' or page.title == 'Curriculum Vitae' %}
-            {% assign current = 'active' %}
-          {% endif %}
-          {% if link.text == 'Notes' and page.title == 'Computer Science' or page.title == 'Philosophy' or page.title == 'Mathematics' %}
-            {% assign current = 'active' %}
-          {% endif %}
-          {% if link.subnavigation.size > 1  %}
-          <li class="has-dropdown {{ current }}">
-            <a href="{{ link.url }}" class="{{ current }}">{{ link.text }}</a>
-            <ul class="dropdown">
-              {% for sublink in link.subnavigation %}
-                {% if sublink.subnavigation.size > 1 %}
-                <li class="has-dropdown not-click"><a href="{{ sublink.url }}">{{ sublink.text }}</a>
-                <!-- Nested Dropdown -->
-                <ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
-                  {% for subsublink in sublink.subnavigation %}
-                    {% if subsublink.url %}
-                    <li><a href="{{ subsublink.url }}" class="subsublink">{{ subsublink.text }}</a></li>
-                    {% else %}
-                    <li class="subsublink">{{ subsublink.text }}</li>
-                    {% endif %}
-                  {% endfor %}
-                </ul>
-                </li>
-                {% else %}
-                  {% if sublink.url %}
-                  <li><a href="{{ sublink.url }}" class="sublink">{{ sublink.text }}</a></li>
-                  {% else %}
-                  <li class="sublink">{{ sublink.text }}</li>
-                  {% endif %}
-                {% endif %}
-              {% endfor %}
-            </ul>
-          </li>
-          {% else %}
-            {% if link.url %}
-            <li class="{% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
-              <a class="{{ current }} link" href="{{ link.url }}">{{ link.text }}</a>
-            </li>
-            {% else %}
-            <li class="{% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
-              {{ link.text }}
-            </li>
-            {% endif %}
-          {% endif %}
-      {% endfor %}
-      </ul>
-    </section>
-  </nav>
+		<section class="top-bar-section">
+			<!-- Right Nav Section -->
+			<ul class="left">
+				{% for link in site.navigation %}
+
+					{% assign current = nil %}
+					{% if page.url == link.url or page.layout == link.layout or link.text == page.title  %}
+						{% assign current = 'active' %}
+					{% endif %}
+					{% if link.text == 'Blog' and page.categories %}
+						{% assign current = 'active' %}
+					{% endif %}
+					{% if link.text == 'About' and page.title == 'Personal' or page.title == 'Professional' or page.title == 'Academic' or page.title == 'Résumé' or page.title == 'Curriculum Vitae' %}
+						{% assign current = 'active' %}
+					{% endif %}
+					{% if link.text == 'Notes' and page.title == 'Computer Science' or page.title == 'Philosophy' or page.title == 'Mathematics' %}
+						{% assign current = 'active' %}
+					{% endif %}
+
+					{% if link.subnavigation.size > 1  %}
+						<li class="has-dropdown {{ current }}">
+
+							<a href="{{ link.url }}" class="{{ current }}">{{ link.text }}</a>
+							<ul class="dropdown">
+
+								{% for sublink in link.subnavigation %}
+									{% if sublink.subnavigation.size > 1 %}
+
+										<li class="has-dropdown not-click"><a href="{{ sublink.url }}">{{ sublink.text }}</a>
+										<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+
+										{% assign currentSection = nil %}
+										{% assign previousSection = nil %}
+
+										{% for subsublink in sublink.subnavigation %}
+											{% if subsublink.section %}
+												{% assign currentSection = subsublink.section %}
+											{% endif %}
+
+											{% if previousSection != currentSection %}
+												<li><label>{{ currentSection }}</label></li>
+												{% assign previousSection = currentSection %}
+											{% endif %}
+
+											<li><a href="{{ subsublink.url }}" class="subsublink">{{ subsublink.text }}</a></li>
+											
+										{% endfor %}
+
+									</ul>
+									</li>
+
+									{% else %}
+										<li><a href="{{ sublink.url }}" class="sublink">{{ sublink.text }}</a></li>
+									{% endif %}
+
+								{% endfor %}
+
+							</ul>
+						</li>
+
+					{% else %}
+						{% if link.url %}
+						<li class="{% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
+							<a class="{{ current }} link" href="{{ link.url }}">{{ link.text }}</a>
+						</li>
+						{% else %}
+						<li class="{% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
+							{{ link.text }}
+						</li>
+						{% endif %}
+					{% endif %}
+			{% endfor %}
+			</ul>
+		</section>
+	</nav>

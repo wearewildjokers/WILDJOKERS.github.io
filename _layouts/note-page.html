@@ -28,9 +28,22 @@ layout: default
 						{% if link.text == 'Notes' %}
 							{% for sublink in link.subnavigation %}
 								{% if sublink.text == page.title %}
+
+									{% assign currentSection = nil %}
+									{% assign previousSection = nil %}
+
 									{% for subsublink in sublink.subnavigation %}
 
-									<a href="{{ subsublink.url }}" class="button expand">{{ subsublink.text }}</a>
+										{% if subsublink.section %}
+											{% assign currentSection = subsublink.section %}
+										{% endif %}
+
+										{% if previousSection != currentSection %}
+											<h3>{{ currentSection }}</h3>
+											{% assign previousSection = currentSection %}
+										{% endif %}
+
+										<a href="{{ subsublink.url }}" class="button expand">{{ subsublink.text }}</a>
 
 									{% endfor %}
 								{% endif %}

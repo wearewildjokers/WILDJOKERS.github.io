@@ -56,41 +56,57 @@ navigation:
     -  text: Computer Science
        url: /notes/Computer%20Science/
        subnavigation:
-       - text: Computer Architecture
-         url: /notes/Computer%20Science/Computer%20Architecture/
        - text: Data Structures
          url: /notes/Computer%20Science/Data%20Structures/
+         section: Theory
        - text: Design and Analysis of Computer Algorithms
          url: /notes/Computer%20Science/Design%20and%20Analysis%20of%20Computer%20Algorithms/
+         section: Theory
        - text: Information and Data Management
          url: /notes/Computer%20Science/Information%20and%20Data%20Management/
+         section: Theory
+       - text: Computer Architecture
+         url: /notes/Computer%20Science/Computer%20Architecture/
+         section: Practice
        - text: Internet Technology
          url: /notes/Computer%20Science/Internet%20Technology/
+         section: Practice
        - text: Programming Languages
          url: /notes/Computer%20Science/Programming%20Languages/
+         section: Practice
        - text: Software Methodology
          url: /notes/Computer%20Science/Software%20Methodology/
+         section: Practice
        - text: Systems Programming
          url: /notes/Computer%20Science/Systems%20Programming/
+         section: Practice
     -  text: Philosophy
        url: /notes/Philosophy/
        subnavigation:
        - text: Advanced Topics in Metaphysics
          url: /notes/Philosophy/Advanced%20Topics%20in%20Metaphysics/
-       - text: Aristotle
-         url: /notes/Philosophy/Aristotle/
-       - text: Epistemology
-         url: /notes/Philosophy/Epistemology/
-       - text: Leibniz
-         url: /notes/Philosophy/Leibniz/
+         section: Graduate
        - text: Philosophy of Psychology
          url: /notes/Philosophy/Philosophy%20of%20Psychology/
-       - text: Social and Political Philosophy
-         url: /notes/Philosophy/Social%20and%20Political%20Philosophy/
+         section: Graduate
        - text: Survey in Epistemology
          url: /notes/Philosophy/Survey%20in%20Epistemology/
+         section: Graduate
+       - text: Aristotle
+         url: /notes/Philosophy/Aristotle/
+         section: Undergraduate
+       - text: Epistemology
+         url: /notes/Philosophy/Epistemology/
+         section: Undergraduate
+       - text: Leibniz
+         url: /notes/Philosophy/Leibniz/
+         section: Undergraduate
+       - text: Social and Political Philosophy
+         url: /notes/Philosophy/Social%20and%20Political%20Philosophy/
+         section: Undergraduate
        - text: Theory of Knowledge
          url: /notes/Philosophy/Theory%20of%20Knowledge/
+         section: Undergraduate
     -  text: Mathematics
        url: /notes/Mathematics/
        subnavigation:

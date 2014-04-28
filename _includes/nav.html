@@ -20,10 +20,23 @@
           {% if link.text == 'Blog' and page.categories %}
             {% assign current = 'active' %}
           {% endif %}
-
+          {% if link.text == 'About' and page.title == 'Personal' or page.title == 'Professional' or page.title == 'Academic' or page.title == 'Résumé' %}
+            {% assign current = 'active' %}
+          {% endif %}
+          {% if link.subnavigation.size > 1  %}
+          <li class="has-dropdown {{ current }}">
+            <a href="{{ link.url }}" class="{{ current }}">{{ link.text }}</a>
+            <ul class="dropdown">
+              {% for sublink in link.subnavigation %}
+                <li><a href="{{ sublink.url }}">{{ sublink.text }}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          {% else %}
           <li class="{% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
             <a class="{{ current }}" href="{{ link.url }}">{{ link.text }}</a>
           </li>
+          {% endif %}
       {% endfor %}
       </ul>
     </section>

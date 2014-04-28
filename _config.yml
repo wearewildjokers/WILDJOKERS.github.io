@@ -28,6 +28,7 @@ url:              http://PLJNS.com
 javascript-dir: /public/js
 stylesheet-dir: /public/css
 images-dir:     /public/img
+docs-dir:       /public/docs
 
 simple-form: febc16137a544346020e4aee668d6bde
 disqus: pljns
@@ -53,6 +54,13 @@ navigation:
   url: /projects/
 - text: About
   url: /about/
+  subnavigation:
+    -  text: Personal
+       url: /about/personal/
+    -  text: Professional
+       url: /about/professional/
+    -  text: Academic
+       url: /about/academic/
 - text: Contact
   url: /contact/
 

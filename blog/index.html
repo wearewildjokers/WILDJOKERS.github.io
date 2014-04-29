@@ -16,9 +16,11 @@ subtitle: A twenty-something on technology and philosophy
 				</a>
 			</h2>
 
-			<h3><small>{{ post.date | date_to_string }}</small></h3>
+			<h3><small><i class="fa fa-calendar"></i> {{ post.date | date_to_string }}</small></h3>
 
 			{{ post.content }}
+
+			<hr>
 		</div>
 	</div>
 	{% endfor %}

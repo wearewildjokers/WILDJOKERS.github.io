@@ -1,27 +1,53 @@
 <div class="row">
 	<div class="pagination">
 		<div class="large-12 columns" style="text-align: center;">
-			
 			<ul class="button-group round" style="display: inline-block;">
 				{% if paginator.next_page %}
-					<li><a class="button" href="/blog/page{{paginator.next_page}}" ><div class="text-left"><i class="fa fa-arrow-left"></i> Older</div></a></li>
+					<li>
+						<a class="button" href="/blog/page{{paginator.next_page}}" >
+							<i class="fa fa-arrow-left"></i>
+							<div class="text-left hide-for-small">Older</div>
+						</a>
+					</li>
 				{% else %}
-					<li><a class="button disabled" ><div class="text-left"><i class="fa fa-arrow-left"></i> Older</div></a></li>
+					<li>
+						<a class="button disabled">
+							<i class="fa fa-arrow-left"></i>
+							<div class="text-left hide-for-small">Older</div>
+						</a>
+					</li>
 				{% endif %}
-
-				<li><a class="button" href="/blog/toc/" ><i class="fa fa-list fa-lg"></i> Table of Contents</a></li>
-			
+				<li>
+					<a class="button" href="/blog/toc/">
+						<i class="fa fa-list fa-lg"></i> 
+						<div class="hide-for-small">Table of Contents</div>
+					</a>
+				</li>
 				{% if paginator.previous_page %}
 					{% if paginator.page == 2 %}
-						<li><a class="button" href="/blog/" ><div class="text-right">Newer <i class="fa fa-arrow-right"></i></div></a></li>
+						<li>
+							<a class="button" href="/blog/">
+								<div class="text-right hide-for-small">Newer</div>
+								<i class="fa fa-arrow-right"></i>
+							</a>
+						</li>
 					{% else %}
-						<li><a class="button" href="/blog/page{{paginator.previous_page}}" ><div class="text-right">Newer <i class="fa fa-arrow-right"></i></div></a></li>
+						<li>
+							<a class="button" href="/blog/page{{paginator.previous_page}}" >
+								<div class="text-right hide-for-small">Newer</div>
+								<i class="fa fa-arrow-right"></i>
+							</a>
+						</li>
 					{% endif %}
 				{% else %}
-					<li><a class="button disabled" ><div class="text-right">Newer <i class="fa fa-arrow-right"></i></div></a></li>
+					<li>
+						<a class="button disabled">
+							<div class="text-right hide-for-small">Newer</div>
+							<i class="fa fa-arrow-right" ></i>
+						</a>
+					</li>
 				{% endif %}
 			</ul>
-
 		</div>
 	</div>
 </div>

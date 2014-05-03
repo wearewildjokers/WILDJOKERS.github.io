@@ -130,6 +130,8 @@ navigation:
        url: /about/professional/
     -  text: Academic
        url: /about/academic/
+    -  text: This Site
+       url: /about/this-site/
 - text: Contact
   url: /contact/
 

@@ -1,7 +1,6 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="{{ site.javascript-dir }}/foundation.min.js"></script>
 <script src="{{ site.javascript-dir }}/jquery.toc.min.js"></script>
-
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
 <script type="text/x-mathjax-config">
@@ -34,7 +33,7 @@ MathJax.Hub.Config( {
 <script>
 	$(document).foundation();
 	$(window).bind("load", function () {
-	var footer = $("#footer");
+	var footer = $("footer");
 	var pos = footer.position();
 	var height = $(window).height();
 	height = height - pos.top;
@@ -51,5 +50,4 @@ MathJax.Hub.Config( {
 </script>
 
 <script src="{{ site.javascript-dir }}/responsive-tables.js"></script>
-
-<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<script src="{{ site.javascript-dir }}/run_prettify.js"></script>

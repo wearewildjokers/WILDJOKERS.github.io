@@ -7999,29 +7999,42 @@ header,
 }
 
 /* line 114, ../../../foundation/bower_components/foundation/scss/foundation.scss */
-#footer {
+footer {
   background-color: #333333;
+  overflow: hidden;
+  height: 45px;
+  line-height: 45px;
+  position: relative;
+  background: #333333;
+  margin-bottom: 0;
 }
 /* line 117, ../../../foundation/bower_components/foundation/scss/foundation.scss */
-#footer p {
-  color: #666666;
+footer a {
+  color: #666666 !important;
+}
+/* line 121, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+footer p {
+  font-weight: normal;
+  line-height: 45px;
+  display: block;
+  padding: 0 15px;
 }
 
-/* line 122, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+/* line 136, ../../../foundation/bower_components/foundation/scss/foundation.scss */
 #social-row {
   background-color: #007196;
 }
-/* line 125, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+/* line 139, ../../../foundation/bower_components/foundation/scss/foundation.scss */
 #social-row p, #social-row h1, #social-row h2, #social-row h3, #social-row h4, #social-row h5, #social-row h6 {
   color: white;
 }
 
-/* line 131, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+/* line 145, ../../../foundation/bower_components/foundation/scss/foundation.scss */
 .center-button-group-wrap {
   text-align: center;
 }
 
-/* line 136, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+/* line 150, ../../../foundation/bower_components/foundation/scss/foundation.scss */
 .center-button-group {
   margin-left: auto;
   margin-right: auto;
@@ -8029,31 +8042,31 @@ header,
   display: inline-block;
 }
 
-/* line 144, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+/* line 158, ../../../foundation/bower_components/foundation/scss/foundation.scss */
 header h1, header h2, header h3, header h4, header h5, header h6, #drain h1, #drain h2, #drain h3, #drain h4, #drain h5, #drain h6 {
   color: white;
 }
-/* line 148, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+/* line 162, ../../../foundation/bower_components/foundation/scss/foundation.scss */
 header p, #drain p {
   color: white;
 }
 
-/* line 153, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+/* line 167, ../../../foundation/bower_components/foundation/scss/foundation.scss */
 #socialButtonGroup {
   float: right;
 }
-/* line 156, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+/* line 170, ../../../foundation/bower_components/foundation/scss/foundation.scss */
 #socialButtonGroup li a {
   background-color: transparent;
   border: 0;
   color: #666666;
 }
-/* line 162, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+/* line 176, ../../../foundation/bower_components/foundation/scss/foundation.scss */
 #socialButtonGroup li {
   width: 45px;
 }
 
-/* line 167, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+/* line 181, ../../../foundation/bower_components/foundation/scss/foundation.scss */
 #homepage-hero {
   height: 650px;
   text-align: left;
@@ -8062,18 +8075,18 @@ header p, #drain p {
 }
 
 @media screen and (max-width: 768px) {
-  /* line 175, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+  /* line 189, ../../../foundation/bower_components/foundation/scss/foundation.scss */
   #homepage-hero {
     padding: 40px 5px 30px 5px;
   }
 }
 @media screen and (max-width: 1024px) {
-  /* line 181, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+  /* line 195, ../../../foundation/bower_components/foundation/scss/foundation.scss */
   #homepage-hero {
     height: 500px;
   }
 }
-/* line 186, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+/* line 200, ../../../foundation/bower_components/foundation/scss/foundation.scss */
 #homepage-hero h1 {
   font-size: 4em;
   color: white;
@@ -8083,31 +8096,31 @@ header p, #drain p {
 }
 
 @media screen and (max-width: 768px) {
-  /* line 195, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+  /* line 209, ../../../foundation/bower_components/foundation/scss/foundation.scss */
   #homepage-hero h1 {
     font-size: 50px;
   }
 }
-/* line 200, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+/* line 214, ../../../foundation/bower_components/foundation/scss/foundation.scss */
 #homepage-hero h4 {
   font-size: 1.35em;
   color: white;
   font-weight: 300;
 }
 
-/* line 206, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+/* line 220, ../../../foundation/bower_components/foundation/scss/foundation.scss */
 #homepage-hero h3 {
   color: white;
 }
 
 @media screen and (max-width: 768px) {
-  /* line 211, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+  /* line 225, ../../../foundation/bower_components/foundation/scss/foundation.scss */
   #homepage-hero h3 {
     font-size: 18px;
     line-height: 28px;
   }
 }
-/* line 217, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+/* line 231, ../../../foundation/bower_components/foundation/scss/foundation.scss */
 pre {
   border: 0 !important;
   margin-bottom: 20px;
@@ -8118,7 +8131,7 @@ pre {
   -webkit-overflow-scrolling: touch;
 }
 
-/* line 227, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+/* line 241, ../../../foundation/bower_components/foundation/scss/foundation.scss */
 .round-image {
   border-radius: 9999px;
   -webkit-border-radius: 9999px;
@@ -8126,7 +8139,7 @@ pre {
 }
 
 @media only screen and (max-width: 40em) {
-  /* line 234, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+  /* line 248, ../../../foundation/bower_components/foundation/scss/foundation.scss */
   #homepage-hero .floatingyeti img {
     width: 100%;
     position: relative;
@@ -8136,7 +8149,7 @@ pre {
     left: 120px;
   }
 }
-/* line 244, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+/* line 258, ../../../foundation/bower_components/foundation/scss/foundation.scss */
 .transparent {
   background-color: transparent;
   border-style: solid;
@@ -8146,7 +8159,7 @@ pre {
 }
 
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
-  /* line 253, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+  /* line 267, ../../../foundation/bower_components/foundation/scss/foundation.scss */
   #homepage-hero .floatingyeti img {
     width: 100%;
     position: absolute;
@@ -8154,23 +8167,23 @@ pre {
     bottom: 0px;
   }
 }
-/* line 261, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+/* line 275, ../../../foundation/bower_components/foundation/scss/foundation.scss */
 .project-panel p {
   margin-bottom: 0;
 }
 
-/* line 265, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+/* line 279, ../../../foundation/bower_components/foundation/scss/foundation.scss */
 .project-panel a {
   margin-bottom: 0;
   margin-top: 10px;
 }
 
-/* line 270, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+/* line 284, ../../../foundation/bower_components/foundation/scss/foundation.scss */
 li p {
   margin-bottom: 0px;
 }
 
-/* line 274, ../../../foundation/bower_components/foundation/scss/foundation.scss */
+/* line 288, ../../../foundation/bower_components/foundation/scss/foundation.scss */
 .col {
   background: #f0f0f0;
   width: 230px;

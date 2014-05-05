@@ -16,14 +16,9 @@ layout: default
 
 		{% include breadcrumbs.html %}
 
-		<div id="toc"></div>
-
 		<article>
 			<div class="row">
 				<div class="large-12 columns">
-
-					<h2>{{ page.title }}</h2>
-
 					{% for link in site.navigation %}
 						{% if link.text == 'Notes' %}
 							{% for sublink in link.subnavigation %}
@@ -50,7 +45,6 @@ layout: default
 							{% endfor %}
 						{% endif %}
 					{% endfor %}
-
 				</div>
 			</div>
 

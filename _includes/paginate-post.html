@@ -1,0 +1,67 @@
+<div class="row">
+	<div class="pagination">
+		<div class="large-12 columns" style="text-align: center;">
+			<ul class="button-group round" style="display: inline-block;">
+				{% assign currentPost = nil %}
+				{% assign previousPost = nil %}
+				{% assign nextPost = nil %}
+				{% assign doNextPost = false %}
+
+				{% for post in site.posts %}
+						{% if doNextPost == true %}
+							{% assign nextPost = post %}
+						{% break %}
+						{% endif %}
+
+						{% assign currentPost = post %}
+						
+						{% if currentPost.title == page.title %}
+
+							{% assign doNextPost = true %}
+							{% continue %}
+						{% endif %}
+
+						{% assign previousPost = currentPost %}
+				{% endfor %}
+
+				{% if nextPost %}
+				<li>
+					<a class="button" href="{{ nextPost.url }}" >
+						<i class="fa fa-arrow-left"></i>
+						<div class="text-left hide-for-small">{{ nextPost.date | date_to_string }}</div>
+					</a>
+				</li>
+				{% else %}
+					<li>
+						<a class="button disabled">
+							<i class="fa fa-arrow-left"></i>
+							<div class="text-left hide-for-small">No older posts</div>
+						</a>
+					</li>
+				{% endif %}
+				<li>
+					<a class="button" href="/blog/toc/">
+						<i class="fa fa-list fa-lg"></i> 
+						<div class="hide-for-small">Table of Contents</div>
+					</a>
+				</li>
+				{% if previousPost %}
+				<li>
+					<a class="button" href="{{ previousPost.url }}">
+						<div class="text-right hide-for-small">{{ previousPost.date | date_to_string }}</div>
+						<i class="fa fa-arrow-right"></i>
+					</a>
+				</li>
+				{% else %}
+					<li>
+						<a class="button disabled">
+							<div class="text-left hide-for-small">No newer posts</div>
+							<i class="fa fa-arrow-right"></i>
+						</a>
+					</li>
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+</div>
+

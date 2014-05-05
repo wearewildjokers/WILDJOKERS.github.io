@@ -4,7 +4,7 @@ title: Blog
 subtitle: A twenty-something on technology and philosophy
 ---
 
-{% include pagination.html %}
+{% include paginate-blog.html %}
 
 <div class="posts">
 	{% for post in paginator.posts %}
@@ -26,4 +26,4 @@ subtitle: A twenty-something on technology and philosophy
 	{% endfor %}
 </div>
 
-{% include pagination.html %}
+{% include paginate-blog.html %}

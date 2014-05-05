@@ -20,6 +20,8 @@ layout: default
 				<li class="current"><a href="{{ page.url }}">{{ page.title }}</a></li>
 			</ul>
 
+			{% include paginate-post.html %}
+
 			<article>
 				<h2 class="post-title">{{ page.title }}<br></h2>
 				<h3><small><i class="fa fa-calendar"></i> {{ page.date | date_to_string }}</small></h3>

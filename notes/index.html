@@ -1,24 +1,6 @@
 ---
-layout: page
+layout: note-page
 title: Notes
 subtitle: My digital notebook from Rutgers University
 ---
 
-<div class="row">
-	<div class="large-12 columns">
-
-		<h2>{{ page.title }}</h2>
-
-		{% for link in site.navigation %}
-			{% if link.text == page.title %}
-				{% for sublink in link.subnavigation %}
-
-
-					<a href="{{ sublink.url }}" class="button expand">{{ sublink.text }}</a>
-
-				{% endfor %}
-			{% endif %}
-		{% endfor %}
-
-	</div>
-</div>

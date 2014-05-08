@@ -39,9 +39,12 @@ MathJax.Hub.Config( {
 	height = height - pos.top;
 	height = height - footer.height();
 	if (height > 0) {
+		{% if page.title != "Home" %}
 		footer.css({
 			'margin-top': height + 'px'
 		});
+		{% endif %}
+
 	}
 	});
 	$("pre").addClass("prettyprint");

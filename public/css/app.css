@@ -2,60 +2,60 @@
 @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css");
 @font-face {
   font-family: "Linux Binolium";
-  src: url("../fonts/sans-serif/LinBiolinum_R.woff") format("woff");
+  src: url("http://pljns.com/public/fonts/sans-serif/LinBiolinum_R.woff") format("woff");
 }
 
 @font-face {
   font-family: "Linux Binolium";
-  src: url("../fonts/sans-serif/LinBiolinum_RB.woff") format("woff");
+  src: url("http://pljns.com/public/fonts/sans-serif/LinBiolinum_RB.woff") format("woff");
   font-weight: bold;
 }
 
 @font-face {
   font-family: "Linux Libertine";
-  src: url("../fonts/serif/LinLibertine_R.woff") format("woff");
+  src: url("http://pljns.com/public/fonts/serif/LinLibertine_R.woff") format("woff");
 }
 
 @font-face {
   font-family: "Linux Libertine";
-  src: url("../fonts/serif/LinLibertine_RB.woff") format("woff");
+  src: url("http://pljns.com/public/fonts/serif/LinLibertine_RB.woff") format("woff");
   font-weight: bold;
 }
 
 @font-face {
   font-family: "Linux Libertine";
-  src: url("../fonts/serif/LinLibertine_RBI.woff") format("woff");
+  src: url("http://pljns.com/public/fonts/serif/LinLibertine_RBI.woff") format("woff");
   font-weight: bold;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Linux Libertine";
-  src: url("../fonts/serif/LinLibertine_RI.woff") format("woff");
+  src: url("http://pljns.com/public/fonts/serif/LinLibertine_RI.woff") format("woff");
   font-style: italic;
 }
 
 @font-face {
   font-family: "Liberation Mono";
-  src: url("../fonts/mono/liberationmono-regular.woff") format("woff");
+  src: url("http://pljns.com/public/fonts/mono/liberationmono-regular.woff") format("woff");
 }
 
 @font-face {
   font-family: "Liberation Mono";
-  src: url("../fonts/mono/liberationmono-bold.woff") format("woff");
+  src: url("http://pljns.com/public/fonts/mono/liberationmono-bold.woff") format("woff");
   font-weight: bold;
 }
 
 @font-face {
   font-family: "Liberation Mono";
-  src: url("../fonts/mono/liberationmono-bolditalic.woff") format("woff");
+  src: url("http://pljns.com/public/fonts/mono/liberationmono-bolditalic.woff") format("woff");
   font-weight: bold;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Liberation Mono";
-  src: url("../fonts/mono/liberationmono-italic.woff") format("woff");
+  src: url("http://pljns.com/public/fonts/mono/liberationmono-italic.woff") format("woff");
   font-style: italic;
 }
 

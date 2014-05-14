@@ -1,24 +1,20 @@
-- name: <a href="http://pljns.com/papers/What%20are%20the%20Problems%20for%20Infinitism/">Senior Honors Thesis</a>
-  tags: [Coursework, Philosophy, Academic]
-  description: "I worked with the extraordinary and insightful Prof. Peter Klein to complete deparmental honors in the philosophy program with an undergraduate honors thesis."
-  github: https://github.com/PLJNS/Rutgers-SHS-Spring-2014
 - name: Fekyll
   github: https://github.com/WildJokers/Fekyll
-  description: "Managing content with Jekyll is powerful and easy. Manipulating style with Foundation 5 allows for massive change quickly. Fekyll allows you to run <code>compass watch</code> on the <code>foundation</code> directory while running <code>jekyll serve -w</code> on the <code>jekyll</code> directory in order to rapidly prototype content and style."
-  tags: [CSS, JavaScription, Foundation, Jekyll]
+  description: "Rapidly prototype content and style."
+  language: [CSS]
 - name: Marksite
   github: https://github.com/PLJNS/Marksite
-  description: "Marksite is a dynamic website generator where every Markdown file is a page, and every directory is both a page and a navigation drop down. This allows you to create content independent of web development, organizing it however you find logical. Then, Marksite creates an interface with the same structure you designed!"
-  tags: [PHP, CSS, Web]
+  description: "A dynamic website engine for Markdown. "
+  language: [PHP]
 - name: Markablog
   github: https://github.com/PLJNS/Markablog
-  description: "This script accepts Markdown as input and builds a blog style website. Everything is an asset, the effort for every task is distilled. It's unique in that it allows you to not do very much to dramatically change the site."
-  tags: [Perl, CSS, JavaScript]
+  description: "Static site generator in Perl, Markdown"
+  language: [Perl]
 - name: AwesomeApps
   github: https://github.com/PLJNS/AwesomeApps
-  description: "I always had this little craving to mock-up an app spring board with some standard apps, just for some fun. I used Bootstrap and Font Awesome to make the actual icons, and BrandColors for the, well, brand colors. Big thank you to MaxCDN and their Bootstrap CDN, also the mysterious iOS 7 Colors for help with gradients."
-  tags: [CSS]
+  description: "CSS and Font Awesome App Icons"
+  language: [CSS]
 - name: Rutstrap
   github:  https://github.com/PLJNS/Rutstrap
-  description: "I added more red to Twitter Bootstrap. In the process, I learned how to use the LESS CSS preprocessor, how to compile using Node.js, and how to template with mustache."
-  tags: [LESS, CSS, Node.js, JavaScript, Bootstrap]
+  description: "Rutgers Bootstrap theme."
+  language: [CSS]

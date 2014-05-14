@@ -3,10 +3,12 @@ layout: default
 ---
 
 <header id="pageHeader">
-	<div class="row">
-		<div class="large-10 large-offset-1 columns">
-			<h1>{{ page.title }}</h1>
-			<h4>{{ page.subtitle }}</h4>
+	<div id="pageHeaderIn">
+		<div class="row">
+			<div class="large-10 large-offset-1 columns">
+				<h1>{{ page.title }}</h1>
+				<h4>{{ page.subtitle }}</h4>
+			</div>
 		</div>
 	</div>
 </header>
@@ -23,7 +25,7 @@ layout: default
 						{% if link.text == 'Notes' %}
 							{% for sublink in link.subnavigation %}
 								{% if page.title == 'Notes' %}
-									<a href="{{ sublink.url }}" class="button expand">{{ sublink.text }}</a>
+									<a href="{{ sublink.url }}" class="button radius large expand">{{ sublink.text }}</a>
 								{% else %}
 									{% if sublink.text == page.title %}
 
@@ -37,11 +39,11 @@ layout: default
 											{% endif %}
 
 											{% if previousSection != currentSection %}
-												<h3>{{ currentSection }}</h3>
+												<h2>{{ currentSection }}</h2>
 												{% assign previousSection = currentSection %}
 											{% endif %}
 
-											<a href="{{ subsublink.url }}" class="button expand">{{ subsublink.text }}</a>
+											<a href="{{ subsublink.url }}" class="button radius large expand">{{ subsublink.text }}</a>
 
 										{% endfor %}
 									{% endif %}

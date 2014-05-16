@@ -19,7 +19,7 @@ social:
   email:             paulmmj@gmail.com
 
 # Setup
-title:            PLJNS.com
+title:            PLJNS
 tagline:          'British-American Student and Developer'
 description: | 
               I was born in June of 1993 in Birmingham, England into an English/Irish home. 
@@ -149,8 +149,6 @@ navigation:
        url: /about/professional/
     -  text: Academic
        url: /about/academic/
-    -  text: This Site
-       url: /about/this-site/
 - text: Contact
   url: /contact/
 

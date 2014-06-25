@@ -1,0 +1,22 @@
+---
+layout: page
+title: Store
+subtitle: Get the latest gear from Wild Jokers.
+---
+
+<div class="row">
+
+{% for item in site.data.store %}
+
+  <div class="large-4 medium-6 small-12 columns product">
+    <a href="{{ item.href }}"><img src="{{ site.images-dir }}/{{ item.img }}"></a>
+
+    <div class="panel">
+      <h5>{{ item.name }}</h5>
+      <h6 class="subheader">{{ item.price}}</h6>
+    </div>
+  </div>
+
+{% endfor %}
+
+</div>

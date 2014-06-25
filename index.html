@@ -7,13 +7,88 @@ title: Home
   <div class="row">
 
     <div class="large-12 columns text-center">
-      <img src="{{ site.images-dir }}/headshot.jpg" class="round-image th" height="250" width="250" alt="me">
-      <h1>{{ site.author.name }}</h1><br>
-      <h3>{{ site.tagline }}</h3>
+      <img src="{{ site.images-dir }}/logo.png" class="" height="500" width="1000" alt="me">
       <br>
+        {% include social-buttons.html %}
     </div>
-
   </div>
 </header>
+
+    <section class="row" style="padding-bottom: 20px;">
+      
+        <header class="large-3 columns" >
+          <h3>Upcoming Releases</h3>
+          <p>The latest sounds from Wild Jokers.</p>
+          <!-- <p><a href="/products" class="button">Browse Releases <i class="fa fa-angle-double-right"></i></a></p> -->
+        </header>
+      
+      {% for post in site.categories.release limit:3 %} 
+      
+        <div class="large-4 columns media">
+          <img src="/public/img/album_art/{{ post.album-cover }}" width="300" height="153" alt="">
+          <div class="bd">
+            <!-- <h5>{{ post.title }}</h5>
+            <p>{{ post.description }}</p>
+            <p><a href="/products/debet-eruditi-an"><i class="fa fa-play-circle"></i> Play now <i class="fa fa-angle-double-right"></i></a></p>-->
+          </div>
+        </div>
+
+        {% endfor %}
+      
+    </section>
+  
+  <!--
+    <section class="row">
+        
+        <header class="large-3 columns">
+          <h3>Blog</h3>
+          <p>For the latest wildest news.</p>
+          <a href="/news" class="button">Read News <i class="fa fa-angle-double-right"></i></a>
+        </header>
+      
+      
+      {% for post in site.posts limit:3 %}
+        <div class="large-3 columns">
+          <h5>{{ post.title }}</h5>
+          <p>Lorem ipsum dolor sit amet, sed an vero persius vituperata. Accusata consulatu…</p>
+
+          <p><a href="/news/ea-mea-omnis-delectus-ad-ipsum-disputando"><i class="fa fa-calendar"></i> {{ post.date | date: "%-d %B %Y" }} <i class="fa fa-angle-double-right"></i></a></p>
+        </div>
+       {% endfor %}
+      
+    </section>
+  -->
+    <section class="row">
+      <header class="large-3 columns">
+        
+          <h3>About Us</h3>
+          <p>Who are the Wild Jokers and what are they doing?</p>
+          <!-- <p><a href="/about" class="button">Learn More »</a></p> -->
+        
+      </header>
+
+      
+        <div class="large-3 columns">
+          <blockquote>
+            <p>We're working to build a record label that's fun, agile, and savvy. We're coming for your speakers and we're bringing a good time.</p>
+            <small>@DJSQUO</small>
+          </blockquote>
+        </div>
+      
+        <div class="large-3 columns">
+          <blockquote>
+            <p>We have tremendous talent here are Wild Jokers, we record and produce a dynamic and varied cast to fill our state-of-the-art studio.</p>
+            <small>@REZ_Official</small>
+          </blockquote>
+        </div>
+      
+        <div class="large-3 columns">
+          <blockquote>
+            <p>Fusing quality music production with tech know-how, Wild Jokers is positioned to compete in the industry of tomorrow.</p>
+            <small>@PLJNS</small>
+          </blockquote>
+        </div>
+      
+    </section>
 
 

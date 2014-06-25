@@ -1,0 +1,19 @@
+<section class="top-bar-section">
+	<ul class="right social">
+		{% for item in site.social %}
+			{% if item.icon %}
+				<li>
+					<a class="{{ item.service }}" target="_blank" title="{{ item.service }}" href="{{ item.link }}">
+						<i class="fa fa-{{ item.icon }} fa-lg"></i>
+					</a>
+				</li>
+			{% else %}
+				<li>
+					<a class="{{ item.service }}" target="_blank" title="{{ item.service }}" href="{{ item.link }}">
+						<i class="fa fa-{{ item.service }} fa-lg"></i>
+					</a>
+				</li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+</section>

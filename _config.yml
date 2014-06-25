@@ -6,45 +6,29 @@ permalink:        pretty
 
 # Social
 
-social: 
-  facebook:          paulmmj
-  twitter:           PLJNS
-  google-plus:       PaulJones93
-  foursquare:        PLJNS
-  github:            PLJNS
-  soundcloud:        PLJNS
-  youtube:           paulmmj
-  instagram:         PLJNS
-  linkedin:          paulmmj
-  email:             paulmmj@gmail.com
+social:
+  - service: facebook
+    link: http://facebook.com/wearewildjokers
+  - service: twitter
+    link: http://twitter.com/wearewildjokers
+  - service: google-plus
+    link: https://plus.google.com/100242795084056372803/posts/WFH1JM2ADbA
+  - service: soundcloud
+    link: http://soundcloud.com/wearewildjokers
+  - service: youtube
+    link: https://www.youtube.com/channel/UC0JO0743wmBtJcG7oAtJh7A
+  - service: instagram
+    link: http://instagram.com/wearewildjokers
+  - service: email
+    link: mailto:wearewildjokers@gmail.com
+    icon: envelope
 
 # Setup
-title:            PLJNS
-tagline:          'British-American Student and Developer'
-description: | 
-              I was born in June of 1993 in Birmingham, England into an English/Irish home. 
-              After three years and my sister was born, my family moved to Fleurey-Sur-Ouche,
-              France, where we would spend the next four years. My family moved to the United 
-              States of America in 2000, and we settled in New Jersey. In 2012, I became a 
-              proud citizen of my adopted country. Now, I live in New Brunswick, NJ.
+title:            WILD JOKERS
+tagline:          ''
+description: ""
 
-              I was hired by Local Wisdom in May of 2012 to work in Research and Development, 
-              namely their Weatherwise and Photomash applications. For the current Weatherwise 
-              2.0, I implemented the Theme Store, where users can purchase different themes for 
-              the app. For the upcoming Weatherwise 3.0 update, I implemented the app's animation 
-              engine across platforms and a Mac application to create Weatherwise themes. I have 
-              also worked with the Green Party of New Jersey, student organizations, and friends in 
-              building websites.
-
-              I earned an Associate's Degree in Liberal Arts from Mercer County Community 
-              College during my last two years of high school. Transferring to Rutgers University 
-              in the ensuing Spring of 2012, I declared as both a Computer Science and Philosophy 
-              major. I am an active member of the Rutgers undergraduate philosophy community, 
-              holding leadership positions in the Philosophy Club, Undergraduate Journal, and 
-              Philosophy Honors Society. I graduate after the Fall of 2014, and I am applying 
-              to graduate schools for philosophy.
-
-url:              http://PLJNS.com
+url:              http://wearewildjokers.com
 
 javascript-dir: /public/js
 stylesheet-dir: /public/css
@@ -52,11 +36,11 @@ images-dir:     /public/img
 docs-dir:       /public/docs
 
 simple-form: febc16137a544346020e4aee668d6bde
-disqus: pljns
+disqus: wearewildjokers
 
 author:
-  name:           'Paul Jones'
-  url:            http://PLJNS.com
+  name:           'Wild Jokers'
+  url:            http://wearewildjokers.com
 
 paginate:         3
 paginate_path: blog/page:num
@@ -69,86 +53,14 @@ version:          1.0.0
 navigation:
 - text: Blog
   url: /blog/
-- text: Notes
-  url: /notes/
-  subnavigation:
-    -  text: Computer Science
-       url: /notes/Computer%20Science/
-       subnavigation:
-       - text: Data Structures
-         url: /notes/Computer%20Science/Data%20Structures/
-         section: Theory
-       - text: Design and Analysis of Computer Algorithms
-         url: /notes/Computer%20Science/Design%20and%20Analysis%20of%20Computer%20Algorithms/
-         section: Theory
-       - text: Information and Data Management
-         url: /notes/Computer%20Science/Information%20and%20Data%20Management/
-         section: Theory
-       - text: Computer Architecture
-         url: /notes/Computer%20Science/Computer%20Architecture/
-         section: Practice
-       - text: Internet Technology
-         url: /notes/Computer%20Science/Internet%20Technology/
-         section: Practice
-       - text: Programming Languages
-         url: /notes/Computer%20Science/Programming%20Languages/
-         section: Practice
-       - text: Software Methodology
-         url: /notes/Computer%20Science/Software%20Methodology/
-         section: Practice
-       - text: Systems Programming
-         url: /notes/Computer%20Science/Systems%20Programming/
-         section: Practice
-    -  text: Philosophy
-       url: /notes/Philosophy/
-       subnavigation:
-       - text: Advanced Topics in Metaphysics
-         url: /notes/Philosophy/Advanced%20Topics%20in%20Metaphysics/
-         section: Graduate
-       - text: Philosophy of Psychology
-         url: /notes/Philosophy/Philosophy%20of%20Psychology/
-         section: Graduate
-       - text: Survey in Epistemology
-         url: /notes/Philosophy/Survey%20in%20Epistemology/
-         section: Graduate
-       - text: Aristotle
-         url: /notes/Philosophy/Aristotle/
-         section: Undergraduate
-       - text: Epistemology
-         url: /notes/Philosophy/Epistemology/
-         section: Undergraduate
-       - text: Leibniz
-         url: /notes/Philosophy/Leibniz/
-         section: Undergraduate
-       - text: Social and Political Philosophy
-         url: /notes/Philosophy/Social%20and%20Political%20Philosophy/
-         section: Undergraduate
-       - text: Theory of Knowledge
-         url: /notes/Philosophy/Theory%20of%20Knowledge/
-         section: Undergraduate
-    -  text: Mathematics
-       url: /notes/Mathematics/
-       subnavigation:
-       - text: Introduction to Discrete Structures I
-         url: /notes/Mathematics/Introduction%20to%20Discrete%20Structures%20I/
-         section: For Computer Science
-       - text: Introduction to Discrete Structures II
-         url: /notes/Mathematics/Introduction%20to%20Discrete%20Structures%20II/
-         section: For Computer Science
-       - text: Introduction to Linear Algebra
-         url: /notes/Mathematics/Introduction%20to%20Linear%20Algebra/
-         section: Pure
-- text: Projects
-  url: /projects/
-- text: About
-  url: /about/
-  subnavigation:
-    -  text: Personal
-       url: /about/personal/
-    -  text: Professional
-       url: /about/professional/
-    -  text: Academic
-       url: /about/academic/
+- text: Artists
+  url: /artists/
+- text: Releases
+  url: /releases/
+- text: Events
+  url: /events/
+- text: Store
+  url: /store/
 - text: Contact
   url: /contact/
 

@@ -33,20 +33,22 @@ MathJax.Hub.Config( {
 <script>
 	$(document).foundation();
 	$(window).bind("load", function () {
-	var footer = $("footer");
-	var pos = footer.position();
-	var height = $(window).height();
-	height = height - pos.top;
-	height = height - footer.height();
-	if (height > 0) {
-		{% if page.title != "Home" %}
-		footer.css({
-			'margin-top': height + 'px'
-		});
-		{% endif %}
-
-	}
+		var footer = $("footer");
+		var hero = $(".top-bar").height;
+		var pos = footer.position();
+		var height = $(window).height();
+		height = height - pos.top;
+		height = height - footer.height();
+		if (height > 0) {
+			{% if page.title != "Home" %}
+			footer.css({
+				'margin-top': height + 'px'
+			});
+			{% endif %}
+		}
 	});
+	
+	
 	$("pre").addClass("prettyprint");
 	$("code").addClass("prettyprint");
 	$("table").addClass("responsive");

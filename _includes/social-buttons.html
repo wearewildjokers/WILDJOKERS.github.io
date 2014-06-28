@@ -1,15 +1,15 @@
-<div class="center-button-group-wrap">
-	<ul class="button-group round center-button-group">
+<div class="center-button-group-wrap" style="padding-top:20px;">
+	<ul class="button-group  center-button-group">
 		{% for item in site.social %}
 			{% if item.icon %}
 				<li>
-					<a class="button" target="_blank" title="{{ item.service }}" href="{{ item.link }}">
+					<a class="button secondary {{ item.service }}" target="_blank" title="{{ item.service }}" href="{{ item.link }}">
 						<i class="fa fa-{{ item.icon }} fa-lg"></i>
 					</a>
 				</li>
 			{% else %}
 				<li>
-					<a class="button" target="_blank" title="{{ item.service }}" href="{{ item.link }}">
+					<a class="button secondary {{ item.service }}" target="_blank" title="{{ item.service }}" href="{{ item.link }}">
 						<i class="fa fa-{{ item.service }} fa-lg"></i>
 					</a>
 				</li>

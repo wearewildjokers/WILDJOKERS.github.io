@@ -51,16 +51,16 @@ version:          1.0.0
 # Navigation
 
 navigation:
-- text: Blog
-  url: /blog/
-- text: Artists
-  url: /artists/
-- text: Releases
-  url: /releases/
-- text: Events
-  url: /events/
-- text: Store
-  url: /store/
-- text: Contact
+#- text: BLOG
+#  url: /blog/
+#- text: ARTISTS
+#  url: /artists/
+#- text: RELEASES
+#  url: /releases/
+#- text: EVENTS
+#  url: /events/
+#- text: STORE
+#  url: /store/
+- text: CONTACT
   url: /contact/
 

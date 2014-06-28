@@ -2,14 +2,14 @@
 		<ul class="title-area">
 			<!-- Title Area -->
 			<li class="name">
-				<h1><a href="/">{{ site.title }}</a></h1>
+				<h1><a href="/"><img src="/public/img/logos/top-logo.png" width="100"></a></h1>
 			</li>
 			<li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
 		</ul>
  
 		<section class="top-bar-section">
 			<!-- Right Nav Section -->
-			<ul class="left"> <!--
+			<ul class="right text-center" style="margin-right: 40px;">   
 				{% for link in site.navigation %}
 
 					{% assign current = nil %}
@@ -78,7 +78,7 @@
 						</li>
 						{% endif %}
 					{% endif %} 
-			{% endfor %} -->
+			{% endfor %} 
 			</ul>
 		</section>
 	</nav>

@@ -34,6 +34,9 @@ javascript-dir: /public/js
 stylesheet-dir: /public/css
 images-dir:     /public/img
 docs-dir:       /public/docs
+artists-dir:    /public/img/artists
+releases-dir:   /public/img/releases
+events-dir:     /public/img/events
 
 simple-form: febc16137a544346020e4aee668d6bde
 disqus: wearewildjokers
@@ -53,10 +56,12 @@ version:          1.0.0
 navigation:
 #- text: BLOG
 #  url: /blog/
-#- text: ARTISTS
-#  url: /artists/
-#- text: RELEASES
-#  url: /releases/
+- text: ARTISTS
+  url: /artists/
+- text: RELEASES
+  url: /releases/
+#- text: RADIO
+#  url: /radio/
 #- text: EVENTS
 #  url: /events/
 #- text: STORE

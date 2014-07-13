@@ -39,7 +39,7 @@ releases-dir:   /public/img/releases
 events-dir:     /public/img/events
 
 simple-form: febc16137a544346020e4aee668d6bde
-disqus: wearewildjokers
+disqus: wildjokers
 
 author:
   name:           'Wild Jokers'

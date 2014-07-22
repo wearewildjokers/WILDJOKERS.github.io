@@ -1,8 +1,0 @@
-@media only print
-{
-	/* hide every element within the body */
-
-	body { margin:0; padding:0; line-height: 1.4em; word-spacing:1px; letter-spacing:0.2px; color: #000;}
-	header, .breadcrumbs, .top-bar, #Comments, #footer, .pagination { display: none; }
-	blockquote { border: 0; font-style: italic; }
-}

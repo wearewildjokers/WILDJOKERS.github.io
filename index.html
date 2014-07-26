@@ -17,6 +17,9 @@
     <!-- Custom CSS -->
     <link href="css/freelancer.css" rel="stylesheet">
 
+    <!-- Custom CSS -->
+    <link href="css/wildjokers.css" rel="stylesheet">
+
     <!-- Custom Fonts -->
     <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -59,9 +62,14 @@
                     <li class="page-scroll">
                         <a href="#about">Artists</a>
                     </li>
+                    <!--
                     <li class="page-scroll">
-                        <a href="#contact">Social</a>
+                        <a href="#events">Events</a>
                     </li>
+                    <li class="page-scroll">
+                        <a href="#store">Store</a>
+                    </li>
+                    -->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -71,18 +79,24 @@
 
     <!-- Header -->
     <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <img class="img-responsive" src="img/profile.png" alt="">
-                    <div class="intro-text">
-                        <span class="name">Wild Jokers</span>
-                        <hr class="star-light">
-                        <span class="skills">Record Label • Talent Agency • Promotions</span>
-                    </div>
-                </div>
+            <div id="myCarousel" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="active item">
+                <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                    <img src="img/carousel/WJR001.jpg" alt="Slide1" />
+                </a>
             </div>
+            <div class="item">
+                <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                    <img src="img/carousel/WJR002.jpg" alt="Slide2" />
+                </a>
+            </div>
+            
         </div>
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
+ <a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
+
+    </div>
     </header>
 
     <!-- Portfolio Grid Section -->
@@ -145,6 +159,13 @@
                         <img src="img/releases/WJR00B.jpg" class="img-responsive" alt="">
                     </a>
                 </div>
+                <!--
+                <div class="col-sm-4 portfolio-item">
+                    <a href="" class="">
+                        <img src="img/see-more.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+                -->
             </div>
         </div>
     </section>
@@ -209,45 +230,77 @@
                         <img src="img/artists/WJRA001.jpg" class="img-responsive" alt="">
                     </a>
                 </div>
+                <!--
+                <div class="col-sm-4 portfolio-item">
+                    <a href="" class="">
+                        <img src="img/see-more-black.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+                -->
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
+    <!--
+    <section id="events">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Social</h2>
+                    <h2>Events</h2>
                     <hr class="star-primary">
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="btn-group-wrap">
-                        <div class="btn-group">
-                          <a href="http://facebook.com/wearewildjokers" class="btn btn-default btn-success btn-lg"><i class="fa fa-fw fa-2x fa-facebook"></i></a>
-                          <a href="http://twitter.com/wearewildjokers" class="btn btn-default btn-success btn-lg"><i class="fa fa-fw fa-2x fa-twitter"></i></a>
-                          <a href="http://soundcloud.com/wearewildjokers" class="btn btn-default btn-success btn-lg"><i class="fa fa-fw fa-2x fa-soundcloud"></i></a>
-                          <a href="http://instagram.com/wearewildjokers" class="btn btn-default btn-success btn-lg"><i class="fa fa-fw fa-2x fa-instagram"></i></a>
-                          <a href="https://www.youtube.com/channel/UC0JO0743wmBtJcG7oAtJh7A" class="btn btn-default btn-success btn-lg"><i class="fa fa-fw fa-2x fa-youtube"></i></a>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </section>
+
+    <section id="store" class="success">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Store</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                
+            </div>
+        </div>
+    </section>
+    -->
 
     <!-- Footer -->
     <footer class="text-center">
         <div class="footer-above">
             <div class="container">
                 <div class="row">
-                    <div class="footer-col col-md-6">
+                    <div class="footer-col col-md-4">
                         <h3>Location</h3>
                         <p>Central New Jersey,<br>Metropolitan Tri-State Area</p>
                     </div>
-                    <div class="footer-col col-md-6">
+                    <div class="footer-col col-md-4">
+                        <h3>Around the Web</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="http://facebook.com/wearewildjokers" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="http://twitter.com/wearewildjokers" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="http://soundcloud.com/wearewildjokers" class="btn-social btn-outline"><i class="fa fa-fw fa-soundcloud"></i></a>
+                            </li>
+                            <li>
+                                <a href="http://instagram.com/wearewildjokers" class="btn-social btn-outline"><i class="fa fa-fw fa-instagram"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.youtube.com/channel/UC0JO0743wmBtJcG7oAtJh7A" class="btn-social btn-outline"><i class="fa fa-fw fa-youtube"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col col-md-4">
                         <h3>About WILD JOKERS</h3>
                         <p>WILD JOKERS curates and releases NJ musicians to the underground
 dance music scene, with production spearheaded by founders SQUO and REZ.</p>

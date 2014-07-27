@@ -1,0 +1,57 @@
+<!-- Artists Section -->
+<section id="artists" class="success portfolio">
+    <div class="container">
+        {% if page.title == 'Home'%}
+        <div class="row">
+        {% else %}
+        <div class="row" style="margin-top:20px;">
+        {% endif %}
+            <div class="col-lg-12 text-center">
+                <h2>Artists</h2>
+                <hr class="star-light">
+            </div>
+        </div>
+        <div class="row">
+            {% if page.title == 'Home'%}
+                {% for artist in site.data.artists limit:2 %}
+                    <div class="col-sm-4 portfolio-item">
+                        <a href="{{ artist.soundcloud }}" class="portfolio-link" data-toggle="modal">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <i class="fa fa-arrow-circle-o-up fa-3x"></i>
+                                </div>
+                            </div>
+                            <img src="/img/artists/{{ artist.id }}.jpg" class="img-responsive" alt="">
+                        </a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                {% for artist in site.data.artists %}
+                    <div class="col-sm-4 portfolio-item">
+                        <a href="{{ artist.soundcloud }}" class="portfolio-link" data-toggle="modal">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <i class="fa fa-arrow-circle-o-up fa-3x"></i>
+                                </div>
+                            </div>
+                            <img src="/img/artists/{{ artist.id }}.jpg" class="img-responsive" alt="">
+                        </a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            {% if page.title == 'Home'%}
+                <div class="col-sm-4 portfolio-item">
+                    <a href="/artists/" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-arrow-circle-right fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="/img/artists/more.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

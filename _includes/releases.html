@@ -1,0 +1,82 @@
+<!-- Releases Grid Section -->
+<section id="releases" class="portfolio">
+    <div class="container">
+        {% if page.title == 'Home'%}
+        <div class="row">
+        {% else %}
+        <div class="row" style="margin-top:20px;">
+        {% endif %}
+            <div class="col-lg-12 text-center">
+                <h2>Releases</h2>
+                <hr class="star-primary">
+            </div>
+        </div>
+        <div class="row">
+            {% if page.title == 'Home'%}
+                {% for release in site.data.releases limit:2 %}
+                    <div class="col-sm-4 portfolio-item">
+                        <a href="#{{ release.id }}" class="portfolio-link" data-toggle="modal">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    {{ release.caption }}
+                                </div>
+                            </div>
+                            <img src="/img/releases/{{ release.id }}.jpg" class="img-responsive" alt="">
+                        </a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                {% for release in site.data.releases %}
+                    <div class="col-sm-4 portfolio-item">
+                        <a href="#{{ release.id }}" class="portfolio-link" data-toggle="modal">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    {{ release.caption }}
+                                </div>
+                            </div>
+                            <img src="/img/releases/{{ release.id }}.jpg" class="img-responsive" alt="">
+                        </a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            {% if page.title == 'Home'%}
+                <div class="col-sm-4 portfolio-item">
+                    <a href="./releases/" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-arrow-circle-right fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="/img/releases/more.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            {% endif %}
+            
+        </div>
+    </div>
+</section>
+
+{% for release in site.data.releases %}
+    <div class="portfolio-modal modal fade" id="{{ release.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>{{ release.name }}</h2>
+                            <hr class="star-primary">
+                            {{ release.html }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}

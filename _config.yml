@@ -4,25 +4,6 @@ redcarpet:
 pygments:         true
 permalink:        pretty
 
-# Social
-
-social:
-  - service: facebook
-    link: http://facebook.com/wearewildjokers
-  - service: twitter
-    link: http://twitter.com/wearewildjokers
-  - service: google-plus
-    link: https://plus.google.com/100242795084056372803/posts/WFH1JM2ADbA
-  - service: soundcloud
-    link: http://soundcloud.com/wearewildjokers
-  - service: youtube
-    link: https://www.youtube.com/channel/UC0JO0743wmBtJcG7oAtJh7A
-  - service: instagram
-    link: http://instagram.com/wearewildjokers
-  - service: email
-    link: mailto:wearewildjokers@gmail.com
-    icon: envelope
-
 # Setup
 title:            WILD JOKERS
 tagline:          ''

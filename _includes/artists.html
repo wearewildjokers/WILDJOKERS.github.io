@@ -15,7 +15,7 @@
             {% if page.title == 'Home'%}
                 {% for artist in site.data.artists limit:2 %}
                     <div class="col-sm-4 portfolio-item">
-                        <a href="{{ artist.soundcloud }}" class="portfolio-link" data-toggle="modal">
+                        <a href="{{ artist.soundcloud }}" target="_blank" class="portfolio-link" data-toggle="modal">
                             <div class="caption">
                                 <div class="caption-content">
                                     <i class="fa fa-arrow-circle-o-up fa-3x"></i>
@@ -28,7 +28,7 @@
             {% else %}
                 {% for artist in site.data.artists %}
                     <div class="col-sm-4 portfolio-item">
-                        <a href="{{ artist.soundcloud }}" class="portfolio-link" data-toggle="modal">
+                        <a href="{{ artist.soundcloud }}" target="_blank" class="portfolio-link" data-toggle="modal">
                             <div class="caption">
                                 <div class="caption-content">
                                     <i class="fa fa-arrow-circle-o-up fa-3x"></i>
@@ -45,7 +45,7 @@
                     <a href="/artists/" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
-                                <i class="fa fa-arrow-circle-right fa-3x"></i>
+                                <i class="fa fa-arrow-circle-o-right fa-3x"></i>
                             </div>
                         </div>
                         <img src="/img/artists/more.jpg" class="img-responsive" alt="">

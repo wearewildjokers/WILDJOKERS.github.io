@@ -17,7 +17,7 @@
                         <a href="#{{ show.id }}" class="portfolio-link" data-toggle="modal">
                             <div class="caption">
                                 <div class="caption-content">
-                                    {{ show.caption }}
+                                    <i class="fa fa-expand fa-3x"></i>
                                 </div>
                             </div>
                             <img src="/img/radio/{{ show.id }}.jpg" class="img-responsive" alt="">
@@ -41,7 +41,7 @@
                         <a href="#{{ show.id }}" class="portfolio-link" data-toggle="modal">
                             <div class="caption">
                                 <div class="caption-content">
-                                    {{ show.caption }}
+                                    <i class="fa fa-expand fa-3x"></i>
                                 </div>
                             </div>
                             <img src="/img/radio/{{ show.id }}.jpg" class="img-responsive" alt="">
@@ -55,7 +55,7 @@
                     <a href="/radio/" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
-                                <i class="fa fa-arrow-circle-right fa-3x"></i>
+                                <i class="fa fa-arrow-circle-o-right fa-3x"></i>
                             </div>
                         </div>
                         <img src="/img/radio/more.jpg" class="img-responsive" alt="">
@@ -68,26 +68,24 @@
 </section>
 
 {% for show in site.data.radio %}
-    {% if show.html != null %}
-        <div class="portfolio-modal modal fade" id="{{ show.id }}" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
+    <div class="portfolio-modal modal fade" id="{{ show.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2">
-                            <div class="modal-body">
-                                <h2>{{ show.title }}</h2>
-                                {{ show.html }}
-                            </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>{{ show.title }}</h2>
+                            <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url={{ show.sc_embed_url }}&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    {% endif %}
+    </div>
 {% endfor %}

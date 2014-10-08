@@ -26,3 +26,8 @@
 .container {
     margin-top: 25px;
 }
+
+.center-img {
+    margin: 0 auto;
+    width: 25%;
+}

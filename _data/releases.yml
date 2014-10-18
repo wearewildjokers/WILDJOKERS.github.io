@@ -1,3 +1,8 @@
+- id:           WJR004
+  name:         Hard Nights
+  sc_embed_url: https%3A//api.soundcloud.com/tracks/147327027
+  sc_site_url:  https://soundcloud.com/wearewildjokers/progress-rez-hard-nights-feat-sadie-pepitone-original-mix
+
 - id:           WJR003
   name:         Yin Yang EP
   sc_embed_url: https%3A//api.soundcloud.com/playlists/45364346
@@ -14,11 +19,6 @@
   sc_site_url:  https://soundcloud.com/wearewildjokers/all-our-people-feat-progress-original-mix
 
 - id:           WJR00A
-  name:         Hard Nights
-  sc_embed_url: https%3A//api.soundcloud.com/tracks/147327027
-  sc_site_url:  https://soundcloud.com/wearewildjokers/progress-rez-hard-nights-feat-sadie-pepitone-original-mix
-
-- id:           WJR00B
   name:         Nobody Stopping Me
   sc_embed_url: https%3A//api.soundcloud.com/tracks/147321666
   sc_site_url:  https://soundcloud.com/wearewildjokers/nobody-stopping-me-feat-progress-sadie-pepitone-original-mix

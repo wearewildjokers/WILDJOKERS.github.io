@@ -155,12 +155,7 @@ section.success {
   color: white;
 }
 @media (max-width: 767px) {
-  section {
-    padding: 75px 0;
-  }
-  section.first {
-    padding-top: 75px;
-  }
+
 }
 .btn-group-wrap {
   text-align: center;
@@ -180,7 +175,6 @@ div.btn-group {
   display: block;
   position: relative;
   margin: 0 auto;
-  padding-bottom: 15px;
 }
 .portfolio .portfolio-item .portfolio-link .caption {
   background: rgba(150, 37, 0, 0.9);

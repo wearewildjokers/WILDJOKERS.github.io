@@ -1,19 +1,28 @@
+
+<div id="sc_player">
+<iframe id="sc-widget" width="100%" height="20" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url={{ site.data.releases.first.sc_embed_url }}&amp;inverse=true&amp;auto_play=false&amp;show_user=false"></iframe>
+</div>
+
 <!-- Footer -->
 <footer class="text-center">
     <div class="footer-above">
         <div class="container">
             <div class="row">
                 <div class="footer-col col-md-4">
-                    <h3>About WILD JOKERS</h3>
-                    <p>WILD JOKERS curates and releases NJ musicians to the underground
-dance music scene, with production spearheaded by founders SQUO and REZ.</p>
+                    <h3>About</h3>
+                    <p>{{ site.description }}</p>
                 </div>
                 <div class="footer-col col-md-4">
-                    <h3>Around the Web</h3>
+                    <h3>Links</h3>
                     <ul class="list-inline">
                         {% for network in site.data.social %}
                             <li>
                                 <a href="{{ network.link }}" class="btn-social btn-outline"><i class="fa fa-fw fa-{{ network.name }}"></i></a>
+                            </li>
+                        {% endfor %}
+                        {% for vendor in site.data.music %}
+                            <li>
+                                <a href="{{ vendor.link }}" class="btn-social btn-outline"><i class="fa fa-fw fa-{{ vendor.name }}"></i></a>
                             </li>
                         {% endfor %}
                     </ul>
@@ -21,7 +30,7 @@ dance music scene, with production spearheaded by founders SQUO and REZ.</p>
                 <div class="footer-col col-md-4">
                     <h3>Contact</h3>
                     <p>Send promos and press inquiries to:</p> 
-                    <a class="btn btn-block btn-success">wearewildjokers@gmail.com</a>
+                    <a class="btn btn-block btn-contact">{{ site.email }}</a>
                 </div>
 
             </div>
@@ -31,7 +40,7 @@ dance music scene, with production spearheaded by founders SQUO and REZ.</p>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    Copyright &copy; 2014 WILD JOKERS, LLC.
+                    Copyright &copy; 2014 {{ site.author.name }}.
                 </div>
             </div>
         </div>

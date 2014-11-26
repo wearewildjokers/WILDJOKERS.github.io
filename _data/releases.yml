@@ -1,3 +1,13 @@
+- id:           WKR002
+  name:         REZ Ft. Progress & Sadie Pepitone - Nobody Stopping Me
+  sc_embed_url: https%3A//api.soundcloud.com/tracks/175091231
+  sc_site_url:  https://soundcloud.com/wearewildkings/rez-nobody-stopping-me-feat-progress-sadie-pepitone
+
+- id:           WKR001
+  name:         Tempo & REZ - In Time EP
+  sc_embed_url: https%3A//api.soundcloud.com/playlists/57031177
+  sc_site_url:  https://soundcloud.com/wearewildkings/sets/tempo-rez-in-time-ep
+
 - id:           WJR004
   name:         Hard Nights
   sc_embed_url: https%3A//api.soundcloud.com/tracks/147321666
@@ -17,4 +27,3 @@
   name:         All Our People
   sc_embed_url: https%3A//api.soundcloud.com/tracks/147326351
   sc_site_url:  https://soundcloud.com/wearewildjokers/all-our-people-feat-progress-original-mix
-  

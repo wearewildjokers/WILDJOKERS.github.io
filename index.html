@@ -3,12 +3,34 @@ layout: default
 title: Home
 ---
 
-{% include carousel.html %}
+<div id="main-content">
 
-{% include releases.html %}
+    <section id="index-page">
+        {% include carousel.html %}
+        
+        {% if site.live-radio %}
+            {% include live-radio.html %}
+        {% endif %}
+    </section>
 
-{% include artists.html %}
+    <section id="releases-page" class="releases portfolio">
+        {% include releases.html %}
+    </section>
 
-{% include radio.html %}
+    <section id="artists-page" class="artists portfolio">
+        {% include artists.html %}
+    </section>
 
-{% include footer.html %}
+    <section id="radio-page" class="portfolio">
+        {% include radio.html %}
+    </section>
+
+    <section id="blog-page" class="portfolio">
+        {% include posts.html %}
+    </section>
+
+    <!-- <section id="store-page" class="portfolio">
+        {% include store.html %}
+    </section> -->
+
+</div> 

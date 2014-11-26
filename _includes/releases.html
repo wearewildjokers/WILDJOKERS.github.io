@@ -1,81 +1,20 @@
-<!-- Releases Grid Section -->
-<section id="releases" class="portfolio">
-    <div class="container">
-        {% if page.title == 'Home'%}
-        <div class="row">
-        {% else %}
-        <div class="row" style="margin-top:20px;">
-        {% endif %}
-            <div class="col-lg-12 text-center">
-                <h2>Releases</h2>
-                <hr class="star-primary">
-            </div>
-        </div>
-        <div class="row">
-            {% for release in site.data.releases limit:2 %}
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#{{ release.id }}" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-expand fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="/img/releases/{{ release.id }}.jpg" class="img-responsive" alt="">
-                    </a>
-                </div>
-            {% endfor %}
-            {% if page.title != 'Home'%}
-                {% for release in site.data.releases offset:2 %}
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="{{ release.sc_site_url }}" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-arrow-circle-o-up  fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="/img/releases/{{ release.id }}.jpg" class="img-responsive" alt="">
-                        </a>
-                    </div>
-                {% endfor %}
-            {% endif %}
-
-            {% if page.title == 'Home'%}
-                <div class="col-sm-4 portfolio-item">
-                    <a href="./releases/" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-arrow-circle-o-right fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="/img/releases/more.jpg" class="img-responsive" alt="">
-                    </a>
-                </div>
-            {% endif %}
-            
-        </div>
+<div class="container">
+    <div class="col-lg-12 text-center">
+            <h2>Releases</h2>
+            <hr class="star-primary">
     </div>
-</section>
-
-{% for release in site.data.releases limit:2 %}
-    <div class="portfolio-modal modal fade" id="{{ release.id }}" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>{{ release.name }}</h2>
-                            <hr class="star-primary">
-                            <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url={{ release.sc_embed_url }}&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+    <div class="row">
+        {% for release in site.data.releases %}
+            <div class="col-sm-3 portfolio-item">
+                <a id="{{ release.id }}" class="portfolio-link">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <i class="fa fa-play-circle fa-3x"></i>
                         </div>
                     </div>
-                </div>
+                    <img src="/assets/releases/{{ release.id }}.jpg" class="img-responsive" alt="">
+                </a>
             </div>
-        </div>
+        {% endfor %}
     </div>
-{% endfor %}
+</div>

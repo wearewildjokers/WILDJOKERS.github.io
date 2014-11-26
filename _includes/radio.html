@@ -1,91 +1,25 @@
-<section id="radio" class="portfolio">
-    <div class="container">
-        {% if page.title == 'Home'%}
-        <div class="row">
-        {% else %}
-        <div class="row" style="margin-top:20px;">
-        {% endif %}
-            <div class="col-lg-12 text-center">
-                <h2>Radio</h2>
-                <hr class="star-primary">
-            </div>
-        </div>
-        <div class="row">
-            {% if page.title == 'Home' %}
-                {% for show in site.data.radio limit:2 %}
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="#{{ show.id }}" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-expand fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="/img/radio/{{ show.id }}.jpg" class="img-responsive" alt="">
-                        </a>
-                    </div>
-                {% endfor %}
-            {% else %}
-                <div class="col-sm-4 portfolio-item">
-                    <a href="http://thecore.fm/broadbandflash.html" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-arrow-circle-o-up fa-3x"></i>
-                                <p>Streaming</p>
-                            </div>
-                        </div>
-                        <img src="/img/radio/WJRR999.jpg" class="img-responsive" alt="">
-                    </a>
-                </div>
-                {% for show in site.data.radio %}
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="#{{ show.id }}" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-expand fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="/img/radio/{{ show.id }}.jpg" class="img-responsive" alt="">
-                        </a>
-                    </div>
-                {% endfor %}
-            {% endif %}
-
-            {% if page.title == 'Home'%}
-                <div class="col-sm-4 portfolio-item">
-                    <a href="/radio/" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-arrow-circle-o-right fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="/img/radio/more.jpg" class="img-responsive" alt="">
-                    </a>
-                </div>
-            {% endif %}
-            
-        </div>
+<div class="container">
+  <div class="col-lg-12 text-center">
+    <h2>Radio</h2>
+    <hr class="star-primary">
+  </div>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="panel panel-default">
+        <table class="table">
+          <tbody>
+            {% for show in site.data.radio %}
+              <tr>
+                <td><h4>#{{ forloop.rindex }}</h4></td>
+                <td><img src="/assets/radio/{{ show.id }}.jpg" width="42px" class="img-thumbnail" alt="Thumbnail Image"></td>
+                <td><h4>{{ show.title }}</h4></td>
+                <td><a href="{{ show.link }}"><i class="fa fa-play-circle fa-3x"></i></a></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
     </div>
-</section>
+  </div>
+</div>
 
-{% for show in site.data.radio %}
-    <div class="portfolio-modal modal fade" id="{{ show.id }}" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>{{ show.title }}</h2>
-                            {{ show.embed }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-{% endfor %}

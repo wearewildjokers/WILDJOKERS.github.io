@@ -1,52 +1,29 @@
 markdown:         redcarpet
 redcarpet:
-  extensions: ["tables"]
+  extensions:     ["tables"]
 pygments:         true
 permalink:        pretty
 
 # Setup
 title:            WILD JOKERS
-tagline:          ''
-description: ""
+description:      "WILD JOKERS is a record label that distributes dance music to your face and ear holes. #GetWild"
+live-radio:       false
 
-url:              http://wearewildjokers.com
+email:            wearewildjokers@gmail.com
 
-javascript-dir: /public/js
-stylesheet-dir: /public/css
-images-dir:     /public/img
-docs-dir:       /public/docs
-artists-dir:    /public/img/artists
-releases-dir:   /public/img/releases
-events-dir:     /public/img/events
+javascript-dir:   /public/js
+stylesheet-dir:   /public/css
 
-simple-form: febc16137a544346020e4aee668d6bde
-disqus: wildjokers
+disqus:           wildjokers
+google_analytics: UA-48339690-1
 
 author:
-  name:           'Wild Jokers'
+  name:           'WILD JOKERS'
   url:            http://wearewildjokers.com
 
 paginate:         3
-paginate_path: blog/page:num
+paginate_path:    blog/page:num
 
 # Custom vars
 version:          1.0.0
-
-# Navigation
-
-navigation:
-#- text: BLOG
-#  url: /blog/
-- text: ARTISTS
-  url: /artists/
-- text: RELEASES
-  url: /releases/
-#- text: RADIO
-#  url: /radio/
-#- text: EVENTS
-#  url: /events/
-#- text: STORE
-#  url: /store/
-- text: CONTACT
-  url: /contact/
 

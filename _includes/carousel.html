@@ -1,47 +1,27 @@
-<!-- Header -->
-<header>
-    <div id="myCarousel" class="carousel slide">
-        <div class="carousel-inner">
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div id="carousel" class="carousel slide">
+                <div class="carousel-inner">
 
-            <div class="active item">
-                <a href="#{{ site.data.carousel.first.id }}" class="portfolio-link" data-toggle="modal">
-                    <img src="img/carousel/{{ site.data.carousel.first.id }}.jpg" alt="Slide1" />
-                </a>
-            </div>
-
-            {% for carousi in site.data.carousel offset:1 %}
-                <div class="item">
-                    <a href="#{{ carousi.id }}" target="_blank" class="portfolio-link" data-toggle="modal">
-                        <img src="img/carousel/{{ carousi.id }}.jpg" alt="Slide3" />
-                    </a>
-                </div>
-            {% endfor %}
-            
-        </div>
-        <a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
-        <a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
-    </div>
-</header>
-
-{% for carousi in site.data.carousel %}
-    <div class="portfolio-modal modal fade" id="{{ carousi.id }}" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
+                    <div class="active item">
+                        <a href="#{{ site.data.carousel.first.id }}" class="portfolio-link" data-toggle="modal">
+                            <img src="/assets/carousel/{{ site.data.carousel.first.id }}.jpg" alt="Slide1" />
+                        </a>
                     </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>{{ carousi.title }}</h2>
-                            {{ carousi.embed }}
+
+                    {% for carousi in site.data.carousel offset:1 %}
+                        <div class="item">
+                            <a href="#{{ carousi.id }}" target="_blank" class="portfolio-link" data-toggle="modal">
+                                <img src="/assets/carousel/{{ carousi.id }}.jpg" alt="Slide3" />
+                            </a>
                         </div>
-                    </div>
+                    {% endfor %}
+
                 </div>
+                <a class="carousel-control left" href="#carousel" data-slide="prev">‹</a>
+                <a class="carousel-control right" href="#carousel" data-slide="next">›</a>
             </div>
         </div>
     </div>
-{% endfor %}
+</div>

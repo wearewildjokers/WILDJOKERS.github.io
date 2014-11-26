@@ -1,0 +1,15 @@
+
+- id:           WJP001
+  name:         JOKER Shirt
+  price:        $20.00
+  description:  "This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+- id:           WJP002
+  name:         JOKER Hat
+  price:        $30.00
+  description:  "This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+- id:           WJP003
+  name:         JOKER Wristbad
+  price:        $40.00
+  description:  "This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit."

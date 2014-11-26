@@ -171,9 +171,7 @@ div.btn-group {
   width: inherit;
   display: inline-block;
 }
-a {
-  float: left;
-}
+
 .portfolio .portfolio-item {
   margin: 0 0 15px;
   right: 0;

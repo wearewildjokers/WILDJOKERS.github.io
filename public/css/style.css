@@ -181,8 +181,8 @@ a {
 .portfolio .portfolio-item .portfolio-link {
   display: block;
   position: relative;
-  max-width: 400px;
   margin: 0 auto;
+  padding-bottom: 15px;
 }
 .portfolio .portfolio-item .portfolio-link .caption {
   background: rgba(150, 37, 0, 0.9);

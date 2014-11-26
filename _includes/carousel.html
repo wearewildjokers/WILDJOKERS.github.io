@@ -1,21 +1,37 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-10 col-sm-12 col-md-offset-1">
             <div id="carousel" class="carousel slide">
                 <div class="carousel-inner">
 
-                    <div class="active item">
-                        <a href="#{{ site.data.carousel.first.id }}" class="portfolio-link" data-toggle="modal">
-                            <img src="/assets/carousel/{{ site.data.carousel.first.id }}.jpg" alt="Slide1" />
-                        </a>
-                    </div>
-
-                    {% for carousi in site.data.carousel offset:1 %}
-                        <div class="item">
-                            <a href="#{{ carousi.id }}" target="_blank" class="portfolio-link" data-toggle="modal">
-                                <img src="/assets/carousel/{{ carousi.id }}.jpg" alt="Slide3" />
+                    {% if site.data.carousel.first.play-id == null %}
+                        <div class="active item">
+                            <a href="{{ site.data.carousel.first.link }}" target="_blank">
+                                <img src="/assets/carousel/{{ site.data.carousel.first.id }}.jpg" />
                             </a>
                         </div>
+                    {% else %}
+                        <div class="active item">
+                            <a id="{{ site.data.carousel.first.play-id }}">
+                                <img src="/assets/carousel/{{ site.data.carousel.first.id }}.jpg" />
+                            </a>
+                        </div>
+                    {% endif %}
+
+                    {% for carousi in site.data.carousel offset:1 %}
+                        {% if carousi.play-id == null %}
+                            <div class="item">
+                                <a href="{{ carousi.link }}" target="_blank">
+                                    <img src="/assets/carousel/{{ carousi.id }}.jpg" />
+                                </a>
+                            </div>
+                        {% else %}
+                            <div class="item">
+                                <a id="{{ carousi.play-id }}">
+                                    <img src="/assets/carousel/{{ carousi.id }}.jpg" />
+                                </a>
+                            </div>
+                        {% endif %}
                     {% endfor %}
 
                 </div>

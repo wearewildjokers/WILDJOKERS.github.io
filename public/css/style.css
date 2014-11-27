@@ -455,7 +455,7 @@ footer
     margin-bottom: 32px;
 }
 
-#releases-page, #artists-page, #radio-page, #blog-page, #store-page {
+#releases, #artists, #radio, #blog, #store {
 display: none;
 }
 

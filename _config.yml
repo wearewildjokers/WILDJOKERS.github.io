@@ -8,7 +8,7 @@ google_analytics: "UA-48339690-1"
 releases:       true
 artists:        true
 radio:          true
-blog:           false
+blog:           true
 store:          false
 
 # Custom

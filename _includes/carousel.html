@@ -3,37 +3,13 @@
         <div class="col-md-10 col-sm-12 col-md-offset-1">
             <div id="carousel" class="carousel slide">
                 <div class="carousel-inner">
-
-                    {% if site.data.carousel.first.play-id == null %}
-                        <div class="active item">
-                            <a href="{{ site.data.carousel.first.link }}" target="_blank">
-                                <img src="/assets/carousel/{{ site.data.carousel.first.id }}.jpg" />
-                            </a>
+                    {% for carousi in site.data.carousel %}
+                        <div class="item {% if forloop.index == 1 %} active {% endif %}">
+                            <a {% if carousi.play-id == null %} href="{{ carousi.link }}" target="_blank" 
+                               {% else %} id="{{ carousi.play-id }}" href="#" onclick="return false;"
+                               {% endif %}> <img src="/assets/carousel/{{ carousi.id }}.jpg" /> </a>
                         </div>
-                    {% else %}
-                        <div class="active item">
-                            <a id="{{ site.data.carousel.first.play-id }}">
-                                <img src="/assets/carousel/{{ site.data.carousel.first.id }}.jpg" />
-                            </a>
-                        </div>
-                    {% endif %}
-
-                    {% for carousi in site.data.carousel offset:1 %}
-                        {% if carousi.play-id == null %}
-                            <div class="item">
-                                <a href="{{ carousi.link }}" target="_blank">
-                                    <img src="/assets/carousel/{{ carousi.id }}.jpg" />
-                                </a>
-                            </div>
-                        {% else %}
-                            <div class="item">
-                                <a id="{{ carousi.play-id }}">
-                                    <img src="/assets/carousel/{{ carousi.id }}.jpg" />
-                                </a>
-                            </div>
-                        {% endif %}
                     {% endfor %}
-
                 </div>
                 <a class="carousel-control left" href="#carousel" data-slide="prev">‹</a>
                 <a class="carousel-control right" href="#carousel" data-slide="next">›</a>

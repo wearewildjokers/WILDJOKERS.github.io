@@ -1,29 +1,25 @@
+# Admin
+title:            "WILD JOKERS"
+author:           "WILD JOKERS"
+description:      "WILD JOKERS is a record label that distributes dance music to your face and ear holes. #GetWild"
+email:            "wearewildjokers@gmail.com"
+google_analytics: "UA-48339690-1"
+
+releases:       true
+artists:        true
+radio:          true
+blog:           false
+store:          false
+
+# Custom
+live_radio:       false
+
+# Technical
+version:          1.0.0
 markdown:         redcarpet
 redcarpet:
   extensions:     ["tables"]
 pygments:         true
 permalink:        pretty
-
-# Setup
-title:            WILD JOKERS
-description:      "WILD JOKERS is a record label that distributes dance music to your face and ear holes. #GetWild"
-live-radio:       false
-
-email:            wearewildjokers@gmail.com
-
-javascript-dir:   /public/js
-stylesheet-dir:   /public/css
-
-disqus:           wildjokers
-google_analytics: UA-48339690-1
-
-author:
-  name:           'WILD JOKERS'
-  url:            http://wearewildjokers.com
-
 paginate:         3
 paginate_path:    blog/page:num
-
-# Custom vars
-version:          1.0.0
-

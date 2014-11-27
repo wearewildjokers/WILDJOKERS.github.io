@@ -5,32 +5,48 @@ title: Home
 
 <div id="main-content">
 
-    <section id="index-page">
+    <section id="index">
         {% include carousel.html %}
         
-        {% if site.live-radio %}
-            {% include live-radio.html %}
+        {% if site.live_radio %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <iframe src="http://thecore.fm/broadbandflash.html" width="100%"></iframe>
+                    </div>
+                </div>
+            </div>
         {% endif %}
     </section>
 
-    <section id="releases-page" class="releases portfolio">
-        {% include releases.html %}
-    </section>
+    {% if site.releases %}
+        <section id="releases" class="releases portfolio">
+            {% include releases.html %}
+        </section>
+    {% endif %}
 
-    <section id="artists-page" class="artists portfolio">
-        {% include artists.html %}
-    </section>
+    {% if site.artists %}
+        <section id="artists" class="artists portfolio">
+            {% include artists.html %}
+        </section>
+    {% endif %}
 
-    <section id="radio-page" class="portfolio">
-        {% include radio.html %}
-    </section>
+    {% if site.radio %}
+        <section id="radio" class="portfolio">
+            {% include radio.html %}
+        </section>
+    {% endif %}
 
-    <section id="blog-page" class="portfolio">
-        {% include posts.html %}
-    </section>
+    {% if site.blog %}
+        <section id="blog" class="portfolio">
+            {% include posts.html %}
+        </section>
+    {% endif %}
 
-    <!-- <section id="store-page" class="portfolio">
-        {% include store.html %}
-    </section> -->
+    {% if site.store %}
+        <section id="store" class="portfolio">
+            {% include store.html %}
+        </section>
+    {% endif %}
 
 </div> 

@@ -15,14 +15,9 @@
                 <div class="footer-col col-md-4">
                     <h3>Links</h3>
                     <ul class="list-inline">
-                        {% for network in site.data.social %}
+                        {% for link in site.data.links %}
                             <li>
-                                <a href="{{ network.link }}" class="btn-social btn-outline"><i class="fa fa-fw fa-{{ network.name }}"></i></a>
-                            </li>
-                        {% endfor %}
-                        {% for vendor in site.data.music %}
-                            <li>
-                                <a href="{{ vendor.link }}" class="btn-social btn-outline"><i class="fa fa-fw fa-{{ vendor.name }}"></i></a>
+                                <a href="{{ link.link }}" title="{{ link.name }}" class="btn-social btn-outline"><i class="fa fa-fw fa-{{ link.icon }}"></i></a>
                             </li>
                         {% endfor %}
                     </ul>
@@ -40,7 +35,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    Copyright &copy; 2014 {{ site.author.name }}. Site by <a href="http://PLJNS.com">PLJNS</a>.
+                    Copyright &copy; 2014 {{ site.author }}. Site by <a href="http://PLJNS.com">PLJNS</a>.
                 </div>
             </div>
         </div>

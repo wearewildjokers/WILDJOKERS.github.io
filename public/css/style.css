@@ -75,17 +75,17 @@ hr.star-primary:after {
   padding: 0 0.25em;
 }
 hr.star-light {
-  border-color: white;
+  border-color: #fefefe;
 }
 hr.star-light:after {
   background-color: #962500;
-  color: white;
+  color: #fefefe;
 }
 hr.star-primary {
   border-color: #333333;
 }
 hr.star-primary:after {
-  background-color: white;
+  background-color: #fefefe;
   color: #333333;
 }
 .img-centered {
@@ -94,7 +94,7 @@ hr.star-primary:after {
 header {
   text-align: center;
   background: #333333;
-  color: white;
+  color: #fefefe;
 }
 header .container {
   padding-top: 100px;
@@ -220,7 +220,7 @@ div.btn-group {
   text-align: center;
   top: 50%;
   margin-top: -12px;
-  color: white;
+  color: #fefefe;
 }
 .portfolio .portfolio-item .portfolio-link .caption .caption-content i {
   margin-top: -12px;
@@ -452,7 +452,7 @@ body
 
 #main-content
 {
-    background-color: #ffffff;
+    background-color: #fefefe;
 }
 
 .center-img {

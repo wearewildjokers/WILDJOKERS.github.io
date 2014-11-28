@@ -1,4 +1,5 @@
 # Admin
+
 title:            "WILD JOKERS"
 author:           "WILD JOKERS"
 description:      "WILD JOKERS is a record label that distributes dance music to your face and ear holes. #GetWild"
@@ -6,19 +7,21 @@ email:            "wearewildjokers@gmail.com"
 tumblr:           "wearewildjokers"
 google_analytics: "UA-48339690-1"
 
-releases:       true
-artists:        true
-radio:          true
-blog:           true
-store:          false
-events:         true
+releases:         true
+artists:          true
+radio:            true
+blog:             true
+store:            false
+events:           true
 
 primary_color:  "#962500"
 
 # Custom
+
 live_radio:       false
 
 # Technical
+
 version:          1.0.0
 markdown:         redcarpet
 redcarpet:

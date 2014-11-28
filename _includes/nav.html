@@ -28,9 +28,10 @@
                     <li><a href="#store" id="store-link">Store</a></li>
                 {% endif %}
 
-                {% if site.blog %}
-                    <li><a href="http://wearewildjokers.tumblr.com" id="blog-link">Blog</a></li>
+                {% if site.blog and site.tumblr != null %}
+                    <li><a href="http://{{ site.tumblr }}.tumblr.com" id="blog-link">Blog</a></li>
                 {% endif %}
+
             </ul>
         </div>
     </div>

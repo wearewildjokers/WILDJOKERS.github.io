@@ -35,7 +35,6 @@
   src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'), url(http://fonts.gstatic.com/s/roboto/v14/t6Nd4cfPRhZP44Q5QAjcCywlidHJgAgmTjOEEzwu1L8.ttf) format('truetype');
 }
 
-
 body {
   overflow-x: hidden;
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
@@ -46,14 +45,7 @@ p {
 p.small {
   font-size: 16px;
 }
-a,
-a:hover,
-a:focus,
-a:active,
-a.active {
-  color: #962500;
-  outline: none;
-}
+
 h1,
 h2,
 h3,
@@ -170,10 +162,6 @@ header .intro-text .skills {
     padding-top: 20px;
   padding-bottom: 20px;
 }
-.navbar .navbar-nav li a:hover
-{
-  color: #962500;
-}
 .navbar .navbar-nav li a:focus {
   outline: none;
 }
@@ -188,10 +176,7 @@ section h2 {
   margin: 0;
   font-size: 3em;
 }
-section.success {
-  background: #962500;
-  color: white;
-}
+
 @media (max-width: 767px) {
 
 }
@@ -259,19 +244,6 @@ div.btn-group {
   background: transparent;
   transition: all 0.3s ease-in-out;
   margin-top: 15px;
-}
-.btn-outline:hover,
-.btn-outline:focus,
-.btn-outline:active,
-.btn-outline.active {
-  color: #962500;
-  background: white;
-  border: solid 2px white;
-}
-.btn-contact
-{
-  background:#962500;
-  color: white;
 }
 .floating-label-form-group {
   position: relative;
@@ -431,10 +403,12 @@ footer .footer-below {
 
 .carousel .item {
     width: 100%; /*slider width*/
-    max-height: 600px; /*slider height*/
+    max-height: 1152px; /*slider height*/
 }
 .carousel .item img {
     width: 100%; /*img width*/
+    max-height: 1152px; /*slider height*/
+
 }
 /*add some makeup*/
 .carousel .carousel-control {
@@ -493,12 +467,33 @@ footer
     margin-bottom: 32px;
 }
 
-#releases, #artists, #radio, #blog, #store {
+#releases, #artists, #radio, #blog, #press {
 display: none;
 }
 
-#carousel
-{
-    padding-top: 50px;
-    padding-bottom: 50px;
+.press-release h3 
+{ 
+  margin-top: 0px;
 }
+
+.carousel .item {
+    width: 100%; /*slider width*/
+    max-height: 600px; /*slider height*/
+}
+.carousel .item img {
+    width: 100%; /*img width*/
+}
+/*add some makeup*/
+.carousel .carousel-control {
+    background: none;
+    border: none;
+    top: 50%;
+}
+/*full width container*/
+@media (max-width: 767px) {
+    .block {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+}
+

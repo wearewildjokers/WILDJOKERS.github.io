@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="col-lg-12 text-center">
+        <h2>Press</h2>
+        <hr class="star-primary">
+    </div>
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+        <dl>
+            {% for post in paginator.posts %}
+                <div class="panel panel-default press-release">
+                    <div class="panel-body">
+                        <dt><h3>{{ post.title }}</h3><p class="text-muted date-line">{{ post.date | date: "%-d %B %Y" }}</p></dt>
+                        <dd>{{ post.content }}</dd>
+                    </div>
+                </div>
+            {% endfor %}
+        </dl>
+        </div>
+    </div>
+</div>

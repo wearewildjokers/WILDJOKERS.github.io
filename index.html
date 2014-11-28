@@ -20,26 +20,26 @@ title: Home
     </section>
 
     {% if site.releases %}
-        <section id="releases" class="releases portfolio">
+        <section id="releases" class="portfolio">
             {% include releases.html %}
         </section>
     {% endif %}
 
     {% if site.artists %}
-        <section id="artists" class="artists portfolio">
+        <section id="artists" class="portfolio">
             {% include artists.html %}
+        </section>
+    {% endif %}
+
+    {% if site.events %}
+        <section id="events">
+            {% include events.html %}
         </section>
     {% endif %}
 
     {% if site.radio %}
         <section id="radio" class="portfolio">
             {% include radio.html %}
-        </section>
-    {% endif %}
-
-    {% if site.press %}
-        <section id="press" class="portfolio">
-            {% include press.html %}
         </section>
     {% endif %}
 

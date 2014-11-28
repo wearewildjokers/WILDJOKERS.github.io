@@ -11,7 +11,7 @@ artists:        true
 radio:          true
 blog:           true
 store:          false
-press:          true
+events:         true
 
 primary_color:  "#962500"
 

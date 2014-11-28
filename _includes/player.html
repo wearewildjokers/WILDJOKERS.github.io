@@ -1,0 +1,24 @@
+<div id="sc_player">
+<iframe id="sc-widget" width="100%" height="20" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url={{ site.data.releases.first.sc_embed_url }}&amp;inverse=true&amp;auto_play=false&amp;show_user=false"></iframe>
+</div>
+
+<script type="text/javascript" src="/public/js/soundcloud.js"></script>
+<script>
+  (function(){
+    var widgetIframe = document.getElementById('sc-widget'),
+        widget       = SC.Widget(widgetIframe);
+
+    widget.bind(SC.Widget.Events.READY, function() { 
+      widget.bind(SC.Widget.Events.PLAY, function() { });
+      {% for release in site.data.releases %}
+        $('#{{ release.id }}').click(function() {
+          widget.load('{{ release.sc_embed_url }}', {
+            inverse:true,
+            auto_play:true,
+            show_user:false
+          });
+        });
+      {% endfor %}
+    });
+  }());
+</script>

@@ -1,3 +1,11 @@
+# artists.yml
+#
+# Populates the site's artist page.
+#
+# - id:         unique identifier
+#   name:       artist display name
+#   soundcloud: soundcloud url for artist
+
 - id:         WJRA006
   name:       Ross Reed
   soundcloud: https://soundcloud.com/ross-reed

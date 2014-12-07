@@ -1,3 +1,13 @@
+# radio.yml
+#
+# Populates the site's radio page.
+#
+# - id:         unique identifier, also image name in assets/radio/
+#   title:      the title of that show, capitalized WILD JOKERS RADIO
+#   date:       OPTIONAL, DEPRECATED
+#   link:       the link to the show's mixcloud
+#   embed:      OPTIONAL, DEPRECATED
+
 - id:           WJRR020
   title:        'Slurn Squad Guest Mix'
   date: 		'11-30-14'

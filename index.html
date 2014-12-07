@@ -8,40 +8,48 @@ title: Home
     <section id="index">
         {% include pages/carousel.html %}
         
-        
+        {% if site.data.custom.live_radio %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <iframe src="http://thecore.fm/broadbandflash.html" width="100%"></iframe>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
     </section>
 
-    {% if site.releases %}
+    {% if site.data.custom.releases %}
         <section id="releases" class="portfolio">
             {% include pages/releases.html %}
         </section>
     {% endif %}
 
-    {% if site.artists %}
+    {% if site.data.custom.artists %}
         <section id="artists" class="portfolio">
             {% include pages/artists.html %}
         </section>
     {% endif %}
 
-    {% if site.events %}
+    {% if site.data.custom.events %}
         <section id="events">
             {% include pages/events.html %}
         </section>
     {% endif %}
 
-    {% if site.radio %}
+    {% if site.data.custom.radio %}
         <section id="radio">
             {% include pages/radio.html %}
         </section>
     {% endif %}
 
-    {% if site.store %}
+    {% if site.data.custom.store %}
         <section id="store">
             {% include pages/store.html %}
         </section>
     {% endif %}
 
-    {% if site.radio %}
+    {% if site.data.custom.radio %}
         <section id="blog">
             {% include pages/blog.html %}
         </section>

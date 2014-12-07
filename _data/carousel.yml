@@ -1,3 +1,13 @@
+# carousel.yml
+#
+# Populates the site's carousel page.
+#
+# - id:         unique identifier, also image name in assets/carousel/
+#   link:       a link you want this carousel to open
+#   play-id:    the unique identifier of the song you want the carousel to play
+#
+# WARNING: link OR play-id, never both
+
 - id:           "WJC001"
   link:         "http://www.mixcloud.com/Wildjokers/slurn-squad-guest-mix-11-30-14/"
 - id:           "WJC003"

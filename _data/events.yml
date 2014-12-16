@@ -7,10 +7,6 @@
 #   venue:      location of the event
 #   link:       link to buy tickets, listen, etc.
 
-- date:  "Dec 14th, 2014"
-  name:  "JayQuest Guest Mix on WILD JOKERS RADIO"
-  venue: "90.3 The Core FM"
-  link:  "http://thecore.fm"
 - date:  "Dec 19th, 2014 7:00PM"
   name:  "Naughty or Nice Christmas Party"
   venue: "The Lucky Dublin, Carteret, NJ"

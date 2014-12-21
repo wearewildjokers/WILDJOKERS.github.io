@@ -7,14 +7,6 @@
 #   venue:      location of the event
 #   link:       link to buy tickets, listen, etc.
 
-- date:  "Dec 19th, 2014 7:00PM"
-  name:  "Naughty or Nice Christmas Party"
-  venue: "The Lucky Dublin, Carteret, NJ"
-  link:  "https://www.facebook.com/events/1515258408753084/?ref=2&ref_dashboard_filter=upcoming&sid_reminder=4403713832120221696"
-- date:  "Dec 21th, 2014"
-  name:  "WILD JOKERS RADIO"
-  venue: "90.3 The Core FM"
-  link:  "http://thecore.fm"
 - date:  "Dec 28th, 2014"
   name:  "Case Ace Guest Mix on WILD JOKERS RADIO"
   venue: "90.3 The Core FM"

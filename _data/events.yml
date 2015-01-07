@@ -7,14 +7,6 @@
 #   venue:      location of the event
 #   link:       link to buy tickets, listen, etc.
 
-- date:  "Dec 31th, 2014"
-  name:  "NEW YEARS with the Jokers"
-  venue: "Morris Tap & Grill, Randolph, NJ"
-  link:  "https://www.facebook.com/events/370497726444765/?notif_t=plan_user_invited"
-- date:  "Jan 4rd, 2015"
-  name:  "Bass Craft Guest Mix WILD JOKERS RADIO"
-  venue: "90.3 The Core FM"
-  link:  "https://soundcloud.com/itsbasscraft"
 - date:  "Jan 11th, 2015"
   name:  "WILD JOKERS RADIO"
   venue: "90.3 The Core FM"

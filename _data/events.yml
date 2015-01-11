@@ -7,10 +7,6 @@
 #   venue:      location of the event
 #   link:       link to buy tickets, listen, etc.
 
-- date:  "Jan 11th, 2015"
-  name:  "WILD JOKERS RADIO"
-  venue: "90.3 The Core FM"
-  link:  "http://thecore.fm"
 - date:  "January 18th, 2015"
   name:  "Br3akdown Guest Mix on WILD JOKERS RADIO"
   venue: "90.3 The Core FM"

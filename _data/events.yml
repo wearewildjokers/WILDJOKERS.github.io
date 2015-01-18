@@ -7,10 +7,6 @@
 #   venue:      location of the event
 #   link:       link to buy tickets, listen, etc.
 
-- date:  "January 18th, 2015"
-  name:  "Br3akdown Guest Mix on WILD JOKERS RADIO"
-  venue: "90.3 The Core FM"
-  link:  "https://soundcloud.com/djbr3akdown"
 - date:  "Jan 25th, 2015"
   name:  "Tesitorra Guest Mix on WILD JOKERS RADIO"
   venue: "90.3 The Core FM"
@@ -28,6 +24,6 @@
   venue: "90.3 The Core FM"
   link:  "https://soundcloud.com/deejayartek"
 - date:  "Feb 22nd, 2015"
-  name:  "WILD JOKERS RADIO"
+  name:  "Br3akdown Guest Mix on WILD JOKERS RADIO"
   venue: "90.3 The Core FM"
-  link:  "http://thecore.fm"
+  link:  "https://soundcloud.com/djbr3akdown"

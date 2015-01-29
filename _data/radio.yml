@@ -8,6 +8,11 @@
 #   link:       the link to the show's mixcloud
 #   embed:      OPTIONAL, DEPRECATED
 
+- id:           WJRR027
+  title:        'Wild Jokers Radio'
+  date: 		'01-25-15'
+  link:         http://www.mixcloud.com/Wildjokers/wild-jokers-radio-01-25-15/
+  embed:		'<iframe src="https://www.mixcloud.com/widget/iframe/?feed=http%3A%2F%2Fwww.mixcloud.com%2FWildjokers%2Fwild-jokers-radio-01-25-15%2F&amp;embed_uuid=da3d9aa0-b210-4b63-8187-2b60dddfbafc&amp;replace=0&amp;hide_cover=1&amp;embed_type=widget_standard&amp;hide_tracklist=1" width="660" frameborder="0" height="180"></iframe><div style="clear: both; height: 3px; width: 652px;"></div><p style="display: block; font-size: 11px; font-family: &quot;Open Sans&quot;,Helvetica,Arial,sans-serif; margin: 0px; padding: 3px 4px; color: rgb(153, 153, 153); width: 652px;"><a href="http://www.mixcloud.com/Wildjokers/wild-jokers-radio-01-25-15/?utm_source=widget&amp;amp;utm_medium=web&amp;amp;utm_campaign=base_links&amp;amp;utm_term=resource_link" target="_blank" style="color:#808080; font-weight:bold;">Wild Jokers Radio 01-25-15</a><span> by </span><a href="http://www.mixcloud.com/Wildjokers/?utm_source=widget&amp;amp;utm_medium=web&amp;amp;utm_campaign=base_links&amp;amp;utm_term=profile_link" target="_blank" style="color:#808080; font-weight:bold;">Wild Jokers</a><span> on </span><a href="http://www.mixcloud.com/?utm_source=widget&amp;utm_medium=web&amp;utm_campaign=base_links&amp;utm_term=homepage_link" target="_blank" style="color:#808080; font-weight:bold;"> Mixcloud</a></p><div style="clear: both; height: 3px; width: 652px;"></div>'
 - id:           WJRR026
   title:        'Wild Jokers Radio'
   date: 		'01-18-15'

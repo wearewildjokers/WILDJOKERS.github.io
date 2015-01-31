@@ -8,9 +8,9 @@
 #
 # WARNING: link OR play-id, never both
 
+- id:           "WJC001"
+  link:         "https://soundcloud.com/djgsepp"
 - id:           "WJC003"
   play-id:      "WKR001"
 - id:           "WJC002"
   link:         "https://soundcloud.com/tempo415"
-- id:           "WJC001"
-  link:         "http://www.mixcloud.com/Wildjokers/wild-jokers-radio-01-11-15/"

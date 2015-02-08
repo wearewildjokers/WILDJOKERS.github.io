@@ -7,14 +7,7 @@
 #   venue:      location of the event
 #   link:       link to buy tickets, listen, etc.
 
-- date:  "Feb 1st, 2015"
-  name:  "GSEPP Guest Mix on WILD JOKERS RADIO"
-  venue: "90.3 The Core FM"
-  link:  "https://soundcloud.com/djgsepp"
-- date:  "Feb 8th, 2015"
-  name:  "FlipN'Gawd on WILD JOKERS RADIO"
-  venue: "90.3 The Core FM"
-  link:  "https://soundcloud.com/flipngawd/"
+
 - date:  "Feb 15th, 2015"
   name:  "Artek Guest Mix on WILD JOKERS RADIO"
   venue: "90.3 The Core FM"
@@ -29,5 +22,9 @@
   link:  "http://thecore.fm/public/index.php"
 - date:  "Mar 8th, 2015"
   name:  "Animagus Guest Mix on WILD JOKERS RADIO"
+  venue: "90.3 The Core FM"
+  link:  "https://soundcloud.com/animagusmusic"
+- date:  "Mar 15th, 2015"
+  name:  "WILD JOKERS RADIO"
   venue: "90.3 The Core FM"
   link:  "https://soundcloud.com/animagusmusic"

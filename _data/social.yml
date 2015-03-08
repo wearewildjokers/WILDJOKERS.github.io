@@ -1,0 +1,26 @@
+# events.yml
+#
+# Populates the site's links in the footer.
+#
+# - name:       name of the service you want to link to
+#   icon:       name of the icon, google "font awesome cheatsheet"
+#   link:       link of the service you want to link to
+
+- name: Facebook
+  icon: facebook
+  link: http://facebook.com/wearewildjokers
+- name: Twitter
+  icon: twitter
+  link: http://twitter.com/wearewildjokers
+- name: Soundcloud
+  icon: soundcloud
+  link: http://soundcloud.com/wearewildjokers
+- name: Youtube
+  icon: youtube
+  link: https://www.youtube.com/channel/UC0JO0743wmBtJcG7oAtJh7A
+- name: Instagram
+  icon: instagram
+  link: http://instagram.com/wearewildjokers
+- name: Tumblr
+  icon: tumblr
+  link: wearewildjokers.tumblr.com

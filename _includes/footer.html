@@ -1,36 +1,52 @@
-<footer class="text-center">
-    <div class="footer-above">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col col-md-4">
-                    <h3>About</h3>
-                    <p>{{ site.description }}</p>
-                    <a class="btn btn-block btn-contact" href="/assets/press-kit.zip" download>Press Kit</a>
-                </div>
-                <div class="footer-col col-md-4">
-                    <h3>Links</h3>
-                    <ul class="list-inline">
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div id="footerTop">
+                <div class="col-xs-6 col-xs-offset-1 hidden-xs">
+                    <ul class="list-unstyled list-inline">
                         {% for link in site.data.links %}
                             <li>
-                                <a href="{{ link.link }}" title="{{ link.name }}" class="btn-social btn-outline"><i class="fa fa-fw fa-{{ link.icon }}"></i></a>
+                                <a href="{{ link.link }}" target="none" class="">{{ link.name }}</a>
                             </li>
                         {% endfor %}
                     </ul>
                 </div>
-                <div class="footer-col col-md-4">
-                    <h3>Contact</h3>
-                    <p>Send promos and press inquiries to:</p> 
-                    <a class="btn btn-block btn-contact" href="{{ site.email }}">{{ site.email }}</a>
+                <div class="col-xs-4">
+                    <form action="//wearewildjokers.us10.list-manage.com/subscribe/post?u=95a041218931da07ad4d314fe&amp;id=7233c8edc8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                            <div class="input-group">
+                                <input type="email" value="" placeholder="E-mail address" name="EMAIL" class="required email form-control" id="mce-EMAIL">
+                                <span class="input-group-btn">
+                                <input type="submit" class="button btn btn-default" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">
+                                </span>
+                            </div>
+                    </form>
                 </div>
-
             </div>
-        </div>
-    </div>
-    <div class="footer-below">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    Copyright &copy; 2014 {{ site.author }}. Site by <a href="http://PLJNS.com">PLJNS</a>.
+            <div id="footerBottom">
+                <div class="col-xs-4 col-xs-offset-1 text-left hidden-xs">
+                    <p id="footer-copyright">© 2015 {{ site.business }}.</p>
+                </div>
+                <div class="col-xs-6 text-right hidden-xs">
+                    <ul class="list-inline" id="social-links">
+                        {% for social in site.data.social %}
+                            <li>
+                                <a href="{{ social.link }}" target="none" class=""><i class="fa fa-{{ social.icon }} fa-1x"></i></a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-xs-12 text-center visible-xs">
+                    <ul class="list-inline" id="social-links">
+                        {% for social in site.data.social %}
+                            <li>
+                                <a href="{{ social.link }}" target="none" class="btn btn-social-icon btn-sm btn-default btn-{{ social.icon }}"><i class="fa fa-{{ social.icon }} fa-1x"></i></a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-xs-12 text-center visible-xs">
+                    <p id="footer-copyright">© 2015 {{ site.business }}.</p>
                 </div>
             </div>
         </div>

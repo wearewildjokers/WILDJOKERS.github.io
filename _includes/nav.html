@@ -1,5 +1,7 @@
-<nav class="navbar navbar-default navbar-static-top navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1" style="">
         <div class="navbar-header page-scroll">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
@@ -7,36 +9,21 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="#index" id="index-link"><img src="/assets/logo.png" style="height: 60px" class="img-responsive"></a>
+            <a class="navbar-brand page-scroll" href="{% if page.title == 'Home' %}#page-top{% else %}/index.html{%endif%}"><img src="/assets/img/logo.png" style="height: 60px; margin-top:-15px;" class="img-responsive"></a>
         </div>
-
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                {% if site.data.custom.releases`` %}
-                    <li><a href="#releases" id="releases-link">Releases</a></li>
-                {% endif %}
-
-                {% if site.data.custom.artists %}
-                    <li><a href="#artists" id="artists-link">Artists</a></li>
-                {% endif %}
-
-                {% if site.data.custom.radio %}
-                    <li><a href="#radio" id="radio-link">Radio</a></li>
-                {% endif %}
-
-                {% if site.data.custom.events %}
-                    <li><a href="#events" id="events-link">Events</a></li>
-                {% endif %}
-
-                {% if site.data.custom.store %}
-                    <li><a href="#store" id="store-link">Store</a></li>
-                {% endif %}
-
-                {% if site.data.custom.blog %}
-                    <li><a href="#blog" id="blog-link">Blog</a></li>
-                {% endif %}
-
-            </ul>
+                <li class="{% if page.active == 'releases' %}active{% endif %}">
+                    <a href="/releases.html">Releases</a>
+                </li>
+                <li class="{% if page.active == 'artists' %}active{% endif %}">
+                    <a href="/artists.html">Artists</a>
+                </li>
+                <li class="{% if page.active == 'radio' %}active{% endif %}">
+                    <a href="/radio.html">Radio</a>
+                </li>
+        </div>
+        </div>
         </div>
     </div>
 </nav>

@@ -1,0 +1,29 @@
+---
+layout: empty
+title: Artists
+active: artists
+---
+
+
+
+<section id="releases">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-md-offset-1">
+              {% for artist in site.categories['artists'] %}
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <a href="{{ artist.url }}">
+                    <div class="thumbnail artist">
+                        <img src="/assets/img/artists/{{ artist.cid }}.jpg" class="img-responsive">
+                        </div>
+      <div class="caption text-center">
+         <p>{{ artist.title }}</p>
+      </div>
+                    </a>
+                    
+                </div>
+              {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

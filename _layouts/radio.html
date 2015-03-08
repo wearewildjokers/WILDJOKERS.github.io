@@ -1,0 +1,29 @@
+---
+layout: empty
+active: radio
+---
+
+<div class="container">
+	<div class="row">
+        <div class="col-md-10 col-md-offset-1">
+        {% if page.categories contains 'featured' %}
+	        <img src="/assets/img/carousel/{{ page.cid }}.jpg" class="img-responsive entry">
+        {% else if %}
+            <h2>{{ page.title }}</h2>
+            <p class="text-muted date-line">{{ page.date | date: "%-d %B %Y" }}</p>
+        {% endif %}
+        </div>
+	</div>
+    <div class="row">
+        <div class="col-md-offset-1 col-md-5">
+
+            {{ content }}
+
+<a href="mailto:radio@wearewildjokers.com" class="btn btn-primary btn-block">Interested in becoming a guest? </a>
+
+        </div>
+        <div class="col-md-5">
+        {{ page.embed }}
+        </div>
+    </div>
+</div>

@@ -3,8 +3,8 @@ cid: WJRR032
 title: 'K-Theory and Animagus Guest Mix'
 link: http://thecore.fm
 layout: radio
-left-embed: '<embed src="http://www.house-mixes.com/swf/share/shareLoader.swf?feed=http://www.house-mixes.com/ShareWidget/SingleAudioFeed/audios-407239" type="application/x-shockwave-flash" wmode="opaque" allowscriptaccess="always" allowfullscreen="true" height="350" width="460">'
-embed: '<embed src="http://www.house-mixes.com/swf/share/shareLoader.swf?feed=http://www.house-mixes.com/ShareWidget/SingleAudioFeed/audios-407245" type="application/x-shockwave-flash" wmode="opaque" allowscriptaccess="always" allowfullscreen="true" height="480" width="100%">'
+left-embed: '<embed src="http://www.house-mixes.com/swf/share/shareLoader.swf?feed=http://www.house-mixes.com/ShareWidget/SingleAudioFeed/audios-407239" type="application/x-shockwave-flash" wmode="opaque" allowscriptaccess="always" height="350" width="460">'
+embed: '<embed src="http://www.house-mixes.com/swf/share/shareLoader.swf?feed=http://www.house-mixes.com/ShareWidget/SingleAudioFeed/audios-407245" type="application/x-shockwave-flash" wmode="opaque" allowscriptaccess="always" height="480" width="100%">'
 categories:
 - radio
 - featured

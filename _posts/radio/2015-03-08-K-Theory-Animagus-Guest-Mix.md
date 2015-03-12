@@ -3,7 +3,7 @@ cid: WJRR032
 title: 'K-Theory and Animagus Guest Mix'
 link: http://thecore.fm
 layout: radio
-left-embed: '<object height="300" width="100%"><param name="movie" value="http://www.house-mixes.com/swf/share/shareLoader.swf?feed=http://www.house-mixes.com/ShareWidget/SingleAudioFeed/audios-407239"><param name="allowFullScreen" value="true"><param name="wmode" value="opaque"><param name="allowscriptaccess" value="always"><embed src="http://www.house-mixes.com/swf/share/shareLoader.swf?feed=http://www.house-mixes.com/ShareWidget/SingleAudioFeed/audios-407239" type="application/x-shockwave-flash" wmode="opaque" allowscriptaccess="always" allowfullscreen="true" height="300" width="480"></object>'
+left-embed: '<embed src="http://www.house-mixes.com/swf/share/shareLoader.swf?feed=http://www.house-mixes.com/ShareWidget/SingleAudioFeed/audios-407239" type="application/x-shockwave-flash" wmode="opaque" allowscriptaccess="always" allowfullscreen="true" height="300" width="480">'
 embed: '<object height="300" width="100%"><param name="movie" value="http://www.house-mixes.com/swf/share/shareLoader.swf?feed=http://www.house-mixes.com/ShareWidget/SingleAudioFeed/audios-407245"><param name="allowFullScreen" value="true"><param name="wmode" value="opaque"><param name="allowscriptaccess" value="always"><embed src="http://www.house-mixes.com/swf/share/shareLoader.swf?feed=http://www.house-mixes.com/ShareWidget/SingleAudioFeed/audios-407245" type="application/x-shockwave-flash" wmode="opaque" allowscriptaccess="always" allowfullscreen="true" height="500" width="500"></object>'
 categories:
 - radio

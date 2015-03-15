@@ -15,8 +15,10 @@ artists:
   - name: Soundcloud
     icon: soundcloud
     link: https://soundcloud.com/djbr3akdown
-embed: '<iframe src="http://thecore.fm/broadbandflash.html" width="100%" height="350px"></iframe>'
+embed: ''
 categories:
 - radio
 - featured
 ---
+
+Br3akdown takes over WILD JOKERS RADIO with a hard hitting mix that fuses multiple EDM genres. In his interview, Br3akdown talks about prepping for festival season at the Jersey shore and being a genre-bending producer/DJ.  

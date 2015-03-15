@@ -9,7 +9,7 @@ title: Home
   <div class="row">
     <div class="col-md-10 col-md-offset-1" style="">
     <div id="portfolioCarousel" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
+      <ol class="carousel-indicators" style="display:none;">
         {% for carousi in site.categories['featured'] %}
           <li data-target="#portfolioCarousel" data-slide-to="{{ forloop.index0 }}" class="{% if forloop.index0 == 0 %} active {% endif %}"></li>
         {% endfor %}

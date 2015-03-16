@@ -1,6 +1,6 @@
 ---
 cid: WJRR033
-title: 'Br3akdwon Guest Mix'
+title: 'BR3AKDOWN Guest Mix'
 link: http://thecore.fm
 layout: radio
 artists: 

@@ -1,6 +1,6 @@
 ---
 cid:     WJR006
-title:   Jack it up
+title:   Jack It Up
 artists: 
 - name: REZ
   social:

@@ -48,7 +48,7 @@ categories:
 Prizes: 3 Winners will be selected for a worldwide release on the Jack It Up Remix EP via WILD JOKERS distribution network on Beatport, iTunes, Spotify, & More!
 
 <div class="text-center">
-<a href="drive.google.com/file/d/0Bz6NCcvu…view?usp=sharing" class="btn btn-primary btn-lg">Download the Stems!</a>
+<a href="http://drive.google.com/file/d/0Bz6NCcvu…view?usp=sharing" class="btn btn-primary btn-lg">Download the Stems!</a>
 </div>
 
 The Operator and the Sponsors and their designated appointees will, in their sole discretion, select three (3) Remixes as Winners (“Winners”) based on the following criteria: Originality (0-10 points), Creativity (0-10 points), Concept (0-10 points), and Musicality (0-10 points). The Winners will each receive a worldwide release on the Official Remix EP through Wild Jokers, LLC. The Winners will also receive: (i) feature of the Winner's Remix on all Wild Jokers, LLC & Artist's social properties.

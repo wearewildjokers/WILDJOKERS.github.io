@@ -31,4 +31,4 @@ categories:
 - featured
 ---
 
-Basscraft & MAKK make their debut on Wild Jokers and tear it up with a dubstep trap fusion that takes bass music into the future. Combining pumping synth lines with filthy growls, these two bring both the dirty, the ethereal, and 808 bass together into Realms. Look out for an upcoming EP & tour dates from these two as they take the scene by storm!
+Bass Craft & MAKK make their debut on Wild Jokers and tear it up with a dubstep trap fusion that takes bass music into the future. Combining pumping synth lines with filthy growls, these two bring both the dirty, the ethereal, and 808 bass together into Realms. Look out for an upcoming EP & tour dates from these two as they take the scene by storm!

@@ -7,3 +7,6 @@
 - name: iTunes
   icon: music
   link: "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewCollaboration?cc=us&ids=905382118-905382121-184795233"
+- name: RSS
+  icon: rss
+  link: "./feed.xml"

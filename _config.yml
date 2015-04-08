@@ -1,7 +1,7 @@
 title: WILD JOKERS
 brand: WILD JOKERS
 business: "WILD JOKERS, LLC"
-description: ""
+description: "WILD JOKERS is a record label that distributes dance music to your face and ear holes. #GetWild "
 analytics: "UA-48339690-1"
 
 source:      .
@@ -35,7 +35,7 @@ safe:        false
 host:        0.0.0.0
 port:        4000
 baseurl:     ""
-url:         "http://pljns.com"
+url:         "http://wearewildjokers.com"
 lsi:         false
 
 maruku:

@@ -38,3 +38,5 @@ categories:
 - featured
 ---
 
+GSEPP, an up & coming EDM Producer and DJ in the NY/NJ club scene delivers an absolutely animal big room house track for his first release on WILD JOKERS! Higher is paired with a frantic trap remix by SQUO, leaving plenty of room for versatile & unexpected uses of this banger in every dj mix. Already receiving support from some major blogs & djs, Higher is ready for festivals around the world!
+

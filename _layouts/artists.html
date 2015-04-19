@@ -30,7 +30,7 @@ active: artists
             <h4>Latest Releases</h4>
             </div>
               {% capture artistid %}{{ page.cid | downcase }}{% endcapture %}
-              {% for release in site.categories[artistid] %}
+              {% for release in site.categories[artistid] limit:5 %}
                 <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 
                 {% if forloop.first %} col-lg-offset-1 col-md-offset-1 {% endif %}
                 {% if forloop.last %} hidden-sm hidden-xs {% endif %}">

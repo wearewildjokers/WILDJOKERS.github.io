@@ -18,7 +18,6 @@ artists:
 # embed: '<iframe src="http://thecore.fm/broadbandflash.html" width="100%" height="350px"></iframe>'
 categories:
 - radio
-- featured
 ---
 
 WILD JOKERS RADIO is back on air after a trip to Miami for Miami Music Week & Winter Music Conference, and a set at 90.3 The Core's very own Corefest!

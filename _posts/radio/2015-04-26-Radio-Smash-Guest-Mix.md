@@ -15,7 +15,7 @@ artists:
   - name: Soundcloud
     icon: soundcloud
     link: https://soundcloud.com/radiosmash
-# embed: '<iframe src="http://thecore.fm/broadbandflash.html" width="100%" height="350px"></iframe>'
+embed: '<iframe src="http://thecore.fm/broadbandflash.html" width="100%" height="350px"></iframe>'
 categories:
 - radio
 - featured

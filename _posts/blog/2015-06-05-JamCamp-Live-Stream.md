@@ -35,7 +35,7 @@ categories:
 - post
 ---
 
-<iframe src="http://www.twitch.tv/wearewildjokers/embed" frameborder="0" scrolling="no" height="378" width="100%">
+<iframe src="http://www.twitch.tv/wearewildjokers/embed" frameborder="0" scrolling="no" height="378" width="100%"></iframe>
 
 WILD JOKERS is streaming live from JamCamp 2015 in Centreville, VA presented by PLR Music! Live Bands, Hip Hop acts and more with interviews by WILD JOKERS!
 

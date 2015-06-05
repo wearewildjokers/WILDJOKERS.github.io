@@ -1,6 +1,6 @@
 ---
 cid:     WJB002
-title:   JamCamp
+title:   JamCamp Music & Arts Festival Live from Centreville, VA
 artists: 
 - name: PLR MUSIC
   social:

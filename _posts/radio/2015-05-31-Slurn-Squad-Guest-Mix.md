@@ -18,7 +18,6 @@ artists:
 # embed: '<iframe src="http://thecore.fm/broadbandflash.html" width="100%" height="350px"></iframe>'
 categories:
 - radio
-- featured
 ---
 
 Slurn Squad is back on WILD JOKERS RADIO! Taking it deep & funky this week, they're sure to keep you dancing with a groovy mix featuring the best in the amazing deep house sound!

@@ -12,7 +12,7 @@ artists:
   - name: Twitter
     icon: twitter
     link: https://twitter.com/EDMWorldMag
-embed: '<iframe src="http://thecore.fm/broadbandflash.html" width="100%" height="350px"></iframe>'
+# embed: '<iframe src="http://thecore.fm/broadbandflash.html" width="100%" height="350px"></iframe>'
 categories:
 - radio
 - featured

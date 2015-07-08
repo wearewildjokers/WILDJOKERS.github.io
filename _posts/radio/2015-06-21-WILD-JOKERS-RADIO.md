@@ -30,7 +30,6 @@ artists:
 
 categories:
 - radio
-- featured
 ---
 
 Hound Circus & SQUO take on this episode of WILD JOKERS RADIO Back to Back!

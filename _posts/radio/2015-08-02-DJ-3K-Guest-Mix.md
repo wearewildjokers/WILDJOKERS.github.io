@@ -15,7 +15,7 @@ artists:
   - name: Instagram
     icon: instagram
     link: https://instagram.com/dj_andre3k/
-embed: '<iframe src="http://thecore.fm/broadbandflash.html" width="100%" height="350px"></iframe>'
+# embed: '<iframe src="http://thecore.fm/broadbandflash.html" width="100%" height="350px"></iframe>'
 
 categories:
 - radio

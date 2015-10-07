@@ -9,4 +9,4 @@ categories:
 - WJA005
 ---
 
-After years as a dominant force within club culture throughout the tri state area as a DJ, Dancer, Rapper, and Promoter for his company Don't Stop Enterainment, the Yin Yang EP marks KyiLL's debut album and first major release, adding production to his already long list of talents. The Yin Yang EP reflects the dichotomous yet complementary nature of KyiLL's abilities as both a Rapper and Producer. With hundreds of tour dates already under his belt and many more to come, KyiLL is continually redefining party music with his eclectic yet prognostic taste.
+After years as a dominant force within club culture throughout the tri state area as a DJ, Dancer, Rapper, and Promoter for his company, Don't Stop Enterainment, the Yin Yang EP marks KyiLL's debut album and first major release, adding production to his already long list of talents. The Yin Yang EP reflects the dichotomous yet complementary nature of KyiLL's abilities as both a Rapper and Producer. With hundreds of tour dates already under his belt and many more to come, KyiLL is continually redefining party music with his eclectic yet prognostic taste.
